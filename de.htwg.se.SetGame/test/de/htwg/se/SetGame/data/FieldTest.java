@@ -1,4 +1,4 @@
-package de.htwg.se.SetGame.entities;
+package de.htwg.se.SetGame.data;
 
 import static org.junit.Assert.*;
 

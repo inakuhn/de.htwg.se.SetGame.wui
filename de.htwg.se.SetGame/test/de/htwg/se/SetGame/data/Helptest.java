@@ -1,10 +1,10 @@
-package de.htwg.se.SetGame.entities;
+package de.htwg.se.SetGame.data;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class CardTest {
+public class Helptest {
 
 	@Test
 	public void test() {
