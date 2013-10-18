@@ -1,10 +1,10 @@
-package de.htwg.se.SetGame;
+package de.htwg.se.SetGame.Modul;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class SetGameTest {
+public class Helptest {
 
 	@Test
 	public void test() {

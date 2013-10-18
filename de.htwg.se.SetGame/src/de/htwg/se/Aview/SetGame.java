@@ -1,4 +1,4 @@
-package de.htwg.se.SetGame;
+package de.htwg.se.Aview;
 
 public class SetGame {
 

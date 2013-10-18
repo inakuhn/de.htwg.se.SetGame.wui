@@ -1,10 +1,10 @@
-package de.htwg.se.SetGame.data;
+package de.htwg.se.Aview;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class FieldTest {
+public class SetGameTest {
 
 	@Test
 	public void test() {

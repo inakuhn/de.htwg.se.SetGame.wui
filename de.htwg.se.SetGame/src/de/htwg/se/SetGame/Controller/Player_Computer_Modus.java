@@ -1,4 +1,4 @@
-package de.htwg.se.SetGame.controller;
+package de.htwg.se.SetGame.Controller;
 
 public class Player_Computer_Modus {
 
