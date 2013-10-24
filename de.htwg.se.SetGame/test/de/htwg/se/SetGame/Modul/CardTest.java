@@ -9,10 +9,8 @@ import org.junit.Test;
 import de.htwg.se.SetGame.Modul.Card;
 
 public class CardTest {
-	@Test
-	public boolean test(Card c) {
-		
-		
-
-}
+        @Test
+        public boolean test() {
+        	return true;
+        }
 }
