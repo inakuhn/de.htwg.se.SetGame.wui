@@ -12,7 +12,7 @@ public class CardTest {
 	@Test
 	public boolean test() {
 		
-		
+		return true;
 
 }
 }

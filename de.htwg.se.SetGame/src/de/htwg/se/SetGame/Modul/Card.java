@@ -35,13 +35,13 @@ public class Card {
 		}
 	}
 
-	public Card() throws Exception {
+	public Card() {
 
 		this.pack = creatCards();
 
 	}
 
-	private TreeSet<Cards> creatCards() throws Exception {
+	private TreeSet<Cards> creatCards() {
 		TreeSet<Cards> list = new TreeSet<>();
 		/* Reds */
 		/* 1 */
@@ -270,7 +270,6 @@ public class Card {
 		}
 		return list;
 
-		return list;
 
 	}
 }
