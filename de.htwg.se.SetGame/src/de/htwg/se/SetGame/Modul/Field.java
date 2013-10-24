@@ -9,7 +9,6 @@ public class Field {
 	public void newField() {
 		String[] Field = new String[fieldsize];
 		fillField(Field);
-	
 	}
 	
 	public void fillField(String[] F) {
