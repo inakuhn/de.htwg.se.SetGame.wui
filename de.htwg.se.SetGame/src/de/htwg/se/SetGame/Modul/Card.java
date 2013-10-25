@@ -11,6 +11,7 @@ import javax.swing.text.html.FormSubmitEvent;
 public class Card {
         LinkedList<Cards> pack;
         private static int numberOfCard = 0;
+        int hallo;
 
         /* One card in card */
         public class Cards {
