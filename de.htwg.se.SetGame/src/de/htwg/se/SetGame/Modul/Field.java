@@ -11,7 +11,7 @@ public class Field {
 	private int fieldsize;
 	private int counter = 0;
 	private boolean free = true;
-	private final int max = 12;
+	private final int max = 81;
 	private Card card = new Card();
 	private Cards[] c = card.pack;
 	
@@ -29,35 +29,44 @@ public class Field {
 		return fillField(field);
 	}
 	
-	
-	private Cards[] fillField(Cards[] F) {
-		
-		int[] again = new int[max];
-
-		for(int i = 0; i < fieldsize; i++) {
-		int j = (int) (Math.random()*80+0);
-
-			if(filledField(F)) {
-				
-				for(int l = 0; l < counter; l++) {
-					if(again[l] == j) {
-						free = false;
-					}
+	private int[] rand(){
+		int[] array = new int[81];
+		boolean b =  true;
+		for(int i = 0 ; i < 80; i++){
+			int j = (int) (Math.random()*80+0);
+			for(int t = 0; t < 81; t++){
+				if(j == array[t] && i > 0){
+					System.out.println("ich musste hier rhein");
+					j = (int) (Math.random()*80+0);
 				}
-			
-				if (free == true) {
-					F[i] = c[j];
-					again[counter] = j;
-					counter++;
-				} else {
-					i--;
-					free = true;
-				}	
+					
 			}
+				array[i] = j;
+
+
+
+			
+			
+		}
+		for(int t = 0; t < 81; t++){
+			System.out.println("Index: "+t+"  number: "+array[t]);
+		}
+		return array;
+			
+	}
+	private Cards[] fillField(Cards[] f) {
+		
+		
+		int[] array = rand();
+		
+		for(int i = 0; i < fieldsize; i++) {
+			
+			f[i] = card.pack[array[i]];	
+		
 			
 		}
 		
-		return F;
+		return f ;
 		
 	}
 	
