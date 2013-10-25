@@ -16,7 +16,7 @@ public class CardTest {
 	@Test
 	public boolean test() {
 		card = new Card();
-		LinkedList<Cards> list = card.pack;
+		Cards[] list = card.pack;
 		for (Cards c : list) {
 			for (Cards cards : list) {
 				if (c.color.equals(cards.color) || c.fomr.equals(cards.fomr)
@@ -26,7 +26,7 @@ public class CardTest {
 				}
 			}
 		}
-		if(card.getNumerofCards() == list.size()){
+		if(card.getNumerofCards() == list.length){
 			return true;
 			
 		}

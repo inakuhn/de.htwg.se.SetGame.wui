@@ -9,7 +9,7 @@ import java.util.TreeSet;
 import javax.swing.text.html.FormSubmitEvent;
 
 public class Card {
-	LinkedList<Cards> pack;
+	Cards pack[];
 	private int numberOfCard = 0;
 
 	/* One card in card */
@@ -20,18 +20,11 @@ public class Card {
 		int anz;
 
 		public Cards(String color, String form, String panelFilling, int anzahl) {
-			if (color.equals("red") || color.equals("green")
-					|| color.equals("purple") && form.equals("beam")
-					|| form.equals("ovally") || form.equals("wave")
-					&& panelFilling.equals("halfFill")
-					|| panelFilling.equals("fill")
-					|| panelFilling.equals("empty") && anzahl == 1
-					|| anzahl == 2 || anzahl == 3) {
+
 				this.color = color;
 				this.fomr = form;
 				this.panelFilling = panelFilling;
 				this.anz = anzahl;
-			}
 
 		}
 	}
@@ -39,13 +32,13 @@ public class Card {
 	public Card() {
 
 		this.pack = creatCards();
-
 	}
 
-	private LinkedList<Cards> creatCards() {
-		LinkedList<Cards> list = new LinkedList<>();
+	private Cards[] creatCards() {
+		Cards list[] = new Cards[81];
 		/* Reds */
 		/* 1 */
+
 		Cards card1 = new Cards("red", "balk", "halffill", 1);
 		Cards card2 = new Cards("red", "ovally ", "halffill", 1);
 		Cards card3 = new Cards("red", "wave", "halffill", 1);
@@ -158,118 +151,122 @@ public class Card {
 		Cards card80 = new Cards("purple", "ovally ", "empty", 3);
 		Cards card81 = new Cards("purple", "wave", "empty", 3);
 
-		list.add(card1);
-		list.add(card2);
-		list.add(card3);
+		list[0] = card81;
+		list[1] = card1;
+		list[2] = card2;
+		list[3] = card3;
 
-		list.add(card4);
-		list.add(card5);
-		list.add(card6);
+		list[4] = card4;
+		list[5] = card5;
+		list[6] = card6;
 
-		list.add(card7);
-		list.add(card8);
-		list.add(card9);
+		list[7] = card7;
+		list[8] = card8;
+		list[9] = card9;
 
-		list.add(card10);
-		list.add(card11);
-		list.add(card12);
+		list[10] = card10;
+		list[11] = card11;
+		list[12] = card12;
 
-		list.add(card13);
-		list.add(card14);
-		list.add(card15);
+		list[13] = card13;
+		list[14] = card14;
+		list[15] = card15;
 
-		list.add(card16);
-		list.add(card17);
-		list.add(card18);
+		list[16] = card16;
+		list[17] = card17;
+		list[18] = card18;
 
-		list.add(card19);
-		list.add(card20);
-		list.add(card21);
+		list[19] = card19;
+		list[20] = card20;
+		list[21] = card21;
 
-		list.add(card22);
-		list.add(card23);
-		list.add(card24);
+		list[22] = card22;
+		list[23] = card23;
+		list[24] = card24;
 
-		list.add(card25);
-		list.add(card26);
-		list.add(card27);
+		list[25] = card25;
+		list[26] = card26;
+		list[27] = card27;
 
-		list.add(card28);
-		list.add(card29);
-		list.add(card30);
+		list[28] = card28;
+		list[29] = card29;
+		list[30] = card30;
 
-		list.add(card31);
-		list.add(card32);
-		list.add(card33);
+		list[31] = card31;
+		list[32] = card32;
+		list[33] = card33;
 
-		list.add(card34);
-		list.add(card35);
-		list.add(card36);
+		list[34] = card34;
+		list[35] = card35;
+		list[36] = card36;
 
-		list.add(card37);
-		list.add(card38);
-		list.add(card39);
+		list[37] = card37;
+		list[38] = card38;
+		list[39] = card39;
 
-		list.add(card40);
-		list.add(card41);
-		list.add(card42);
+		list[40] = card40;
+		list[41] = card41;
+		list[42] = card42;
 
-		list.add(card43);
-		list.add(card44);
-		list.add(card45);
+		list[43] = card43;
+		list[44] = card44;
+		list[45] = card45;
 
-		list.add(card46);
-		list.add(card47);
-		list.add(card48);
+		list[46] = card46;
+		list[47] = card47;
+		list[48] = card48;
 
-		list.add(card49);
-		list.add(card50);
-		list.add(card51);
+		list[49] = card49;
+		list[50] = card50;
+		list[51] = card51;
 
-		list.add(card52);
-		list.add(card53);
-		list.add(card54);
+		list[52] = card52;
+		list[53] = card53;
+		list[54] = card54;
 
-		list.add(card55);
-		list.add(card56);
-		list.add(card57);
+		list[55] = card55;
+		list[56] = card56;
+		list[57] = card57;
 
-		list.add(card58);
-		list.add(card59);
-		list.add(card60);
+		list[58] = card58;
+		list[59] = card59;
+		list[60] = card60;
 
-		list.add(card61);
-		list.add(card62);
-		list.add(card63);
+		list[61] = card61;
+		list[62] = card62;
+		list[63] = card63;
 
-		list.add(card64);
-		list.add(card65);
-		list.add(card66);
+		list[64] = card64;
+		list[65] = card65;
+		list[66] = card66;
 
-		list.add(card67);
-		list.add(card68);
-		list.add(card69);
+		list[67] = card67;
+		list[68] = card68;
+		list[69] = card69;
 
-		list.add(card70);
-		list.add(card71);
-		list.add(card72);
+		list[70] = card70;
+		list[71] = card71;
+		list[72] = card72;
 
-		list.add(card73);
-		list.add(card74);
-		list.add(card75);
+		list[73] = card73;
+		list[74] = card74;
+		list[75] = card75;
 
-		list.add(card76);
-		list.add(card77);
-		list.add(card78);
+		list[76] = card76;
+		list[77] = card77;
+		list[78] = card78;
 
-		list.add(card79);
-		list.add(card80);
-		list.add(card81);
+		list[79] = card79;
+		list[80] = card80;
+		
+
 		int size = 0;
-		for (Cards c : list) {
+		for (int i = 0; i < list.length ; i++) {
 			size = size + 1;
 		}
 		this.numberOfCard = size;
+		for(int i = 0; i < list.length; i = i++){
+		}
 		return list;
 
 	}
