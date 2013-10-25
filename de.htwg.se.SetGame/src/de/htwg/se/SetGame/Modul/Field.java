@@ -9,11 +9,18 @@ public class Field {
 	private Card card = new Card();
 	private LinkedList<Cards> c = card.pack;
 	
+	private Cards l;
+	
+	
+	public Field(){
+		init();
+	}
+	
 	public LinkedList<Cards> init() {
 		int fieldsize = 12;
 		LinkedList<Cards> field = new LinkedList<>();
-		
-		field = this.c;
+		field.clear();
+
 		this.fieldsize = fieldsize;
 		return fillField(field);
 	}
@@ -22,11 +29,12 @@ public class Field {
 	private LinkedList<Cards> fillField(LinkedList<Cards> F) {
 		
 		for(int i = 0; i < fieldsize; i++) {
-			int j = (int) (Math.random()*81+1);
+			int j = (int) (Math.random()*80+0);
 			
-			if(!filledField(F)) {
-				F.add(c.get(j));
-				c.remove(j);
+			if(filledField(F)) {
+				
+				l = c.get(j);
+				F.add(l);
 			}
 			
 		}
@@ -37,11 +45,12 @@ public class Field {
 	
 	private boolean filledField(LinkedList<Cards> F) {
 		if(F == null) {
-			return false;
-		} else if( F.size() > fieldsize ){
 			return true;
-		} else {
+		}
+		if( F.size() == fieldsize+1 ){
 			return false;
+		} else {
+			return true;
 		}
 	}
 
