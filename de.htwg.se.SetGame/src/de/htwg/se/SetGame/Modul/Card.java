@@ -1,6 +1,7 @@
 package de.htwg.se.SetGame.Modul;
 
 import java.awt.*;
+import java.util.LinkedList;
 import java.util.TreeMap;
 import java.text.Format;
 import java.util.TreeSet;
@@ -8,7 +9,7 @@ import java.util.TreeSet;
 import javax.swing.text.html.FormSubmitEvent;
 
 public class Card {
-        TreeSet<Cards> pack;
+        LinkedList<Cards> pack;
         private static int numberOfCard = 0;
 
         /* One card in card */
@@ -41,8 +42,8 @@ public class Card {
 
         }
 
-        private TreeSet<Cards> creatCards() {
-                TreeSet<Cards> list = new TreeSet<>();
+        private LinkedList<Cards> creatCards() {
+                LinkedList<Cards> list = new LinkedList<>();
                 /* Reds */
                 /* 1 */
                 Cards card1 = new Cards("red", "balk ", "halffill", 1);
@@ -270,7 +271,5 @@ public class Card {
                 return list;
 
         }
-        public TreeSet<Cards> getTree(){
-        	return this.pack;
-        }
+
 }
