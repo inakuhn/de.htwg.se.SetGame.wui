@@ -21,11 +21,20 @@ public class Card {
 
 		public Cards(String color, String form, String panelFilling, int anzahl) {
 
+			if (color.equals("red") || color.equals("grenn")
+					|| color.equals("purple") && form.equals("balk")
+					|| form.equals("ovally") || form.equals("wave")
+					&& panelFilling.equals("halffill")
+					|| panelFilling.equals("fill")
+					|| panelFilling.equals("empty") && anz == 1 || anz == 2
+					|| anzahl == 3) {
+
 				this.color = color;
 				this.fomr = form;
 				this.panelFilling = panelFilling;
 				this.anz = anzahl;
 
+			}
 		}
 	}
 
@@ -119,9 +128,9 @@ public class Card {
 		Cards card56 = new Cards("purple", "ovally ", "halffill", 1);
 		Cards card57 = new Cards("purple", "wave", "halffill", 1);
 
-		Cards card58 = new Cards("green", "balk", "fill", 1);
-		Cards card59 = new Cards("green", "ovally ", "fill", 1);
-		Cards card60 = new Cards("green", "wave", "fill", 1);
+		Cards card58 = new Cards("purple", "balk", "fill", 1);
+		Cards card59 = new Cards("purple", "ovally ", "fill", 1);
+		Cards card60 = new Cards("purple", "wave", "fill", 1);
 
 		Cards card61 = new Cards("purple", "balk", "empty", 1);
 		Cards card62 = new Cards("purple", "ovally ", "empty", 1);
@@ -258,14 +267,13 @@ public class Card {
 
 		list[79] = card79;
 		list[80] = card80;
-		
 
 		int size = 0;
-		for (int i = 0; i < list.length ; i++) {
+		for (int i = 0; i < list.length; i++) {
 			size = size + 1;
 		}
 		this.numberOfCard = size;
-		for(int i = 0; i < list.length; i = i++){
+		for (int i = 0; i < list.length; i = i++) {
 		}
 		return list;
 
