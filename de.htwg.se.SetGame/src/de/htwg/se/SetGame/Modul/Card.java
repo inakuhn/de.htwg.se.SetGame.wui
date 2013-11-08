@@ -285,5 +285,8 @@ public class Card {
 		return this.numberOfCard;
 
 	}
+
+
+
 	
 }
