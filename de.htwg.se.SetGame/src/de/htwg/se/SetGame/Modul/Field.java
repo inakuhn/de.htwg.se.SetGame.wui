@@ -29,14 +29,14 @@ public class Field {
 		return fillField(field);
 	}
 	
-	private int[] rand(){
+	public int[] rand(){
 		int[] array = new int[81];
 		boolean b =  true;
 		for(int i = 0 ; i < 80; i++){
 			int j = (int) (Math.random()*80+0);
 			for(int t = 0; t < 81; t++){
 				if(j == array[t] && i > 0){
-					System.out.println("ich musste hier rhein");
+					
 					j = (int) (Math.random()*80+0);
 				}
 					
@@ -49,7 +49,7 @@ public class Field {
 			
 		}
 		for(int t = 0; t < 81; t++){
-			System.out.println("Index: "+t+"  number: "+array[t]);
+			
 		}
 		return array;
 			
