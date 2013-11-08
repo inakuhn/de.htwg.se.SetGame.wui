@@ -16,7 +16,6 @@ public class Field {
 	private Cards[] c = card.pack;
 
 	public Field() {
-		init();
 	}
 
 	public Cards[] init() {
@@ -30,10 +29,10 @@ public class Field {
 	public int[] rand() {
 		int[] array = new int[81];
 		boolean b;
-		for (int i = 0; i < 81; i++) {
+		for (int i = 0; i < max; i++) {
 			b = true;
 			int j = (int) (Math.random() * 81 + 1);
-			for (int t = 0; t < 81; t++) {
+			for (int t = 0; t < max; t++) {
 				if (j == array[t] && i > 0) {
 					i = i - 1;
 					b = false;
@@ -47,7 +46,7 @@ public class Field {
 
 	private Cards[] fillField(Cards[] f) {
 
-		int[] array = rand();
+		int array[] = rand();
 
 		for (int i = 0; i < fieldsize; i++) {
 
