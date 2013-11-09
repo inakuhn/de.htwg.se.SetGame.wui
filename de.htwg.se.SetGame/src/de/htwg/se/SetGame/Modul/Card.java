@@ -91,58 +91,56 @@ public class Card {
 	private Cards[] creatCards() {
 		Cards list[] = new Cards[SIZEOFARRAY];
 
-
 		for (int i = 0; i < SIZEOFARRAY; i++) {
 
 			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
 					filling[fillgingIndex], numbers[numbersIdex]);
-				getFormedIndex(formeIndex);
+			getFormedIndex();
 
 		}
 		return list;
 
 	}
-	private void getFormedIndex(int i){
-		i++;
-		if(i == THREE){
-			setFillgTexT(this.fillgingIndex);
-			this.formeIndex =  0;
-		}else{
-			this.formeIndex = i;
+
+	private void getFormedIndex() {
+		int t = this.formeIndex + 1;
+		if (t == THREE) {
+			setFillgTexT();
+			this.formeIndex = 0;
+		} else {
+			this.formeIndex = t;
 		}
-		
+
 	}
 
-	private void setFillgTexT(int i) {
-		int t = i + 1;
-		if(i == THREE){
-			setNumbersOfIndex(this.numbersIdex);
+	private void setFillgTexT() {
+		int t = this.fillgingIndex + 1;
+		if (t == THREE) {
 			this.fillgingIndex = 0;
-		}else{
+			setNumbersOfIndex(this.numbersIdex);
+		} else {
 			this.fillgingIndex = t;
 		}
-		
-		
+
 	}
 
 	private void setNumbersOfIndex(int i) {
-		i++;
-		if(i == THREE){
-			 setColorIndex(this.colorIndex);
+		int t = i + 1;
+		if (t == THREE) {
 			this.numbersIdex = 0;
-		}else{
-			this.numbersIdex = i;
+			setColorIndex(this.colorIndex);
+		} else {
+			this.numbersIdex = t;
 		}
 	}
 
 	private void setColorIndex(int i) {
-		i++;
-			if(i == THREE){
-				this.colorIndex = 0;
-			}
-			this.colorIndex = i;
+		int t = i + 1;
+		if (t == THREE) {
+			this.colorIndex = 0;
+		}
+		this.colorIndex = t;
 
-		
 	}
 
 	public int getNumerofCards() {
