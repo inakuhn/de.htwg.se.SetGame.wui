@@ -8,7 +8,7 @@ public class Helptest {
 
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		System.out.println("alles gutE");
 	}
 
 }

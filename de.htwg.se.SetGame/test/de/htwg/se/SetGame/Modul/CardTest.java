@@ -1,7 +1,10 @@
 package de.htwg.se.SetGame.Modul;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.internal.runners.statements.Fail;
 
 import de.htwg.se.SetGame.Modul.Card;
 import de.htwg.se.SetGame.Modul.Card.Cards;
@@ -35,18 +38,16 @@ public class CardTest {
 				}
 			}
 		}
-
-		System.out.println(b + " " + n);
+		
+		if(!b)
+			fail("not gut :(");
 	}
 
 	@Test
 	public void testGetCards() {
-		if (this.list instanceof Cards[]) {
-			System.out.println("true");
-		} else {
-			System.out.println("false");
-		}
-
+		if (!(this.list instanceof Cards[]))
+			fail("not a instance of");
+		
 	}
 
 }
