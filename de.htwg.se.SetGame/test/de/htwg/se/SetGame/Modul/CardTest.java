@@ -18,7 +18,7 @@ public class CardTest {
 	@Before
 	public void setUp() throws Exception{
 		this.card = new Card();
-		this.list = card.pack;
+		this.list = card.getCards();
 		
 	}
 	@Test

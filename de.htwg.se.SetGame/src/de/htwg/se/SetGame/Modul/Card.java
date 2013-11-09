@@ -1,21 +1,20 @@
 package de.htwg.se.SetGame.Modul;
 
 public class Card {
-	Cards pack[];
+	private Cards pack[];
 	private int numberOfCard = 0;
 	private String[] forme = { "ovally", "wave", "balk" };
 	private String[] colors = { "red", "green", "purple" };
 	private String[] filling = { "halffill", "fill", "empty" };
-	private int[] numbers = { 1, 2, 3 };
-	private int numberSix = 6;
-	private int siebenundZ = 27;
+	private int[] numbers = { 1, 2, 3};
+	private int arraysize = 81;
 
 	/* One card in card */
 	public class Cards {
-		String color;
-		String fomr;
-		String panelFilling;
-		int anz;
+		protected String color;
+		protected String fomr;
+		protected String panelFilling;
+		protected int anz;
 
 		public Cards(String color, String form, String panelFilling, int anzahl) {
 
@@ -26,7 +25,7 @@ public class Card {
 					&& (panelFilling.equals(filling[0])
 							|| panelFilling.equals(filling[1]) || panelFilling
 								.equals(filling[2]))
-					&& (anzahl == 1 || anzahl == 2 || anzahl == 3)) {
+					&& (anzahl == numbers[0] || anzahl == numbers[1] || anzahl == numbers[2])) {
 
 				this.color = color;
 				this.fomr = form;
@@ -42,13 +41,13 @@ public class Card {
 	}
 
 	private Cards[] creatCards() {
-		Cards list[] = new Cards[81];
+		Cards list[] = new Cards[arraysize];
 		int colorIndex = 0;
 		int formeIndex = 0;
 		int fillgingIndex = 0;
 		int numbersIdex = 0;
 
-		for (int i = 0; i < 81; i++) {
+		for (int i = 0; i < arraysize; i++) {
 
 			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
 					filling[fillgingIndex], numbers[numbersIdex]);
@@ -83,6 +82,9 @@ public class Card {
 	public int getNumerofCards() {
 		return this.numberOfCard;
 
+	}
+	public Cards[] getCards(){
+		return this.pack;
 	}
 
 }
