@@ -8,7 +8,7 @@ public class LogicTest {
 	
 	@Test
 	public void test() {
-		assert(1 == 1);
+		System.out.println("alles gut");
 	}
 
 }
