@@ -6,9 +6,9 @@ public class Card {
 	private String[] forme = { "ovally", "wave", "balk" };
 	private String[] colors = { "red", "green", "purple" };
 	private String[] filling = { "halffill", "fill", "empty" };
-	private final static int[] numbers = { 1, 2, 3 };
-	private final static int arraysize = 81;
-	private final static int numberthree = 3;
+	private final int[] numbers = { 1, 2, 3 };
+	private static final int arraysize = 81;
+	private static final int numberthree = 3;
 
 	/* One card in card */
 	public class Cards {
@@ -32,10 +32,11 @@ public class Card {
 
 		private void setColor(String color) {
 			if (color.equals(colors[0]) || color.equals(colors[1])
-					|| color.equals(colors[2]))
+					|| color.equals(colors[2])){
 				this.color = color;
-			else
+			}else{
 				this.color = null;
+			}
 		}
 
 		public String getFomr() {
