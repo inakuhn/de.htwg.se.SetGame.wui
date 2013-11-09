@@ -8,13 +8,13 @@ public class Card {
 	private String[] filling = { "halffill", "fill", "empty" };
 	private int[] numbers = { 1, 2, 3};
 	private int arraysize = 81;
-
+	private int numberthree = 3;
 	/* One card in card */
 	public class Cards {
-		protected String color;
-		protected String fomr;
-		protected String panelFilling;
-		protected int anz;
+		private String color;
+		private String fomr;
+		private String panelFilling;
+		private int anz;
 
 		public Cards(String color, String form, String panelFilling, int anzahl) {
 
@@ -27,12 +27,44 @@ public class Card {
 								.equals(filling[2]))
 					&& (anzahl == numbers[0] || anzahl == numbers[1] || anzahl == numbers[2])) {
 
-				this.color = color;
-				this.fomr = form;
-				this.panelFilling = panelFilling;
-				this.anz = anzahl;
+				this.setColor(color);
+				this.setFomr(form);
+				this.setPanelFilling(panelFilling);
+				this.setAnz(anzahl);
 
 			}
+		}
+
+		public String getColor() {
+			return color;
+		}
+
+		private void setColor(String color) {
+			this.color = color;
+		}
+
+		public String getFomr() {
+			return fomr;
+		}
+
+		private void setFomr(String fomr) {
+			this.fomr = fomr;
+		}
+
+		public String getPanelFilling() {
+			return panelFilling;
+		}
+
+		private void setPanelFilling(String panelFilling) {
+			this.panelFilling = panelFilling;
+		}
+
+		public int getAnz() {
+			return anz;
+		}
+
+		private void setAnz(int anz) {
+			this.anz = anz;
 		}
 	}
 
@@ -52,13 +84,13 @@ public class Card {
 			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
 					filling[fillgingIndex], numbers[numbersIdex]);
 			formeIndex++;
-			if (formeIndex == numbers[2]) {
+			if (formeIndex == numberthree) {
 				formeIndex = 0;
 				fillgingIndex++;
-				if (fillgingIndex == numbers[2]) {
+				if (fillgingIndex == numberthree) {
 					fillgingIndex = 0;
 					numbersIdex++;
-					if (numbersIdex == numbers[2]) {
+					if (numbersIdex == numberthree) {
 						numbersIdex = 0;
 						colorIndex++;
 

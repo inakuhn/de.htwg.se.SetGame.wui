@@ -16,7 +16,7 @@ public class Testmain {
 		
 		for (int i = 0; i < 12; i++) {
 			System.out.printf((i+1) + ".Zahl: ");
-			System.out.println(testlist[i].color + "; " + testlist[i].panelFilling + "; " + testlist[i].fomr + "; " + testlist[i].anz);
+			System.out.println(testlist[i].getColor() + "; " + testlist[i].getPanelFilling() + "; " + testlist[i].getFomr() + "; " + testlist[i].getAnz());
 		}
 	}
 

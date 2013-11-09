@@ -28,9 +28,9 @@ public class CardTest {
 
 		for (Cards c : list) {
 			for (Cards cards : list) {
-				if (c.color.equals(cards.color) || c.fomr.equals(cards.fomr)
-						|| c.panelFilling.equals(cards.panelFilling)
-						|| c.anz == cards.anz) {
+				if (c.getColor().equals(cards.getColor()) || c.getFomr().equals(cards.getFomr())
+						|| c.getPanelFilling().equals(cards.getPanelFilling())
+						|| c.getAnz() == cards.getAnz()) {
 					b = true;
 				}else{
 					b = false;
