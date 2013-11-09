@@ -33,13 +33,16 @@ public class CardTest {
 						|| c.getAnz() == cards.getAnz()) {
 
 					b = true;
-				} else {
+				} else if(c.getColor().equals(null)
+						|| c.getFomr().equals(null)
+						|| c.getPanelFilling().equals(null)
+						|| c.getAnz() == -1) {
 					b = false;
 				}
 			}
 		}
-		
-		if(!b)
+
+		if (!b)
 			fail("not gut :(");
 	}
 
@@ -47,7 +50,7 @@ public class CardTest {
 	public void testGetCards() {
 		if (!(this.list instanceof Cards[]))
 			fail("not a instance of");
-		
+
 	}
 
 }
