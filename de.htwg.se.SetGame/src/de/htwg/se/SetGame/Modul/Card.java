@@ -6,9 +6,9 @@ public class Card {
 	private String[] forme = { "ovally", "wave", "balk" };
 	private String[] colors = { "red", "green", "purple" };
 	private String[] filling = { "halffill", "fill", "empty" };
-	private final int[] numbers = { 1, 2, 3 };
-	private final int arraysize = 81;
-	private final int numberthree = 3;
+	private final static int[] numbers = { 1, 2, 3 };
+	private final static int arraysize = 81;
+	private final static int numberthree = 3;
 
 	/* One card in card */
 	public class Cards {
@@ -17,17 +17,12 @@ public class Card {
 		private String panelFilling;
 		private int anz;
 
-		public Cards(String color, String form, String panelFilling, int anzahl)
-				throws NullPointerException {
+		public Cards(String color, String form, String panelFilling, int anzahl) {
 
 			this.setColor(color);
-
 			this.setFomr(form);
 			this.setPanelFilling(panelFilling);
 			this.setAnz(anzahl);
-			if (getAnz() < 0 || getColor() == null || getFomr() == null
-					|| getPanelFilling() == null)
-				throw new NullPointerException("falsch eingabe");
 
 		}
 
