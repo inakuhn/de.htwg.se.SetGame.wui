@@ -113,12 +113,6 @@ public class Card {
 			}
 
 		}
-
-		int size = 0;
-		for (int i = 0; i < list.length; i++) {
-			size = size + 1;
-		}
-		this.numberOfCard = size;
 		return list;
 
 	}
