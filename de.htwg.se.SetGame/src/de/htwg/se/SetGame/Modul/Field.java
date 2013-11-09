@@ -1,12 +1,10 @@
 package de.htwg.se.SetGame.Modul;
 
-
-
 import de.htwg.se.SetGame.Modul.Card.Cards;
 
 public class Field {
 
-	private int fieldsize;
+	private static final int FIELDSIZE = 12;
 
 	private static final int MAX = 81;
 	private static final int ONE = 1;
@@ -15,15 +13,8 @@ public class Field {
 	public Field() {
 	}
 
-	private void setField(int i){
-		this.fieldsize = i;
-	}
-	public int getField(){
-		return this.fieldsize;
-	}
 	public Cards[] init() {
-		setField(12);
-		Cards[] field = new Cards[fieldsize];
+		Cards[] field = new Cards[FIELDSIZE];
 
 		return fillField(field);
 	}
@@ -40,8 +31,10 @@ public class Field {
 					b = false;
 				}
 			}
-			if (b)
+			if (b) {
 				array[i] = j;
+
+			}
 		}
 		return array;
 	}
@@ -50,7 +43,7 @@ public class Field {
 
 		int array[] = rand();
 
-		for (int i = 0; i < fieldsize; i++) {
+		for (int i = 0; i < FIELDSIZE; i++) {
 
 			f[i] = card.getCards()[array[i]];
 
@@ -58,17 +51,6 @@ public class Field {
 
 		return f;
 
-	}
-
-	private boolean filledField(Cards[] f) {
-		if (f == null) {
-			return true;
-		}
-		if (f.length == fieldsize + 1) {
-			return false;
-		} else {
-			return true;
-		}
 	}
 
 }
