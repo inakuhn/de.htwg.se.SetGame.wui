@@ -114,12 +114,12 @@ public class Card {
 	}
 
 	private void setFillgTexT(int i) {
-		i++;
+		int t = i + 1;
 		if(i == THREE){
 			setNumbersOfIndex(this.numbersIdex);
 			this.fillgingIndex = 0;
 		}else{
-			this.fillgingIndex = i;
+			this.fillgingIndex = t;
 		}
 		
 		
