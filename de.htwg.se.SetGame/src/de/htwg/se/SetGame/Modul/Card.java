@@ -6,9 +6,10 @@ public class Card {
 	private String[] forme = { "ovally", "wave", "balk" };
 	private String[] colors = { "red", "green", "purple" };
 	private String[] filling = { "halffill", "fill", "empty" };
-	private int[] numbers = { 1, 2, 3};
-	private int arraysize = 81;
-	private int numberthree = 3;
+	private final int[] numbers = { 1, 2, 3 };
+	private final int arraysize = 81;
+	private final int numberthree = 3;
+
 	/* One card in card */
 	public class Cards {
 		private String color;
@@ -16,23 +17,18 @@ public class Card {
 		private String panelFilling;
 		private int anz;
 
-		public Cards(String color, String form, String panelFilling, int anzahl) {
+		public Cards(String color, String form, String panelFilling, int anzahl)
+				throws NullPointerException {
 
-			if ((color.equals(colors[0]) || color.equals(colors[1]) || color
-					.equals(colors[2]))
-					&& (form.equals(forme[2]) || form.equals(forme[0]) || form
-							.equals(forme[1]))
-					&& (panelFilling.equals(filling[0])
-							|| panelFilling.equals(filling[1]) || panelFilling
-								.equals(filling[2]))
-					&& (anzahl == numbers[0] || anzahl == numbers[1] || anzahl == numbers[2])) {
+			this.setColor(color);
 
-				this.setColor(color);
-				this.setFomr(form);
-				this.setPanelFilling(panelFilling);
-				this.setAnz(anzahl);
+			this.setFomr(form);
+			this.setPanelFilling(panelFilling);
+			this.setAnz(anzahl);
+			if (getAnz() < 0 || getColor() == null || getFomr() == null
+					|| getPanelFilling() == null)
+				throw new NullPointerException("falsch eingabe");
 
-			}
 		}
 
 		public String getColor() {
@@ -40,7 +36,11 @@ public class Card {
 		}
 
 		private void setColor(String color) {
-			this.color = color;
+			if (color.equals(colors[0]) || color.equals(colors[1])
+					|| color.equals(colors[2]))
+				this.color = color;
+			else
+				this.color = null;
 		}
 
 		public String getFomr() {
@@ -48,7 +48,11 @@ public class Card {
 		}
 
 		private void setFomr(String fomr) {
-			this.fomr = fomr;
+			if (fomr.equals(forme[2]) || fomr.equals(forme[0])
+					|| fomr.equals(forme[1]))
+				this.fomr = fomr;
+			else
+				this.fomr = null;
 		}
 
 		public String getPanelFilling() {
@@ -56,7 +60,12 @@ public class Card {
 		}
 
 		private void setPanelFilling(String panelFilling) {
-			this.panelFilling = panelFilling;
+			if (panelFilling.equals(filling[0])
+					|| panelFilling.equals(filling[1])
+					|| panelFilling.equals(filling[2]))
+				this.panelFilling = panelFilling;
+			else
+				this.panelFilling = null;
 		}
 
 		public int getAnz() {
@@ -64,7 +73,10 @@ public class Card {
 		}
 
 		private void setAnz(int anz) {
-			this.anz = anz;
+			if (anz == numbers[0] || anz == numbers[1] || anz == numbers[2])
+				this.anz = anz;
+			else
+				this.anz = -1;
 		}
 	}
 
@@ -115,7 +127,8 @@ public class Card {
 		return this.numberOfCard;
 
 	}
-	public Cards[] getCards(){
+
+	public Cards[] getCards() {
 		return this.pack;
 	}
 
