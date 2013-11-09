@@ -15,11 +15,16 @@ public class Field {
 	public Field() {
 	}
 
+	private void setField(int i){
+		this.fieldsize = i;
+	}
+	public int getField(){
+		return this.fieldsize;
+	}
 	public Cards[] init() {
-		int fieldsize = 12;
+		setField(12);
 		Cards[] field = new Cards[fieldsize];
 
-		this.fieldsize = fieldsize;
 		return fillField(field);
 	}
 
