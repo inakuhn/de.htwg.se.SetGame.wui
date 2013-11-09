@@ -7,8 +7,8 @@ public class Card {
 	private String[] colors = { "red", "green", "purple" };
 	private String[] filling = { "halffill", "fill", "empty" };
 	private final int[] numbers = { 1, 2, 3 };
-	private static final int arraysize = 81;
-	private static final int numberthree = 3;
+	private static final int arraySize = 81;
+	private static final int numberThree = 3;
 
 	/* One card in card */
 	public class Cards {
@@ -32,9 +32,9 @@ public class Card {
 
 		private void setColor(String color) {
 			if (color.equals(colors[0]) || color.equals(colors[1])
-					|| color.equals(colors[2])){
+					|| color.equals(colors[2])) {
 				this.color = color;
-			}else{
+			} else {
 				this.color = null;
 			}
 		}
@@ -45,10 +45,11 @@ public class Card {
 
 		private void setFomr(String fomr) {
 			if (fomr.equals(forme[2]) || fomr.equals(forme[0])
-					|| fomr.equals(forme[1]))
+					|| fomr.equals(forme[1])) {
 				this.fomr = fomr;
-			else
+			} else {
 				this.fomr = null;
+			}
 		}
 
 		public String getPanelFilling() {
@@ -58,10 +59,12 @@ public class Card {
 		private void setPanelFilling(String panelFilling) {
 			if (panelFilling.equals(filling[0])
 					|| panelFilling.equals(filling[1])
-					|| panelFilling.equals(filling[2]))
+					|| panelFilling.equals(filling[2])) {
 				this.panelFilling = panelFilling;
-			else
+			} else {
 				this.panelFilling = null;
+			}
+
 		}
 
 		public int getAnz() {
@@ -69,10 +72,11 @@ public class Card {
 		}
 
 		private void setAnz(int anz) {
-			if (anz == numbers[0] || anz == numbers[1] || anz == numbers[2])
+			if (anz == numbers[0] || anz == numbers[1] || anz == numbers[2]) {
 				this.anz = anz;
-			else
+			} else {
 				this.anz = -1;
+			}
 		}
 	}
 
@@ -81,24 +85,24 @@ public class Card {
 	}
 
 	private Cards[] creatCards() {
-		Cards list[] = new Cards[arraysize];
+		Cards list[] = new Cards[arraySize];
 		int colorIndex = 0;
 		int formeIndex = 0;
 		int fillgingIndex = 0;
 		int numbersIdex = 0;
 
-		for (int i = 0; i < arraysize; i++) {
+		for (int i = 0; i < arraySize; i++) {
 
 			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
 					filling[fillgingIndex], numbers[numbersIdex]);
 			formeIndex++;
-			if (formeIndex == numberthree) {
+			if (formeIndex == numberThree) {
 				formeIndex = 0;
 				fillgingIndex++;
-				if (fillgingIndex == numberthree) {
+				if (fillgingIndex == numberThree) {
 					fillgingIndex = 0;
 					numbersIdex++;
-					if (numbersIdex == numberthree) {
+					if (numbersIdex == numberThree) {
 						numbersIdex = 0;
 						colorIndex++;
 
