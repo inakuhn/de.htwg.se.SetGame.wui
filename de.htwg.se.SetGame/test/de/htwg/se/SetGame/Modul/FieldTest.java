@@ -18,7 +18,8 @@ public class FieldTest {
 
 	@Test
 	public void test() {
-		assert (this.f == null);
+		if(this.f == null)
+			fail("NullPointer");
 
 	}
 
@@ -32,12 +33,14 @@ public class FieldTest {
 
 	@Test
 	public void testField() {
-		assert (f instanceof Field);
+		if (!(f instanceof Field))
+			fail("not a instance of");
 	}
 
 	@Test
 	public void testInit() {
-		assert (this.f.init() instanceof Cards[] || f.init() == null);
+		if ((this.f.init() instanceof Cards[] || f.init() == null) == false);
+			fail("nicht gutt");
 	}
 
 	@Test
