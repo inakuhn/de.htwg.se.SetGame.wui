@@ -7,8 +7,8 @@ public class Card {
 	private String[] colors = { "red", "green", "purple" };
 	private String[] filling = { "halffill", "fill", "empty" };
 	private final int[] numbers = { 1, 2, 3 };
-	private static final int sizeOfArray = 81;
-	private static final int three = 3;
+	private static final int SIZEOFARRAY = 81;
+	private static final int THREE = 3;
 
 	/* One card in card */
 	public class Cards {
@@ -85,24 +85,24 @@ public class Card {
 	}
 
 	private Cards[] creatCards() {
-		Cards list[] = new Cards[sizeOfArray];
+		Cards list[] = new Cards[SIZEOFARRAY];
 		int colorIndex = 0;
 		int formeIndex = 0;
 		int fillgingIndex = 0;
 		int numbersIdex = 0;
 
-		for (int i = 0; i < sizeOfArray; i++) {
+		for (int i = 0; i < SIZEOFARRAY; i++) {
 
 			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
 					filling[fillgingIndex], numbers[numbersIdex]);
 			formeIndex++;
-			if (formeIndex == three) {
+			if (formeIndex == THREE) {
 				formeIndex = 0;
 				fillgingIndex++;
-				if (fillgingIndex == three) {
+				if (fillgingIndex == THREE) {
 					fillgingIndex = 0;
 					numbersIdex++;
-					if (numbersIdex == three) {
+					if (numbersIdex == THREE) {
 						numbersIdex = 0;
 						colorIndex++;
 

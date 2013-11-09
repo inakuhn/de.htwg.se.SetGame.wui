@@ -7,11 +7,10 @@ import de.htwg.se.SetGame.Modul.Card.Cards;
 public class Field {
 
 	private int fieldsize;
-	private int counter = 0;
-	private boolean free = true;
-	private final int max = 81;
+
+	private static final int MAX = 81;
+	private static final int ONE = 1;
 	private Card card = new Card();
-	private Cards[] c = card.getCards();
 
 	public Field() {
 	}
@@ -25,18 +24,18 @@ public class Field {
 	}
 
 	public int[] rand() {
-		int[] array = new int[81];
+		int[] array = new int[MAX];
 		boolean b;
-		for (int i = 0; i < max; i++) {
+		for (int i = 0; i < MAX; i++) {
 			b = true;
-			int j = (int) (Math.random() * 81 + 1);
-			for (int t = 0; t < max; t++) {
+			int j = (int) (Math.random() * MAX + ONE);
+			for (int t = 0; t < MAX; t++) {
 				if (j == array[t] && i > 0) {
 					i = i - 1;
 					b = false;
 				}
 			}
-			if (b == true)
+			if (b)
 				array[i] = j;
 		}
 		return array;
@@ -56,11 +55,11 @@ public class Field {
 
 	}
 
-	private boolean filledField(Cards[] F) {
-		if (F == null) {
+	private boolean filledField(Cards[] f) {
+		if (f == null) {
 			return true;
 		}
-		if (F.length == fieldsize + 1) {
+		if (f.length == fieldsize + 1) {
 			return false;
 		} else {
 			return true;
