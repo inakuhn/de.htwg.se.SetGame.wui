@@ -11,6 +11,9 @@ import javax.swing.text.html.FormSubmitEvent;
 public class Card {
 	Cards pack[];
 	private int numberOfCard = 0;
+	String[] forme={"ovally","wave","balk"};
+	String [] colors = {"red","green","purple"};
+	int[] numbers = {1,2,3};
 
 	/* One card in card */
 	public class Cards {
@@ -18,12 +21,13 @@ public class Card {
 		String fomr;
 		String panelFilling;
 		int anz;
+		
 
 		public Cards(String color, String form, String panelFilling, int anzahl) {
 
-			if ((color.equals("red") || color.equals("green")
-					|| color.equals("purple")) && (form.equals("balk")
-					|| form.equals("ovally") || form.equals("wave"))
+			if ((color.equals(colors[0]) || color.equals(colors[1])
+					|| color.equals(colors[2])) && (form.equals(forme[2])
+					|| form.equals(forme[0]) || form.equals(forme[1]))
 					&& (panelFilling.equals("halffill")
 					|| panelFilling.equals("fill")
 					|| panelFilling.equals("empty")) && (anzahl == 1 || anzahl == 2
@@ -48,117 +52,117 @@ public class Card {
 		/* Reds */
 		/* 1 */
 
-		Cards card1 = new Cards("red", "balk", "halffill", 1);
-		Cards card2 = new Cards("red", "ovally", "halffill", 1);
-		Cards card3 = new Cards("red", "wave", "halffill", 1);
+		Cards card1 = new Cards(colors[0], forme[2], "halffill", 1);
+		Cards card2 = new Cards(colors[0], forme[0], "halffill", 1);
+		Cards card3 = new Cards(colors[0], forme[1], "halffill", 1);
 
-		Cards card4 = new Cards("red", "balk", "fill", 1);
-		Cards card5 = new Cards("red", "ovally", "fill", 1);
-		Cards card6 = new Cards("red", "wave", "fill", 1);
+		Cards card4 = new Cards(colors[0], forme[2], "fill", 1);
+		Cards card5 = new Cards(colors[0], forme[0], "fill", 1);
+		Cards card6 = new Cards(colors[0], forme[1], "fill", 1);
 
-		Cards card7 = new Cards("red", "balk", "empty", 1);
-		Cards card8 = new Cards("red", "ovally", "empty", 1);
-		Cards card9 = new Cards("red", "wave", "empty", 1);
+		Cards card7 = new Cards(colors[0], forme[2], "empty", 1);
+		Cards card8 = new Cards(colors[0], forme[0], "empty", 1);
+		Cards card9 = new Cards(colors[0], forme[1], "empty", 1);
 		/* 2 */
-		Cards card10 = new Cards("red", "balk", "halffill", 2);
-		Cards card11 = new Cards("red", "ovally", "halffill", 2);
-		Cards card12 = new Cards("red", "wave", "halffill", 2);
+		Cards card10 = new Cards(colors[0], forme[2], "halffill", 2);
+		Cards card11 = new Cards(colors[0], forme[0], "halffill", 2);
+		Cards card12 = new Cards(colors[0], forme[1], "halffill", 2);
 
-		Cards card13 = new Cards("red", "balk", "fill", 2);
-		Cards card14 = new Cards("red", "ovally", "fill", 2);
-		Cards card15 = new Cards("red", "wave", "fill", 2);
+		Cards card13 = new Cards(colors[0], forme[2], "fill", 2);
+		Cards card14 = new Cards(colors[0], forme[0], "fill", 2);
+		Cards card15 = new Cards(colors[0], forme[1], "fill", 2);
 
-		Cards card16 = new Cards("red", "balk", "empty", 2);
-		Cards card17 = new Cards("red", "ovally", "empty", 2);
-		Cards card18 = new Cards("red", "wave", "empty", 2);
+		Cards card16 = new Cards(colors[0], forme[2], "empty", 2);
+		Cards card17 = new Cards(colors[0], forme[0], "empty", 2);
+		Cards card18 = new Cards(colors[0], forme[1], "empty", 2);
 		/* 3 */
-		Cards card19 = new Cards("red", "balk", "halffill", 3);
-		Cards card20 = new Cards("red", "ovally", "halffill", 3);
-		Cards card21 = new Cards("red", "wave", "halffill", 3);
+		Cards card19 = new Cards(colors[0], forme[2], "halffill", 3);
+		Cards card20 = new Cards(colors[0], forme[0], "halffill", 3);
+		Cards card21 = new Cards(colors[0], forme[1], "halffill", 3);
 
-		Cards card22 = new Cards("red", "balk", "fill", 3);
-		Cards card23 = new Cards("red", "ovally", "fill", 3);
-		Cards card24 = new Cards("red", "wave", "fill", 3);
+		Cards card22 = new Cards(colors[0], forme[2], "fill", 3);
+		Cards card23 = new Cards(colors[0], forme[0], "fill", 3);
+		Cards card24 = new Cards(colors[0], forme[1], "fill", 3);
 
-		Cards card25 = new Cards("red", "balk", "empty", 3);
-		Cards card26 = new Cards("red", "ovally", "empty", 3);
-		Cards card27 = new Cards("red", "wave", "empty", 3);
+		Cards card25 = new Cards(colors[0], forme[2], "empty", 3);
+		Cards card26 = new Cards(colors[0], forme[0], "empty", 3);
+		Cards card27 = new Cards(colors[0], forme[1], "empty", 3);
 
 		/* green */
 		/* 1 */
-		Cards card28 = new Cards("green", "balk", "halffill", 1);
-		Cards card29 = new Cards("green", "ovally", "halffill", 1);
-		Cards card30 = new Cards("green", "wave", "halffill", 1);
+		Cards card28 = new Cards(colors[1], forme[2], "halffill", 1);
+		Cards card29 = new Cards(colors[1], forme[0], "halffill", 1);
+		Cards card30 = new Cards(colors[1], forme[1], "halffill", 1);
 
-		Cards card31 = new Cards("green", "balk", "fill", 1);
-		Cards card32 = new Cards("green", "ovally", "fill", 1);
-		Cards card33 = new Cards("green", "wave", "fill", 1);
+		Cards card31 = new Cards(colors[1], forme[2], "fill", 1);
+		Cards card32 = new Cards(colors[1], forme[0], "fill", 1);
+		Cards card33 = new Cards(colors[1], forme[1], "fill", 1);
 
-		Cards card34 = new Cards("green", "balk", "empty", 1);
-		Cards card35 = new Cards("green", "ovally", "empty", 1);
-		Cards card36 = new Cards("green", "wave", "empty", 1);
+		Cards card34 = new Cards(colors[1], forme[2], "empty", 1);
+		Cards card35 = new Cards(colors[1], forme[0], "empty", 1);
+		Cards card36 = new Cards(colors[1], forme[1], "empty", 1);
 		/* 2 */
-		Cards card37 = new Cards("green", "balk", "halffill", 2);
-		Cards card38 = new Cards("green", "ovally", "halffill", 2);
-		Cards card39 = new Cards("green", "wave", "halffill", 2);
+		Cards card37 = new Cards(colors[1], forme[2], "halffill", 2);
+		Cards card38 = new Cards(colors[1], forme[0], "halffill", 2);
+		Cards card39 = new Cards(colors[1], forme[1], "halffill", 2);
 
-		Cards card40 = new Cards("green", "balk", "fill", 2);
-		Cards card41 = new Cards("green", "ovally", "fill", 2);
-		Cards card42 = new Cards("green", "wave", "fill", 2);
+		Cards card40 = new Cards(colors[1], forme[2], "fill", 2);
+		Cards card41 = new Cards(colors[1], forme[0], "fill", 2);
+		Cards card42 = new Cards(colors[1], forme[1], "fill", 2);
 
-		Cards card43 = new Cards("green", "balk", "empty", 2);
-		Cards card44 = new Cards("green", "ovally", "empty", 2);
-		Cards card45 = new Cards("green", "wave", "empty", 2);
+		Cards card43 = new Cards(colors[1], forme[2], "empty", 2);
+		Cards card44 = new Cards(colors[1], forme[0], "empty", 2);
+		Cards card45 = new Cards(colors[1], forme[1], "empty", 2);
 		/* 3 */
-		Cards card46 = new Cards("green", "balk", "halffill", 3);
-		Cards card47 = new Cards("green", "ovally", "halffill", 3);
-		Cards card48 = new Cards("green", "wave", "halffill", 3);
+		Cards card46 = new Cards(colors[1], forme[2], "halffill", 3);
+		Cards card47 = new Cards(colors[1], forme[0], "halffill", 3);
+		Cards card48 = new Cards(colors[1], forme[1], "halffill", 3);
 
-		Cards card49 = new Cards("green", "balk", "fill", 3);
-		Cards card50 = new Cards("green", "ovally", "fill", 3);
-		Cards card51 = new Cards("green", "wave", "fill", 3);
+		Cards card49 = new Cards(colors[1], forme[2], "fill", 3);
+		Cards card50 = new Cards(colors[1], forme[0], "fill", 3);
+		Cards card51 = new Cards(colors[1], forme[1], "fill", 3);
 
-		Cards card52 = new Cards("green", "balk", "empty", 3);
-		Cards card53 = new Cards("green", "ovally", "empty", 3);
-		Cards card54 = new Cards("green", "wave", "empty", 3);
+		Cards card52 = new Cards(colors[1], forme[2], "empty", 3);
+		Cards card53 = new Cards(colors[1], forme[0], "empty", 3);
+		Cards card54 = new Cards(colors[1], forme[1], "empty", 3);
 
 		/* purple */
 		/* 1 */
-		Cards card55 = new Cards("purple", "balk", "halffill", 1);
-		Cards card56 = new Cards("purple", "ovally", "halffill", 1);
-		Cards card57 = new Cards("purple", "wave", "halffill", 1);
+		Cards card55 = new Cards(colors[2], forme[2], "halffill", 1);
+		Cards card56 = new Cards(colors[2], forme[0], "halffill", 1);
+		Cards card57 = new Cards(colors[2], forme[1], "halffill", 1);
 
-		Cards card58 = new Cards("purple", "balk", "fill", 1);
-		Cards card59 = new Cards("purple", "ovally", "fill", 1);
-		Cards card60 = new Cards("purple", "wave", "fill", 1);
+		Cards card58 = new Cards(colors[2], forme[2], "fill", 1);
+		Cards card59 = new Cards(colors[2], forme[0], "fill", 1);
+		Cards card60 = new Cards(colors[2], forme[1], "fill", 1);
 
-		Cards card61 = new Cards("purple", "balk", "empty", 1);
-		Cards card62 = new Cards("purple", "ovally", "empty", 1);
-		Cards card63 = new Cards("purple", "wave", "empty", 1);
+		Cards card61 = new Cards(colors[2], forme[2], "empty", 1);
+		Cards card62 = new Cards(colors[2], forme[0], "empty", 1);
+		Cards card63 = new Cards(colors[2], forme[1], "empty", 1);
 		/* 2 */
-		Cards card64 = new Cards("purple", "balk", "halffill", 2);
-		Cards card65 = new Cards("purple", "ovally", "halffill", 2);
-		Cards card66 = new Cards("purple", "wave", "halffill", 2);
+		Cards card64 = new Cards(colors[2], forme[2], "halffill", 2);
+		Cards card65 = new Cards(colors[2], forme[0], "halffill", 2);
+		Cards card66 = new Cards(colors[2], forme[1], "halffill", 2);
 
-		Cards card67 = new Cards("purple", "balk", "fill", 2);
-		Cards card68 = new Cards("purple", "ovally", "fill", 2);
-		Cards card69 = new Cards("purple", "wave", "fill", 2);
+		Cards card67 = new Cards(colors[2], forme[2], "fill", 2);
+		Cards card68 = new Cards(colors[2], forme[0], "fill", 2);
+		Cards card69 = new Cards(colors[2], forme[1], "fill", 2);
 
-		Cards card70 = new Cards("purple", "balk", "empty", 2);
-		Cards card71 = new Cards("purple", "ovally", "empty", 2);
-		Cards card72 = new Cards("purple", "wave", "empty", 2);
+		Cards card70 = new Cards(colors[2], forme[2], "empty", 2);
+		Cards card71 = new Cards(colors[2], forme[0], "empty", 2);
+		Cards card72 = new Cards(colors[2], forme[1], "empty", 2);
 		/* 3 */
-		Cards card73 = new Cards("purple", "balk", "halffill", 3);
-		Cards card74 = new Cards("purple", "ovally", "halffill", 3);
-		Cards card75 = new Cards("purple", "wave", "halffill", 3);
+		Cards card73 = new Cards(colors[2], forme[2], "halffill", 3);
+		Cards card74 = new Cards(colors[2], forme[0], "halffill", 3);
+		Cards card75 = new Cards(colors[2], forme[1], "halffill", 3);
 
-		Cards card76 = new Cards("purple", "balk", "fill", 3);
-		Cards card77 = new Cards("purple", "ovally", "fill", 3);
-		Cards card78 = new Cards("purple", "wave", "fill", 3);
+		Cards card76 = new Cards(colors[2], forme[2], "fill", 3);
+		Cards card77 = new Cards(colors[2], forme[0], "fill", 3);
+		Cards card78 = new Cards(colors[2], forme[1], "fill", 3);
 
-		Cards card79 = new Cards("purple", "balk", "empty", 3);
-		Cards card80 = new Cards("purple", "ovally", "empty", 3);
-		Cards card81 = new Cards("purple", "wave", "empty", 3);
+		Cards card79 = new Cards(colors[2], forme[2], "empty", 3);
+		Cards card80 = new Cards(colors[2], forme[0], "empty", 3);
+		Cards card81 = new Cards(colors[2], forme[1], "empty", 3);
 
 		
 		list[0] = card1;
