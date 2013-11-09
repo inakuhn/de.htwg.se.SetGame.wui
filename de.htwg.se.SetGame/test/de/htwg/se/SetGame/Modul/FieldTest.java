@@ -39,8 +39,11 @@ public class FieldTest {
 
 	@Test
 	public void testInit() {
-		if ((this.f.init() instanceof Cards[] || f.init() == null) == false);
-			fail("nicht gutt");
+		Cards[] c = f.init();
+		for(Cards t : c){
+			if(t == null)
+				fail("cart existiert nicht");
+		}
 	}
 
 	@Test
