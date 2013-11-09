@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import de.htwg.se.SetGame.Modul.Card.Cards;
+
 public class FieldTest {
 	Field f;
 
@@ -16,33 +18,32 @@ public class FieldTest {
 
 	@Test
 	public void test() {
+		assert (this.f == null);
 
 	}
 
 	@Test
 	public void testFieldradom() {
-		int array[] = f.rand();
-		// int numberofArray = 0;
-		// for(int i = 0; i < array.length;i++){
-		// for(int t = 0 ; t < array.length;t++){
-		// if(t == array[i]){
-		// System.out.println(i+"  number: "+t + " in index: "+i);
-		// numberofArray++;
-		//
-		// }
-		//
-		// }
-		//
-		// }
-		// if(numberofArray == array.length){
-		// System.out.println("true");
-		// }else{
-		// System.out.println("false!! \n numberofarray = "+numberofArray+"\narray length:  "+
-		// array.length );
-		// }
-		//
-		//
+		Cards[] cardfield = f.init();
+		for (Cards c : cardfield) {
+			assert(c == null);
+		}
 
+	}
+
+	@Test
+	public void testField() {
+		assert (f instanceof Field);
+	}
+
+	@Test
+	public void testInit() {
+		assert (this.f.init() instanceof Cards[] || f.init() == null);
+	}
+
+	@Test
+	public void testRand() {
+		int array[] = f.rand();
 		boolean vertauscht;
 		for (int i = array.length - 1; i >= 0; i--) {
 			vertauscht = false;
@@ -58,10 +59,9 @@ public class FieldTest {
 			if (!vertauscht)
 				break;
 		}
-		for(int i = 0 ; i < array.length; i++){
-			System.out.println("array["+i+"] = "+array[i]);
+		for (int i = 0; i < array.length; i++) {
+			System.out.println("array[" + i + "] = " + array[i]);
 		}
-
 	}
 
 }

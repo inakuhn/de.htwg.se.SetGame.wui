@@ -1,10 +1,5 @@
 package de.htwg.se.SetGame.Modul;
 
-import static org.junit.Assert.*;
-
-import java.util.LinkedList;
-import java.util.TreeSet;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,35 +11,42 @@ public class CardTest {
 	Cards[] list;
 
 	@Before
-	public void setUp() throws Exception{
+	public void setUp() throws Exception {
 		this.card = new Card();
 		this.list = card.getCards();
-		
+
 	}
+
 	@Test
-	public void test() {
+	public void testCard() {
 		boolean b = false;
 		boolean n = true;
 
 		for (Cards c : list) {
 			for (Cards cards : list) {
-				if (c.getColor().equals(cards.getColor()) || c.getFomr().equals(cards.getFomr())
+				if (c.getColor().equals(cards.getColor())
+						|| c.getFomr().equals(cards.getFomr())
 						|| c.getPanelFilling().equals(cards.getPanelFilling())
 						|| c.getAnz() == cards.getAnz()) {
-					
+
 					b = true;
-				}else{
+				} else {
 					b = false;
 				}
 			}
 		}
-		if(card.getNumerofCards() == list.length){
-			n = true;
-			
-		}
-		System.out.println(b+" "+n);
+
+		System.out.println(b + " " + n);
 	}
-	
-	
-	
+
+	@Test
+	public void testGetCards() {
+		if (this.list instanceof Cards[]) {
+			System.out.println("true");
+		} else {
+			System.out.println("false");
+		}
+
+	}
+
 }

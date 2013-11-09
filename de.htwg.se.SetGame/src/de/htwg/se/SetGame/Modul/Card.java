@@ -2,7 +2,6 @@ package de.htwg.se.SetGame.Modul;
 
 public class Card {
 	private Cards pack[];
-	private int numberOfCard = 0;
 	private String[] forme = { "ovally", "wave", "balk" };
 	private String[] colors = { "red", "green", "purple" };
 	private String[] filling = { "halffill", "fill", "empty" };
@@ -140,11 +139,6 @@ public class Card {
 			this.colorIndex = 0;
 		}
 		this.colorIndex = t;
-
-	}
-
-	public int getNumerofCards() {
-		return this.numberOfCard;
 
 	}
 
