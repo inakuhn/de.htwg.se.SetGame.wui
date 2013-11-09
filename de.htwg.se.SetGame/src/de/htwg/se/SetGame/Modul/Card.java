@@ -1,12 +1,5 @@
 package de.htwg.se.SetGame.Modul;
 
-import java.awt.*;
-import java.util.LinkedList;
-import java.util.TreeMap;
-import java.text.Format;
-import java.util.TreeSet;
-
-import javax.swing.text.html.FormSubmitEvent;
 
 public class Card {
 	Cards pack[];
