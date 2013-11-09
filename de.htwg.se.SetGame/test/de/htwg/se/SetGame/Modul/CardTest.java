@@ -24,13 +24,14 @@ public class CardTest {
 	@Test
 	public void test() {
 		boolean b = false;
-		boolean n = false;
+		boolean n = true;
 
 		for (Cards c : list) {
 			for (Cards cards : list) {
 				if (c.getColor().equals(cards.getColor()) || c.getFomr().equals(cards.getFomr())
 						|| c.getPanelFilling().equals(cards.getPanelFilling())
 						|| c.getAnz() == cards.getAnz()) {
+					
 					b = true;
 				}else{
 					b = false;

@@ -9,6 +9,10 @@ public class Card {
 	private final int[] numbers = { 1, 2, 3 };
 	private static final int SIZEOFARRAY = 81;
 	private static final int THREE = 3;
+	private int colorIndex = 0;
+	private int formeIndex = 0;
+	private int fillgingIndex = 0;
+	private int numbersIdex = 0;
 
 	/* One card in card */
 	public class Cards {
@@ -86,35 +90,59 @@ public class Card {
 
 	private Cards[] creatCards() {
 		Cards list[] = new Cards[SIZEOFARRAY];
-		int colorIndex = 0;
-		int formeIndex = 0;
-		int fillgingIndex = 0;
-		int numbersIdex = 0;
+
 
 		for (int i = 0; i < SIZEOFARRAY; i++) {
 
 			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
 					filling[fillgingIndex], numbers[numbersIdex]);
-			formeIndex++;
-			if (formeIndex == THREE) {
-				formeIndex = 0;
-				fillgingIndex++;
-				if (fillgingIndex == THREE) {
-					fillgingIndex = 0;
-					numbersIdex++;
-					if (numbersIdex == THREE) {
-						numbersIdex = 0;
-						colorIndex++;
-
-					}
-
-				}
-
-			}
+				getFormedIndex(formeIndex);
 
 		}
 		return list;
 
+	}
+	private void getFormedIndex(int i){
+		i++;
+		if(i == THREE){
+			setFillgTexT(this.fillgingIndex);
+			this.formeIndex =  0;
+		}else{
+			this.formeIndex = i;
+		}
+		
+	}
+
+	private void setFillgTexT(int i) {
+		i++;
+		if(i == THREE){
+			setNumbersOfIndex(this.numbersIdex);
+			this.fillgingIndex = 0;
+		}else{
+			this.fillgingIndex = i;
+		}
+		
+		
+	}
+
+	private void setNumbersOfIndex(int i) {
+		i++;
+		if(i == THREE){
+			 setColorIndex(this.colorIndex);
+			this.numbersIdex = 0;
+		}else{
+			this.numbersIdex = i;
+		}
+	}
+
+	private void setColorIndex(int i) {
+		i++;
+			if(i == THREE){
+				this.colorIndex = 0;
+			}
+			this.colorIndex = i;
+
+		
 	}
 
 	public int getNumerofCards() {
