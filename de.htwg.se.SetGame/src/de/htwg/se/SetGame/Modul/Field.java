@@ -11,7 +11,7 @@ public class Field {
 	private boolean free = true;
 	private final int max = 81;
 	private Card card = new Card();
-	private Cards[] c = card.pack;
+	private Cards[] c = card.getCards();
 
 	public Field() {
 	}
@@ -48,7 +48,7 @@ public class Field {
 
 		for (int i = 0; i < fieldsize; i++) {
 
-			f[i] = card.pack[array[i]];
+			f[i] = card.getCards()[array[i]];
 
 		}
 
