@@ -25,9 +25,7 @@ public class FieldTest {
 
 	@Test
 	public void testFieldradom() {
-		Cards[] c = f.init();
-		for(Cards t : c)
-			System.out.println(t.getAnz() + " ; "+ t.getColor()+" ; "+ t.getFomr() +" ; "+ t.getPanelFilling());
+		System.out.println("alles gutt");
 
 	}
 
