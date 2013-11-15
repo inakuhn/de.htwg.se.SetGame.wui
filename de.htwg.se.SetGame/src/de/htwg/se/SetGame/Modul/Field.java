@@ -44,9 +44,7 @@ public class Field {
 		int array[] = rand();
 
 		for (int i = 0; i < FIELDSIZE; i++) {
-
 			f[i] = card.getCards()[array[i]];
-
 		}
 
 		return f;

@@ -13,7 +13,7 @@ public class SetGameTest {
 	}
 	@Test
 	public void test() {
-		System.out.println("alles guteee");
+		System.out.println("ok!");
 	}
 
 }

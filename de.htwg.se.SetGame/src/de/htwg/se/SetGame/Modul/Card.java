@@ -1,6 +1,7 @@
 package de.htwg.se.SetGame.Modul;
 
 public class Card {
+	/*Instance variable*/
 	private Cards pack[];
 	private String[] forme = { "ovally", "wave", "balk" };
 	private String[] colors = { "red", "green", "purple" };
@@ -20,6 +21,7 @@ public class Card {
 		private String panelFilling;
 		private int anz;
 
+		/*Set Cards option*/
 		public Cards(String color, String form, String panelFilling, int anzahl) {
 
 			this.setColor(color);
@@ -29,10 +31,12 @@ public class Card {
 
 		}
 
+		/* Get Color of Cards */
 		public String getColor() {
 			return color;
 		}
 
+		/* Set Color of Cards */
 		private void setColor(String color) {
 			if (color.equals(colors[0]) || color.equals(colors[1])
 					|| color.equals(colors[2])) {
@@ -42,10 +46,12 @@ public class Card {
 			}
 		}
 
+		/*Get format of cards*/
 		public String getFomr() {
 			return fomr;
 		}
 
+		/*Set format of cards*/
 		private void setFomr(String fomr) {
 			if (fomr.equals(forme[2]) || fomr.equals(forme[0])
 					|| fomr.equals(forme[1])) {
@@ -55,10 +61,12 @@ public class Card {
 			}
 		}
 
+		/*Get Panel filling option*/
 		public String getPanelFilling() {
 			return panelFilling;
 		}
 
+		/* Set Panel filling option */
 		private void setPanelFilling(String panelFilling) {
 			if (panelFilling.equals(filling[0])
 					|| panelFilling.equals(filling[1])
@@ -70,10 +78,13 @@ public class Card {
 
 		}
 
+		/* Get number of  */
 		public int getAnz() {
 			return anz;
 		}
-
+		
+		
+		/* Set number of */
 		private void setAnz(int anz) {
 			if (anz == numbers[0] || anz == numbers[1] || anz == numbers[2]) {
 				this.anz = anz;
@@ -83,10 +94,12 @@ public class Card {
 		}
 	}
 
+	/* Create Cards */
 	public Card() {
 		this.pack = creatCards();
 	}
 
+	/* Create Cards */
 	private Cards[] creatCards() {
 		Cards list[] = new Cards[SIZEOFARRAY];
 
@@ -101,6 +114,7 @@ public class Card {
 
 	}
 
+	/* Get Index of */
 	private void getFormedIndex() {
 		int t = this.formeIndex + 1;
 		if (t == THREE) {
@@ -112,6 +126,7 @@ public class Card {
 
 	}
 
+	/**/
 	private void setFillgTexT() {
 		int t = this.fillgingIndex + 1;
 		if (t == THREE) {
@@ -123,6 +138,7 @@ public class Card {
 
 	}
 
+	/* Set Numbers of Index */
 	private void setNumbersOfIndex(int i) {
 		int t = i + 1;
 		if (t == THREE) {
@@ -133,6 +149,7 @@ public class Card {
 		}
 	}
 
+	/*Set Color Index*/
 	private void setColorIndex(int i) {
 		int t = i + 1;
 		if (t == THREE) {
@@ -142,6 +159,7 @@ public class Card {
 
 	}
 
+	/**/
 	public Cards[] getCards() {
 		return this.pack;
 	}
