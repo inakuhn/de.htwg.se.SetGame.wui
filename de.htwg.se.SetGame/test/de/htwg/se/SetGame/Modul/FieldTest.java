@@ -25,14 +25,14 @@ public class FieldTest {
 
 	@Test
 	public void testFieldradom() {
-		System.out.println("alles gutt");
+		System.out.println("ok!");
 
 	}
 
 	@Test
 	public void testField() {
 		if (!(f instanceof Field))
-			fail("not a instance of");
+			fail("Not a instance of");
 	}
 
 	@Test
@@ -40,7 +40,7 @@ public class FieldTest {
 		Cards[] c = f.init();
 		for(Cards t : c){
 			if(t == null)
-				fail("cart existiert nicht");
+				fail("card existiert nicht");
 		}
 	}
 
