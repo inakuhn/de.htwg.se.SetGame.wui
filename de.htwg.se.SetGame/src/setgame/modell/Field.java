@@ -2,13 +2,6 @@ package setgame.modell;
 
 import setgame.modell.Card.Cards;
 
-
-
-
-
-
-
-
 public class Field {
 
 	private static final int FIELDSIZE = 12;

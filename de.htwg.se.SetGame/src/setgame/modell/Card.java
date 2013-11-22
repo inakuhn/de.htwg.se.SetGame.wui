@@ -1,7 +1,5 @@
 package setgame.modell;
 
-
-
 public class Card {
 	/*Instance variable*/
 	private Cards pack[];

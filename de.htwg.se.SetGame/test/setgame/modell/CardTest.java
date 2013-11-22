@@ -42,7 +42,7 @@ public class CardTest {
 		}
 
 		if (!b)
-			fail("not gut :(");
+			fail("not good :(");
 	}
 
 	@Test

@@ -42,7 +42,7 @@ public class FieldTest {
 		Cards[] c = f.init();
 		for(Cards t : c){
 			if(t == null)
-				fail("card existiert nicht");
+				fail("card not exists");
 		}
 	}
 
@@ -52,7 +52,7 @@ public class FieldTest {
 		boolean vertauscht;
 		for (int i = array.length - 1; i >= 0; i--) {
 			vertauscht = false;
-			// Durchlauf des Felds von 0 bis i:
+			/* Durchlauf des Felds von 0 bis i: */
 			for (int j = 0; j < i; j++) {
 				if (array[j] > array[j + 1]) {
 					int t = array[j];
