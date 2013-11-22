@@ -1,4 +1,6 @@
-package de.htwg.se.SetGame.Modul;
+package setgame.modell;
+
+
 
 public class Card {
 	/*Instance variable*/

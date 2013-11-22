@@ -1,6 +1,13 @@
-package de.htwg.se.SetGame.Modul;
+package setgame.modell;
 
-import de.htwg.se.SetGame.Modul.Card.Cards;
+import de.htwg.se.setgame.Modul.Card.Cards;
+
+
+
+
+
+
+
 
 public class Field {
 

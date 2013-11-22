@@ -5,7 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.SetGame.Modul.Card.Cards;
+import de.htwg.se.setgame.modell.Field;
+import de.htwg.se.setgame.modell.Card.Cards;
 
 public class FieldTest {
 	Field f;
