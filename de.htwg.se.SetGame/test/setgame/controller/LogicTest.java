@@ -1,4 +1,4 @@
-package de.htwg.se.SetGame.Controller;
+package setgame.controller;
 
 import static org.junit.Assert.*;
 
