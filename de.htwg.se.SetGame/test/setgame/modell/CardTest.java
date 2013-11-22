@@ -1,13 +1,12 @@
-package de.htwg.se.SetGame.Modul;
-
+package setgame.modell;
+import de.htwg.*;
+import setgame.modell.Card.Cards;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.internal.runners.statements.Fail;
 
-import de.htwg.se.setgame.modell.Card;
-import de.htwg.se.setgame.modell.Card.Cards;
 
 public class CardTest {
 	Card card;

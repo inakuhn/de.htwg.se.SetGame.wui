@@ -1,6 +1,6 @@
 package setgame.modell;
 
-import de.htwg.se.setgame.Modul.Card.Cards;
+import setgame.modell.Card.Cards;
 
 
 

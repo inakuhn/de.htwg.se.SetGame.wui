@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class Player_Computer_ModusTest {
+public class PlayerComputerModusTest {
 
 	@Test
 	public void test() {

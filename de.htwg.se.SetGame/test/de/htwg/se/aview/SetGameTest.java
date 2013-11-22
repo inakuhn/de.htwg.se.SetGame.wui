@@ -1,4 +1,4 @@
-package de.htwg.se.Aview;
+package de.htwg.se.aview;
 
 import static org.junit.Assert.*;
 
