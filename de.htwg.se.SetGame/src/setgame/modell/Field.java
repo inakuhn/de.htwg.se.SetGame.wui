@@ -52,5 +52,7 @@ public class Field {
 		return f;
 
 	}
+//	public Cards getCardsInField(){
+//	}
 
 }
