@@ -4,25 +4,42 @@ import java.util.LinkedList;
 
 import setgame.modell.Card.Cards;
 
+/**
+ * Class Field.
+ * @author David Simon & Raina Bertolini
+ * @date 7.12.2013
+ */
 public class Field {
 
+	/**
+	 * Instance variable
+	 */
 	private static final int FIELDSIZE = 12;
-
 	private static final int MAX = 81;
 	private static final int ONE = 1;
+	private static int COUNTER = 0;
 	private Card card = new Card();
 	
+	/**
+	 *  All used Cards will be write in the LinkedList register
+	 */
 	private LinkedList<Cards> register = new LinkedList<Cards>();
 
 	public Field() {
 	}
 
+	/** Field will be initializes.
+	 *  @return give back filled field
+	 */
 	public Cards[] init() {
 		Cards[] field = new Cards[FIELDSIZE];
 
 		return fillField(field);
 	}
 
+	/** Filled array with integer number.
+	 *  @return filled array
+	 */
 	public int[] rand() {
 		int[] array = new int[MAX];
 		boolean b;
@@ -37,45 +54,48 @@ public class Field {
 			}
 			if (b) {
 				array[i] = j;
-
 			}
 		}
 		return array;
 	}
 
-	private Cards[] fillField(Cards[] f) {
+	/** Filled field with cards from the class Card
+	 *  @return filled Field with Cards
+	 */
+	private Cards[] fillField(Cards[] field) {
 
 		int array[] = rand();
 
 		for (int i = 0; i < FIELDSIZE; i++) {
-
-			f[i] = card.getCards()[array[i]];
+			field[i] = card.getCards()[array[i]];
 			register.add(card.getCards()[array[i]]);
-
 		}
 
-		return f;
+		return field;
 
 	}
 	
+	/**
+	 * Fill the variable fill with one card information and gives back.
+	 * @return fill - return one "card information" 
+	 */
 	public Cards getCardsInField() {	
 		
 		Cards fill;
 		int randfill[] = rand();
 		boolean close = false;
-		int i = 0;
-		int l = randfill.length;
 		
-		while(i == l) {
+		while(COUNTER == randfill.length) {
 			close = false;
 			
-			if (register.equals(randfill[i])) {
+			if (register.equals(randfill[COUNTER])) {
 				close = true;
-				i++;
+				COUNTER++;
 			}
 			
 			if (close == false) {
-				fill = card.getCards()[randfill[i]];
+				fill = card.getCards()[randfill[COUNTER]];
+				register.add(card.getCards()[randfill[COUNTER]]);
 				return fill;
 			}
 		}
