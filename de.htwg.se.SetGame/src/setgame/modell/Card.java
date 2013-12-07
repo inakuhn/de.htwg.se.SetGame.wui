@@ -1,6 +1,7 @@
 package setgame.modell;
 
-public class Card {
+
+final class Card {
 	/*Instance variable*/
 	private Cards pack[];
 	private String[] forme = { "ovally", "wave", "balk" };
@@ -8,21 +9,21 @@ public class Card {
 	private String[] filling = { "halffill", "fill", "empty" };
 	private final int[] numbers = { 1, 2, 3 };
 	private static final int SIZEOFARRAY = 81;
-	private static final int THREE = 3;
+	private static final int NUMBEROFEACHCARD = 3;
 	private int colorIndex = 0;
 	private int formeIndex = 0;
 	private int fillgingIndex = 0;
 	private int numbersIdex = 0;
 
 	/* One card in card */
-	public class Cards {
+	protected class Cards {
 		private String color;
 		private String fomr;
 		private String panelFilling;
 		private int anz;
 
 		/*Set Cards option*/
-		public Cards(String color, String form, String panelFilling, int anzahl) {
+		protected Cards(String color, String form, String panelFilling, int anzahl) {
 
 			this.setColor(color);
 			this.setFomr(form);
@@ -32,77 +33,77 @@ public class Card {
 		}
 
 		/* Get Color of Cards */
-		public String getColor() {
+		protected String getColor() {
 			return color;
 		}
 
 		/* Set Color of Cards */
-		private void setColor(String color) {
+		private void setColor(String color) throws IllegalArgumentException {
 			if (color.equals(colors[0]) || color.equals(colors[1])
 					|| color.equals(colors[2])) {
 				this.color = color;
 			} else {
-				this.color = null;
+				throw new IllegalArgumentException("WErte für karte illegal!"+anz);
 			}
 		}
 
 		/*Get format of cards*/
-		public String getFomr() {
+		protected String getFomr() {
 			return fomr;
 		}
 
 		/*Set format of cards*/
-		private void setFomr(String fomr) {
+		private void setFomr(String fomr) throws IllegalArgumentException {
 			if (fomr.equals(forme[2]) || fomr.equals(forme[0])
 					|| fomr.equals(forme[1])) {
 				this.fomr = fomr;
 			} else {
-				this.fomr = null;
+				throw new IllegalArgumentException("WErte für karte illegal!"+anz);
 			}
 		}
 
 		/*Get Panel filling option*/
-		public String getPanelFilling() {
+		protected String getPanelFilling() {
 			return panelFilling;
 		}
 
 		/* Set Panel filling option */
-		private void setPanelFilling(String panelFilling) {
+		private void setPanelFilling(String panelFilling) throws IllegalArgumentException {
 			if (panelFilling.equals(filling[0])
 					|| panelFilling.equals(filling[1])
 					|| panelFilling.equals(filling[2])) {
 				this.panelFilling = panelFilling;
-			} else {
-				this.panelFilling = null;
+			} else { 
+					throw new IllegalArgumentException("WErte für karte illegal!"+anz);
 			}
 
 		}
 
 		/* Get number of  */
-		public int getAnz() {
+		protected int getAnz() {
 			return anz;
 		}
 		
 		
 		/* Set number of */
-		private void setAnz(int anz) {
-			if (anz == numbers[0] || anz == numbers[1] || anz == numbers[2]) {
+		private void setAnz(int anz) throws IllegalArgumentException {
+			if (anz == numbers[0] || anz == numbers[1] || anz == numbers[2]) 
 				this.anz = anz;
-			} else {
-				this.anz = -1;
-			}
-		}
+			else 
+				throw new IllegalArgumentException("WErte für karte illegal!"+anz);
+
 	}
 
-	/* Create Cards */
-	public Card() {
+
+	}
+	
+	protected Card(){
 		this.pack = creatCards();
 	}
-
 	/* Create Cards */
+	
 	private Cards[] creatCards() {
 		Cards list[] = new Cards[SIZEOFARRAY];
-
 		for (int i = 0; i < SIZEOFARRAY; i++) {
 
 			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
@@ -117,7 +118,7 @@ public class Card {
 	/* Get Index of */
 	private void getFormedIndex() {
 		int t = this.formeIndex + 1;
-		if (t == THREE) {
+		if (t == NUMBEROFEACHCARD) {
 			setFillgTexT();
 			this.formeIndex = 0;
 		} else {
@@ -129,7 +130,7 @@ public class Card {
 	/**/
 	private void setFillgTexT() {
 		int t = this.fillgingIndex + 1;
-		if (t == THREE) {
+		if (t == NUMBEROFEACHCARD) {
 			this.fillgingIndex = 0;
 			setNumbersOfIndex(this.numbersIdex);
 		} else {
@@ -141,7 +142,7 @@ public class Card {
 	/* Set Numbers of Index */
 	private void setNumbersOfIndex(int i) {
 		int t = i + 1;
-		if (t == THREE) {
+		if (t == NUMBEROFEACHCARD) {
 			this.numbersIdex = 0;
 			setColorIndex(this.colorIndex);
 		} else {
@@ -152,7 +153,7 @@ public class Card {
 	/*Set Color Index*/
 	private void setColorIndex(int i) {
 		int t = i + 1;
-		if (t == THREE) {
+		if (t == NUMBEROFEACHCARD) {
 			this.colorIndex = 0;
 		}
 		this.colorIndex = t;
@@ -160,7 +161,7 @@ public class Card {
 	}
 
 	/**/
-	public Cards[] getCards() {
+	protected Cards[] getCards() {
 		return this.pack;
 	}
 
