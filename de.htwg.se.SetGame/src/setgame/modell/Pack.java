@@ -3,7 +3,7 @@ package setgame.modell;
 /**
  * @author rabertol class use to create all the combinations of the pack
  */
-final class Card {
+final class Pack {
 	
 	/**
 	 *  Instance variable
@@ -20,6 +20,7 @@ final class Card {
 	private int fillgingIndex = 0;
 	private int numbersIdex = 0;
 
+	
 	/**
 	 * @author rabertol Class use to create each card of the pack
 	 * 
@@ -134,8 +135,10 @@ final class Card {
 	/**
 	 * Construct for card
 	 */
-	protected Card() {
+
+	public Pack() {
 		this.pack = creatCards();
+
 	}
 
 	/**
@@ -150,6 +153,7 @@ final class Card {
 			setFormedIndex();
 
 		}
+	
 		return list;
 
 	}
@@ -210,8 +214,24 @@ final class Card {
 	/**
 	 * @return pack of cards
 	 */
-	protected Cards[] getCards() {
+	protected Cards[] getPack() {
 		return this.pack;
 	}
-
+	protected String[] getcolors(){
+		return this.colors;
+		
+	}
+	protected String[] getFormes(){
+		return this.forme;
+	}
+	protected String[] getFill(){
+		return this.filling;
+	}
+	protected void Printer(){
+		int i = 0;
+		for(Cards c : this.pack){
+			System.out.println(i + " "+c.getColor()+" , "+ c.getFomr()+" , "+ c.getPanelFilling()+" , "+ c.getNumberOfComponents());
+			i++;
+		}
+	}
 }

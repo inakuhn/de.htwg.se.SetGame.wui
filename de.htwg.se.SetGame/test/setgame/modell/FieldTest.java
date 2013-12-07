@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import setgame.modell.Field;
-import setgame.modell.Card.Cards;
+import setgame.modell.Pack.Cards;
 
 public class FieldTest {
 	Field f;

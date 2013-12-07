@@ -2,7 +2,7 @@ package setgame.modell;
 
 import java.util.LinkedList;
 
-import setgame.modell.Card.Cards;
+import setgame.modell.Pack.Cards;
 
 /**
  * Class Field.
@@ -19,7 +19,7 @@ public class Field {
 	private static final int MAX = 81;
 	private static final int ONE = 1;
 	private static int COUNTER = 0;
-	private Card card = new Card();
+	private Pack card = new Pack();
 	
 	/**
 	 *  All used Cards will be write in the LinkedList register
@@ -68,8 +68,8 @@ public class Field {
 		int array[] = rand();
 
 		for (int i = 0; i < FIELDSIZE; i++) {
-			field[i] = card.getCards()[array[i]];
-			register.add(card.getCards()[array[i]]);
+			field[i] = card.getPack()[array[i]];
+			register.add(card.getPack()[array[i]]);
 		}
 
 		return field;
@@ -95,8 +95,8 @@ public class Field {
 			}
 			
 			if (close == false) {
-				fill = card.getCards()[randfill[COUNTER]];
-				register.add(card.getCards()[randfill[COUNTER]]);
+				fill = card.getPack()[randfill[COUNTER]];
+				register.add(card.getPack()[randfill[COUNTER]]);
 				return fill;
 			}
 		}
