@@ -38,6 +38,8 @@ public class Card {
 		if (color.equals(setgame.modell.Pack.COLORS[0]) || color.equals(setgame.modell.Pack.COLORS[1])
 				|| color.equals(setgame.modell.Pack.COLORS[2])) {
 			this.color = color;
+		}else{
+			this.color = null;
 		}
 
 	}
@@ -59,6 +61,8 @@ public class Card {
 		if (fomr.equals(setgame.modell.Pack.FORME[2]) || fomr.equals(setgame.modell.Pack.FORME[0])
 				|| fomr.equals(setgame.modell.Pack.FORME[1])) {
 			this.form = fomr;
+		}else{
+			this.form = null;
 		}
 	}
 
@@ -80,6 +84,8 @@ public class Card {
 				|| panelFilling.equals(setgame.modell.Pack.FILL[1])
 				|| panelFilling.equals(setgame.modell.Pack.FILL[2])) {
 			this.panelFilling = panelFilling;
+		}else{
+			this.panelFilling = null;
 		}
 
 	}
@@ -102,6 +108,8 @@ public class Card {
 				|| numberOfComponents == setgame.modell.Pack.NUMBEROFCOMPONET[2]) {
 			this.anz = numberOfComponents;
 
+		}else{
+			this.anz = -1;
 		}
 	}
 }
