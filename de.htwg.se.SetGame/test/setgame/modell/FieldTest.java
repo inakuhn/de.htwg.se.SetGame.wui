@@ -15,20 +15,17 @@ public class FieldTest {
 	@Before
 	public void setUp() {
 		this.f = new Field();
-
 	}
 
 	@Test
 	public void test() {
 		if(this.f == null)
 			fail("NullPointer");
-
 	}
 
 	@Test
 	public void testFieldradom() {
 		System.out.println("ok!");
-
 	}
 
 	@Test
@@ -44,17 +41,6 @@ public class FieldTest {
 			if(t == null)
 				fail("card not exists");
 		}
-	}
-	
-	@Test
-	public void testgetCardsInField() {
-		Cards test = f.getCardsInField();
-		if (test.equals(null)) {
-			fail("card not exists");
-		}
-		System.out.println("Number: " + test.getNumberOfComponents() + "; Color: " + test.getColor() 
-				+ "; Form: " + test.getFomr() + "; Filling: " + test.getPanelFilling()
-				+ "\nok! \n");
 	}
 
 	@Test
@@ -77,6 +63,14 @@ public class FieldTest {
 		}
 		for (int i = 0; i < array.length; i++) {
 			System.out.println("array[" + i + "] = " + array[i]);
+		}
+	}
+	
+	@Test
+	public void testgetCardsInField() {
+		Cards test = f.getCardsInField();
+		if (test.equals(null)) {
+			fail("card not exists");
 		}
 	}
 
