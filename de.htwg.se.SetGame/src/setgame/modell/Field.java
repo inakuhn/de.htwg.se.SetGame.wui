@@ -86,7 +86,7 @@ public class Field {
 		int randfill[] = rand();
 		boolean close = false;
 		
-		while(COUNTER == randfill.length) {
+		while(COUNTER != randfill.length) {
 			close = false;
 			
 			if (register.equals(randfill[COUNTER])) {
