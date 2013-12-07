@@ -45,6 +45,17 @@ public class FieldTest {
 				fail("card not exists");
 		}
 	}
+	
+	@Test
+	public void testgetCardsInField() {
+		Cards test = f.getCardsInField();
+		if (test.equals(null)) {
+			fail("card not exists");
+		}
+		System.out.println("Number: " + test.getAnz() + "; Color: " + test.getColor() 
+				+ "; Form: " + test.getFomr() + "; Filling: " + test.getPanelFilling()
+				+ "\nok! \n");
+	}
 
 	@Test
 	public void testRand() {
