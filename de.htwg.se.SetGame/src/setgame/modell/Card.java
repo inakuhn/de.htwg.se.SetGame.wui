@@ -4,7 +4,10 @@ package setgame.modell;
  * @author rabertol class use to create all the combinations of the pack
  */
 final class Card {
-	/* Instance variable */
+	
+	/**
+	 *  Instance variable
+	 */
 	private Cards pack[];
 	private String[] forme = { "ovally", "wave", "balk" };
 	private String[] colors = { "red", "green", "purple" };
