@@ -8,6 +8,7 @@ import setgame.modell.Card.Cards;
  * Class Field.
  * @author David Simon & Raina Bertolini
  * @date 7.12.2013
+ * @category Modell
  */
 public class Field {
 
