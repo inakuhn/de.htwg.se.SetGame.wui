@@ -41,7 +41,7 @@ final class Card {
 			this.setColor(color);
 			this.setFomr(form);
 			this.setPanelFilling(panelFilling);
-			this.setAnz(anzahl);
+			this.setNumberOfComponents(anzahl);
 
 		}
 
@@ -58,8 +58,9 @@ final class Card {
 		 */
 		private void setColor(String color) {
 			if (color.equals(colors[0]) || color.equals(colors[1])
-					|| color.equals(colors[2]))
+					|| color.equals(colors[2])) {
 				this.color = color;
+			}
 
 		}
 
@@ -117,14 +118,14 @@ final class Card {
 		 * @throws IllegalArgumentException
 		 *             if numberOfComponents is not allowed
 		 */
-		private void setAnz(int numberOfComponents) {
+		private void setNumberOfComponents(int numberOfComponents) {
 			if (numberOfComponents == numbers[0]
 					|| numberOfComponents == numbers[1]
-					|| numberOfComponents == numbers[2])
+					|| numberOfComponents == numbers[2]) {
 				this.anz = numberOfComponents;
 
+			}
 		}
-
 	}
 
 	/**
