@@ -55,16 +55,12 @@ final class Card {
 		/**
 		 * @param color
 		 *            set the color of a card
-		 * @throws IllegalArgumentException
-		 *             if the color is no allowed
 		 */
-		private void setColor(String color) throws IllegalArgumentException {
+		private void setColor(String color) {
 			if (color.equals(colors[0]) || color.equals(colors[1])
-					|| color.equals(colors[2])) {
+					|| color.equals(colors[2]))
 				this.color = color;
-			} else {
-				throw new IllegalArgumentException("WErte für karte illegal!");
-			}
+
 		}
 
 		/**
@@ -80,12 +76,10 @@ final class Card {
 		 * @throws IllegalArgumentException
 		 *             if the form is not allowed
 		 */
-		private void setFomr(String fomr) throws IllegalArgumentException {
+		private void setFomr(String fomr) {
 			if (fomr.equals(forme[2]) || fomr.equals(forme[0])
 					|| fomr.equals(forme[1])) {
 				this.form = fomr;
-			} else {
-				throw new IllegalArgumentException("WErte für karte illegal!");
 			}
 		}
 
@@ -102,15 +96,11 @@ final class Card {
 		 * @throws IllegalArgumentException
 		 *             if filling is not allowed
 		 */
-		private void setPanelFilling(String panelFilling)
-				throws IllegalArgumentException {
+		private void setPanelFilling(String panelFilling) {
 			if (panelFilling.equals(filling[0])
 					|| panelFilling.equals(filling[1])
 					|| panelFilling.equals(filling[2])) {
 				this.panelFilling = panelFilling;
-			} else {
-				throw new IllegalArgumentException("WErte für karte illegal!"
-						+ anz);
 			}
 
 		}
@@ -127,18 +117,13 @@ final class Card {
 		 * @throws IllegalArgumentException
 		 *             if numberOfComponents is not allowed
 		 */
-		private void setAnz(int numberOfComponents)
-				throws IllegalArgumentException {
+		private void setAnz(int numberOfComponents) {
 			if (numberOfComponents == numbers[0]
 					|| numberOfComponents == numbers[1]
 					|| numberOfComponents == numbers[2])
 				this.anz = numberOfComponents;
-			else
-				throw new IllegalArgumentException("WErte für karte illegal!"
-						+ numberOfComponents);
 
 		}
-
 
 	}
 
