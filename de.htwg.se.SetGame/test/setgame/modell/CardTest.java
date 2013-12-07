@@ -1,11 +1,9 @@
 package setgame.modell;
-import de.htwg.*;
 import setgame.modell.Card.Cards;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.internal.runners.statements.Fail;
 
 
 public class CardTest {
@@ -22,8 +20,6 @@ public class CardTest {
 	@Test
 	public void testCard() {
 		boolean b = false;
-		boolean n = true;
-
 		for (Cards c : list) {
 			for (Cards cards : list) {
 				if (c.getColor().equals(cards.getColor())
