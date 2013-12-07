@@ -1,8 +1,10 @@
 package setgame.modell;
 
-
+/**
+ * @author rabertol class use to create all the combinations of the pack
+ */
 final class Card {
-	/*Instance variable*/
+	/* Instance variable */
 	private Cards pack[];
 	private String[] forme = { "ovally", "wave", "balk" };
 	private String[] colors = { "red", "green", "purple" };
@@ -15,16 +17,27 @@ final class Card {
 	private int fillgingIndex = 0;
 	private int numbersIdex = 0;
 
-	/* One card in card */
+	/**
+	 * @author rabertol Class use to create each card of the pack
+	 * 
+	 */
+
 	protected class Cards {
 		private String color;
-		private String fomr;
+		private String form;
 		private String panelFilling;
 		private int anz;
 
-		/*Set Cards option*/
-		protected Cards(String color, String form, String panelFilling, int anzahl) {
-
+		/**
+		 * This method create a new card object
+		 * 
+		 * @param color
+		 * @param form
+		 * @param panelFilling
+		 * @param anzahl
+		 */
+		protected Cards(String color, String form, String panelFilling,
+				int anzahl) {
 			this.setColor(color);
 			this.setFomr(form);
 			this.setPanelFilling(panelFilling);
@@ -32,94 +45,133 @@ final class Card {
 
 		}
 
-		/* Get Color of Cards */
+		/**
+		 * @return color of the card
+		 */
 		protected String getColor() {
 			return color;
 		}
 
-		/* Set Color of Cards */
+		/**
+		 * @param color
+		 *            set the color of a card
+		 * @throws IllegalArgumentException
+		 *             if the color is no allowed
+		 */
 		private void setColor(String color) throws IllegalArgumentException {
 			if (color.equals(colors[0]) || color.equals(colors[1])
 					|| color.equals(colors[2])) {
 				this.color = color;
 			} else {
-				throw new IllegalArgumentException("WErte für karte illegal!"+anz);
+				throw new IllegalArgumentException("WErte für karte illegal!");
 			}
 		}
 
-		/*Get format of cards*/
+		/**
+		 * @return form of the card
+		 */
 		protected String getFomr() {
-			return fomr;
+			return form;
 		}
 
-		/*Set format of cards*/
+		/**
+		 * @param fomr
+		 *            set the form of the Card
+		 * @throws IllegalArgumentException
+		 *             if the form is not allowed
+		 */
 		private void setFomr(String fomr) throws IllegalArgumentException {
 			if (fomr.equals(forme[2]) || fomr.equals(forme[0])
 					|| fomr.equals(forme[1])) {
-				this.fomr = fomr;
+				this.form = fomr;
 			} else {
-				throw new IllegalArgumentException("WErte für karte illegal!"+anz);
+				throw new IllegalArgumentException("WErte für karte illegal!");
 			}
 		}
 
-		/*Get Panel filling option*/
+		/**
+		 * @return which fill the Card has
+		 */
 		protected String getPanelFilling() {
 			return panelFilling;
 		}
 
-		/* Set Panel filling option */
-		private void setPanelFilling(String panelFilling) throws IllegalArgumentException {
+		/**
+		 * @param panelFilling
+		 *            filling of the card
+		 * @throws IllegalArgumentException
+		 *             if filling is not allowed
+		 */
+		private void setPanelFilling(String panelFilling)
+				throws IllegalArgumentException {
 			if (panelFilling.equals(filling[0])
 					|| panelFilling.equals(filling[1])
 					|| panelFilling.equals(filling[2])) {
 				this.panelFilling = panelFilling;
-			} else { 
-					throw new IllegalArgumentException("WErte für karte illegal!"+anz);
+			} else {
+				throw new IllegalArgumentException("WErte für karte illegal!"
+						+ anz);
 			}
 
 		}
 
-		/* Get number of  */
-		protected int getAnz() {
+		/**
+		 * @return how much Components one card contains
+		 */
+		protected int getNumberOfComponents() {
 			return anz;
 		}
-		
-		
-		/* Set number of */
-		private void setAnz(int anz) throws IllegalArgumentException {
-			if (anz == numbers[0] || anz == numbers[1] || anz == numbers[2]) 
-				this.anz = anz;
-			else 
-				throw new IllegalArgumentException("WErte für karte illegal!"+anz);
+
+		/**
+		 * @param numberOfComponents
+		 * @throws IllegalArgumentException
+		 *             if numberOfComponents is not allowed
+		 */
+		private void setAnz(int numberOfComponents)
+				throws IllegalArgumentException {
+			if (numberOfComponents == numbers[0]
+					|| numberOfComponents == numbers[1]
+					|| numberOfComponents == numbers[2])
+				this.anz = numberOfComponents;
+			else
+				throw new IllegalArgumentException("WErte für karte illegal!"
+						+ numberOfComponents);
+
+		}
+
 
 	}
 
-
-	}
-	
-	protected Card(){
+	/**
+	 * Construct for card
+	 */
+	protected Card() {
 		this.pack = creatCards();
 	}
-	/* Create Cards */
-	
+
+	/**
+	 * @return the finish pack of the Game
+	 */
 	private Cards[] creatCards() {
 		Cards list[] = new Cards[SIZEOFARRAY];
 		for (int i = 0; i < SIZEOFARRAY; i++) {
 
 			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
 					filling[fillgingIndex], numbers[numbersIdex]);
-			getFormedIndex();
+			setFormedIndex();
 
 		}
 		return list;
 
 	}
 
-	/* Get Index of */
-	private void getFormedIndex() {
+	/**
+	 * set number of index form
+	 */
+	private void setFormedIndex() {
 		int t = this.formeIndex + 1;
 		if (t == NUMBEROFEACHCARD) {
-			setFillgTexT();
+			setFillIndex();
 			this.formeIndex = 0;
 		} else {
 			this.formeIndex = t;
@@ -127,32 +179,38 @@ final class Card {
 
 	}
 
-	/**/
-	private void setFillgTexT() {
+	/**
+	 * set index of the fill
+	 */
+	private void setFillIndex() {
 		int t = this.fillgingIndex + 1;
 		if (t == NUMBEROFEACHCARD) {
 			this.fillgingIndex = 0;
-			setNumbersOfIndex(this.numbersIdex);
+			setComponentsOfIndex();
 		} else {
 			this.fillgingIndex = t;
 		}
 
 	}
 
-	/* Set Numbers of Index */
-	private void setNumbersOfIndex(int i) {
-		int t = i + 1;
+	/**
+	 * set index of number of Components
+	 */
+	private void setComponentsOfIndex() {
+		int t = this.numbersIdex + 1;
 		if (t == NUMBEROFEACHCARD) {
 			this.numbersIdex = 0;
-			setColorIndex(this.colorIndex);
+			setColorIndex();
 		} else {
 			this.numbersIdex = t;
 		}
 	}
 
-	/*Set Color Index*/
-	private void setColorIndex(int i) {
-		int t = i + 1;
+	/**
+	 * Set Color Index
+	 */
+	private void setColorIndex() {
+		int t = this.colorIndex + 1;
 		if (t == NUMBEROFEACHCARD) {
 			this.colorIndex = 0;
 		}
@@ -160,7 +218,9 @@ final class Card {
 
 	}
 
-	/**/
+	/**
+	 * @return pack of cards
+	 */
 	protected Cards[] getCards() {
 		return this.pack;
 	}

@@ -52,7 +52,7 @@ public class FieldTest {
 		if (test.equals(null)) {
 			fail("card not exists");
 		}
-		System.out.println("Number: " + test.getAnz() + "; Color: " + test.getColor() 
+		System.out.println("Number: " + test.getNumberOfComponents() + "; Color: " + test.getColor() 
 				+ "; Form: " + test.getFomr() + "; Filling: " + test.getPanelFilling()
 				+ "\nok! \n");
 	}

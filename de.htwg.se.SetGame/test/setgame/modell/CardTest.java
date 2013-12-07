@@ -1,10 +1,10 @@
 package setgame.modell;
+
 import setgame.modell.Card.Cards;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-
 
 public class CardTest {
 	Card card;
@@ -25,13 +25,13 @@ public class CardTest {
 				if (c.getColor().equals(cards.getColor())
 						|| c.getFomr().equals(cards.getFomr())
 						|| c.getPanelFilling().equals(cards.getPanelFilling())
-						|| c.getAnz() == cards.getAnz()) {
+						|| c.getNumberOfComponents() == cards.getNumberOfComponents( ) ) {
 
 					b = true;
 				} else if(c.getColor().equals(null)
 						|| c.getFomr().equals(null)
 						|| c.getPanelFilling().equals(null)
-						|| c.getAnz() == -1) {
+						|| c.getNumberOfComponents() == -1) {
 					b = false;
 				}
 			}
