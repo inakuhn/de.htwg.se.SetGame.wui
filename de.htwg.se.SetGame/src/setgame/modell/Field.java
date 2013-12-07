@@ -2,7 +2,7 @@ package setgame.modell;
 
 import java.util.LinkedList;
 
-import setgame.modell.Pack.Cards;
+
 
 /**
  * Class Field.
@@ -24,7 +24,7 @@ public class Field {
 	/**
 	 *  All used Cards will be write in the LinkedList register
 	 */
-	private LinkedList<Cards> register = new LinkedList<Cards>();
+	private LinkedList<Card> register = new LinkedList<Card>();
 
 	public Field() {
 	}
@@ -32,8 +32,8 @@ public class Field {
 	/** Field will be initializes.
 	 *  @return give back filled field
 	 */
-	public Cards[] init() {
-		Cards[] field = new Cards[FIELDSIZE];
+	public Card[] init() {
+		Card[] field = new Card[FIELDSIZE];
 
 		return fillField(field);
 	}
@@ -63,7 +63,7 @@ public class Field {
 	/** Filled field with cards from the class Card
 	 *  @return filled Field with Cards
 	 */
-	private Cards[] fillField(Cards[] field) {
+	private Card[] fillField(Card[] field) {
 
 		int array[] = rand();
 
@@ -80,9 +80,9 @@ public class Field {
 	 * Fill the variable fill with one card information and gives back.
 	 * @return fill - return one "card information" 
 	 */
-	public Cards getCardsInField() {	
+	public Card getCardsInField() {	
 		
-		Cards fill;
+		Card fill;
 		int randfill[] = rand();
 		boolean close = false;
 		

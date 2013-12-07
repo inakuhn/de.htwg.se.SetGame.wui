@@ -8,11 +8,11 @@ final class Pack {
 	/**
 	 *  Instance variable
 	 */
-	private Cards pack[];
-	private String[] forme = { "ovally", "wave", "balk" };
-	private String[] colors = { "red", "green", "purple" };
-	private String[] filling = { "halffill", "fill", "empty" };
-	private final int[] numbers = { 1, 2, 3 };
+	private Card pack[];
+	protected static final String[] FORME = { "ovally", "wave", "balk" };
+	protected static final String[] COLORS = { "red", "green", "purple" };
+	protected static final String[] FILL = { "halffill", "fill", "empty" };
+	protected static final int[] NUMBEROFCOMPONET = { 1, 2, 3 };
 	private static final int SIZEOFARRAY = 81;
 	private static final int NUMBEROFEACHCARD = 3;
 	private int colorIndex = 0;
@@ -20,117 +20,8 @@ final class Pack {
 	private int fillgingIndex = 0;
 	private int numbersIdex = 0;
 
+
 	
-	/**
-	 * @author rabertol Class use to create each card of the pack
-	 * 
-	 */
-
-	protected class Cards {
-		private String color;
-		private String form;
-		private String panelFilling;
-		private int anz;
-
-		/**
-		 * This method create a new card object
-		 * 
-		 * @param color
-		 * @param form
-		 * @param panelFilling
-		 * @param anzahl
-		 */
-		protected Cards(String color, String form, String panelFilling,
-				int anzahl) {
-			this.setColor(color);
-			this.setFomr(form);
-			this.setPanelFilling(panelFilling);
-			this.setNumberOfComponents(anzahl);
-
-		}
-
-		/**
-		 * @return color of the card
-		 */
-		protected String getColor() {
-			return color;
-		}
-
-		/**
-		 * @param color
-		 *            set the color of a card
-		 */
-		private void setColor(String color) {
-			if (color.equals(colors[0]) || color.equals(colors[1])
-					|| color.equals(colors[2])) {
-				this.color = color;
-			}
-
-		}
-
-		/**
-		 * @return form of the card
-		 */
-		protected String getFomr() {
-			return form;
-		}
-
-		/**
-		 * @param fomr
-		 *            set the form of the Card
-		 * @throws IllegalArgumentException
-		 *             if the form is not allowed
-		 */
-		private void setFomr(String fomr) {
-			if (fomr.equals(forme[2]) || fomr.equals(forme[0])
-					|| fomr.equals(forme[1])) {
-				this.form = fomr;
-			}
-		}
-
-		/**
-		 * @return which fill the Card has
-		 */
-		protected String getPanelFilling() {
-			return panelFilling;
-		}
-
-		/**
-		 * @param panelFilling
-		 *            filling of the card
-		 * @throws IllegalArgumentException
-		 *             if filling is not allowed
-		 */
-		private void setPanelFilling(String panelFilling) {
-			if (panelFilling.equals(filling[0])
-					|| panelFilling.equals(filling[1])
-					|| panelFilling.equals(filling[2])) {
-				this.panelFilling = panelFilling;
-			}
-
-		}
-
-		/**
-		 * @return how much Components one card contains
-		 */
-		protected int getNumberOfComponents() {
-			return anz;
-		}
-
-		/**
-		 * @param numberOfComponents
-		 * @throws IllegalArgumentException
-		 *             if numberOfComponents is not allowed
-		 */
-		private void setNumberOfComponents(int numberOfComponents) {
-			if (numberOfComponents == numbers[0]
-					|| numberOfComponents == numbers[1]
-					|| numberOfComponents == numbers[2]) {
-				this.anz = numberOfComponents;
-
-			}
-		}
-	}
 
 	/**
 	 * Construct for card
@@ -144,12 +35,12 @@ final class Pack {
 	/**
 	 * @return the finish pack of the Game
 	 */
-	private Cards[] creatCards() {
-		Cards list[] = new Cards[SIZEOFARRAY];
+	private Card[] creatCards() {
+		Card list[] = new Card[SIZEOFARRAY];
 		for (int i = 0; i < SIZEOFARRAY; i++) {
 
-			list[i] = new Cards(colors[colorIndex], forme[formeIndex],
-					filling[fillgingIndex], numbers[numbersIdex]);
+			list[i] = new Card(COLORS[colorIndex], FORME[formeIndex],
+					FILL[fillgingIndex], NUMBEROFCOMPONET[numbersIdex]);
 			setFormedIndex();
 
 		}
@@ -214,24 +105,19 @@ final class Pack {
 	/**
 	 * @return pack of cards
 	 */
-	protected Cards[] getPack() {
+	protected Card[] getPack() {
 		return this.pack;
 	}
 	protected String[] getcolors(){
-		return this.colors;
+		return Pack.COLORS;
 		
 	}
 	protected String[] getFormes(){
-		return this.forme;
+		return Pack.FORME;
 	}
 	protected String[] getFill(){
-		return this.filling;
+		return Pack.FILL;
 	}
-	protected void Printer(){
-		int i = 0;
-		for(Cards c : this.pack){
-			System.out.println(i + " "+c.getColor()+" , "+ c.getFomr()+" , "+ c.getPanelFilling()+" , "+ c.getNumberOfComponents());
-			i++;
-		}
-	}
+
+
 }

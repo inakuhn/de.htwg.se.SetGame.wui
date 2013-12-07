@@ -1,13 +1,13 @@
 package setgame.modell;
 
-import static org.junit.Assert.*;
 
+
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import setgame.modell.Field;
-import setgame.modell.Pack.Cards;
 
 public class FieldTest {
 	Field f;
@@ -36,8 +36,8 @@ public class FieldTest {
 
 	@Test
 	public void testInit() {
-		Cards[] c = f.init();
-		for(Cards t : c){
+		Card[] c = f.init();
+		for(Card t : c){
 			if(t == null)
 				fail("card not exists");
 		}
@@ -68,7 +68,7 @@ public class FieldTest {
 	
 	@Test
 	public void testgetCardsInField() {
-		Cards test = f.getCardsInField();
+		Card test = f.getCardsInField();
 		if (test.equals(null)) {
 			fail("card not exists");
 		}
