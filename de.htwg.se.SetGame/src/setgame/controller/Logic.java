@@ -7,7 +7,6 @@ import setgame.modell.Card;
 
 public class Logic extends Observable {
 	setgame.modell.Field field;
-	LinkedList<Card> listOfSetsInField;
 
 	public Logic() {
 		this.field = new setgame.modell.Field();
@@ -64,15 +63,8 @@ public class Logic extends Observable {
 
 	private void alltheSetsInField(LinkedList<Card> fielCards) {
 		boolean foudSet = false;
-		for(Card cardOne : fielCards){
-			for(Card cardTwo : fielCards)
-				for(Card cardThree : fielCards){
-					if(isAset(cardOne, cardTwo, cardThree)){
-						foudSet = true;
-						break;
-					}
-				}
-		}
+		if(getSet(fielCards) != null)
+			foudSet = true;
 		if(foudSet == false){
 			changeCardsinGame();
 		}
@@ -80,6 +72,19 @@ public class Logic extends Observable {
 	}
 
 	private void changeCardsinGame() {
+		LinkedList<Card> allCards = new LinkedList<Card>();
+		allCards.addAll(field.getPack());
+		allCards.addAll(field.getPack());
+		if(!allCards.isEmpty() && getSet(allCards) != null){
+			if(getSet(field.getPack()) != null && getSet(field.getPack()).size() >= 3){
+				
+							
+			}
+			
+
+			
+		}
+			
 		
 	}
 
@@ -123,5 +128,26 @@ public class Logic extends Observable {
 			return true;
 		}
 		return false;
+	}
+	private LinkedList<Card> getSet(LinkedList<Card> list){
+		LinkedList<Card> setList = new LinkedList<Card>();
+		if(list.size() < 3){
+			return null;
+		}else{
+			for(Card cardOne : list){
+				for(Card cardTwo : list){
+					for(Card cardThree : list){
+						if(isAset(cardOne, cardTwo, cardThree)){
+							setList.add(cardOne);
+							setList.add(cardTwo);
+							setList.add(cardThree);
+							return setList;
+						}
+					}
+				}
+			}
+			
+		}
+		return null;
 	}
 }
