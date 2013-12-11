@@ -2,6 +2,8 @@ package setgame.controller;
 
 import java.util.LinkedList;
 
+
+
 import de.htwg.se.observer.Observable;
 import setgame.modell.Card;
 
