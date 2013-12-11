@@ -65,5 +65,4 @@ public class FieldTest {
 			System.out.println("array[" + i + "] = " + array[i]);
 		}
 	}
-
 }

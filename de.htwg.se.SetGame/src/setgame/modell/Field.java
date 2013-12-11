@@ -231,5 +231,9 @@ public class Field {
 		
 		return list;
 	}
+	
+	public int getSizeofField() {
+		return field.length;
+	}
 
 }
