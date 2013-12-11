@@ -30,7 +30,7 @@ public class Card {
 	/**
 	 * @return color of the card
 	 */
-	protected String getColor() {
+	public String getColor() {
 		return color;
 	}
 
@@ -51,7 +51,7 @@ public class Card {
 	/**
 	 * @return form of the card
 	 */
-	protected String getFomr() {
+	public String getFomr() {
 		return form;
 	}
 
@@ -73,7 +73,7 @@ public class Card {
 	/**
 	 * @return which fill the Card has
 	 */
-	protected String getPanelFilling() {
+	public String getPanelFilling() {
 		return panelFilling;
 	}
 
@@ -97,7 +97,7 @@ public class Card {
 	/**
 	 * @return how much Components one card contains
 	 */
-	protected int getNumberOfComponents() {
+	public int getNumberOfComponents() {
 		return anz;
 	}
 
