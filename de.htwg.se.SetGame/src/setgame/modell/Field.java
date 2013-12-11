@@ -16,7 +16,6 @@ public class Field {
 	private static int FIELDSIZE = 12;
 	private static final int MAX = 81;
 	private static final int ONE = 1;
-	private static final int ADDSIZE = 3;
 	private static int COUNTER = 0;
 	private Pack card = new Pack();
 	
@@ -130,9 +129,9 @@ public class Field {
 				
 			} 
 			
-		}		
+		}	
 	}
-	
+
 	private boolean remove(Card oneCard) {
 		
 		for(int n = 0; n < field.length; n++) {
