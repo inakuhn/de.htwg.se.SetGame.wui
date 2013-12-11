@@ -2,8 +2,6 @@ package setgame.modell;
 
 import java.util.LinkedList;
 
-
-
 /**
  * Class Field.
  * @author David Simon & Raina Bertolini
@@ -15,11 +13,15 @@ public class Field {
 	/**
 	 * Instance variable
 	 */
-	private static final int FIELDSIZE = 12;
+	private static int FIELDSIZE = 12;
 	private static final int MAX = 81;
 	private static final int ONE = 1;
+	private static final int ADDSIZE = 3;
 	private static int COUNTER = 0;
 	private Pack card = new Pack();
+	
+	Card[] field = new Card[FIELDSIZE];
+	Card[] freeCard = new Card[MAX];
 	
 	/**
 	 *  All used Cards will be write in the LinkedList register
@@ -27,14 +29,13 @@ public class Field {
 	private LinkedList<Card> register = new LinkedList<Card>();
 
 	public Field() {
+		init();
 	}
 
 	/** Field will be initializes.
 	 *  @return give back filled field
 	 */
 	public Card[] init() {
-		Card[] field = new Card[FIELDSIZE];
-
 		return fillField(field);
 	}
 
@@ -80,7 +81,7 @@ public class Field {
 	 * Fill the variable fill with one card information and gives back.
 	 * @return fill - return one "card information" 
 	 */
-	public Card getCardsInField() {	
+	private Card setCardsInField() {	
 		
 		Card fill;
 		int randfill[] = rand();
@@ -100,8 +101,7 @@ public class Field {
 				return fill;
 			}
 		}
-		
-		System.err.printf("Game Over\n");
+
 		return null;
 	}
 	/**
@@ -110,8 +110,47 @@ public class Field {
 	 * @param cardTwo
 	 * @param cardThree
 	 */
-	public void foudSet(Card cardOne, Card cardTwo, Card cardThree){
+	public void foundSet(Card cardOne, Card cardTwo, Card cardThree){		
+		for(Card control : field) {
+			
+			if(cardOne.equals(control)) {
+				if(remove(cardOne)) {
+					add();
+				}
+				
+			} else if (cardTwo.equals(control)) {
+				if(remove(cardTwo)) {
+					add();
+				}
+				
+			} else if (cardThree.equals(control)) {
+				if(remove(cardThree)) {
+					add();
+				}
+				
+			} 
+			
+		}		
+	}
+	
+	private boolean remove(Card oneCard) {
 		
+		for(int n = 0; n < field.length; n++) {
+			if (field[n].equals(oneCard)) {
+				field[n] = null;
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	private void add() {
+		for(int n = 0; n < field.length; n++) {
+			if(field.equals(null)) {
+				field[n] = setCardsInField();
+			}
+		}
 	}
 	
 	/**
@@ -119,31 +158,78 @@ public class Field {
 	 */
 	public LinkedList<Card> cardsInField(){
 		LinkedList<Card> list = new LinkedList<Card>();
+		
+		for(Card add : field) {
+			list.add(add);
+		}
+		
 		return list;
 	}
 	
 	/**
 	 *	changes the size of the field in the game or at the begin with out losing Cards. 
 	 */
-	public void setSizeOfField(){
+	public void setSizeOfField(int size){
+		if(size < FIELDSIZE){
+			changeFieldToSmallSize(size);
+		}else if(size > FIELDSIZE){
+			FIELDSIZE = size;
+			field = new Card[FIELDSIZE];
+		}
+	}
+	
+	private void changeFieldToSmallSize(int size) {
+		LinkedList<Card> savelist = new LinkedList<Card>();
+		int saveSize = size + 1;
+		
+		for(int n = saveSize; n < FIELDSIZE; n++) {
+			savelist.add(field[n]);
+		}
+		
+		register.remove(savelist);
+		field = new Card[size];
 		
 	}
 	
+    /** the Controller always prove if a Set in Field is, if not the look through the existent pack
+     * and prove if still existing a Set if yes calls the changed Cards.
+     * @param liste
+     */
+    public void changeCards(LinkedList<Card> liste){
+    	int size = liste.size();
+    	
+    	if(FIELDSIZE >= size) {
+    		
+    		for (int n = 0; n < size; n++) {
+    			field[n] = liste.get(n);
+    		}
+    		
+    	} else {
+    		
+    		setSizeOfField(size);
+    		
+    		for (int n = 0; n < size; n++) {
+    			field[n] = liste.get(n);
+    		}
+    		
+    	}
+   
+    	
+    }
 	
-	/**	the Controller always prove if a Set in Field is, if not the look through the existent pack
-	 * and prove if still existing a Set if yes calls the changed Cards. 
-	 * @param liste
-	 */
-	public void changeCards(LinkedList<Card> liste){
-		
-	}
 	/**
-	 * @return the existence pack all Cards in game also the field cards!
+	 * @return the unused Cards in game!
 	 */
 	public LinkedList<Card> getPack(){
 		LinkedList<Card> list = new LinkedList<Card>();
-		return list;
 		
+		for (Card rest : card.getPack()) {
+			if(!rest.equals(register)) {
+				list.add(rest);
+			}
+		}
+		
+		return list;
 	}
 
 }

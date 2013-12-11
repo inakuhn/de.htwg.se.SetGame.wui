@@ -65,13 +65,5 @@ public class FieldTest {
 			System.out.println("array[" + i + "] = " + array[i]);
 		}
 	}
-	
-	@Test
-	public void testgetCardsInField() {
-		Card test = f.getCardsInField();
-		if (test.equals(null)) {
-			fail("card not exists");
-		}
-	}
 
 }

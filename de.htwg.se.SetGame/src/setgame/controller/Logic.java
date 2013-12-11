@@ -52,7 +52,7 @@ public class Logic extends Observable {
 					&& proveFilling(cardOne, cardTwo, cardThree)
 					&& proveNumberOfComponents(cardOne, cardTwo, cardThree)
 					&& proveFilling(cardOne, cardTwo, cardThree)) {
-				field.foudSet(cardOne, cardTwo, cardThree);
+				field.foundSet(cardOne, cardTwo, cardThree);
 				alltheSetsInField(field.cardsInField());
 				return true;
 			} else {
