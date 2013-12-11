@@ -1,5 +1,9 @@
 package setgame.modell;
 
+/**
+ * @author David Simon & Raina Bertolini
+ *
+ */
 public class Card {
 	private String color;
 	private String form;

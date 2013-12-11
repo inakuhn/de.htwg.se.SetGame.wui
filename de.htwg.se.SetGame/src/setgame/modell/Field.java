@@ -104,5 +104,46 @@ public class Field {
 		System.err.printf("Game Over\n");
 		return null;
 	}
+	/**
+	 * Insert new Cards in the field where cardOne , cardTwo ,cardThree went.
+	 * @param cardOne
+	 * @param cardTwo
+	 * @param cardThree
+	 */
+	public void foudSet(Card cardOne, Card cardTwo, Card cardThree){
+		
+	}
+	
+	/**
+	 * @return all the cards in the field
+	 */
+	public LinkedList<Card> cardsInField(){
+		LinkedList<Card> list = new LinkedList<Card>();
+		return list;
+	}
+	
+	/**
+	 *	changes the size of the field in the game or at the begin with out losing Cards. 
+	 */
+	public void setSizeOfField(){
+		
+	}
+	
+	
+	/**	the Controller always prove if a Set in Field is, if not the look through the existent pack
+	 * and prove if still existing a Set if yes calls the changed Cards. 
+	 * @param liste
+	 */
+	public void changeCards(LinkedList<Card> liste){
+		
+	}
+	/**
+	 * @return the existence pack all Cards in game also the field cards!
+	 */
+	public LinkedList<Card> getPack(){
+		LinkedList<Card> list = new LinkedList<Card>();
+		return list;
+		
+	}
 
 }

@@ -1,7 +1,8 @@
 package setgame.modell;
 
 /**
- * @author rabertol class use to create all the combinations of the pack
+ * @author David Simon & Raina Bertolini
+ * class use to create all the combinations of the pack
  */
 final class Pack {
 	
