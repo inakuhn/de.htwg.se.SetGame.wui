@@ -15,20 +15,21 @@ import setgame.modell.Card;
 public class Logic extends Observable {
 	setgame.modell.Field field;
 
+	/**
+	 *  Logic Construct make for the game a new field with a new pack!!!
+	 */
 	public Logic() {
 		this.field = new setgame.modell.Field();
 	}
 
-	public void stratGame() {
-	}
 
 	/**
 	 * @param cardOne
 	 * @param cardTwo
 	 * @param cardThree
-	 * @return true if all the cards are in the field
+	 * @return true if all the cards are in the field is only a safty methode
 	 */
-	public boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
+	private boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
 		int i = 3;
 		for (Card card : field.cardsInField())
 			if (card.getColor().equals(cardOne.getColor())
@@ -80,6 +81,11 @@ public class Logic extends Observable {
 
 	}
 
+	
+
+	/**
+	 * @param fielCards is the Cards in field the new ones if there is no set anymore.
+	 */
 	private void alltheSetsInField(LinkedList<Card> fielCards) {
 		boolean foudSet = false;
 		if(getSet(fielCards) != null)
@@ -90,9 +96,12 @@ public class Logic extends Observable {
 		
 	}
 
+	/**
+	 * 	changed the Cards in the field if necessary.
+	 * to 
+	 */
 	private void changeCardsinGame() {
 		LinkedList<Card> allCards = new LinkedList<Card>();
-		allCards.addAll(field.getPack());
 		allCards.addAll(field.getPack());
 		if(!allCards.isEmpty() && getSet(allCards) != null){
 			if(getSet(field.getPack()) != null && getSet(field.getPack()).size() >= 3){
