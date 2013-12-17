@@ -7,6 +7,11 @@ import java.util.LinkedList;
 import de.htwg.se.observer.Observable;
 import setgame.modell.Card;
 
+/**
+ * @author raina
+ * Logic class for the game
+ *
+ */
 public class Logic extends Observable {
 	setgame.modell.Field field;
 
@@ -17,6 +22,12 @@ public class Logic extends Observable {
 	public void stratGame() {
 	}
 
+	/**
+	 * @param cardOne
+	 * @param cardTwo
+	 * @param cardThree
+	 * @return true if all the cards are in the field
+	 */
 	public boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
 		int i = 3;
 		for (Card card : field.cardsInField())
@@ -45,6 +56,12 @@ public class Logic extends Observable {
 			return false;
 	}
 
+	/**
+	 * @param cardOne
+	 * @param cardTwo
+	 * @param cardThree
+	 * @return return true if is a set.
+	 */
 	public boolean isAset(Card cardOne, Card cardTwo, Card cardThree) {
 		if (!isInFiel(cardOne, cardTwo, cardThree))
 			return false;
