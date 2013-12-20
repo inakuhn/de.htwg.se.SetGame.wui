@@ -22,12 +22,7 @@ public class CardTest {
 
 	@Test
 	public void testGetColor() {
-		if(this.card.getColor() == null){
-			fail("coler = null");
-		}else{
-			assert(!(card.getColor().equals(setgame.modell.Pack.COLORS[0]) || card.getColor().equals(setgame.modell.Pack.COLORS[1]) || card.getColor().equals(setgame.modell.Pack.COLORS[2] )));
-	
-		}
+		assert(card.getColor() != null);
 	}
 	@Test
 	public void testGetFomr() {

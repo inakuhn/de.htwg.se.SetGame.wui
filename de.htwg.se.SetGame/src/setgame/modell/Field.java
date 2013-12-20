@@ -69,6 +69,11 @@ public class Field {
 		int array[] = rand();
 
 		for (int i = 0; i < FIELDSIZE; i++) {
+			if(array[i] == 81){
+				System.out.println("i war 81");
+				array[i] = 0;
+			}
+			System.out.println(array[i]);
 			field[i] = pack.getPack()[array[i]];
 			register.add(pack.getPack()[array[i]]);
 		}

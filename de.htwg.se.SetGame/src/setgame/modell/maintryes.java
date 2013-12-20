@@ -10,6 +10,17 @@ public class maintryes {
 			list.add(card);
 			System.out.println(card.getColor()+" , "+card.getFomr()+" , "+card.getPanelFilling()+" , "+card.getNumberOfComponents());
 		}
-		System.out.println(list.size());
+		System.out.println("Site of liste = "+list.size());
+	
+		
+		
+		Field field = new Field();
+		for(Card card : field.init()){
+			System.out.println(card);
+		}
+		System.out.println("Card in field==");
+		for(Card card : field.cardsInField()){
+			System.out.println(card);
+		}
 	}
 }
