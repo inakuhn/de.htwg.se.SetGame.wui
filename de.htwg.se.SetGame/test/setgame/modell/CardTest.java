@@ -4,17 +4,19 @@ import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
+import setgame.modell.Card;
 
 public class CardTest {
+
 	Card card = null;
 	@Before
-	private void setUp() {
-		this.card = new Card("red", "wave", "empty", 1);
+	public void setUp() {
+		this.card = new Card("red", "wave", "fill", 1);
 
 	}
 	@Test
 	public void testCard() {
-		assert(card == null);
+		assert(card != null);
 		
 	}
 
@@ -29,17 +31,17 @@ public class CardTest {
 	}
 	@Test
 	public void testGetFomr() {
-		assert(card.getFomr() == null);
+		assert(card.getFomr() != null);
 	}
 
 	@Test
 	public void testGetPanelFilling() {
-		assert(card.getPanelFilling() == null);
+		assert(card.getPanelFilling() != null);
 	}
 
 	@Test
 	public void testGetNumberOfComponents() {
-		assert(card.getNumberOfComponents() == -1);
+		assert(card.getNumberOfComponents() != -1);
 	}
 
 }

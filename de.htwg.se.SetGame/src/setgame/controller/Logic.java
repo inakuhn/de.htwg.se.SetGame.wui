@@ -8,7 +8,7 @@ import de.htwg.se.observer.Observable;
 import setgame.modell.Card;
 
 /**
- * @author raina
+ * @author Raina & David
  * Logic class for the game
  *
  */
@@ -27,10 +27,10 @@ public class Logic extends Observable {
 	 * @param cardOne
 	 * @param cardTwo
 	 * @param cardThree
-	 * @return true if all the cards are in the field is only a safty methode
+	 * @return true if all the cards are in the field is only a safety Method
 	 */
 	private boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
-		int i = 3;
+		int counter = 3;
 		for (Card card : field.cardsInField())
 			if (card.getColor().equals(cardOne.getColor())
 					&& card.getFomr().equals(cardOne.getFomr())
@@ -48,10 +48,10 @@ public class Logic extends Observable {
 							.getNumberOfComponents()
 					&& card.getPanelFilling().equals(
 							cardThree.getPanelFilling())) {
-				i++;
+				counter++;
 			}
 
-		if (i == 3)
+		if (counter == 3)
 			return true;
 		else
 			return false;
@@ -98,7 +98,7 @@ public class Logic extends Observable {
 
 	/**
 	 * 	changed the Cards in the field if necessary.
-	 * to 
+	 *  to 
 	 */
 	private void changeCardsinGame() {
 		LinkedList<Card> allCards = new LinkedList<Card>();
