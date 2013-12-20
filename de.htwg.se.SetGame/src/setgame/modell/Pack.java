@@ -45,6 +45,7 @@ final class Pack {
 			setFormedIndex();
 
 		}
+		System.out.println(list);
 	
 		return list;
 

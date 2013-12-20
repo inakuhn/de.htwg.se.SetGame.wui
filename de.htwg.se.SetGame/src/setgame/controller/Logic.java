@@ -102,9 +102,9 @@ public class Logic extends Observable {
 	 */
 	private void changeCardsinGame() {
 		LinkedList<Card> allCards = new LinkedList<Card>();
-		allCards.addAll(field.getPack());
+		allCards.addAll(field.getPackForControler());
 		if(!allCards.isEmpty() && getSet(allCards) != null){
-			if(getSet(field.getPack()) != null && getSet(field.getPack()).size() >= 3){
+			if(getSet(field.getPackForControler()) != null && getSet(field.getPackForControler()).size() >= 3){
 				
 							
 			}

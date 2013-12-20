@@ -17,7 +17,7 @@ public class Field {
 	private static final int MAX = 81;
 	private static final int ONE = 1;
 	private static int COUNTER = 0;
-	private Pack card = new Pack();
+	private Pack pack;
 	
 	Card[] field = new Card[FIELDSIZE];
 	Card[] freeCard = new Card[MAX];
@@ -28,6 +28,7 @@ public class Field {
 	private LinkedList<Card> register = new LinkedList<Card>();
 
 	public Field() {
+		this.pack = new Pack();
 		init();
 	}
 
@@ -68,8 +69,8 @@ public class Field {
 		int array[] = rand();
 
 		for (int i = 0; i < FIELDSIZE; i++) {
-			field[i] = card.getPack()[array[i]];
-			register.add(card.getPack()[array[i]]);
+			field[i] = pack.getPack()[array[i]];
+			register.add(pack.getPack()[array[i]]);
 		}
 
 		return field;
@@ -95,8 +96,8 @@ public class Field {
 			}
 			
 			if (close == false) {
-				fill = card.getPack()[randfill[COUNTER]];
-				register.add(card.getPack()[randfill[COUNTER]]);
+				fill = pack.getPack()[randfill[COUNTER]];
+				register.add(pack.getPack()[randfill[COUNTER]]);
 				return fill;
 			}
 		}
@@ -219,10 +220,10 @@ public class Field {
 	/**
 	 * @return the unused Cards in game!
 	 */
-	public LinkedList<Card> getPack(){
+	public LinkedList<Card> getPackForControler(){
 		LinkedList<Card> list = new LinkedList<Card>();
 		
-		for (Card rest : card.getPack()) {
+		for (Card rest : pack.getPack()) {
 			if(!rest.equals(register)) {
 				list.add(rest);
 			}

@@ -4,6 +4,8 @@ package setgame.modell;
 
 import static org.junit.Assert.*;
 
+import java.util.LinkedList;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,8 +21,7 @@ public class FieldTest {
 
         @Test
         public void test() {
-                if(this.f == null)
-                        fail("NullPointer");
+                assert(this.f != null);
         }
 
         @Test
@@ -36,12 +37,13 @@ public class FieldTest {
 
         @Test
         public void testInit() {
-                Card[] c = f.init();
-                for(Card t : c){
-                        if(t == null)
-                                fail("card not exists");
+                LinkedList<Card> list = new LinkedList<Card>();
+        		for(Card card : f.init()){
+                	list.add(card);
                 }
+        		assert(list.size() != 12);
         }
+        
 
         @Test
         public void testRand() {
@@ -49,7 +51,6 @@ public class FieldTest {
                 boolean vertauscht;
                 for (int i = array.length - 1; i >= 0; i--) {
                         vertauscht = false;
-                        /* Durchlauf des Felds von 0 bis i: */
                         for (int j = 0; j < i; j++) {
                                 if (array[j] > array[j + 1]) {
                                         int t = array[j];

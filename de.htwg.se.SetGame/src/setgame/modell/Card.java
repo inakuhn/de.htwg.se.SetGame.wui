@@ -116,4 +116,8 @@ public class Card {
 			this.anz = -1;
 		}
 	}
+	@Override
+	public String toString(){
+		return this.color+" , "+this.form+" , "+this.panelFilling+" , "+this.anz+"\n";
+	}
 }
