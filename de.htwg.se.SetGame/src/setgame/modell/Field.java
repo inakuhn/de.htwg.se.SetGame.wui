@@ -12,6 +12,7 @@ public class Field {
 
 	/**
 	 * Instance variable
+	 * commen
 	 */
 	private static int FIELDSIZE = 12;
 	private static final int MAX = 81;
