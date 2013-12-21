@@ -108,10 +108,7 @@ final class Pack {
 	/**
 	 * @return pack of cards
 	 */
-	protected Card[] getPack() {
-		return this.pack;
-	}
-	protected LinkedList<Card> getPackListe(){
+	protected LinkedList<Card> getPack() {
 		LinkedList<Card> liste = new LinkedList<Card>();
 		for(Card card : this.pack){
 			liste.add(card);

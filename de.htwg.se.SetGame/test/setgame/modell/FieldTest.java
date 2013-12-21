@@ -45,7 +45,7 @@ public class FieldTest {
 
         @Test
         public void testRand() {
-                int array[] = field.rand();
+                int array[] = field.array;
                 boolean vertauscht;
                 for (int i = array.length - 1; i >= 0; i--) {
                         vertauscht = false;
@@ -95,7 +95,6 @@ public class FieldTest {
 
     	@Test
     	public void testChangeCards() {
-    		boolean booll = false;
     		LinkedList<Card> packcard = new LinkedList<Card>();
     		LinkedList<Card> liste = new LinkedList<Card>();
     		packcard.addAll(this.field.getPackForControler());

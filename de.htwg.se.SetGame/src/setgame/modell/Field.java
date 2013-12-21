@@ -12,16 +12,17 @@ public class Field {
 
 	/**
 	 * Instance variable
-	 * commen
+	 *
 	 */
 	private static int FIELDSIZE = 12;
 	private static final int MAX = 81;
 	private static final int ONE = 1;
 	private static int COUNTER = 0;
 	private Pack pack;
-	
-	Card[] field;
-	Card[] freeCard;
+	LinkedList<Integer> ramdomListe;
+	LinkedList<Card> cardInFieldGame;
+	LinkedList<Card> freeCard;
+	int array[];
 	
 	/**
 	 *  All used Cards will be write in the LinkedList register
@@ -30,56 +31,72 @@ public class Field {
 
 	public Field() {
 		this.pack = new Pack();
-		this.freeCard =  new Card[MAX];
-		this.field = new Card[FIELDSIZE];
+		this.freeCard =  new LinkedList<Card>();
+		this.cardInFieldGame = new LinkedList<Card>();
+		this.ramdomListe = new LinkedList<Integer>();
+		this.array = new int[MAX];
 		init();
+		rand();
 	}
 
 	/** Field will be initializes.
 	 *  @return give back filled field
 	 */
-	public Card[] init() {
-		return fillField(field);
+	public LinkedList<Card> init() {
+		
+		return fillField();
 	}
 
 	/** Filled array with integer number.
 	 *  @return filled array
 	 */
-	public int[] rand() {
-		int[] array = new int[MAX];
+	public void rand() {
+		int [] tem = new int[MAX];
 		boolean b;
-		for (int i = 0; i < MAX; i++) {
+		for (int index = 0; index < MAX; index++) {
 			b = true;
-			int j = (int) (Math.random() * MAX + ONE);
+			int element = (int) (Math.random() * MAX + ONE);
 			for (int t = 0; t < MAX; t++) {
-				if (j == array[t] && i > 0) {
-					i = i - 1;
+				if (element == tem[t] && index > 0) {
+					index = index - 1;
 					b = false;
 				}
 			}
 			if (b) {
-				array[i] = j;
-			}
+
+					this.ramdomListe.add(index, element);
+					
+					tem[index] = element;
+				}
+			System.out.println("Elemte for ramdommm list = "+ramdomListe);
+							
 		}
-		return array;
+		for(int index = 0; index < tem.length; index++){
+			
+			this.array[index] = tem[index];
+		}
+		
 	}
 
 	/** Filled field with cards from the class Card
 	 *  @return filled Field with Cards
 	 */
-	private Card[] fillField(Card[] field) {
+	private LinkedList<Card> fillField() {
 
-		int array[] = rand();
-
-		for (int i = 0; i < FIELDSIZE; i++) {
-			if(array[i] == 81){
-				array[i] = 0;
+		for (int index = 0; index < FIELDSIZE; index++) {
+			if(array[index] == 81){
+				array[index] = 0;
+				int indexOf81 = ramdomListe.indexOf(81);
+				ramdomListe.add(indexOf81, 0);
+				ramdomListe.remove(81);
 			}
-			field[i] = pack.getPack()[array[i]];
-			register.add(pack.getPack()[array[i]]);
+			this.cardInFieldGame.add(index, pack.getPack().get(this.ramdomListe.get(index)));
+			
+			register.add(pack.getPack().get(this.ramdomListe.get(index)));
+//			this.ramdomListe.remove(index);
 		}
 
-		return field;
+		return cardInFieldGame;
 
 	}
 	
@@ -90,7 +107,7 @@ public class Field {
 	private Card setCardsInField() {	
 		
 		Card fill;
-		int randfill[] = rand();
+		int randfill[] = this.array;
 		boolean close = false;
 		
 		while(COUNTER != randfill.length) {
@@ -102,8 +119,8 @@ public class Field {
 			}
 			
 			if (close == false) {
-				fill = pack.getPack()[randfill[COUNTER]];
-				register.add(pack.getPack()[randfill[COUNTER]]);
+				fill = pack.getPack().get(randfill[COUNTER]);
+				register.add(pack.getPack().get(randfill[COUNTER]));
 				return fill;
 			}
 		}
@@ -117,21 +134,18 @@ public class Field {
 	 * @param cardThree
 	 */
 	public void foundSet(Card cardOne, Card cardTwo, Card cardThree){		
-		for(Card control : field) {
+		for(Card control : cardInFieldGame) {
 			
 			if(cardOne.equals(control)) {
-				if(remove(cardOne)) {
-					add();
+				if(this.pack.getPack().remove(cardOne)) {
 				}
 				
 			} else if (cardTwo.equals(control)) {
-				if(remove(cardTwo)) {
-					add();
+				if(this.pack.getPack().remove(cardTwo)) {
 				}
 				
 			} else if (cardThree.equals(control)) {
-				if(remove(cardThree)) {
-					add();
+				if(this.pack.getPack().remove(cardThree)) {
 				}
 				
 			} 
@@ -139,25 +153,8 @@ public class Field {
 		}	
 	}
 
-	private boolean remove(Card oneCard) {
-		
-		for(int n = 0; n < field.length; n++) {
-			if (field[n].equals(oneCard)) {
-				field[n] = null;
-				return true;
-			}
-		}
-		
-		return false;
-	}
+
 	
-	private void add() {
-		for(int n = 0; n < field.length; n++) {
-			if(field.equals(null)) {
-				field[n] = setCardsInField();
-			}
-		}
-	}
 	
 	/**
 	 * @return all the cards in the field
@@ -165,7 +162,7 @@ public class Field {
 	public LinkedList<Card> cardsInField(){
 		LinkedList<Card> list = new LinkedList<Card>();
 		
-		for(Card add : field) {
+		for(Card add : cardInFieldGame) {
 			list.add(add);
 		}
 		
@@ -180,7 +177,7 @@ public class Field {
 			changeFieldToSmallSize(size);
 		}else if(size > FIELDSIZE){
 			FIELDSIZE = size;
-			field = new Card[FIELDSIZE];
+//			cardInFieldGame = new Card[FIELDSIZE];
 		}
 	}
 	
@@ -189,11 +186,11 @@ public class Field {
 		int saveSize = size + 1;
 		
 		for(int n = saveSize; n < FIELDSIZE; n++) {
-			savelist.add(field[n]);
+			savelist.add(cardInFieldGame.get(n));
 		}
 		
 		register.remove(savelist);
-		field = new Card[size];
+		cardInFieldGame.retainAll(savelist);
 		
 	}
 	
@@ -207,7 +204,7 @@ public class Field {
     	if(FIELDSIZE >= size) {
     		
     		for (int n = 0; n < size; n++) {
-    			field[n] = liste.get(n);
+//    			cardInFieldGame[n] = liste.get(n);
     		}
     		
     	} else {
@@ -215,7 +212,7 @@ public class Field {
     		setSizeOfField(size);
     		
     		for (int n = 0; n < size; n++) {
-    			field[n] = liste.get(n);
+//    			cardInFieldGame[n] = liste.get(n);
     		}
     		
     	}
@@ -239,7 +236,7 @@ public class Field {
 	}
 	
 	public int getSizeofField() {
-		return field.length;
+		return cardInFieldGame.size();
 	}
 	public LinkedList<Card> getAllCardsInGame(){
 		LinkedList<Card> list = new LinkedList<Card>();
