@@ -1,5 +1,7 @@
 package setgame.modell;
 
+import java.util.LinkedList;
+
 /**
  * @author David Simon & Raina Bertolini
  * class use to create all the combinations of the pack
@@ -108,6 +110,13 @@ final class Pack {
 	 */
 	protected Card[] getPack() {
 		return this.pack;
+	}
+	protected LinkedList<Card> getPackListe(){
+		LinkedList<Card> liste = new LinkedList<Card>();
+		for(Card card : this.pack){
+			liste.add(card);
+		}
+		return liste;
 	}
 	protected String[] getcolors(){
 		return Pack.COLORS;

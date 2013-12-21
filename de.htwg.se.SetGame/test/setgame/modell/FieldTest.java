@@ -2,43 +2,41 @@ package setgame.modell;
 
 
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
 import java.util.LinkedList;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import setgame.controller.Logic;
 import setgame.modell.Field;
-
+import setgame.*;
 public class FieldTest {
-        Field f;
+        Field field;
+        setgame.controller.Logic logic;
 
         @Before
         public void setUp() {
-                this.f = new Field();
+                this.field = new Field();
+                this.logic = new Logic();
         }
 
         @Test
         public void test() {
-                assert(this.f != null);
+                assert(this.field != null);
         }
 
-        @Test
-        public void testFieldradom() {
-                System.out.println("ok!");
-        }
 
         @Test
         public void testField() {
-                if (!(f instanceof Field))
-                        fail("Not a instance of");
+                assert((this.field instanceof Field) != false);
         }
 
         @Test
         public void testInit() {
                 LinkedList<Card> list = new LinkedList<Card>();
-        		for(Card card : f.init()){
+        		for(Card card : field.init()){
                 	list.add(card);
                 }
         		assert(list.size() != 12);
@@ -47,7 +45,7 @@ public class FieldTest {
 
         @Test
         public void testRand() {
-                int array[] = f.rand();
+                int array[] = field.rand();
                 boolean vertauscht;
                 for (int i = array.length - 1; i >= 0; i--) {
                         vertauscht = false;
@@ -62,8 +60,65 @@ public class FieldTest {
                         if (!vertauscht)
                                 break;
                 }
-                for (int i = 0; i < array.length; i++) {
-                        System.out.println("array[" + i + "] = " + array[i]);
-                }
+                
         }
+
+
+    	@Test
+    	public void testFoundSet() {
+    		for(Card cardOne : this.field.getAllCardsInGame()){
+    			for(Card cardTwo : this.field.getAllCardsInGame()){
+    				for (Card cardThree : this.field.getAllCardsInGame()){
+    					if(this.logic.isAset(cardOne, cardTwo, cardThree)){
+    						field.foundSet(cardOne, cardTwo, cardThree);
+    					}
+    				}
+    			}
+    			
+    		}
+    		System.out.println();
+    		assert(this.field.getAllCardsInGame().isEmpty() != false);
+    	}
+
+    	@Test
+    	public void testCardsInField() {
+    		for(Card card : this.field.cardsInField()){
+    		System.out.println(card);
+    	
+    		}
+    	}
+    	@Test
+    	public void testSetSizeOfField() {
+    		this.field.setSizeOfField(15);
+    		assert(this.field.cardsInField().size() != 15);
+    	}
+
+    	@Test
+    	public void testChangeCards() {
+    		boolean booll = false;
+    		LinkedList<Card> packcard = new LinkedList<Card>();
+    		LinkedList<Card> liste = new LinkedList<Card>();
+    		packcard.addAll(this.field.getPackForControler());
+    		for(int index = 0; index < this.field.getPackForControler().size(); index ++){
+    			liste.add(this.field.getPackForControler().get(index));
+    			field.changeCards(liste);
+    		
+    		for(Card card : this.field.cardsInField()){
+    			if(liste.get(index).equals(card)){
+    				packcard.remove(card);
+    			}
+    		}
+    		}
+    		assert(packcard.isEmpty() != false);
+    	}
+
+    	@Test
+    	public void testGetPackForControler() {
+    		fail("Not yet implemented");
+    	}
+
+    	@Test
+    	public void testGetSizeofField() {
+    		fail("Not yet implemented");
+    	}
 }

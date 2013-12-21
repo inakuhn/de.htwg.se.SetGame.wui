@@ -19,8 +19,8 @@ public class Field {
 	private static int COUNTER = 0;
 	private Pack pack;
 	
-	Card[] field = new Card[FIELDSIZE];
-	Card[] freeCard = new Card[MAX];
+	Card[] field;
+	Card[] freeCard;
 	
 	/**
 	 *  All used Cards will be write in the LinkedList register
@@ -29,6 +29,8 @@ public class Field {
 
 	public Field() {
 		this.pack = new Pack();
+		this.freeCard =  new Card[MAX];
+		this.field = new Card[FIELDSIZE];
 		init();
 	}
 
@@ -70,7 +72,6 @@ public class Field {
 
 		for (int i = 0; i < FIELDSIZE; i++) {
 			if(array[i] == 81){
-				System.out.println("i war 81");
 				array[i] = 0;
 			}
 			field[i] = pack.getPack()[array[i]];
@@ -238,6 +239,13 @@ public class Field {
 	
 	public int getSizeofField() {
 		return field.length;
+	}
+	public LinkedList<Card> getAllCardsInGame(){
+		LinkedList<Card> list = new LinkedList<Card>();
+		for(Card card : this.pack.getPack()){
+			list.add(card);
+		}
+		return list;
 	}
 
 }
