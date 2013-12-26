@@ -118,6 +118,13 @@ public class Card {
 	}
 	@Override
 	public String toString(){
-		return this.color+" , "+this.form+" , "+this.panelFilling+" , "+this.anz+"\n";
+		return this.color+" , "+this.form+" , "+this.panelFilling+" , "+this.anz;
+	}
+	public boolean comparTo(Card card){
+		if(this.color.equals(card.color) && this.anz == card.anz && this.form.equals(card.form) && this.panelFilling.equals(card.panelFilling)){
+			return true;
+		}
+		return false;
+		
 	}
 }
