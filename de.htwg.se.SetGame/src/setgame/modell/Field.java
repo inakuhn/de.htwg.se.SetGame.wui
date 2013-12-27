@@ -1,9 +1,7 @@
 package setgame.modell;
 
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -31,7 +29,7 @@ public class Field {
 	Map<Integer, Integer> ramdomListe;
 
 	/**
-	 * cardinfield are the cars in game
+	 * card are the cars in game
 	 */
 	Map<Integer, Card> cardInFieldGame;
 
@@ -56,7 +54,7 @@ public class Field {
 		this.ramdomListe = new TreeMap<Integer, Integer>();
 		this.packForThegame = new TreeMap<Integer, Card>();
 		this.randomIndex = 1;
-		 this.register = new LinkedList<Card>();
+		this.register = new LinkedList<Card>();
 
 		startUp();
 	}
@@ -73,15 +71,19 @@ public class Field {
 			packForThegame.put(this.ramdomListe.get(i), card);
 			i++;
 		}
-		
+
 		System.out.println("Pack for game");
 		System.out.println(packForThegame);
 		fillField();
 	}
 
 	private void setRandomIndex() {
-		if(this.randomIndex < MAX)
+		if (this.randomIndex < MAX) {
 			this.randomIndex = randomIndex + ONE;
+		} else if (this.randomIndex == 81) {
+			this.randomIndex = 0;
+		}
+
 	}
 
 	private int getRandomIndex() {
@@ -171,54 +173,80 @@ public class Field {
 	 * @param cardThree
 	 */
 	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
-		TreeMap<Integer, Card> setPositionInField = new TreeMap<Integer, Card>();
-		TreeMap<Integer, Card> temporaltoremoveCard = new TreeMap<Integer, Card>();
-		if(!(cardOne.equals(null)) && !(cardTwo.equals(null)) && !(cardThree.equals(null)) ){
-			for (Integer key : this.cardInFieldGame.keySet()) {
-				if (this.cardInFieldGame.get(key).comparTo(cardOne)
-						|| this.cardInFieldGame.get(key).comparTo(cardTwo)
-						|| this.cardInFieldGame.get(key).comparTo(cardThree)) {
-					setPositionInField.put(key, this.cardInFieldGame.get(key));
+		if (this.cardInFieldGame.isEmpty() && this.packForThegame.isEmpty()) {
+			System.out.println("Game is finished!");
+		} else {
+			TreeMap<Integer, Card> setPositionInField = new TreeMap<Integer, Card>();
+			TreeMap<Integer, Card> temporaltoremoveCard = new TreeMap<Integer, Card>();
+			LinkedList<Card> listCardarenoteinfieldCards = new LinkedList<Card>();
+			if (!(cardOne.equals(null)) && !(cardTwo.equals(null))
+					&& !(cardThree.equals(null))) {
+				for (Integer key : this.cardInFieldGame.keySet()) {
+					if (this.cardInFieldGame.get(key).comparTo(cardOne)
+							|| this.cardInFieldGame.get(key).comparTo(cardTwo)
+							|| this.cardInFieldGame.get(key)
+									.comparTo(cardThree)) {
+						setPositionInField.put(key,
+								this.cardInFieldGame.get(key));
+					}
+				}
+				for (Integer keyOfPack : this.packForThegame.keySet()) {
+					if (this.packForThegame.get(keyOfPack).comparTo(cardOne)
+							|| this.packForThegame.get(keyOfPack).comparTo(
+									cardTwo)
+							|| this.packForThegame.get(keyOfPack).comparTo(
+									cardThree)) {
+						temporaltoremoveCard.put(keyOfPack,
+								this.packForThegame.get(keyOfPack));
+					}
+				}
+				for (Integer key : setPositionInField.keySet()) {
+					System.out.println("removed = " + key + " "
+							+ this.cardInFieldGame.get(key));
+					this.cardInFieldGame.remove(key);
+
+				}
+				for (Integer key : temporaltoremoveCard.keySet()) {
+					this.packForThegame.remove(key);
+
+				}
+
+				System.out.println("sizeof pack = "
+						+ this.packForThegame.size());
+			}
+			listCardarenoteinfieldCards.addAll(this.packForThegame.values());
+			listCardarenoteinfieldCards
+					.removeAll(this.cardInFieldGame.values());
+
+			for (int index = 0; index < FIELDSIZE; index++) {
+				if (this.cardInFieldGame.get(index) == null
+						&& !(listCardarenoteinfieldCards.isEmpty())) {
+					this.cardInFieldGame.put(index,
+							listCardarenoteinfieldCards.getFirst());
+					listCardarenoteinfieldCards.removeFirst();
+				} else if (this.cardInFieldGame.get(index) == null
+						&& listCardarenoteinfieldCards.isEmpty()) {
+					this.cardInFieldGame.remove(index);
+
+				} else if (this.cardInFieldGame.containsKey(index) == false
+						&& !(listCardarenoteinfieldCards.isEmpty())) {
+					this.cardInFieldGame.put(index,
+							listCardarenoteinfieldCards.getFirst());
+					listCardarenoteinfieldCards.removeFirst();
+
 				}
 			}
-			for (Integer keyOfPack : this.packForThegame.keySet()) {
-				if (this.packForThegame.get(keyOfPack).comparTo(cardOne)
-						|| this.packForThegame.get(keyOfPack).comparTo(cardTwo)
-						|| this.packForThegame.get(keyOfPack).comparTo(
-								cardThree)) {
-					temporaltoremoveCard.put(keyOfPack,
-							this.packForThegame.get(keyOfPack));
-				}
-			}
-			System.out.println("Size of felder = "+ this.cardInFieldGame.size());
-		
-			System.out.println(cardInFieldGame);
-			for(Integer key : setPositionInField.keySet()){
-				this.cardInFieldGame.remove(key);
-				
-			}
-			for (Integer key : setPositionInField.keySet()) {
-				
-				this.cardInFieldGame.put(key,
-						this.packForThegame.get(getRandomIndex()));
-					System.out.println("Random = "+ getRandomIndex());
-				setRandomIndex();
-			}
-			for (Integer key : temporaltoremoveCard.keySet()) {
-				this.packForThegame.remove(key);
-		
-			}
-			System.out.println("sizeof pack = "+this.packForThegame.size());
+			System.out.println("Card in fiel = " + this.cardInFieldGame);
+			System.out.println("Card in pack = " + this.packForThegame);
 		}
-		}
-	
+	}
 
 	/**
 	 * @return all the cards in the field
 	 */
 	public LinkedList<Card> cardsInField() {
 		LinkedList<Card> liste = new LinkedList<Card>();
-		for(Card card : this.cardInFieldGame.values())
+		for (Card card : this.cardInFieldGame.values())
 			liste.add(card);
 		return liste;
 

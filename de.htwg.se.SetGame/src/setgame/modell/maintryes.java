@@ -84,15 +84,20 @@ public class maintryes {
 		System.out.println(field.packForThegame.size());
 		list.clear();
 		list.addAll(field.cardsInField());
-
+		Card cardOne = null; 
+		Card cardTwo = null;
+		Card cardThree= null;
 		for (int i = 0; i < list.size(); i++) {
 			liste.add(list.get(i));
 			if (liste.size() == 3) {
+				cardOne= liste.get(0);
+				cardTwo = liste.get(1);
+				cardThree = liste.get(2);
 				field.foundSet(liste.get(0), liste.get(1), liste.get(2));
 				liste.clear();
 			}
 		}
-		System.out.println("here ???? "+field.packForThegame.size());
+		System.out.println("here ???? " + field.packForThegame.size());
 		list.clear();
 		System.out.println(field.cardInFieldGame);
 		list.addAll(field.cardsInField());
@@ -105,7 +110,25 @@ public class maintryes {
 			}
 		}
 		System.out.println("i am here??" + field.packForThegame.size());
+		list.clear();
+		System.out.println("sdwd" + field.cardInFieldGame);
+		list.addAll(field.cardsInField());
+
+		for (int i = 0; i < list.size(); i++) {
+			liste.add(list.get(i));
+			if (liste.size() == 3) {
+				System.out
+						.println("liste         sdwwdqdqwdqwdqwdw = " + liste);
+				field.foundSet(liste.get(0), liste.get(1), liste.get(2));
+				liste.clear();
+			}
+		}
+		System.out.println("i am here??" + field.packForThegame.size());
+		System.out.println(cardOne);
+		System.out.println(cardTwo);
+		System.out.println(cardThree);
+		field.foundSet(cardOne, cardTwo, cardThree);
+
 	}
-	
 
 }
