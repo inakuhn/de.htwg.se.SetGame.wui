@@ -7,7 +7,6 @@ public class RuleTest {
 
 	@Test
 	public void test() {
-		System.out.println("alles gute!");
 	}
 
 }

@@ -7,7 +7,7 @@ public class PlayerComputerModusTest {
 
 	@Test
 	public void test() {
-		System.out.println("gut");
+		
 	}
 
 }

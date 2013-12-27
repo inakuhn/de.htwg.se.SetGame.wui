@@ -109,6 +109,8 @@ public class FieldTest {
 
 	@Test
 	public void testGetSizeofField() {
-		assert (this.field.cardInFieldGame.size() != 12);
+		if(this.field.getSizeofField() != 12){
+			fail("Feld an anfagen muss 12 sein!!!");
+		}
 	}
 }
