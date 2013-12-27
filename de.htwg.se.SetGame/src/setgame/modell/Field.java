@@ -72,8 +72,6 @@ public class Field {
 			i++;
 		}
 
-		System.out.println("Pack for game");
-		System.out.println(packForThegame);
 		fillField();
 	}
 
@@ -174,7 +172,6 @@ public class Field {
 	 */
 	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
 		if (this.cardInFieldGame.isEmpty() && this.packForThegame.isEmpty()) {
-			System.out.println("Game is finished!");
 		} else {
 			TreeMap<Integer, Card> setPositionInField = new TreeMap<Integer, Card>();
 			TreeMap<Integer, Card> temporaltoremoveCard = new TreeMap<Integer, Card>();
@@ -201,8 +198,6 @@ public class Field {
 					}
 				}
 				for (Integer key : setPositionInField.keySet()) {
-					System.out.println("removed = " + key + " "
-							+ this.cardInFieldGame.get(key));
 					this.cardInFieldGame.remove(key);
 
 				}
@@ -211,8 +206,6 @@ public class Field {
 
 				}
 
-				System.out.println("sizeof pack = "
-						+ this.packForThegame.size());
 			}
 			listCardarenoteinfieldCards.addAll(this.packForThegame.values());
 			listCardarenoteinfieldCards
@@ -236,8 +229,6 @@ public class Field {
 
 				}
 			}
-			System.out.println("Card in fiel = " + this.cardInFieldGame);
-			System.out.println("Card in pack = " + this.packForThegame);
 		}
 	}
 
