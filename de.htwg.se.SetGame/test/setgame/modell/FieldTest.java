@@ -1,6 +1,7 @@
 package setgame.modell;
 
 import java.util.LinkedList;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.junit.Before;
@@ -30,7 +31,7 @@ public class FieldTest {
 	}
 
 	@Test
-	public void testInit() {
+	public void testsartUp() {
 		LinkedList<Card> list = new LinkedList<Card>();
 		for (Card card : field.cardInFieldGame.values()) {
 			list.add(card);
@@ -50,14 +51,16 @@ public class FieldTest {
 
 	@Test
 	public void testFoundSet() {
-		for (int key = 1; (key+2) <= this.field.getSizeofField(); key = key + 3) {
-			this.field.foundSet(this.field.cardInFieldGame.get(key),
-					this.field.cardInFieldGame.get(key + 1),
-					this.field.cardInFieldGame.get(key + 2));
+		LinkedList<Card> liste = new LinkedList<Card>();
+		liste.addAll(field.packForThegame.values());
+		for (int index = 0; index < (liste.size()-2); index++) {
+			this.field.foundSet(liste.get(index),
+					liste.get((index+1)),
+					liste.get(index+2));
 			
 		}
 
-		assert (this.field.getAllCardsInGame().isEmpty() != true);
+		assert (this.field.getAllCardsInGame().isEmpty() != false);
 	}
 
 	@Test
