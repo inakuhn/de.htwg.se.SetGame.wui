@@ -153,7 +153,7 @@ public class Field {
 					&& listCardarenoteinfieldCards.isEmpty()) {
 				this.getCardInFieldGame().remove(index);
 
-			} else if (this.getCardInFieldGame().containsKey(index) == false
+			} else if (!(this.getCardInFieldGame().containsKey(index))
 					&& !(listCardarenoteinfieldCards.isEmpty())) {
 				this.getCardInFieldGame().put(index,
 						listCardarenoteinfieldCards.getFirst());
@@ -167,8 +167,8 @@ public class Field {
 	/**
 	 * @return all the cards in the field
 	 */
-	public LinkedList<Card> getCardsInField() {
-		LinkedList<Card> liste = new LinkedList<Card>();
+	public List<Card> getCardsInField() {
+		List<Card> liste = new LinkedList<Card>();
 		liste.addAll(this.getCardInFieldGame().values());
 		return liste;
 

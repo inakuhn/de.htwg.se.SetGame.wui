@@ -4,6 +4,8 @@ import java.util.LinkedList;
 
 
 
+import java.util.List;
+
 import de.htwg.se.observer.Observable;
 import setgame.modell.Card;
 
@@ -85,11 +87,11 @@ public class Logic extends Observable {
 	
 
 	/**
-	 * @param fielCards is the Cards in field the new ones if there is no set anymore.
+	 * @param list is the Cards in field the new ones if there is no set anymore.
 	 */
-	private void alltheSetsInField(LinkedList<Card> fielCards) {
+	private void alltheSetsInField(List<Card> list) {
 		boolean foudSet = false;
-		if(getSet(fielCards) != null)
+		if(getSet(list) != null)
 			foudSet = true;
 		if(foudSet == false){
 			changeCardsinGame();
@@ -158,7 +160,7 @@ public class Logic extends Observable {
 		}
 		return false;
 	}
-	private LinkedList<Card> getSet(LinkedList<Card> list){
+	private LinkedList<Card> getSet(List<Card> list){
 		LinkedList<Card> setList = new LinkedList<Card>();
 		if(list.size() < 3){
 			return null;
