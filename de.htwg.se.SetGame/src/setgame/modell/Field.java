@@ -181,7 +181,7 @@ public class Field {
 	 * @param removeThisCards
 	 *            TODO
 	 */
-	public void setSizeOfField(int size, LinkedList<Card> removeThisCards) {
+	public void setSizeOfField(int size, List<Card> removeThisCards) {
 		if (size < sizeOfField) {
 			LinkedList<Integer> keys = new LinkedList<Integer>();
 			for (Card card : removeThisCards) {
@@ -216,15 +216,17 @@ public class Field {
 	 * 
 	 * @param liste
 	 */
-	public void changeCards(LinkedList<Card> liste) {
-		if (this.getCardInFieldGame().size() < liste.size()) {
-			sizeOfField = liste.size();
+	public void changeCards(List<Card> liste) {
+		LinkedList<Card> tmpList = new LinkedList<Card>();
+		tmpList.addAll(liste);
+		if (this.getCardInFieldGame().size() < tmpList.size()) {
+			sizeOfField = tmpList.size();
 		}
 		LinkedList<Integer> keysforbeuse = new LinkedList<Integer>();
 
 		for (Integer key : this.getCardInFieldGame().keySet()) {
-			if (liste.contains(this.getCardInFieldGame().get(key))) {
-				liste.remove(this.getCardInFieldGame().get(key));
+			if (tmpList.contains(this.getCardInFieldGame().get(key))) {
+				tmpList.remove(this.getCardInFieldGame().get(key));
 
 			} else {
 				keysforbeuse.add(key);
@@ -232,10 +234,10 @@ public class Field {
 
 		}
 		for (Integer key : keysforbeuse) {
-			if (!liste.isEmpty()) {
-				this.getCardInFieldGame().put(key, liste.getFirst());
-				liste.removeFirst();
-			} else if (liste.isEmpty()) {
+			if (!tmpList.isEmpty()) {
+				this.getCardInFieldGame().put(key, tmpList.getFirst());
+				tmpList.removeFirst();
+			} else if (tmpList.isEmpty()) {
 				break;
 
 			}
@@ -248,7 +250,7 @@ public class Field {
 	/**
 	 * @return the unused Cards in game!
 	 */
-	public LinkedList<Card> getUnusedCards() {
+	public List<Card> getUnusedCards() {
 		LinkedList<Card> list = new LinkedList<Card>();
 		list.addAll(this.packForGame);
 		list.removeAll(this.getCardInFieldGame().values());

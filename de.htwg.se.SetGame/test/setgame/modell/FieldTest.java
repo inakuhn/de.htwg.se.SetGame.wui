@@ -3,10 +3,12 @@ package setgame.modell;
 import static org.junit.Assert.*;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import setgame.modell.Field;
 
 public class FieldTest {
@@ -91,7 +93,7 @@ public class FieldTest {
 
 	@Test
 	public void testChangeCards() {
-		LinkedList<Card> liste =  new LinkedList<Card>(); 
+		List<Card> liste =  new LinkedList<Card>(); 
 		
 		liste.add(this.field.getCardInFieldGame().get(0));
 		liste.add(this.field.getUnusedCards().get(0));
