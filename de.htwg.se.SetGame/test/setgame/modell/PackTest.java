@@ -6,13 +6,15 @@ import setgame.modell.Pack;
 
 public class PackTest {
 	Pack pack;
+
 	@Before
-	public void setUp(){
-		this.pack =  new Pack();
+	public void setUp() {
+		this.pack = new Pack();
 	}
+
 	@Test
 	public void testCard() {
-		assert(this.pack != null);
+		assert (this.pack != null);
 	}
 
 	@Test
@@ -38,7 +40,7 @@ public class PackTest {
 			}
 
 		}
-		assert(b != false);
-		
+		assert (b != false);
+
 	}
-} 
+}

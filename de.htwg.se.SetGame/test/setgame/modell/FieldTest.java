@@ -6,17 +6,14 @@ import java.util.TreeSet;
 import org.junit.Before;
 import org.junit.Test;
 
-import setgame.controller.Logic;
 import setgame.modell.Field;
 
 public class FieldTest {
 	Field field;
-	setgame.controller.Logic logic;
 
 	@Before
 	public void setUp() {
 		this.field = new Field();
-		this.logic = new Logic();
 	}
 
 	@Test

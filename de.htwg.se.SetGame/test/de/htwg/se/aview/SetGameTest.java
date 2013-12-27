@@ -1,3 +1,4 @@
+
 package de.htwg.se.aview;
 
 
@@ -14,7 +15,7 @@ public class SetGameTest {
 	}
 	@Test
 	public void test() {
-		System.out.println("ok!");
+		assert(this.set != null);
 	}
 
 }
