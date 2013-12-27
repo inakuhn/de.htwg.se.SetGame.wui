@@ -20,6 +20,7 @@ public class Logic extends Observable {
 	 */
 	public Logic() {
 		this.field = new setgame.modell.Field();
+		this.field.startUp();
 	}
 
 

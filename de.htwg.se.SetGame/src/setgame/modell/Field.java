@@ -1,6 +1,7 @@
 package setgame.modell;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
@@ -25,18 +26,18 @@ public class Field {
 
 	/* Pack is the cards in the game */
 	private Pack pack;
-	TreeMap<Integer, Integer> ramdomListe;
+	Map<Integer, Integer> ramdomListe;
 
 	/**
 	 * card are the cars in game
 	 */
-	TreeMap<Integer, Card> cardInFieldGame;
+	Map<Integer, Card> cardInFieldGame;
 
 	/**
 	 * pack for the game are the cards and the random positions
 	 */
 
-	LinkedList<Card> packforgame;
+	List<Card> packForGame;
 
 	/**
 	 * startup of the objects
@@ -46,10 +47,8 @@ public class Field {
 		this.sizeOfField = INITIALVALUEOFFIELD;
 		this.cardInFieldGame = new TreeMap<Integer, Card>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
-		this.packforgame = new LinkedList<Card>();
+		this.packForGame = new LinkedList<Card>();
 		new LinkedList<Card>();
-
-		startUp();
 	}
 
 	/**
@@ -66,7 +65,7 @@ public class Field {
 			packForThegame.put(this.ramdomListe.get(i), card);
 			i++;
 		}
-		packforgame.addAll(packForThegame.values());
+		packForGame.addAll(packForThegame.values());
 
 		startUpOfField();
 	}
@@ -77,7 +76,7 @@ public class Field {
 	 * 
 	 * @return filled array
 	 */
-	public TreeMap<Integer, Integer> rand() {
+	public Map<Integer, Integer> rand() {
 		int[] tem = new int[MAX];
 		boolean b;
 		for (int key = 0; key < MAX; key++) {
@@ -97,7 +96,7 @@ public class Field {
 			}
 
 		}
-		return (TreeMap<Integer, Integer>) ramdomListe;
+		return ramdomListe;
 
 	}
 
@@ -109,7 +108,7 @@ public class Field {
 	private void startUpOfField() {
 
 		for (int index = 0; index < sizeOfField; index++) {
-			this.cardInFieldGame.put(index, this.packforgame.get(index));
+			this.cardInFieldGame.put(index, this.packForGame.get(index));
 
 		}
 	}
@@ -130,7 +129,7 @@ public class Field {
 					|| this.cardInFieldGame.get(key).comparTo(cardTwo)
 					|| this.cardInFieldGame.get(key).comparTo(cardThree)) {
 				keyOfcardInField.add(key);
-				this.packforgame.remove(this.cardInFieldGame.get(key));
+				this.packForGame.remove(this.cardInFieldGame.get(key));
 			}
 		}
 		for (Integer key : keyOfcardInField) {
@@ -247,7 +246,7 @@ public class Field {
 	 */
 	public LinkedList<Card> getUnusedCards() {
 		LinkedList<Card> list = new LinkedList<Card>();
-		list.addAll(this.packforgame);
+		list.addAll(this.packForGame);
 		list.removeAll(this.cardInFieldGame.values());
 		return list;
 	}
@@ -256,8 +255,8 @@ public class Field {
 		return cardInFieldGame.size();
 	}
 
-	public LinkedList<Card> getAllCardsInGame() {
-		return this.packforgame;
+	public List<Card> getAllCardsInGame() {
+		return this.packForGame;
 	}
 
 }
