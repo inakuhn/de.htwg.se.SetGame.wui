@@ -1,11 +1,12 @@
 package setgame.modell;
 
+import static org.junit.Assert.*;
+
 import java.util.LinkedList;
 import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import setgame.modell.Field;
 
 public class FieldTest {
@@ -18,30 +19,35 @@ public class FieldTest {
 
 	@Test
 	public void test() {
-		assert (this.field != null);
+		if(this.field == null){
+			fail("field object ist gleich null");
+			
+		}
 	}
 
 	@Test
 	public void testField() {
-		assert ((this.field instanceof Field) != false);
+		if((this.field instanceof Field) == false){
+			fail("field ist keine object der grösse field");
+		}
 	}
 
 	@Test
 	public void testsartUp() {
-		LinkedList<Card> list = new LinkedList<Card>();
-		for (Card card : field.cardInFieldGame.values()) {
-			list.add(card);
+
+		if(this.field.cardInFieldGame.size() != 12){
+			fail("feld is not the rigth size");
 		}
-		assert (list.size() != 12);
+
 	}
 
 	@Test
 	public void testRand() {
 		TreeSet<Integer> liste = new TreeSet<Integer>();
-		for (Integer integers : field.ramdomListe.values()) {
-			liste.add(integers);
+		liste.addAll(this.field.ramdomListe.values());
+		if(liste.size() != 81){
+			fail("wrong size of randomgeneretor");
 		}
-		assert (liste.size() != 81);
 
 	}
 
@@ -55,31 +61,50 @@ public class FieldTest {
 					liste.get(index+2));
 			
 		}
-
-		assert (this.field.getAllCardsInGame().isEmpty() != false);
+		if(!this.field.packForThegame.isEmpty()){
+			fail("found a set methode is not working as the way we wish :/");
+		}
 	}
 
 	@Test
 	public void testCardsInField() {
-		for (Card card : this.field.cardsInField()) {
-			assert(!this.field.getAllCardsInGame().contains(card));
+		if(!this.field.cardInFieldGame.values().containsAll(this.field.getCardsInField())){
+			fail("the card on feld are not the same as in the methode get card in field");
 		}
 	}
 
 	@Test
 	public void testSetSizeOfField() {
-		this.field.setSizeOfField(15);
-		assert (this.field.cardsInField().size() != 15);
+		LinkedList<Card> list = new LinkedList<Card>();
+		list.add(this.field.getCardsInField().get(0));
+		list.add(this.field.cardInFieldGame.get(1));
+		list.add(this.field.cardInFieldGame.get(2));
+		this.field.setSizeOfField(15, list);
+		if(this.field.getCardsInField().size() != 15){
+			fail("field size has been not modifed");
+		}
+		this.field.setSizeOfField(12, list);
+		if(this.field.getSizeofField() != 12){
+			fail("field size is wrong :(");
+		}
 	}
 
 	@Test
 	public void testChangeCards() {
-		assert(this.field != null);
+		LinkedList<Card> liste =  new LinkedList<Card>(); 
+		
+		liste.add(this.field.cardInFieldGame.get(0));
+		liste.add(this.field.getUnusedCards().get(0));
+		liste.add(this.field.getUnusedCards().get(1));
+		 this.field.changeCards(liste);
+		
 	}
 
 	@Test
 	public void testGetPackForControler() {
-		assert (field.getPackForControler().size() != 81);
+		if(field.packForThegame.size() != 81){
+			fail("feld größe stimmt nicht");
+		}
 	}
 
 	@Test

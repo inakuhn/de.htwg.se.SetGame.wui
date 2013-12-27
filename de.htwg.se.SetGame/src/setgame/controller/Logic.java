@@ -31,7 +31,7 @@ public class Logic extends Observable {
 	 */
 	private boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
 		int counter = 3;
-		for (Card card : field.cardsInField())
+		for (Card card : field.getCardsInField())
 			if (card.getColor().equals(cardOne.getColor())
 					&& card.getFomr().equals(cardOne.getFomr())
 					&& card.getNumberOfComponents() == cardOne
@@ -72,7 +72,7 @@ public class Logic extends Observable {
 					&& proveNumberOfComponents(cardOne, cardTwo, cardThree)
 					&& proveFilling(cardOne, cardTwo, cardThree)) {
 				field.foundSet(cardOne, cardTwo, cardThree);
-				alltheSetsInField(field.cardsInField());
+				alltheSetsInField(field.getCardsInField());
 				return true;
 			} else {
 				return false;
@@ -102,9 +102,9 @@ public class Logic extends Observable {
 	 */
 	private void changeCardsinGame() {
 		LinkedList<Card> allCards = new LinkedList<Card>();
-		allCards.addAll(field.getPackForControler());
+		allCards.addAll(field.getAllCardsInGame());
 		if(!allCards.isEmpty() && getSet(allCards) != null){
-			if(getSet(field.getPackForControler()) != null && getSet(field.getPackForControler()).size() >= 3){
+			if(getSet(field.getUnusedCards()) != null && getSet(field.getUnusedCards()).size() >= 3){
 				
 							
 			}

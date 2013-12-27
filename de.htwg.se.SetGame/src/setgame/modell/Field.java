@@ -20,7 +20,7 @@ public class Field {
 	private static int FIELDSIZE = 12;
 	private static final int MAX = 81;
 	private static final int ONE = 1;
-	//private static int COUNTER = 0;
+	private static int COUNTER = 0;
 
 	/* Pack is the cards in the game */
 	private Pack pack;
@@ -41,11 +41,6 @@ public class Field {
 	int array[];
 
 	/**
-	 * All used Cards will be write in the LinkedList register
-	 */
-	private LinkedList<Card> register;
-
-	/**
 	 * startup of the objects
 	 */
 	public Field() {
@@ -54,7 +49,7 @@ public class Field {
 		this.ramdomListe = new TreeMap<Integer, Integer>();
 		this.packForThegame = new TreeMap<Integer, Card>();
 		this.randomIndex = 1;
-		this.register = new LinkedList<Card>();
+		new LinkedList<Card>();
 
 		startUp();
 	}
@@ -134,34 +129,6 @@ public class Field {
 
 	}
 
-	// /**
-	// * Fill the variable fill with one card information and gives back.
-	// *
-	// * @return fill - return one "card information"
-	// */
-	// private Card setCardsInField() {
-	//
-	// Card fill;
-	// int randfill[] = this.array;
-	// boolean close = false;
-	//
-	// while (COUNTER != randfill.length) {
-	// close = false;
-	//
-	// if (register.equals(randfill[COUNTER])) {
-	// close = true;
-	// COUNTER++;
-	// }
-	//
-	// if (close == false) {
-	// fill = pack.getPack().get(randfill[COUNTER]);
-	// register.add(pack.getPack().get(randfill[COUNTER]));
-	// return fill;
-	// }
-	// }
-	//
-	// return null;
-	// }
 
 	/**
 	 * Insert new Cards in the field where cardOne , cardTwo ,cardThree went.
@@ -207,9 +174,7 @@ public class Field {
 				}
 
 			}
-			listCardarenoteinfieldCards.addAll(this.packForThegame.values());
-			listCardarenoteinfieldCards
-					.removeAll(this.cardInFieldGame.values());
+			listCardarenoteinfieldCards.addAll(getUnusedCards());
 
 			for (int index = 0; index < FIELDSIZE; index++) {
 				if (this.cardInFieldGame.get(index) == null
@@ -231,14 +196,14 @@ public class Field {
 			}
 		}
 	}
+	
 
 	/**
 	 * @return all the cards in the field
 	 */
-	public LinkedList<Card> cardsInField() {
+	public LinkedList<Card> getCardsInField() {
 		LinkedList<Card> liste = new LinkedList<Card>();
-		for (Card card : this.cardInFieldGame.values())
-			liste.add(card);
+		liste.addAll(this.cardInFieldGame.values());
 		return liste;
 
 	}
@@ -246,27 +211,37 @@ public class Field {
 	/**
 	 * changes the size of the field in the game or at the begin with out losing
 	 * Cards.
+	 * @param removeThisCards TODO
 	 */
-	public void setSizeOfField(int size) {
+	public void setSizeOfField(int size, LinkedList<Card> removeThisCards) {
 		if (size < FIELDSIZE) {
-			changeFieldToSmallSize(size);
-		} else if (size > FIELDSIZE) {
+			LinkedList<Integer> keys = new LinkedList<Integer>();
+			for(Card card : removeThisCards){
+				for(Integer key : this.cardInFieldGame.keySet()){
+					if(this.cardInFieldGame.get(key).comparTo(card)){
+						keys.add(key);
+					}
+				}
+			}
+			for(Integer key : keys){
+				this.cardInFieldGame.remove(key);
+			}
 			FIELDSIZE = size;
-			// cardInFieldGame = new Card[FIELDSIZE];
+		} else if (size > FIELDSIZE) {
+			LinkedList<Card> list = new LinkedList<Card>();
+			list.addAll(getUnusedCards());
+			for(COUNTER = FIELDSIZE; COUNTER < size; COUNTER++){
+				if(!list.isEmpty()){
+					this.cardInFieldGame.put(COUNTER, list.getFirst());
+					list.removeFirst();
+					
+				}
+			}
+			FIELDSIZE = size;
 		}
 	}
 
-	private void changeFieldToSmallSize(int size) {
-		LinkedList<Card> savelist = new LinkedList<Card>();
-		int saveSize = size + 1;
 
-		for (int n = saveSize; n < FIELDSIZE; n++) {
-			savelist.add(cardInFieldGame.get(n));
-		}
-
-		register.remove(savelist);
-
-	}
 
 	/**
 	 * the Controller always prove if a Set in Field is, if not the look through
@@ -276,38 +251,40 @@ public class Field {
 	 * @param liste
 	 */
 	public void changeCards(LinkedList<Card> liste) {
-		int size = liste.size();
-
-		if (FIELDSIZE >= size) {
-
-			for (int n = 0; n < size; n++) {
-				// cardInFieldGame[n] = liste.get(n);
-			}
-
-		} else {
-
-			setSizeOfField(size);
-
-			for (int n = 0; n < size; n++) {
-				// cardInFieldGame[n] = liste.get(n);
-			}
-
+		if(this.cardInFieldGame.size() < liste.size()){
+			FIELDSIZE = liste.size();
 		}
-
+		LinkedList<Integer> keysforbeuse = new LinkedList<Integer>();
+		
+		for(Integer key : this.cardInFieldGame.keySet()){
+			if(liste.contains(this.cardInFieldGame.get(key))){
+				liste.remove(this.cardInFieldGame.get(key));
+				
+			}else{
+				keysforbeuse.add(key);
+			}
+			
+		}
+		for(Integer key : keysforbeuse){
+				if(!liste.isEmpty()){
+					this.cardInFieldGame.put(key, liste.getFirst());
+					liste.removeFirst();
+				}else if(liste.isEmpty()){
+					break;
+					
+				}
+			
+		}
+		
 	}
 
 	/**
 	 * @return the unused Cards in game!
 	 */
-	public LinkedList<Card> getPackForControler() {
+	public LinkedList<Card> getUnusedCards() {
 		LinkedList<Card> list = new LinkedList<Card>();
-
-		for (Card rest : this.packForThegame.values()) {
-			if (!this.cardInFieldGame.containsValue(rest)) {
-				list.add(rest);
-			}
-		}
-
+		list.addAll(this.packForThegame.values());
+		list.removeAll(this.cardInFieldGame.values());
 		return list;
 	}
 
@@ -317,10 +294,9 @@ public class Field {
 
 	public LinkedList<Card> getAllCardsInGame() {
 		LinkedList<Card> list = new LinkedList<Card>();
-		for (Card card : this.packForThegame.values()) {
-			list.add(card);
-		}
+		list.addAll(this.packForThegame.values());
 		return list;
 	}
+
 
 }
