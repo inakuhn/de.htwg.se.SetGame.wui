@@ -18,19 +18,19 @@ public class Field {
 	 * Instance variable
 	 * 
 	 */
-	private static int FIELDSIZE = 12;
+	private int sizeOfField;
+	private static final int INITIALVALUEOFFIELD = 12;
 	private static final int MAX = 81;
 	private static final int ONE = 1;
-	private static int COUNTER = 0;
 
 	/* Pack is the cards in the game */
 	private Pack pack;
-	Map<Integer, Integer> ramdomListe;
+	TreeMap<Integer, Integer> ramdomListe;
 
 	/**
 	 * card are the cars in game
 	 */
-	Map<Integer, Card> cardInFieldGame;
+	TreeMap<Integer, Card> cardInFieldGame;
 
 	/**
 	 * pack for the game are the cards and the random positions
@@ -43,6 +43,7 @@ public class Field {
 	 */
 	public Field() {
 		this.pack = new Pack();
+		this.sizeOfField = INITIALVALUEOFFIELD;
 		this.cardInFieldGame = new TreeMap<Integer, Card>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
 		this.packforgame = new LinkedList<Card>();
@@ -59,6 +60,7 @@ public class Field {
 	public void startUp() {
 		Map<Integer, Card> packForThegame = new TreeMap<Integer, Card>();
 		rand();
+		
 		int i = 0;
 		for (Card card : this.pack.getPack()) {
 			packForThegame.put(this.ramdomListe.get(i), card);
@@ -66,7 +68,7 @@ public class Field {
 		}
 		packforgame.addAll(packForThegame.values());
 
-		fillField();
+		startUpOfField();
 	}
 
 
@@ -104,9 +106,9 @@ public class Field {
 	 * 
 	 * @return filled Field with Cards
 	 */
-	private void fillField() {
+	private void startUpOfField() {
 
-		for (int index = 0; index < FIELDSIZE; index++) {
+		for (int index = 0; index < sizeOfField; index++) {
 			this.cardInFieldGame.put(index, this.packforgame.get(index));
 
 		}
@@ -138,7 +140,7 @@ public class Field {
 
 		listCardarenoteinfieldCards.addAll(getUnusedCards());
 
-		for (int index = 0; index < FIELDSIZE; index++) {
+		for (int index = 0; index < sizeOfField; index++) {
 			if (this.cardInFieldGame.get(index) == null
 					&& !(listCardarenoteinfieldCards.isEmpty())) {
 				this.cardInFieldGame.put(index,
@@ -177,7 +179,7 @@ public class Field {
 	 *            TODO
 	 */
 	public void setSizeOfField(int size, LinkedList<Card> removeThisCards) {
-		if (size < FIELDSIZE) {
+		if (size < sizeOfField) {
 			LinkedList<Integer> keys = new LinkedList<Integer>();
 			for (Card card : removeThisCards) {
 				for (Integer key : this.cardInFieldGame.keySet()) {
@@ -189,18 +191,18 @@ public class Field {
 			for (Integer key : keys) {
 				this.cardInFieldGame.remove(key);
 			}
-			FIELDSIZE = size;
-		} else if (size > FIELDSIZE) {
+			sizeOfField = size;
+		} else if (size > sizeOfField) {
 			LinkedList<Card> list = new LinkedList<Card>();
 			list.addAll(getUnusedCards());
-			for (COUNTER = FIELDSIZE; COUNTER < size; COUNTER++) {
+			for (int key = sizeOfField; key < size; key++) {
 				if (!list.isEmpty()) {
-					this.cardInFieldGame.put(COUNTER, list.getFirst());
+					this.cardInFieldGame.put(key, list.getFirst());
 					list.removeFirst();
 
 				}
 			}
-			FIELDSIZE = size;
+			sizeOfField = size;
 		}
 	}
 
@@ -213,7 +215,7 @@ public class Field {
 	 */
 	public void changeCards(LinkedList<Card> liste) {
 		if (this.cardInFieldGame.size() < liste.size()) {
-			FIELDSIZE = liste.size();
+			sizeOfField = liste.size();
 		}
 		LinkedList<Integer> keysforbeuse = new LinkedList<Integer>();
 
