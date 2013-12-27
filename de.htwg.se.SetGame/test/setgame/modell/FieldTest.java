@@ -54,14 +54,13 @@ public class FieldTest {
 	@Test
 	public void testFoundSet() {
 		LinkedList<Card> liste = new LinkedList<Card>();
-		liste.addAll(field.packForThegame.values());
+		liste.addAll(field.packforgame);
 		for (int index = 0; index < (liste.size()-2); index++) {
 			this.field.foundSet(liste.get(index),
 					liste.get((index+1)),
 					liste.get(index+2));
-			
 		}
-		if(!this.field.packForThegame.isEmpty()){
+		if(!this.field.packforgame.isEmpty()){
 			fail("found a set methode is not working as the way we wish :/");
 		}
 	}
@@ -102,7 +101,7 @@ public class FieldTest {
 
 	@Test
 	public void testGetPackForControler() {
-		if(field.packForThegame.size() != 81){
+		if(field.packforgame.size() != 81){
 			fail("feld größe stimmt nicht");
 		}
 	}

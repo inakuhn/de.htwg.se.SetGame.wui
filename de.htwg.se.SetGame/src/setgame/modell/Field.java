@@ -3,6 +3,7 @@ package setgame.modell;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * Class Field.
@@ -24,8 +25,6 @@ public class Field {
 
 	/* Pack is the cards in the game */
 	private Pack pack;
-	/* ramdomLieste is the random for the game */
-	private int randomIndex;
 	Map<Integer, Integer> ramdomListe;
 
 	/**
@@ -36,9 +35,8 @@ public class Field {
 	/**
 	 * pack for the game are the cards and the random positions
 	 */
-	Map<Integer, Card> packForThegame;
 
-	int array[];
+	LinkedList<Card> packforgame;
 
 	/**
 	 * startup of the objects
@@ -47,8 +45,7 @@ public class Field {
 		this.pack = new Pack();
 		this.cardInFieldGame = new TreeMap<Integer, Card>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
-		this.packForThegame = new TreeMap<Integer, Card>();
-		this.randomIndex = 1;
+		this.packforgame = new LinkedList<Card>();
 		new LinkedList<Card>();
 
 		startUp();
@@ -60,28 +57,18 @@ public class Field {
 	 * @return give back filled field
 	 */
 	public void startUp() {
+		Map<Integer, Card> packForThegame = new TreeMap<Integer, Card>();
 		rand();
 		int i = 0;
 		for (Card card : this.pack.getPack()) {
 			packForThegame.put(this.ramdomListe.get(i), card);
 			i++;
 		}
+		packforgame.addAll(packForThegame.values());
 
 		fillField();
 	}
 
-	private void setRandomIndex() {
-		if (this.randomIndex < MAX) {
-			this.randomIndex = randomIndex + ONE;
-		} else if (this.randomIndex == 81) {
-			this.randomIndex = 0;
-		}
-
-	}
-
-	private int getRandomIndex() {
-		return this.randomIndex;
-	}
 
 	/**
 	 * Filled array with integer number.
@@ -117,18 +104,13 @@ public class Field {
 	 * 
 	 * @return filled Field with Cards
 	 */
-	private TreeMap<Integer, Card> fillField() {
+	private void fillField() {
 
 		for (int index = 0; index < FIELDSIZE; index++) {
-			this.cardInFieldGame.put(index,
-					this.packForThegame.get(getRandomIndex()));
-			setRandomIndex();
+			this.cardInFieldGame.put(index, this.packforgame.get(index));
+
 		}
-
-		return (TreeMap<Integer, Card>) cardInFieldGame;
-
 	}
-
 
 	/**
 	 * Insert new Cards in the field where cardOne , cardTwo ,cardThree went.
@@ -138,65 +120,44 @@ public class Field {
 	 * @param cardThree
 	 */
 	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
-		if (this.cardInFieldGame.isEmpty() && this.packForThegame.isEmpty()) {
-		} else {
-			TreeMap<Integer, Card> setPositionInField = new TreeMap<Integer, Card>();
-			TreeMap<Integer, Card> temporaltoremoveCard = new TreeMap<Integer, Card>();
-			LinkedList<Card> listCardarenoteinfieldCards = new LinkedList<Card>();
-			if (!(cardOne.equals(null)) && !(cardTwo.equals(null))
-					&& !(cardThree.equals(null))) {
-				for (Integer key : this.cardInFieldGame.keySet()) {
-					if (this.cardInFieldGame.get(key).comparTo(cardOne)
-							|| this.cardInFieldGame.get(key).comparTo(cardTwo)
-							|| this.cardInFieldGame.get(key)
-									.comparTo(cardThree)) {
-						setPositionInField.put(key,
-								this.cardInFieldGame.get(key));
-					}
-				}
-				for (Integer keyOfPack : this.packForThegame.keySet()) {
-					if (this.packForThegame.get(keyOfPack).comparTo(cardOne)
-							|| this.packForThegame.get(keyOfPack).comparTo(
-									cardTwo)
-							|| this.packForThegame.get(keyOfPack).comparTo(
-									cardThree)) {
-						temporaltoremoveCard.put(keyOfPack,
-								this.packForThegame.get(keyOfPack));
-					}
-				}
-				for (Integer key : setPositionInField.keySet()) {
-					this.cardInFieldGame.remove(key);
 
-				}
-				for (Integer key : temporaltoremoveCard.keySet()) {
-					this.packForThegame.remove(key);
-
-				}
-
-			}
-			listCardarenoteinfieldCards.addAll(getUnusedCards());
-
-			for (int index = 0; index < FIELDSIZE; index++) {
-				if (this.cardInFieldGame.get(index) == null
-						&& !(listCardarenoteinfieldCards.isEmpty())) {
-					this.cardInFieldGame.put(index,
-							listCardarenoteinfieldCards.getFirst());
-					listCardarenoteinfieldCards.removeFirst();
-				} else if (this.cardInFieldGame.get(index) == null
-						&& listCardarenoteinfieldCards.isEmpty()) {
-					this.cardInFieldGame.remove(index);
-
-				} else if (this.cardInFieldGame.containsKey(index) == false
-						&& !(listCardarenoteinfieldCards.isEmpty())) {
-					this.cardInFieldGame.put(index,
-							listCardarenoteinfieldCards.getFirst());
-					listCardarenoteinfieldCards.removeFirst();
-
-				}
+		TreeSet<Integer> keyOfcardInField = new TreeSet<Integer>();
+		LinkedList<Card> listCardarenoteinfieldCards = new LinkedList<Card>();
+		for (Integer key : this.cardInFieldGame.keySet()) {
+			if (this.cardInFieldGame.get(key).comparTo(cardOne)
+					|| this.cardInFieldGame.get(key).comparTo(cardTwo)
+					|| this.cardInFieldGame.get(key).comparTo(cardThree)) {
+				keyOfcardInField.add(key);
+				this.packforgame.remove(this.cardInFieldGame.get(key));
 			}
 		}
+		for (Integer key : keyOfcardInField) {
+			this.cardInFieldGame.remove(key);
+
+		}
+
+		listCardarenoteinfieldCards.addAll(getUnusedCards());
+
+		for (int index = 0; index < FIELDSIZE; index++) {
+			if (this.cardInFieldGame.get(index) == null
+					&& !(listCardarenoteinfieldCards.isEmpty())) {
+				this.cardInFieldGame.put(index,
+						listCardarenoteinfieldCards.getFirst());
+				listCardarenoteinfieldCards.removeFirst();
+			} else if (this.cardInFieldGame.get(index) == null
+					&& listCardarenoteinfieldCards.isEmpty()) {
+				this.cardInFieldGame.remove(index);
+
+			} else if (this.cardInFieldGame.containsKey(index) == false
+					&& !(listCardarenoteinfieldCards.isEmpty())) {
+				this.cardInFieldGame.put(index,
+						listCardarenoteinfieldCards.getFirst());
+				listCardarenoteinfieldCards.removeFirst();
+
+			}
+		}
+
 	}
-	
 
 	/**
 	 * @return all the cards in the field
@@ -211,37 +172,37 @@ public class Field {
 	/**
 	 * changes the size of the field in the game or at the begin with out losing
 	 * Cards.
-	 * @param removeThisCards TODO
+	 * 
+	 * @param removeThisCards
+	 *            TODO
 	 */
 	public void setSizeOfField(int size, LinkedList<Card> removeThisCards) {
 		if (size < FIELDSIZE) {
 			LinkedList<Integer> keys = new LinkedList<Integer>();
-			for(Card card : removeThisCards){
-				for(Integer key : this.cardInFieldGame.keySet()){
-					if(this.cardInFieldGame.get(key).comparTo(card)){
+			for (Card card : removeThisCards) {
+				for (Integer key : this.cardInFieldGame.keySet()) {
+					if (this.cardInFieldGame.get(key).comparTo(card)) {
 						keys.add(key);
 					}
 				}
 			}
-			for(Integer key : keys){
+			for (Integer key : keys) {
 				this.cardInFieldGame.remove(key);
 			}
 			FIELDSIZE = size;
 		} else if (size > FIELDSIZE) {
 			LinkedList<Card> list = new LinkedList<Card>();
 			list.addAll(getUnusedCards());
-			for(COUNTER = FIELDSIZE; COUNTER < size; COUNTER++){
-				if(!list.isEmpty()){
+			for (COUNTER = FIELDSIZE; COUNTER < size; COUNTER++) {
+				if (!list.isEmpty()) {
 					this.cardInFieldGame.put(COUNTER, list.getFirst());
 					list.removeFirst();
-					
+
 				}
 			}
 			FIELDSIZE = size;
 		}
 	}
-
-
 
 	/**
 	 * the Controller always prove if a Set in Field is, if not the look through
@@ -251,39 +212,40 @@ public class Field {
 	 * @param liste
 	 */
 	public void changeCards(LinkedList<Card> liste) {
-		if(this.cardInFieldGame.size() < liste.size()){
+		if (this.cardInFieldGame.size() < liste.size()) {
 			FIELDSIZE = liste.size();
 		}
 		LinkedList<Integer> keysforbeuse = new LinkedList<Integer>();
-		
-		for(Integer key : this.cardInFieldGame.keySet()){
-			if(liste.contains(this.cardInFieldGame.get(key))){
+
+		for (Integer key : this.cardInFieldGame.keySet()) {
+			if (liste.contains(this.cardInFieldGame.get(key))) {
 				liste.remove(this.cardInFieldGame.get(key));
-				
-			}else{
+
+			} else {
 				keysforbeuse.add(key);
 			}
-			
+
 		}
-		for(Integer key : keysforbeuse){
-				if(!liste.isEmpty()){
-					this.cardInFieldGame.put(key, liste.getFirst());
-					liste.removeFirst();
-				}else if(liste.isEmpty()){
-					break;
-					
-				}
-			
+		for (Integer key : keysforbeuse) {
+			if (!liste.isEmpty()) {
+				this.cardInFieldGame.put(key, liste.getFirst());
+				liste.removeFirst();
+			} else if (liste.isEmpty()) {
+				break;
+
+			}
+
 		}
-		
+
 	}
+	
 
 	/**
 	 * @return the unused Cards in game!
 	 */
 	public LinkedList<Card> getUnusedCards() {
 		LinkedList<Card> list = new LinkedList<Card>();
-		list.addAll(this.packForThegame.values());
+		list.addAll(this.packforgame);
 		list.removeAll(this.cardInFieldGame.values());
 		return list;
 	}
@@ -293,10 +255,7 @@ public class Field {
 	}
 
 	public LinkedList<Card> getAllCardsInGame() {
-		LinkedList<Card> list = new LinkedList<Card>();
-		list.addAll(this.packForThegame.values());
-		return list;
+		return this.packforgame;
 	}
-
 
 }
