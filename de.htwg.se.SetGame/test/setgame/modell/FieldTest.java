@@ -1,7 +1,6 @@
 package setgame.modell;
 
 import java.util.LinkedList;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.junit.Before;

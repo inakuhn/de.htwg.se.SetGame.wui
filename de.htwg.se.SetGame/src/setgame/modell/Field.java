@@ -20,7 +20,7 @@ public class Field {
 	private static int FIELDSIZE = 12;
 	private static final int MAX = 81;
 	private static final int ONE = 1;
-	private static int COUNTER = 0;
+	//private static int COUNTER = 0;
 
 	/* Pack is the cards in the game */
 	private Pack pack;

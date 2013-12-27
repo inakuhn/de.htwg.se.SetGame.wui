@@ -1,12 +1,10 @@
 package setgame.modell;
 
 import java.util.LinkedList;
-import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class maintryes {
 	public static void main(String[] args) {
-		Pack pack = new Pack();
 		LinkedList<Card> list = new LinkedList<Card>();
 		Field field = new Field();
 		System.out.println("Card in field: \n");
