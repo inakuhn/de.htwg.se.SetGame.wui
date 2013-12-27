@@ -123,7 +123,6 @@ public class Field {
 	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
 
 		TreeSet<Integer> keyOfcardInField = new TreeSet<Integer>();
-		LinkedList<Card> listCardarenoteinfieldCards = new LinkedList<Card>();
 		for (Integer key : this.getCardInFieldGame().keySet()) {
 			if (this.getCardInFieldGame().get(key).comparTo(cardOne)
 					|| this.getCardInFieldGame().get(key).comparTo(cardTwo)
@@ -136,7 +135,12 @@ public class Field {
 			this.getCardInFieldGame().remove(key);
 
 		}
+		fillField();
 
+
+	}
+	private void fillField(){
+		LinkedList<Card> listCardarenoteinfieldCards = new LinkedList<Card>();
 		listCardarenoteinfieldCards.addAll(getUnusedCards());
 
 		for (int index = 0; index < sizeOfField; index++) {
@@ -157,7 +161,7 @@ public class Field {
 
 			}
 		}
-
+		
 	}
 
 	/**
