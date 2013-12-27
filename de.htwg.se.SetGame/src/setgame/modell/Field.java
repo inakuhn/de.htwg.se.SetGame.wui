@@ -26,18 +26,18 @@ public class Field {
 
 	/* Pack is the cards in the game */
 	private Pack pack;
-	Map<Integer, Integer> ramdomListe;
+	private Map<Integer, Integer> ramdomListe;
 
 	/**
 	 * card are the cars in game
 	 */
-	Map<Integer, Card> cardInFieldGame;
+	private Map<Integer, Card> cardInFieldGame;
 
 	/**
 	 * pack for the game are the cards and the random positions
 	 */
 
-	List<Card> packForGame;
+	private List<Card> packForGame;
 
 	/**
 	 * startup of the objects
@@ -62,7 +62,7 @@ public class Field {
 		
 		int i = 0;
 		for (Card card : this.pack.getPack()) {
-			packForThegame.put(this.ramdomListe.get(i), card);
+			packForThegame.put(this.getRamdomListe().get(i), card);
 			i++;
 		}
 		packForGame.addAll(packForThegame.values());
@@ -90,13 +90,13 @@ public class Field {
 			}
 			if (b) {
 
-				this.ramdomListe.put(key, element);
+				this.getRamdomListe().put(key, element);
 
 				tem[key] = element;
 			}
 
 		}
-		return ramdomListe;
+		return getRamdomListe();
 
 	}
 
@@ -108,7 +108,7 @@ public class Field {
 	private void startUpOfField() {
 
 		for (int index = 0; index < sizeOfField; index++) {
-			this.cardInFieldGame.put(index, this.packForGame.get(index));
+			this.getCardInFieldGame().put(index, this.packForGame.get(index));
 
 		}
 	}
@@ -124,34 +124,34 @@ public class Field {
 
 		TreeSet<Integer> keyOfcardInField = new TreeSet<Integer>();
 		LinkedList<Card> listCardarenoteinfieldCards = new LinkedList<Card>();
-		for (Integer key : this.cardInFieldGame.keySet()) {
-			if (this.cardInFieldGame.get(key).comparTo(cardOne)
-					|| this.cardInFieldGame.get(key).comparTo(cardTwo)
-					|| this.cardInFieldGame.get(key).comparTo(cardThree)) {
+		for (Integer key : this.getCardInFieldGame().keySet()) {
+			if (this.getCardInFieldGame().get(key).comparTo(cardOne)
+					|| this.getCardInFieldGame().get(key).comparTo(cardTwo)
+					|| this.getCardInFieldGame().get(key).comparTo(cardThree)) {
 				keyOfcardInField.add(key);
-				this.packForGame.remove(this.cardInFieldGame.get(key));
+				this.packForGame.remove(this.getCardInFieldGame().get(key));
 			}
 		}
 		for (Integer key : keyOfcardInField) {
-			this.cardInFieldGame.remove(key);
+			this.getCardInFieldGame().remove(key);
 
 		}
 
 		listCardarenoteinfieldCards.addAll(getUnusedCards());
 
 		for (int index = 0; index < sizeOfField; index++) {
-			if (this.cardInFieldGame.get(index) == null
+			if (this.getCardInFieldGame().get(index) == null
 					&& !(listCardarenoteinfieldCards.isEmpty())) {
-				this.cardInFieldGame.put(index,
+				this.getCardInFieldGame().put(index,
 						listCardarenoteinfieldCards.getFirst());
 				listCardarenoteinfieldCards.removeFirst();
-			} else if (this.cardInFieldGame.get(index) == null
+			} else if (this.getCardInFieldGame().get(index) == null
 					&& listCardarenoteinfieldCards.isEmpty()) {
-				this.cardInFieldGame.remove(index);
+				this.getCardInFieldGame().remove(index);
 
-			} else if (this.cardInFieldGame.containsKey(index) == false
+			} else if (this.getCardInFieldGame().containsKey(index) == false
 					&& !(listCardarenoteinfieldCards.isEmpty())) {
-				this.cardInFieldGame.put(index,
+				this.getCardInFieldGame().put(index,
 						listCardarenoteinfieldCards.getFirst());
 				listCardarenoteinfieldCards.removeFirst();
 
@@ -165,7 +165,7 @@ public class Field {
 	 */
 	public LinkedList<Card> getCardsInField() {
 		LinkedList<Card> liste = new LinkedList<Card>();
-		liste.addAll(this.cardInFieldGame.values());
+		liste.addAll(this.getCardInFieldGame().values());
 		return liste;
 
 	}
@@ -181,14 +181,14 @@ public class Field {
 		if (size < sizeOfField) {
 			LinkedList<Integer> keys = new LinkedList<Integer>();
 			for (Card card : removeThisCards) {
-				for (Integer key : this.cardInFieldGame.keySet()) {
-					if (this.cardInFieldGame.get(key).comparTo(card)) {
+				for (Integer key : this.getCardInFieldGame().keySet()) {
+					if (this.getCardInFieldGame().get(key).comparTo(card)) {
 						keys.add(key);
 					}
 				}
 			}
 			for (Integer key : keys) {
-				this.cardInFieldGame.remove(key);
+				this.getCardInFieldGame().remove(key);
 			}
 			sizeOfField = size;
 		} else if (size > sizeOfField) {
@@ -196,7 +196,7 @@ public class Field {
 			list.addAll(getUnusedCards());
 			for (int key = sizeOfField; key < size; key++) {
 				if (!list.isEmpty()) {
-					this.cardInFieldGame.put(key, list.getFirst());
+					this.getCardInFieldGame().put(key, list.getFirst());
 					list.removeFirst();
 
 				}
@@ -213,14 +213,14 @@ public class Field {
 	 * @param liste
 	 */
 	public void changeCards(LinkedList<Card> liste) {
-		if (this.cardInFieldGame.size() < liste.size()) {
+		if (this.getCardInFieldGame().size() < liste.size()) {
 			sizeOfField = liste.size();
 		}
 		LinkedList<Integer> keysforbeuse = new LinkedList<Integer>();
 
-		for (Integer key : this.cardInFieldGame.keySet()) {
-			if (liste.contains(this.cardInFieldGame.get(key))) {
-				liste.remove(this.cardInFieldGame.get(key));
+		for (Integer key : this.getCardInFieldGame().keySet()) {
+			if (liste.contains(this.getCardInFieldGame().get(key))) {
+				liste.remove(this.getCardInFieldGame().get(key));
 
 			} else {
 				keysforbeuse.add(key);
@@ -229,7 +229,7 @@ public class Field {
 		}
 		for (Integer key : keysforbeuse) {
 			if (!liste.isEmpty()) {
-				this.cardInFieldGame.put(key, liste.getFirst());
+				this.getCardInFieldGame().put(key, liste.getFirst());
 				liste.removeFirst();
 			} else if (liste.isEmpty()) {
 				break;
@@ -247,16 +247,32 @@ public class Field {
 	public LinkedList<Card> getUnusedCards() {
 		LinkedList<Card> list = new LinkedList<Card>();
 		list.addAll(this.packForGame);
-		list.removeAll(this.cardInFieldGame.values());
+		list.removeAll(this.getCardInFieldGame().values());
 		return list;
 	}
 
 	public int getSizeofField() {
-		return cardInFieldGame.size();
+		return getCardInFieldGame().size();
 	}
 
 	public List<Card> getAllCardsInGame() {
 		return this.packForGame;
 	}
+
+	/**
+	 * @return the ramdomListe
+	 */
+	public Map<Integer, Integer> getRamdomListe() {
+		return ramdomListe;
+	}
+
+	/**
+	 * @return the cardInFieldGame
+	 */
+	public Map<Integer, Card> getCardInFieldGame() {
+		return cardInFieldGame;
+	}
+
+
 
 }

@@ -36,7 +36,7 @@ public class FieldTest {
 	@Test
 	public void testsartUp() {
 
-		if(this.field.cardInFieldGame.size() != 12){
+		if(this.field.getSizeofField() != 12){
 			fail("feld is not the rigth size");
 		}
 
@@ -45,7 +45,7 @@ public class FieldTest {
 	@Test
 	public void testRand() {
 		TreeSet<Integer> liste = new TreeSet<Integer>();
-		liste.addAll(this.field.ramdomListe.values());
+		liste.addAll(this.field.getRamdomListe().values());
 		if(liste.size() != 81){
 			fail("wrong size of randomgeneretor");
 		}
@@ -55,20 +55,20 @@ public class FieldTest {
 	@Test
 	public void testFoundSet() {
 		LinkedList<Card> liste = new LinkedList<Card>();
-		liste.addAll(field.packForGame);
+		liste.addAll(field.getAllCardsInGame());
 		for (int index = 0; index < (liste.size()-2); index++) {
 			this.field.foundSet(liste.get(index),
 					liste.get((index+1)),
 					liste.get(index+2));
 		}
-		if(!this.field.packForGame.isEmpty()){
+		if(!this.field.getAllCardsInGame().isEmpty()){
 			fail("found a set methode is not working as the way we wish :/");
 		}
 	}
 
 	@Test
 	public void testCardsInField() {
-		if(!this.field.cardInFieldGame.values().containsAll(this.field.getCardsInField())){
+		if(!this.field.getCardInFieldGame().values().containsAll(this.field.getCardsInField())){
 			fail("the card on feld are not the same as in the methode get card in field");
 		}
 	}
@@ -77,8 +77,8 @@ public class FieldTest {
 	public void testSetSizeOfField() {
 		LinkedList<Card> list = new LinkedList<Card>();
 		list.add(this.field.getCardsInField().get(0));
-		list.add(this.field.cardInFieldGame.get(1));
-		list.add(this.field.cardInFieldGame.get(2));
+		list.add(this.field.getCardInFieldGame().get(1));
+		list.add(this.field.getCardInFieldGame().get(2));
 		this.field.setSizeOfField(15, list);
 		if(this.field.getCardsInField().size() != 15){
 			fail("field size has been not modifed");
@@ -93,7 +93,7 @@ public class FieldTest {
 	public void testChangeCards() {
 		LinkedList<Card> liste =  new LinkedList<Card>(); 
 		
-		liste.add(this.field.cardInFieldGame.get(0));
+		liste.add(this.field.getCardInFieldGame().get(0));
 		liste.add(this.field.getUnusedCards().get(0));
 		liste.add(this.field.getUnusedCards().get(1));
 		 this.field.changeCards(liste);
@@ -102,7 +102,7 @@ public class FieldTest {
 
 	@Test
 	public void testGetPackForControler() {
-		if(field.packForGame.size() != 81){
+		if(field.getAllCardsInGame().size() != 81){
 			fail("feld größe stimmt nicht");
 		}
 	}
