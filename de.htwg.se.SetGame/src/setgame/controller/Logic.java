@@ -15,7 +15,7 @@ import setgame.modell.Card;
 public class Logic extends Observable {
 	private Field field;
 	private int counter;
-	private final static int NUMBEROFSETCARDS = 3;
+	private static final int NUMBEROFSETCARDS = 3;
 
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
@@ -42,10 +42,9 @@ public class Logic extends Observable {
 		}
 		if (this.counter == NUMBEROFSETCARDS) {
 			return true;
-		} else {
-			return false;
-
 		}
+		return false;
+
 	}
 
 	/**
@@ -55,9 +54,9 @@ public class Logic extends Observable {
 	 * @return return true if is a set.
 	 */
 	public boolean isAset(Card cardOne, Card cardTwo, Card cardThree) {
-		if (!isInFiel(cardOne, cardTwo, cardThree))
+		if (!isInFiel(cardOne, cardTwo, cardThree)) {
 			return false;
-		else {
+		} else {
 			if (proveColor(cardOne, cardTwo, cardThree)
 					&& proveFilling(cardOne, cardTwo, cardThree)
 					&& proveNumberOfComponents(cardOne, cardTwo, cardThree)
@@ -93,7 +92,7 @@ public class Logic extends Observable {
 	 * changed the Cards in the field if necessary. to
 	 */
 	private boolean changeCardsinGame() {
-		LinkedList<Card> allCards = new LinkedList<Card>();
+		List<Card> allCards = new LinkedList<Card>();
 		allCards.addAll(field.getAllCardsInGame());
 		if (!allCards.isEmpty() && !getSet(allCards).isEmpty()) {
 			field.changeCards(getSet(allCards));
@@ -146,7 +145,7 @@ public class Logic extends Observable {
 		return false;
 	}
 
-	private LinkedList<Card> getSet(List<Card> list) {
+	private List<Card> getSet(List<Card> list) {
 		LinkedList<Card> setList = new LinkedList<Card>();
 		if (list.size() >= NUMBEROFSETCARDS) {
 			for (Card cardOne : list) {
