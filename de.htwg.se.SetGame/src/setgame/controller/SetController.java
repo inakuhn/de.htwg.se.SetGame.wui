@@ -12,7 +12,7 @@ import setgame.modell.Card;
  * @author Raina & David Logic class for the game
  * 
  */
-public class Logic extends Observable {
+public class SetController extends Observable {
 	private Field field;
 	private int counter;
 	private static final int NUMBEROFSETCARDS = 3;
@@ -20,7 +20,7 @@ public class Logic extends Observable {
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
-	public Logic() {
+	public SetController() {
 		this.field = new setgame.modell.Field();
 		this.counter = 0;
 		this.field.startUp();
