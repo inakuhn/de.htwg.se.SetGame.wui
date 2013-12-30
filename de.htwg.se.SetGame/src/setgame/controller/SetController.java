@@ -3,7 +3,9 @@ package setgame.controller;
 import java.util.LinkedList;
 
 import setgame.modell.Field;
+
 import java.util.List;
+import java.util.Timer;
 
 import de.htwg.se.observer.Observable;
 import setgame.modell.Card;
@@ -16,16 +18,46 @@ public class SetController extends Observable {
 	private Field field;
 	private int counter;
 	private static final int NUMBEROFSETCARDS = 3;
+	private final int  playerOne;
+	private final int playerTwo;
+	private int playerOneCounter;
+	private int playerTwoCounter;
+	private final int gameModus;
+	private static final int COMPUTERMODUS = 0;
+	private final int countDownMinuten;
 
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
-	public SetController() {
+	public SetController(int spielmodus) {
 		this.field = new setgame.modell.Field();
 		this.counter = 0;
 		this.field.startUp();
+		if(spielmodus == COMPUTERMODUS){
+			this.gameModus = 0;			
+		}else{
+			this.gameModus = 1;
+	
+		}
+		this.playerOne = 1;
+		this.playerTwo = 2;
+		this.playerOneCounter = 0;
+		this.playerTwoCounter = 0;
+		this.countDownMinuten = 120;
+		
 	}
-
+	public int spielModus(){
+		return this.gameModus;
+	}
+	private int startCountDown() {
+		
+		System.out.println("ja eoidjoiejdoeijdoidjoie");
+		return 1;
+	}
+	private int getTimeForCountDown() {
+		return this.countDownMinuten;
+		
+	}
 	/**
 	 * @param cardOne
 	 * @param cardTwo
@@ -46,6 +78,22 @@ public class SetController extends Observable {
 		return false;
 
 	}
+	public boolean isAset(Card cardOne, Card cardTwo, Card cardThree, int player){
+		if(isAset(cardOne, cardTwo, cardThree)){
+			if(this.playerOne == player){
+				this.playerOneCounter = this.playerOneCounter + 1;;
+			}else if(this.playerTwo == player){
+				this.playerTwoCounter =  this.playerTwoCounter + 1;
+			}
+			if(this.gameModus == COMPUTERMODUS){
+				startCountDown();
+			}
+			if(playerOne == player || player == this.playerTwo){
+				return true;
+			}
+		}
+		return false;
+	}
 
 	/**
 	 * @param cardOne
@@ -53,7 +101,8 @@ public class SetController extends Observable {
 	 * @param cardThree
 	 * @return return true if is a set.
 	 */
-	public boolean isAset(Card cardOne, Card cardTwo, Card cardThree) {
+	private boolean isAset(Card cardOne, Card cardTwo, Card cardThree) {
+		
 		if (!isInFiel(cardOne, cardTwo, cardThree)) {
 			return false;
 		} else {
@@ -61,7 +110,7 @@ public class SetController extends Observable {
 					&& proveFilling(cardOne, cardTwo, cardThree)
 					&& proveNumberOfComponents(cardOne, cardTwo, cardThree)
 					&& proveForm(cardOne, cardTwo, cardThree)) {
-				field.foundSet(cardOne, cardTwo, cardThree);
+					field.foundSet(cardOne, cardTwo, cardThree);
 				if (!(getSet(this.field.getCardsInField()).isEmpty())) {
 					return true;
 				} else if (alltheSetsInField(this.field.getAllCardsInGame())) {
