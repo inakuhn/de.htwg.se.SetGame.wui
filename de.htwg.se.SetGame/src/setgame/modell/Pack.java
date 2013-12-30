@@ -1,6 +1,7 @@
 package setgame.modell;
 
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author David Simon & Raina Bertolini
@@ -108,8 +109,8 @@ final class Pack {
 	/**
 	 * @return pack of cards
 	 */
-	protected LinkedList<Card> getPack() {
-		LinkedList<Card> liste = new LinkedList<Card>();
+	protected List<Card> getPack() {
+		List<Card> liste = new LinkedList<Card>();
 		for(Card card : this.pack){
 			liste.add(card);
 		}
