@@ -152,14 +152,14 @@ public class Logic extends Observable {
 				for (Card cardTwo : list) {
 					if (!cardTwo.comparTo(cardOne)) {
 						for (Card cardThree : list) {
-							if (!cardThree.comparTo(cardOne)
+
+							if (isAset(cardOne, cardTwo, cardThree)
+									&& !cardThree.comparTo(cardOne)
 									&& !(cardTwo.comparTo(cardTwo))) {
-								if (isAset(cardOne, cardTwo, cardThree)) {
-									setList.add(cardOne);
-									setList.add(cardTwo);
-									setList.add(cardThree);
-									return setList;
-								}
+								setList.add(cardOne);
+								setList.add(cardTwo);
+								setList.add(cardThree);
+								return setList;
 							}
 						}
 					}
