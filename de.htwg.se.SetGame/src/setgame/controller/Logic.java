@@ -2,29 +2,29 @@ package setgame.controller;
 
 import java.util.LinkedList;
 
-
-
+import setgame.modell.Field;
 import java.util.List;
 
 import de.htwg.se.observer.Observable;
 import setgame.modell.Card;
 
 /**
- * @author Raina & David
- * Logic class for the game
- *
+ * @author Raina & David Logic class for the game
+ * 
  */
 public class Logic extends Observable {
-	setgame.modell.Field field;
+	private Field field;
+	private int counter;
+	private final static int NUMBEROFSETCARDS = 3;
 
 	/**
-	 *  Logic Construct make for the game a new field with a new pack!!!
+	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
 	public Logic() {
 		this.field = new setgame.modell.Field();
+		this.counter = 0;
 		this.field.startUp();
 	}
-
 
 	/**
 	 * @param cardOne
@@ -33,31 +33,19 @@ public class Logic extends Observable {
 	 * @return true if all the cards are in the field is only a safety Method
 	 */
 	private boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
-		int counter = 3;
-		for (Card card : field.getCardsInField())
-			if (card.getColor().equals(cardOne.getColor())
-					&& card.getFomr().equals(cardOne.getFomr())
-					&& card.getNumberOfComponents() == cardOne
-							.getNumberOfComponents()
-					&& card.getPanelFilling().equals(cardOne.getPanelFilling())
-					|| card.getColor().equals(cardTwo.getColor())
-					&& card.getFomr().equals(cardTwo.getFomr())
-					&& card.getNumberOfComponents() == cardTwo
-							.getNumberOfComponents()
-					&& card.getPanelFilling().equals(cardTwo.getPanelFilling())
-					|| card.getColor().equals(cardThree.getColor())
-					&& card.getFomr().equals(cardThree.getFomr())
-					&& card.getNumberOfComponents() == cardThree
-							.getNumberOfComponents()
-					&& card.getPanelFilling().equals(
-							cardThree.getPanelFilling())) {
+		this.counter = 0;
+		for (Card card : field.getCardsInField()) {
+			if (card.comparTo(cardOne) || card.comparTo(cardTwo)
+					|| card.comparTo(cardThree)) {
 				counter++;
 			}
-
-		if (counter == 3)
+		}
+		if (this.counter == NUMBEROFSETCARDS) {
 			return true;
-		else
+		} else {
 			return false;
+
+		}
 	}
 
 	/**
@@ -73,62 +61,51 @@ public class Logic extends Observable {
 			if (proveColor(cardOne, cardTwo, cardThree)
 					&& proveFilling(cardOne, cardTwo, cardThree)
 					&& proveNumberOfComponents(cardOne, cardTwo, cardThree)
-					&& proveFilling(cardOne, cardTwo, cardThree)) {
+					&& proveForm(cardOne, cardTwo, cardThree)) {
 				field.foundSet(cardOne, cardTwo, cardThree);
-				alltheSetsInField(field.getCardsInField());
-				return true;
-			} else {
-				return false;
+				if (!(getSet(this.field.getCardsInField()).isEmpty())) {
+					return true;
+				} else if (alltheSetsInField(this.field.getAllCardsInGame())) {
+					return true;
+				}
 			}
 		}
-
+		return false;
 	}
 
-	
-
 	/**
-	 * @param list is the Cards in field the new ones if there is no set anymore.
+	 * @param list
+	 *            is the Cards in field the new ones if there is no set anymore.
 	 */
-	private void alltheSetsInField(List<Card> list) {
-		boolean foudSet = false;
-		if(getSet(list) != null)
-			foudSet = true;
-		if(foudSet == false){
-			changeCardsinGame();
+	private boolean alltheSetsInField(List<Card> list) {
+		if (!getSet(list).isEmpty()) {
+			return true;
 		}
-		
+		if (changeCardsinGame()) {
+			return true;
+		}
+
+		return false;
+
 	}
 
 	/**
-	 * 	changed the Cards in the field if necessary.
-	 *  to 
+	 * changed the Cards in the field if necessary. to
 	 */
-	private void changeCardsinGame() {
+	private boolean changeCardsinGame() {
 		LinkedList<Card> allCards = new LinkedList<Card>();
 		allCards.addAll(field.getAllCardsInGame());
-		if(!allCards.isEmpty() && getSet(allCards) != null){
-			if(getSet(field.getUnusedCards()) != null && getSet(field.getUnusedCards()).size() >= 3){
-				
-							
-			}
-			
-
-			
-		}
-			
-		
-	}
-
-	private boolean proveColor(Card cardOne, Card cardTwo, Card cardThree) {
-		if (cardOne.getColor().equals(cardTwo.getColor())
-				&& cardOne.getColor().equals(cardTwo.getColor())) {
-			return true;
-		} else if ((false == (cardOne.getColor().equals(cardTwo.getColor())))
-				&& (false == (cardOne.getColor().equals(cardThree.getColor())))
-				&& (false == (cardTwo.getColor().equals(cardThree.getColor())))) {
+		if (!allCards.isEmpty() && !getSet(allCards).isEmpty()) {
+			field.changeCards(getSet(allCards));
 			return true;
 		}
 		return false;
+
+	}
+
+	private boolean proveColor(Card cardOne, Card cardTwo, Card cardThree) {
+		return proveString(cardOne.getColor(), cardTwo.getColor(),
+				cardThree.getColor());
 	}
 
 	private boolean proveNumberOfComponents(Card cardOne, Card cardTwo,
@@ -149,36 +126,47 @@ public class Logic extends Observable {
 	}
 
 	private boolean proveFilling(Card cardOne, Card cardTwo, Card cardThree) {
-		if (cardOne.getPanelFilling().equals(cardTwo.getPanelFilling())
-				&& cardOne.getPanelFilling().equals(cardTwo.getPanelFilling())) {
+		return proveString(cardOne.getPanelFilling(),
+				cardTwo.getPanelFilling(), cardThree.getPanelFilling());
+	}
+
+	private boolean proveForm(Card cardOne, Card cardTwo, Card cardThree) {
+		return proveString(cardOne.getFomr(), cardTwo.getFomr(),
+				cardThree.getFomr());
+	}
+
+	private boolean proveString(String stringOne, String stringTwo,
+			String stringThree) {
+		if (stringOne.equals(stringTwo) && stringOne.equals(stringThree)) {
 			return true;
-		} else if ((false == (cardOne.getPanelFilling().equals(cardTwo
-				.getPanelFilling())))
-				&& (false == (cardOne.getColor().equals(cardThree.getColor())))
-				&& (false == (cardTwo.getColor().equals(cardThree.getColor())))) {
+		} else if (!(stringOne.equals(stringTwo) && !(stringOne
+				.equals(stringThree))) && !(stringTwo.equals(stringThree))) {
 			return true;
 		}
 		return false;
 	}
-	private LinkedList<Card> getSet(List<Card> list){
+
+	private LinkedList<Card> getSet(List<Card> list) {
 		LinkedList<Card> setList = new LinkedList<Card>();
-		if(list.size() < 3){
-			return null;
-		}else{
-			for(Card cardOne : list){
-				for(Card cardTwo : list){
-					for(Card cardThree : list){
-						if(isAset(cardOne, cardTwo, cardThree)){
-							setList.add(cardOne);
-							setList.add(cardTwo);
-							setList.add(cardThree);
-							return setList;
+		if (list.size() >= NUMBEROFSETCARDS) {
+			for (Card cardOne : list) {
+				for (Card cardTwo : list) {
+					if (!cardTwo.comparTo(cardOne)) {
+						for (Card cardThree : list) {
+							if (!cardThree.comparTo(cardOne)
+									&& !(cardTwo.comparTo(cardTwo))) {
+								if (isAset(cardOne, cardTwo, cardThree)) {
+									setList.add(cardOne);
+									setList.add(cardTwo);
+									setList.add(cardThree);
+									return setList;
+								}
+							}
 						}
 					}
 				}
 			}
-			
 		}
-		return null;
+		return setList;
 	}
 }
