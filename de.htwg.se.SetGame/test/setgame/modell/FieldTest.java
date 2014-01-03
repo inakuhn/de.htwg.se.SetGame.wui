@@ -9,7 +9,8 @@ import java.util.TreeSet;
 import org.junit.Before;
 import org.junit.Test;
 
-import setgame.modell.Field;
+import setgame.modell.impl.Card;
+import setgame.modell.impl.Field;
 
 public class FieldTest {
 	Field field;

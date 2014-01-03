@@ -1,16 +1,16 @@
-package setgame.modell;
+package setgame.modell.impl;
 
 import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author David Simon & Raina Bertolini
- * class use to create all the combinations of the pack
+ * @author David Simon & Raina Bertolini class use to create all the
+ *         combinations of the pack
  */
-final class Pack {
-	
+public class Pack {
+
 	/**
-	 *  Instance variable
+	 * Instance variable
 	 */
 	private Card pack[];
 	protected static final String[] FORME = { "ovally", "wave", "balk" };
@@ -23,9 +23,6 @@ final class Pack {
 	private int formeIndex = 0;
 	private int fillgingIndex = 0;
 	private int numbersIdex = 0;
-
-
-	
 
 	/**
 	 * Construct for card
@@ -109,23 +106,25 @@ final class Pack {
 	/**
 	 * @return pack of cards
 	 */
-	protected List<Card> getPack() {
+	public List<Card> getPack() {
 		List<Card> liste = new LinkedList<Card>();
-		for(Card card : this.pack){
+		for (Card card : this.pack) {
 			liste.add(card);
 		}
 		return liste;
 	}
-	protected String[] getcolors(){
+
+	public String[] getcolors() {
 		return Pack.COLORS;
-		
-	}
-	protected String[] getFormes(){
-		return Pack.FORME;
-	}
-	protected String[] getFill(){
-		return Pack.FILL;
+
 	}
 
+	public String[] getFormes() {
+		return Pack.FORME;
+	}
+
+	public String[] getFill() {
+		return Pack.FILL;
+	}
 
 }

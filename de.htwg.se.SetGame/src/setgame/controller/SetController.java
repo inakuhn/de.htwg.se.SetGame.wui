@@ -2,20 +2,20 @@ package setgame.controller;
 
 import java.util.LinkedList;
 
-import setgame.modell.Field;
+import setgame.modell.ICard;
+import setgame.modell.IField;
 
 import java.util.List;
-import java.util.Timer;
 
 import de.htwg.se.observer.Observable;
-import setgame.modell.Card;
+import setgame.modell.impl.Card;
 
 /**
  * @author Raina & David Logic class for the game
  * 
  */
 public class SetController extends Observable {
-	private Field field;
+	private IField field;
 	private int counter;
 	private static final int NUMBEROFSETCARDS = 3;
 	private final int  playerOne;
@@ -24,13 +24,12 @@ public class SetController extends Observable {
 	private int playerTwoCounter;
 	private final int gameModus;
 	private static final int COMPUTERMODUS = 0;
-	private final int countDownMinuten;
 
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
 	public SetController(int spielmodus) {
-		this.field = new setgame.modell.Field();
+		this.field = new setgame.modell.impl.Field();
 		this.counter = 0;
 		this.field.startUp();
 		if(spielmodus == COMPUTERMODUS){
@@ -43,7 +42,6 @@ public class SetController extends Observable {
 		this.playerTwo = 2;
 		this.playerOneCounter = 0;
 		this.playerTwoCounter = 0;
-		this.countDownMinuten = 120;
 		
 	}
 	public int spielModus(){
@@ -54,10 +52,7 @@ public class SetController extends Observable {
 		System.out.println("ja eoidjoiejdoeijdoidjoie");
 		return 1;
 	}
-	private int getTimeForCountDown() {
-		return this.countDownMinuten;
-		
-	}
+
 	/**
 	 * @param cardOne
 	 * @param cardTwo
@@ -66,7 +61,7 @@ public class SetController extends Observable {
 	 */
 	private boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
 		this.counter = 0;
-		for (Card card : field.getCardsInField()) {
+		for (ICard card : field.getCardsInField()) {
 			if (card.comparTo(cardOne) || card.comparTo(cardTwo)
 					|| card.comparTo(cardThree)) {
 				counter++;
@@ -151,13 +146,13 @@ public class SetController extends Observable {
 
 	}
 
-	private boolean proveColor(Card cardOne, Card cardTwo, Card cardThree) {
+	private boolean proveColor(ICard cardOne, ICard cardTwo, ICard cardThree) {
 		return proveString(cardOne.getColor(), cardTwo.getColor(),
 				cardThree.getColor());
 	}
 
-	private boolean proveNumberOfComponents(Card cardOne, Card cardTwo,
-			Card cardThree) {
+	private boolean proveNumberOfComponents(ICard cardOne, ICard cardTwo,
+			ICard cardThree) {
 		if (cardOne.getNumberOfComponents() == cardTwo.getNumberOfComponents()
 				&& cardOne.getNumberOfComponents() == cardThree
 						.getNumberOfComponents()) {
@@ -173,12 +168,12 @@ public class SetController extends Observable {
 		return false;
 	}
 
-	private boolean proveFilling(Card cardOne, Card cardTwo, Card cardThree) {
+	private boolean proveFilling(ICard cardOne, ICard cardTwo, ICard cardThree) {
 		return proveString(cardOne.getPanelFilling(),
 				cardTwo.getPanelFilling(), cardThree.getPanelFilling());
 	}
 
-	private boolean proveForm(Card cardOne, Card cardTwo, Card cardThree) {
+	private boolean proveForm(ICard cardOne, ICard cardTwo, ICard cardThree) {
 		return proveString(cardOne.getFomr(), cardTwo.getFomr(),
 				cardThree.getFomr());
 	}

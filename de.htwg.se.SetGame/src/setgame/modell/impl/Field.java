@@ -1,10 +1,12 @@
-package setgame.modell;
+package setgame.modell.impl;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
+import setgame.modell.IField;
 
 /**
  * Class Field.
@@ -13,7 +15,7 @@ import java.util.TreeSet;
  * @date 7.12.2013
  * @category Modell
  */
-public class Field {
+public class Field implements IField {
 
 	/**
 	 * Instance variable
@@ -48,14 +50,12 @@ public class Field {
 		this.cardInFieldGame = new TreeMap<Integer, Card>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
 		this.packForGame = new LinkedList<Card>();
-		new LinkedList<Card>();
 	}
 
-	/**
-	 * Field will be initializes.
-	 * 
-	 * @return give back filled field
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#startUp()
 	 */
+	@Override
 	public void startUp() {
 		Map<Integer, Card> packForThegame = new TreeMap<Integer, Card>();
 		rand();
@@ -113,13 +113,10 @@ public class Field {
 		}
 	}
 
-	/**
-	 * Insert new Cards in the field where cardOne , cardTwo ,cardThree went.
-	 * 
-	 * @param cardOne
-	 * @param cardTwo
-	 * @param cardThree
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#foundSet(setgame.modell.Card, setgame.modell.Card, setgame.modell.Card)
 	 */
+	@Override
 	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
 
 		TreeSet<Integer> keyOfcardInField = new TreeSet<Integer>();
@@ -164,9 +161,10 @@ public class Field {
 		
 	}
 
-	/**
-	 * @return all the cards in the field
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#getCardsInField()
 	 */
+	@Override
 	public List<Card> getCardsInField() {
 		List<Card> liste = new LinkedList<Card>();
 		liste.addAll(this.getCardInFieldGame().values());
@@ -174,13 +172,10 @@ public class Field {
 
 	}
 
-	/**
-	 * changes the size of the field in the game or at the begin with out losing
-	 * Cards.
-	 * 
-	 * @param removeThisCards
-	 *            TODO
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#setSizeOfField(int, java.util.List)
 	 */
+	@Override
 	public void setSizeOfField(int size, List<Card> removeThisCards) {
 		if (size < sizeOfField) {
 			LinkedList<Integer> keys = new LinkedList<Integer>();
@@ -209,13 +204,10 @@ public class Field {
 		}
 	}
 
-	/**
-	 * the Controller always prove if a Set in Field is, if not the look through
-	 * the existent pack and prove if still existing a Set if yes calls the
-	 * changed Cards.
-	 * 
-	 * @param liste
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#changeCards(java.util.List)
 	 */
+	@Override
 	public void changeCards(List<Card> liste) {
 		LinkedList<Card> tmpList = new LinkedList<Card>();
 		tmpList.addAll(liste);
@@ -247,9 +239,10 @@ public class Field {
 	}
 	
 
-	/**
-	 * @return the unused Cards in game!
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#getUnusedCards()
 	 */
+	@Override
 	public List<Card> getUnusedCards() {
 		LinkedList<Card> list = new LinkedList<Card>();
 		list.addAll(this.packForGame);
@@ -257,10 +250,18 @@ public class Field {
 		return list;
 	}
 
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#getSizeofField()
+	 */
+	@Override
 	public int getSizeofField() {
 		return getCardInFieldGame().size();
 	}
 
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#getAllCardsInGame()
+	 */
+	@Override
 	public List<Card> getAllCardsInGame() {
 		return this.packForGame;
 	}
@@ -272,9 +273,10 @@ public class Field {
 		return ramdomListe;
 	}
 
-	/**
-	 * @return the cardInFieldGame
+	/* (non-Javadoc)
+	 * @see setgame.modell.IField#getCardInFieldGame()
 	 */
+	@Override
 	public Map<Integer, Card> getCardInFieldGame() {
 		return cardInFieldGame;
 	}

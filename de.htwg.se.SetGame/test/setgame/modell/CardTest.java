@@ -1,12 +1,14 @@
 package setgame.modell;
+import setgame.modell.impl.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import setgame.modell.Card;
+
+import setgame.modell.impl.Card;
 
 public class CardTest {
 
-	Card card = null;
+	ICard card = null;
 	@Before
 	public void setUp() {
 		this.card = new Card("red", "wave", "fill", 1);

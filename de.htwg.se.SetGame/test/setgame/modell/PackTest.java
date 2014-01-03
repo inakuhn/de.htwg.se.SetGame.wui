@@ -1,8 +1,9 @@
 package setgame.modell;
 
 import org.junit.Before;
+
 import org.junit.Test;
-import setgame.modell.Pack;
+import setgame.modell.impl.Pack;
 
 public class PackTest {
 	Pack pack;
@@ -21,7 +22,7 @@ public class PackTest {
 	public void testGetCards() {
 		this.pack = new Pack();
 		boolean b = false;
-		for (Card cartas : pack.getPack()) {
+		for (ICard cartas : pack.getPack()) {
 			if (cartas.getColor().equals(pack.getcolors()[0])
 					|| cartas.getColor().equals(pack.getcolors()[1])
 					|| cartas.getColor().equals(pack.getcolors()[2])
