@@ -1,6 +1,4 @@
 package setgame.modell;
-import setgame.modell.impl.*;
-
 import org.junit.Before;
 import org.junit.Test;
 
