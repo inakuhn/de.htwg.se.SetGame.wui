@@ -1,7 +1,8 @@
-package setgame.controller;
+package setgame.controller.impl;
 
 import java.util.LinkedList;
 
+import setgame.controller.IController;
 import setgame.modell.ICard;
 import setgame.modell.IField;
 
@@ -14,7 +15,7 @@ import setgame.modell.impl.Card;
  * @author Raina & David Logic class for the game
  * 
  */
-public class SetController extends Observable {
+public class SetController extends Observable implements IController {
 	private IField field;
 	private int counter;
 	private static final int NUMBEROFSETCARDS = 3;
@@ -44,6 +45,10 @@ public class SetController extends Observable {
 		this.playerTwoCounter = 0;
 		
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.IController#spielModus()
+	 */
+	@Override
 	public int spielModus(){
 		return this.gameModus;
 	}
@@ -73,6 +78,10 @@ public class SetController extends Observable {
 		return false;
 
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.IController#isAset(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
+	 */
+	@Override
 	public boolean isAset(Card cardOne, Card cardTwo, Card cardThree, int player){
 		if(isAset(cardOne, cardTwo, cardThree)){
 			if(this.playerOne == player){
