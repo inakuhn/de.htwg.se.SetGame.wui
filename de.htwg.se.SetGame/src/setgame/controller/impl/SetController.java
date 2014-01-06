@@ -1,12 +1,19 @@
 package setgame.controller.impl;
 
+import java.lang.reflect.Field;
 import java.util.LinkedList;
 
-import setgame.controller.IController;
 import setgame.modell.ICard;
 import setgame.modell.IField;
 
 import java.util.List;
+
+
+
+
+
+
+
 
 import de.htwg.se.observer.Observable;
 import setgame.modell.impl.Card;
@@ -15,7 +22,7 @@ import setgame.modell.impl.Card;
  * @author Raina & David Logic class for the game
  * 
  */
-public class SetController extends Observable implements IController {
+public class SetController extends Observable implements IController{
 	private IField field;
 	private int counter;
 	private static final int NUMBEROFSETCARDS = 3;
@@ -45,17 +52,13 @@ public class SetController extends Observable implements IController {
 		this.playerTwoCounter = 0;
 		
 	}
+
 	/* (non-Javadoc)
-	 * @see setgame.controller.IController#spielModus()
+	 * @see setgame.controller.impl.IController#spielModus()
 	 */
 	@Override
 	public int spielModus(){
 		return this.gameModus;
-	}
-	private int startCountDown() {
-		
-		System.out.println("ja eoidjoiejdoeijdoidjoie");
-		return 1;
 	}
 
 	/**
@@ -66,7 +69,7 @@ public class SetController extends Observable implements IController {
 	 */
 	private boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
 		this.counter = 0;
-		for (ICard card : field.getCardsInField()) {
+		for (Card card : field.getCardsInField()) {
 			if (card.comparTo(cardOne) || card.comparTo(cardTwo)
 					|| card.comparTo(cardThree)) {
 				counter++;
@@ -79,10 +82,10 @@ public class SetController extends Observable implements IController {
 
 	}
 	/* (non-Javadoc)
-	 * @see setgame.controller.IController#isAset(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
+	 * @see setgame.controller.impl.IController#isAsetForController(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
 	 */
 	@Override
-	public boolean isAset(Card cardOne, Card cardTwo, Card cardThree, int player){
+	public boolean isAsetForController(Card cardOne, Card cardTwo, Card cardThree, int player){
 		if(isAset(cardOne, cardTwo, cardThree)){
 			if(this.playerOne == player){
 				this.playerOneCounter = this.playerOneCounter + 1;;
@@ -90,7 +93,7 @@ public class SetController extends Observable implements IController {
 				this.playerTwoCounter =  this.playerTwoCounter + 1;
 			}
 			if(this.gameModus == COMPUTERMODUS){
-				startCountDown();
+					//TODO Count dOWn
 			}
 			if(playerOne == player || player == this.playerTwo){
 				return true;

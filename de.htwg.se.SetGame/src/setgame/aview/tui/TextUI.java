@@ -6,18 +6,18 @@ import java.util.regex.Pattern;
 import org.apache.log4j.Logger;
 import com.google.inject.Inject;
 
-import setgame.controller.ISetController;
+import setgame.controller.IController;
 import de.htwg.se.observer.IObserver;
 import de.htwg.se.observer.Event;
 
 public class TextUI implements IObserver {
 	
-	private ISetController controller;
+	private IController controller;
 	
 	private Logger logger = Logger.getLogger("setgame.aview.tui");
 	
 	@Inject
-	public TextUI(ISetController controller) {
+	public TextUI(IController controller) {
 		this.controller = controller;
 		controller.addObserver(this);
 	}

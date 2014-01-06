@@ -103,7 +103,6 @@ public class Card implements ICard {
 	/* (non-Javadoc)
 	 * @see setgame.modell.impl.ICard#getNumberOfComponents()
 	 */
-	@Override
 	public int getNumberOfComponents() {
 		return anz;
 	}
@@ -141,4 +140,6 @@ public class Card implements ICard {
 		return false;
 		
 	}
+
+
 }

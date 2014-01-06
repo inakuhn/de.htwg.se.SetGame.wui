@@ -52,14 +52,16 @@ public class Field implements IField {
 		this.packForGame = new LinkedList<Card>();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#startUp()
 	 */
 	@Override
 	public void startUp() {
 		Map<Integer, Card> packForThegame = new TreeMap<Integer, Card>();
 		rand();
-		
+
 		int i = 0;
 		for (Card card : this.pack.getPack()) {
 			packForThegame.put(this.getRamdomListe().get(i), card);
@@ -69,7 +71,6 @@ public class Field implements IField {
 
 		startUpOfField();
 	}
-
 
 	/**
 	 * Filled array with integer number.
@@ -113,8 +114,11 @@ public class Field implements IField {
 		}
 	}
 
-	/* (non-Javadoc)
-	 * @see setgame.modell.IField#foundSet(setgame.modell.Card, setgame.modell.Card, setgame.modell.Card)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see setgame.modell.IField#foundSet(setgame.modell.Card,
+	 * setgame.modell.Card, setgame.modell.Card)
 	 */
 	@Override
 	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
@@ -134,9 +138,9 @@ public class Field implements IField {
 		}
 		fillField();
 
-
 	}
-	private void fillField(){
+
+	private void fillField() {
 		LinkedList<Card> listCardarenoteinfieldCards = new LinkedList<Card>();
 		listCardarenoteinfieldCards.addAll(getUnusedCards());
 
@@ -158,10 +162,12 @@ public class Field implements IField {
 
 			}
 		}
-		
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getCardsInField()
 	 */
 	@Override
@@ -172,7 +178,9 @@ public class Field implements IField {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#setSizeOfField(int, java.util.List)
 	 */
 	@Override
@@ -204,7 +212,9 @@ public class Field implements IField {
 		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#changeCards(java.util.List)
 	 */
 	@Override
@@ -237,9 +247,10 @@ public class Field implements IField {
 		}
 
 	}
-	
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getUnusedCards()
 	 */
 	@Override
@@ -250,7 +261,9 @@ public class Field implements IField {
 		return list;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getSizeofField()
 	 */
 	@Override
@@ -258,7 +271,9 @@ public class Field implements IField {
 		return getCardInFieldGame().size();
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getAllCardsInGame()
 	 */
 	@Override
@@ -273,14 +288,14 @@ public class Field implements IField {
 		return ramdomListe;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getCardInFieldGame()
 	 */
 	@Override
 	public Map<Integer, Card> getCardInFieldGame() {
 		return cardInFieldGame;
 	}
-
-
 
 }
