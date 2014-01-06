@@ -6,8 +6,6 @@ import java.util.Map;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import setgame.modell.IField;
-
 /**
  * Class Field.
  * 
@@ -15,31 +13,7 @@ import setgame.modell.IField;
  * @date 7.12.2013
  * @category Modell
  */
-public class Field implements IField {
-
-	/**
-	 * Instance variable
-	 * 
-	 */
-	private int sizeOfField;
-	private static final int INITIALVALUEOFFIELD = 12;
-	private static final int MAX = 81;
-	private static final int ONE = 1;
-
-	/* Pack is the cards in the game */
-	private Pack pack;
-	private Map<Integer, Integer> ramdomListe;
-
-	/**
-	 * card are the cars in game
-	 */
-	private Map<Integer, Card> cardInFieldGame;
-
-	/**
-	 * pack for the game are the cards and the random positions
-	 */
-
-	private List<Card> packForGame;
+public class Field extends AField {
 
 	/**
 	 * startup of the objects
@@ -121,7 +95,7 @@ public class Field implements IField {
 	 * setgame.modell.Card, setgame.modell.Card)
 	 */
 	@Override
-	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
+	public void foundSet(ACard cardOne, ACard cardTwo, ACard cardThree) {
 
 		TreeSet<Integer> keyOfcardInField = new TreeSet<Integer>();
 		for (Integer key : this.getCardInFieldGame().keySet()) {
@@ -187,7 +161,7 @@ public class Field implements IField {
 	public void setSizeOfField(int size, List<Card> removeThisCards) {
 		if (size < sizeOfField) {
 			LinkedList<Integer> keys = new LinkedList<Integer>();
-			for (Card card : removeThisCards) {
+			for (ACard card : removeThisCards) {
 				for (Integer key : this.getCardInFieldGame().keySet()) {
 					if (this.getCardInFieldGame().get(key).comparTo(card)) {
 						keys.add(key);

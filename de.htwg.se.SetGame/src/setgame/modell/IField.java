@@ -3,6 +3,7 @@ package setgame.modell;
 import java.util.List;
 import java.util.Map;
 
+import setgame.modell.impl.ACard;
 import setgame.modell.impl.Card;
 
 public interface IField {
@@ -15,7 +16,7 @@ public interface IField {
 	/* (non-Javadoc)
 	 * @see setgame.modell.IField#foundSet(setgame.modell.Card, setgame.modell.Card, setgame.modell.Card)
 	 */
-	public abstract void foundSet(Card cardOne, Card cardTwo, Card cardThree);
+	public abstract void foundSet(ACard cardOne, ACard cardTwo, ACard cardThree);
 
 	/* (non-Javadoc)
 	 * @see setgame.modell.IField#getCardsInField()

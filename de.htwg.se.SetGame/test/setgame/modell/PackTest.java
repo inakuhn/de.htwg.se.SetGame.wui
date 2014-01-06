@@ -1,8 +1,8 @@
 package setgame.modell;
 
 import org.junit.Before;
-
 import org.junit.Test;
+
 import setgame.modell.impl.Pack;
 
 public class PackTest {

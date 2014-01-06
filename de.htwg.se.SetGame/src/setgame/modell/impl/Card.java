@@ -1,18 +1,11 @@
 package setgame.modell.impl;
 
-import setgame.modell.ICard;
-
 
 /**
  * @author David Simon & Raina Bertolini
  *
  */
-public class Card implements ICard {
-	private String color;
-	private String form;
-	private String panelFilling;
-	private int anz;
-
+public class Card extends ACard {
 	/**
 	 * This method create a new card object
 	 * 
@@ -43,8 +36,8 @@ public class Card implements ICard {
 	 *            set the color of a card
 	 */
 	private void setColor(String color) {
-		if (color.equals(setgame.modell.impl.Pack.COLORS[0]) || color.equals(setgame.modell.impl.Pack.COLORS[1])
-				|| color.equals(setgame.modell.impl.Pack.COLORS[2])) {
+		if (color.equals(Pack.COLORS[0]) || color.equals(Pack.COLORS[1])
+				|| color.equals(Pack.COLORS[2])) {
 			this.color = color;
 		}else{
 			this.color = null;
@@ -67,8 +60,8 @@ public class Card implements ICard {
 	 *             if the form is not allowed
 	 */
 	private void setFomr(String fomr) {
-		if (fomr.equals(setgame.modell.impl.Pack.FORME[2]) || fomr.equals(setgame.modell.impl.Pack.FORME[0])
-				|| fomr.equals(setgame.modell.impl.Pack.FORME[1])) {
+		if (fomr.equals(Pack.FORME[2]) || fomr.equals(Pack.FORME[0])
+				|| fomr.equals(Pack.FORME[1])) {
 			this.form = fomr;
 		}else{
 			this.form = null;
@@ -90,9 +83,9 @@ public class Card implements ICard {
 	 *             if filling is not allowed
 	 */
 	private void setPanelFilling(String panelFilling) {
-		if (panelFilling.equals(setgame.modell.impl.Pack.FILL[0])
-				|| panelFilling.equals(setgame.modell.impl.Pack.FILL[1])
-				|| panelFilling.equals(setgame.modell.impl.Pack.FILL[2])) {
+		if (panelFilling.equals(Pack.FILL[0])
+				|| panelFilling.equals(Pack.FILL[1])
+				|| panelFilling.equals(Pack.FILL[2])) {
 			this.panelFilling = panelFilling;
 		}else{
 			this.panelFilling = null;
@@ -113,9 +106,9 @@ public class Card implements ICard {
 	 *             if numberOfComponents is not allowed
 	 */
 	private void setNumberOfComponents(int numberOfComponents) {
-		if (numberOfComponents == setgame.modell.impl.Pack.NUMBEROFCOMPONET[0]
-				|| numberOfComponents == setgame.modell.impl.Pack.NUMBEROFCOMPONET[1]
-				|| numberOfComponents == setgame.modell.impl.Pack.NUMBEROFCOMPONET[2]) {
+		if (numberOfComponents == Pack.NUMBEROFCOMPONET[0]
+				|| numberOfComponents == Pack.NUMBEROFCOMPONET[1]
+				|| numberOfComponents == Pack.NUMBEROFCOMPONET[2]) {
 			this.anz = numberOfComponents;
 
 		}else{
@@ -132,13 +125,18 @@ public class Card implements ICard {
 	/* (non-Javadoc)
 	 * @see setgame.modell.impl.ICard#comparTo(setgame.modell.impl.Card)
 	 */
-	@Override
 	public boolean comparTo(Card card){
 		if(this.color.equals(card.color) && this.anz == card.anz && this.form.equals(card.form) && this.panelFilling.equals(card.panelFilling)){
 			return true;
 		}
 		return false;
 		
+	}
+
+	@Override
+	public boolean comparTo(ACard card) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 

@@ -1,6 +1,6 @@
 package setgame.controller;
 
-import setgame.modell.impl.Card;
+import setgame.modell.impl.ACard;
 
 public interface IController {
 
@@ -12,7 +12,7 @@ public interface IController {
 	/* (non-Javadoc)
 	 * @see setgame.controller.IController#isAset(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
 	 */
-	public abstract boolean isAset(Card cardOne, Card cardTwo, Card cardThree,
+	public abstract boolean isAset(ACard cardOne, ACard cardTwo, ACard cardThree,
 			int player);
 
 }

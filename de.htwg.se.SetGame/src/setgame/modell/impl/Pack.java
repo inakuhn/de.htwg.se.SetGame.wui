@@ -7,7 +7,7 @@ import java.util.List;
  * @author David Simon & Raina Bertolini class use to create all the
  *         combinations of the pack
  */
-public class Pack {
+public class Pack{
 
 	/**
 	 * Instance variable
@@ -36,7 +36,7 @@ public class Pack {
 	/**
 	 * @return the finish pack of the Game
 	 */
-	private Card[] creatCards() {
+	protected Card[] creatCards() {
 		Card list[] = new Card[SIZEOFARRAY];
 		for (int i = 0; i < SIZEOFARRAY; i++) {
 
