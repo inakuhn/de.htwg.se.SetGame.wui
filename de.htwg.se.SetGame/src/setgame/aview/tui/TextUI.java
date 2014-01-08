@@ -8,6 +8,7 @@ import com.google.inject.Inject;
 
 import setgame.controller.IController;
 import de.htwg.se.observer.IObserver;
+import de.htwg.se.observer.IObservable;
 import de.htwg.se.observer.Event;
 
 public class TextUI implements IObserver {
@@ -19,7 +20,7 @@ public class TextUI implements IObserver {
 	@Inject
 	public TextUI(IController controller) {
 		this.controller = controller;
-		controller.addObserver(this);
+		((IObservable) controller).addObserver(this);
 	}
 	
 	@Override
