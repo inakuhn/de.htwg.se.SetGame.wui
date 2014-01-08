@@ -8,5 +8,4 @@ public interface IController {
 
 	public abstract boolean isAsetForController(Card cardOne, Card cardTwo,
 			Card cardThree, int player);
-
 }

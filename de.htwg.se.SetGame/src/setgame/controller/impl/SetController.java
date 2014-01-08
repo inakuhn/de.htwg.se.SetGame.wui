@@ -31,7 +31,7 @@ public class SetController extends Observable implements IController{
 	private final int playerTwo;
 	private int playerOneCounter;
 	private int playerTwoCounter;
-	private final int gameModus;
+	private int gameModus;
 	private static final int COMPUTERMODUS = 0;
 
 	/**
