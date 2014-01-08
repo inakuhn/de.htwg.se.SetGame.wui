@@ -33,6 +33,5 @@ public class TextUI implements IObserver {
 		//TODO LINE-TUI
 	}
 
-	
 
 }
