@@ -133,11 +133,7 @@ public class Card extends ACard {
 		
 	}
 
-	@Override
-	public boolean comparTo(ACard card) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+
 
 
 }
