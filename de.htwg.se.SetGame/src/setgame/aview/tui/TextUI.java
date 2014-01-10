@@ -1,13 +1,12 @@
 package setgame.aview.tui;
 
 import org.apache.log4j.Logger;
+
 import java.util.Scanner;
 
 import setgame.modell.IField;
 import setgame.controller.IController;
-
 import de.htwg.se.observer.IObservable;
-
 import de.htwg.se.observer.IObserver;
 import de.htwg.se.observer.Event;
 

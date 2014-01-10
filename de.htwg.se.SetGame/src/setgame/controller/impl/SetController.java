@@ -17,8 +17,9 @@ import java.util.List;
 
 
 
+
+
 import de.htwg.se.observer.Observable;
-import setgame.modell.impl.ACard;
 import setgame.modell.impl.Card;
 
 /**
@@ -70,7 +71,7 @@ public class SetController extends Observable implements IController {
 	 * @param cardThree
 	 * @return true if all the cards are in the field is only a safety Method
 	 */
-	private boolean isInFiel(ACard cardOne, ACard cardTwo, ACard cardThree) {
+	private boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
 		this.counter = 0;
 		for (Card card : field.getCardsInField()) {
 			if (card.comparTo(cardOne) || card.comparTo(cardTwo)

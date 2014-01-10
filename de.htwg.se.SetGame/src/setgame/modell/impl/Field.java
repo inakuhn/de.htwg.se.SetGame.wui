@@ -95,7 +95,7 @@ public class Field extends AField {
 	 * setgame.modell.Card, setgame.modell.Card)
 	 */
 	@Override
-	public void foundSet(ACard cardOne, ACard cardTwo, ACard cardThree) {
+	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
 
 		TreeSet<Integer> keyOfcardInField = new TreeSet<Integer>();
 		for (Integer key : this.getCardInFieldGame().keySet()) {
@@ -161,7 +161,7 @@ public class Field extends AField {
 	public void setSizeOfField(int size, List<Card> removeThisCards) {
 		if (size < sizeOfField) {
 			LinkedList<Integer> keys = new LinkedList<Integer>();
-			for (ACard card : removeThisCards) {
+			for (Card card : removeThisCards) {
 				for (Integer key : this.getCardInFieldGame().keySet()) {
 					if (this.getCardInFieldGame().get(key).comparTo(card)) {
 						keys.add(key);

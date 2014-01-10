@@ -1,6 +1,6 @@
 package setgame.modell;
 
-import setgame.modell.impl.ACard;
+import setgame.modell.impl.Card;
 
 public interface ICard {
 
@@ -33,6 +33,6 @@ public interface ICard {
 	 * @see setgame.modell.impl.ICard#comparTo(setgame.modell.impl.Card)
 	 */
 
-	boolean comparTo(ACard card);
+	boolean comparTo(Card card);
 
 }
