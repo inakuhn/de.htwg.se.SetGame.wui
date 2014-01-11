@@ -32,7 +32,7 @@ public class TextUI implements IObserver {
     }
     
     public synchronized void printTUI() {
-    	outI(controller.spielModus());
+    	outI(controller.getPlayModus());
     }
     
     public boolean processTurn(Scanner scanner) {
@@ -41,9 +41,9 @@ public class TextUI implements IObserver {
     		field.startUp();
     	}
     	
-    	if(controller.spielModus() == 0) {
+    	if(controller.getPlayModus() == 0) {
     		out("Spielermodus: Com vs Player 1");
-    	} else if (controller.spielModus() == 1) {
+    	} else if (controller.getPlayModus() == 1) {
     		out("Spielermodus: Player 1 vs Player 2");
     	}
     	

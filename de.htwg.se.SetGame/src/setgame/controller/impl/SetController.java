@@ -61,7 +61,7 @@ public class SetController extends Observable implements IController {
 	 * @see setgame.controller.impl.IController#spielModus()
 	 */
 	@Override
-	public int spielModus(){
+	public int getPlayModus(){
 		return this.gameModus;
 	}
 
@@ -233,5 +233,9 @@ public class SetController extends Observable implements IController {
 	public boolean isAset(Card cardOne, Card cardTwo, Card cardThree, int player) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	@Override
+	public List<Card> getCardinGame(){
+		return this.field.getAllCardsInGame();
 	}
 }
