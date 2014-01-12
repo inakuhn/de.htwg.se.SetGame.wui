@@ -1,4 +1,4 @@
-package de.htwg.se.observer;
+package de.htwg.se.util.observer;
 
 public interface IObservable {
 

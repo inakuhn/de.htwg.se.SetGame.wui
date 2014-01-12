@@ -1,4 +1,4 @@
-package de.htwg.se.observer;
+package de.htwg.se.util.observer;
 
 import java.util.ArrayList;
 import java.util.Iterator;

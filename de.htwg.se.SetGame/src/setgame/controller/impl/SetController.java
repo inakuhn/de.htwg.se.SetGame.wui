@@ -19,7 +19,8 @@ import java.util.List;
 
 
 
-import de.htwg.se.observer.Observable;
+
+import de.htwg.se.util.observer.Observable;
 import setgame.modell.impl.Card;
 
 /**

@@ -6,9 +6,9 @@ import java.util.Scanner;
 
 import setgame.modell.IField;
 import setgame.controller.IController;
-import de.htwg.se.observer.IObservable;
-import de.htwg.se.observer.IObserver;
-import de.htwg.se.observer.Event;
+import de.htwg.se.util.observer.Event;
+import de.htwg.se.util.observer.IObservable;
+import de.htwg.se.util.observer.IObserver;
 
 public class TextUI implements IObserver {
 	
