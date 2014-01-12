@@ -1,6 +1,5 @@
 package setgame.controller;
 
-
 import static org.junit.Assert.fail;
 
 import java.util.LinkedList;
@@ -14,34 +13,52 @@ import setgame.modell.impl.Pack;
 
 public class SetControllerTest {
 	SetController setcontroll;
-	Pack pack;
+	LinkedList<Card> aSetListe;
+
 	@Before
-	public void setUp(){
+	public void setUp() {
 		this.setcontroll = new SetController(1);
-		this.pack = new Pack();
+		this.aSetListe = new LinkedList<Card>();
+		aSetListe.add(this.setcontroll.)
 	}
+
 	@Test
 	public void testSetController() {
-		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testgetPlayModus() {
-		if(!(this.setcontroll.getPlayModus() == 0) || !(this.setcontroll.getPlayModus() == 1)){
+		if ((this.setcontroll.getPlayModus() == 0)
+				&& !(this.setcontroll.getPlayModus() == 1)) {
 			fail("setgamemodus ist falche nicht computer und nicht zweier player");
 		}
 	}
 
 	@Test
 	public void testIsAsetForController() {
+		while (!this.setcontroll.areSetInField()) {
+			this.setcontroll.areSetInField();
+			System.out.println("StillSet?"
+					+ this.setcontroll.getField().getCardInFieldGame() + "\n");
+		}
 		LinkedList<Card> liste = new LinkedList<Card>();
-		liste.addAll()
-		for()
-	}
+		liste.addAll(this.setcontroll.getField().getAllCardsInGame());
+		LinkedList<Card> controll = new LinkedList<Card>();
+		controll.addAll(this.setcontroll.getField().getAllCardsInGame());
+		System.out.println("ssssss" + setcontroll.stillSetInGAme());
+		int counter = 0;
+		while (setcontroll.stillSetInGAme()) {
+			if (this.setcontroll.getSetInField().size() >= 3) {
+				this.setcontroll.isAsetForController(this.setcontroll
+						.getSetInField().get(0), this.setcontroll
+						.getSetInField().get(1), this.setcontroll
+						.getSetInField().get(2), 1);
+			}
+		}
 
-	@Test
-	public void testIsAset() {
-		fail("Not yet implemented");
-	}
+		System.out.println(this.setcontroll.getField().getAllCardsInGame()
+				.size()
+				+ counter);
 
+	}
 }

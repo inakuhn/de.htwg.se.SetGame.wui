@@ -1,4 +1,5 @@
 package setgame.controller.impl;
+
 import setgame.controller.IController;
 
 import java.util.LinkedList;
@@ -7,18 +8,6 @@ import setgame.modell.ICard;
 import setgame.modell.IField;
 
 import java.util.List;
-
-
-
-
-
-
-
-
-
-
-
-
 
 import de.htwg.se.util.observer.Observable;
 import setgame.modell.impl.Card;
@@ -31,7 +20,7 @@ public class SetController extends Observable implements IController {
 	private IField field;
 	private int counter;
 	private static final int NUMBEROFSETCARDS = 3;
-	private final int  playerOne;
+	private final int playerOne;
 	private final int playerTwo;
 	private int playerOneCounter;
 	private int playerTwoCounter;
@@ -45,24 +34,26 @@ public class SetController extends Observable implements IController {
 		this.field = new setgame.modell.impl.Field();
 		this.counter = 0;
 		this.field.startUp();
-		if(spielmodus == COMPUTERMODUS){
-			this.gameModus = 0;			
-		}else{
+		if (spielmodus == COMPUTERMODUS) {
+			this.gameModus = 0;
+		} else {
 			this.gameModus = 1;
-	
+
 		}
 		this.playerOne = 1;
 		this.playerTwo = 2;
 		this.playerOneCounter = 0;
 		this.playerTwoCounter = 0;
-		
+
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.controller.impl.IController#spielModus()
 	 */
 	@Override
-	public int getPlayModus(){
+	public int getPlayModus() {
 		return this.gameModus;
 	}
 
@@ -86,25 +77,6 @@ public class SetController extends Observable implements IController {
 		return false;
 
 	}
-	/* (non-Javadoc)
-	 * @see setgame.controller.impl.IController#isAsetForController(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
-	 */
-	public boolean isAsetForController(Card cardOne, Card cardTwo, Card cardThree, int player){
-		if(isAset(cardOne, cardTwo, cardThree)){
-			if(this.playerOne == player){
-				this.playerOneCounter = this.playerOneCounter + 1;;
-			}else if(this.playerTwo == player){
-				this.playerTwoCounter =  this.playerTwoCounter + 1;
-			}
-			if(this.gameModus == COMPUTERMODUS){
-					//TODO Count dOWn
-			}
-			if(playerOne == player || player == this.playerTwo){
-				return true;
-			}
-		}
-		return false;
-	}
 
 	/**
 	 * @param cardOne
@@ -113,15 +85,12 @@ public class SetController extends Observable implements IController {
 	 * @return return true if is a set.
 	 */
 	private boolean isAset(Card cardOne, Card cardTwo, Card cardThree) {
-		
+
 		if (!isInFiel(cardOne, cardTwo, cardThree)) {
 			return false;
 		} else {
-			if (proveColor(cardOne, cardTwo, cardThree)
-					&& proveFilling(cardOne, cardTwo, cardThree)
-					&& proveNumberOfComponents(cardOne, cardTwo, cardThree)
-					&& proveForm(cardOne, cardTwo, cardThree)) {
-					field.foundSet(cardOne, cardTwo, cardThree);
+			if (proveIfIsASet(cardOne, cardTwo, cardThree)) {
+				field.foundSet(cardOne, cardTwo, cardThree);
 				if (!(getSet(this.field.getCardsInField()).isEmpty())) {
 					return true;
 				} else if (alltheSetsInField(this.field.getAllCardsInGame())) {
@@ -196,26 +165,41 @@ public class SetController extends Observable implements IController {
 
 	private boolean proveString(String stringOne, String stringTwo,
 			String stringThree) {
-		if (stringOne.equals(stringTwo) && stringOne.equals(stringThree)) {
+		if (stringOne.compareTo(stringTwo) == 0
+				&& stringOne.compareTo(stringThree) == 0 && stringTwo.compareTo(stringThree) == 0) {
 			return true;
-		} else if (!(stringOne.equals(stringTwo) && !(stringOne
-				.equals(stringThree))) && !(stringTwo.equals(stringThree))) {
+		} else if (stringOne.compareTo(stringTwo) != 0
+				&& stringOne.compareTo(stringThree) != 0
+				&& stringTwo.compareTo(stringThree) != 0) {
 			return true;
 		}
 		return false;
 	}
 
+	private boolean proveIfIsASet(Card cardOne, Card cardTwo, Card cardThree) {
+		if (proveColor(cardOne, cardTwo, cardThree)
+				&& proveFilling(cardOne, cardTwo, cardThree)
+				&& proveNumberOfComponents(cardOne, cardTwo, cardThree)
+				&& proveForm(cardOne, cardTwo, cardThree)) {
+			return true;
+		}
+		return false;
+
+	}
+
 	private List<Card> getSet(List<Card> list) {
 		LinkedList<Card> setList = new LinkedList<Card>();
 		if (list.size() >= NUMBEROFSETCARDS) {
+
 			for (Card cardOne : list) {
 				for (Card cardTwo : list) {
-					if (!cardTwo.comparTo(cardOne)) {
+					if (!cardOne.equals(cardTwo)) {
 						for (Card cardThree : list) {
 
-							if (isAset(cardOne, cardTwo, cardThree)
-									&& !cardThree.comparTo(cardOne)
-									&& !(cardTwo.comparTo(cardTwo))) {
+							if (proveIfIsASet(cardOne, cardTwo, cardThree)
+									&& !cardThree.equals(cardOne)
+									&& !(cardTwo.equals(cardThree))) {
+
 								setList.add(cardOne);
 								setList.add(cardTwo);
 								setList.add(cardThree);
@@ -225,18 +209,63 @@ public class SetController extends Observable implements IController {
 					}
 				}
 			}
+
 		}
+
 		return setList;
 	}
 
-
 	@Override
-	public boolean isAset(Card cardOne, Card cardTwo, Card cardThree, int player) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public List<Card> getCardinGame(){
+	public List<Card> getCardinGame() {
 		return this.field.getAllCardsInGame();
 	}
+
+	public IField getField() {
+		return this.field;
+	}
+
+	public boolean areSetInField() {
+		LinkedList<Card> liste = new LinkedList<Card>();
+		liste.addAll(getSet(this.field.getCardsInField()));
+		if (liste.isEmpty()) {
+			return changeCardsinGame();
+
+		}
+		return true;
+	}
+
+	@Override
+	public boolean isAsetForController(Card cardOne, Card cardTwo,
+			Card cardThree, int player) {
+		if (isAset(cardOne, cardTwo, cardThree)) {
+			if (this.playerOne == player) {
+				this.playerOneCounter = this.playerOneCounter + 1;
+			} else if (this.playerTwo == player) {
+				this.playerTwoCounter = this.playerTwoCounter + 1;
+			}
+			if (this.gameModus == COMPUTERMODUS) {
+			}
+			if (playerOne == player || player == this.playerTwo) {
+				return true;
+			}
+		}
+		return false;
+	}
+	public List<Card> getAsetInGame(){
+		return getSet(this.field.getCardsInField());
+	}
+	public boolean stillSetInGAme() {
+		LinkedList<Card> liste = new LinkedList<Card>();
+		liste.addAll(getSet(this.field.getAllCardsInGame()));
+		System.out.println("LIsteedwwsasswsaeee"+liste);
+		if(liste.isEmpty()){
+			return false;
+		}
+		return true;
+	}
+	public List<Card> getSetInField(){
+		return getSet(this.field.getCardsInField());
+		
+	}
+
 }
