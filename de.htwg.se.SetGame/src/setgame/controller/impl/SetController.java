@@ -44,7 +44,20 @@ public class SetController extends Observable implements IController {
 		this.playerTwo = 2;
 		this.playerOneCounter = 0;
 		this.playerTwoCounter = 0;
+		checkIfIsASeTInGame();
 
+	}
+
+	private void checkIfIsASeTInGame() {
+		List<Card> liste = new LinkedList<Card>();
+		liste.addAll(getSet(this.field.getAllCardsInGame()));
+		if(liste.size() < NUMBEROFSETCARDS){
+			while(!changeCardsinGame()){
+				
+			}
+			
+		}
+		
 	}
 
 	/*
@@ -266,6 +279,18 @@ public class SetController extends Observable implements IController {
 	public List<Card> getSetInField(){
 		return getSet(this.field.getCardsInField());
 		
+	}
+	public int geTplayerOnePoints(){
+		return this.playerOneCounter;
+	}
+	public int geTplayerTwoPoints(){
+		return this.playerTwoCounter;
+	}
+	public int getPlayerOne(){
+		return this.playerOne;
+	}
+	public int getPlayerTwo(){
+		return this.playerTwo;
 	}
 
 }

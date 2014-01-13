@@ -9,7 +9,6 @@ import org.junit.Test;
 
 import setgame.controller.impl.SetController;
 import setgame.modell.impl.Card;
-import setgame.modell.impl.Pack;
 
 public class SetControllerTest {
 	SetController setcontroll;
@@ -36,29 +35,17 @@ public class SetControllerTest {
 
 	@Test
 	public void testIsAsetForController() {
-		while (!this.setcontroll.areSetInField()) {
-			this.setcontroll.areSetInField();
-			System.out.println("StillSet?"
-					+ this.setcontroll.getField().getCardInFieldGame() + "\n");
-		}
-		LinkedList<Card> liste = new LinkedList<Card>();
-		liste.addAll(this.setcontroll.getField().getAllCardsInGame());
-		LinkedList<Card> controll = new LinkedList<Card>();
-		controll.addAll(this.setcontroll.getField().getAllCardsInGame());
-		System.out.println("ssssss" + setcontroll.stillSetInGAme());
-		int counter = 0;
-		while (setcontroll.stillSetInGAme()) {
-			if (this.setcontroll.getSetInField().size() >= 3) {
-				this.setcontroll.isAsetForController(this.setcontroll
-						.getSetInField().get(0), this.setcontroll
-						.getSetInField().get(1), this.setcontroll
-						.getSetInField().get(2), 1);
+		
+		if(this.aSetListe.size() >= 3){
+			this.setcontroll.isAsetForController(aSetListe.get(0), aSetListe.get(1), aSetListe.get(2), this.setcontroll.getPlayerOne());
+			if(this.setcontroll.geTplayerOnePoints() !=  1){
+				fail("the point for the set is not abel!");
 			}
 		}
-
-		System.out.println(this.setcontroll.getField().getAllCardsInGame()
-				.size()
-				+ counter);
-
+		if(this.setcontroll.getField().getAllCardsInGame().containsAll(aSetListe)){
+			fail("the set was been not removed from the pack ");
+		}
+	
 	}
+	
 }
