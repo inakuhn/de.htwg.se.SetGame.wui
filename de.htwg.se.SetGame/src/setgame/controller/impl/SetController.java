@@ -12,11 +12,14 @@ import java.util.List;
 
 import de.htwg.se.util.observer.Observable;
 import setgame.modell.impl.Card;
+import com.google.inject.Singleton;
+
 
 /**
  * @author Raina & David Logic class for the game
  * 
  */
+@Singleton
 public class SetController extends Observable implements IController {
 	private IField field;
 	private int counter;
@@ -59,7 +62,7 @@ public class SetController extends Observable implements IController {
 			}
 			
 		}
-		
+		notifyObservers();
 	}
 
 	/*

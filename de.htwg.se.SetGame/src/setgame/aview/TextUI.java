@@ -1,61 +1,55 @@
 package setgame.aview;
+
 import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.Scanner;
-import setgame.modell.IField;
 import setgame.controller.IController;
 import de.htwg.se.util.observer.Event;
-import de.htwg.se.util.observer.IObservable;
 import de.htwg.se.util.observer.IObserver;
 
 public class TextUI implements IObserver {
 
 	private IController controller;
-	private IField field;
 	private String newLine = System.getProperty("line.separator");
 
 	private final Logger logger = LogManager.getLogger("setgame.aview.tui");
+
 	@Inject
 	public TextUI(IController controller) {
 		this.controller = controller;
-		
+		controller.addObserver(this);
+
 	}
 
-	private synchronized void out(String str) {
-		logger.info(str);
-	}
+	public boolean processInputLine(String line) {
+		switch (line) {
 
-	private synchronized void outI(int num) {
-		logger.info(num);
-	}
+		case "h":
+			
+			break;
+		case "s":
 
-	public synchronized void printTUI() {
-		outI(controller.getPlayModus());
-	}
+			break;
+		case "e":
 
-	public boolean processTurn(Scanner scanner) {
-		while (field == null) {
-			out("Starte neues Spiel!");
-			field.startUp();
+			break;
+
+		default:
+			break;
 		}
-
-		if (controller.getPlayModus() == 0) {
-			out("Spielermodus: Com vs Player 1");
-		} else if (controller.getPlayModus() == 1) {
-			out("Spielermodus: Player 1 vs Player 2");
-		}
-
-		// TODO: Kein Plan mehr...
-
 		return true;
+
 	}
 
 	@Override
 	public void update(Event e) {
-		if (e == null) {
-			printTUI();
-		}
+		printTUI();
+
+	}
+
+	private void printTUI() {
+		// TODO Auto-generated method stub
+
 	}
 
 }
