@@ -1,6 +1,7 @@
 package setgame.controller.impl;
 
 import setgame.controller.IController;
+import com.google.inject.Inject;
 
 import java.util.LinkedList;
 
@@ -30,6 +31,7 @@ public class SetController extends Observable implements IController {
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
+	@Inject
 	public SetController(int spielmodus) {
 		this.field = new setgame.modell.impl.Field();
 		this.counter = 0;
