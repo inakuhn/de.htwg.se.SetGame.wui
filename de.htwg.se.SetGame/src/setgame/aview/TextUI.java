@@ -1,6 +1,5 @@
 package setgame.aview;
 
-import com.google.inject.Inject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import setgame.controller.IController;
@@ -14,7 +13,7 @@ public class TextUI implements IObserver {
 
 	private final Logger logger = LogManager.getLogger("setgame.aview.tui");
 
-	@Inject
+
 	public TextUI(IController controller) {
 		this.controller = controller;
 		controller.addObserver(this);

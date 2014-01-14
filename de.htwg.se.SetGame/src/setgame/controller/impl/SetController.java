@@ -1,7 +1,6 @@
 package setgame.controller.impl;
 
 import setgame.controller.IController;
-import com.google.inject.Inject;
 
 import java.util.LinkedList;
 
@@ -12,14 +11,12 @@ import java.util.List;
 
 import de.htwg.se.util.observer.Observable;
 import setgame.modell.impl.Card;
-import com.google.inject.Singleton;
 
 
 /**
  * @author Raina & David Logic class for the game
  * 
  */
-@Singleton
 public class SetController extends Observable implements IController {
 	private IField field;
 	private int counter;
@@ -34,7 +31,6 @@ public class SetController extends Observable implements IController {
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
-	@Inject
 	public SetController(int spielmodus) {
 		this.field = new setgame.modell.impl.Field();
 		this.counter = 0;
