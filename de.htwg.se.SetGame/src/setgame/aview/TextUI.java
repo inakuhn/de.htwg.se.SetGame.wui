@@ -51,11 +51,11 @@ public class TextUI implements IObserver {
 		return true;
 	}
 
-//	@Override
-//	public void update(Event e) {
-//		if (e == null) {
-//			printTUI();
-//		}
-//	}
+	@Override
+	public void update(Event e) {
+		if (e == null) {
+			printTUI();
+		}
+	}
 
 }
