@@ -1,4 +1,4 @@
-package setgame.aview.tui;
+package setgame.aview;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
