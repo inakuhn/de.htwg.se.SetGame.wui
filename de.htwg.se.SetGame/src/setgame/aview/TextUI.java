@@ -32,7 +32,7 @@ public class TextUI implements IObserver {
 			break;
 		}
 		return true;
-
+		
 	}
 
 	@Override
