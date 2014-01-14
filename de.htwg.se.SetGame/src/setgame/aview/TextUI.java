@@ -21,21 +21,7 @@ public class TextUI implements IObserver {
 	}
 
 	public boolean processInputLine(String line) {
-		switch (line) {
 
-		case "h":
-			
-			break;
-		case "s":
-
-			break;
-		case "e":
-
-			break;
-
-		default:
-			break;
-		}
 		return true;
 
 	}
@@ -47,7 +33,6 @@ public class TextUI implements IObserver {
 	}
 
 	private void printTUI() {
-		// TODO Auto-generated method stub
 
 	}
 
