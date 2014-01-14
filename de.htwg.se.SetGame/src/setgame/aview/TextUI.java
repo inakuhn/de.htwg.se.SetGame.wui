@@ -1,9 +1,8 @@
 package setgame.aview;
-
+import com.google.inject.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.Scanner;
-
 import setgame.modell.IField;
 import setgame.controller.IController;
 import de.htwg.se.util.observer.Event;
@@ -16,7 +15,7 @@ public class TextUI implements IObserver {
 	private IField field;
 
 	private final Logger logger = LogManager.getLogger("setgame.aview.tui");
-
+	@Inject
 	public TextUI(IController controller) {
 		this.controller = controller;
 		((IObservable) controller).addObserver(this);
