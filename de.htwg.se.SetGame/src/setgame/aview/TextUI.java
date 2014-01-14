@@ -21,7 +21,16 @@ public class TextUI implements IObserver {
 	}
 
 	public boolean processInputLine(String line) {
+		boolean cont = true;
+		switch (line) {
+		case "set":
+			
+			
+			break;
 
+		default:
+			break;
+		}
 		return true;
 
 	}
