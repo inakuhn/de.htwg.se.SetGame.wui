@@ -1,9 +1,9 @@
 package setgame.controller.impl;
 
-import setgame.controller.IController;
 
 import java.util.LinkedList;
 
+import setgame.controller.IController;
 import setgame.modell.ICard;
 import setgame.modell.IField;
 
@@ -65,6 +65,9 @@ public class SetController extends Observable implements IController {
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.controller.impl.IController#spielModus()
+	 */
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#getPlayModus()
 	 */
 	@Override
 	public int getPlayModus() {
@@ -229,15 +232,26 @@ public class SetController extends Observable implements IController {
 		return setList;
 	}
 
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#getCardinGame()
+	 */
 	@Override
 	public List<Card> getCardinGame() {
 		return this.field.getAllCardsInGame();
 	}
 
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#getField()
+	 */
+	@Override
 	public IField getField() {
 		return this.field;
 	}
 
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#areSetInField()
+	 */
+	@Override
 	public boolean areSetInField() {
 		LinkedList<Card> liste = new LinkedList<Card>();
 		liste.addAll(getSet(this.field.getCardsInField()));
@@ -248,6 +262,9 @@ public class SetController extends Observable implements IController {
 		return true;
 	}
 
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#isAsetForController(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
+	 */
 	@Override
 	public boolean isAsetForController(Card cardOne, Card cardTwo,
 			Card cardThree, int player) {
@@ -265,9 +282,17 @@ public class SetController extends Observable implements IController {
 		}
 		return false;
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#getAsetInGame()
+	 */
+	@Override
 	public List<Card> getAsetInGame(){
 		return getSet(this.field.getCardsInField());
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#stillSetInGAme()
+	 */
+	@Override
 	public boolean stillSetInGAme() {
 		LinkedList<Card> liste = new LinkedList<Card>();
 		liste.addAll(getSet(this.field.getAllCardsInGame()));
@@ -277,19 +302,39 @@ public class SetController extends Observable implements IController {
 		}
 		return true;
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#getSetInField()
+	 */
+	@Override
 	public List<Card> getSetInField(){
 		return getSet(this.field.getCardsInField());
 		
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#geTplayerOnePoints()
+	 */
+	@Override
 	public int geTplayerOnePoints(){
 		return this.playerOneCounter;
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#geTplayerTwoPoints()
+	 */
+	@Override
 	public int geTplayerTwoPoints(){
 		return this.playerTwoCounter;
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#getPlayerOne()
+	 */
+	@Override
 	public int getPlayerOne(){
 		return this.playerOne;
 	}
+	/* (non-Javadoc)
+	 * @see setgame.controller.impl.ISuperController#getPlayerTwo()
+	 */
+	@Override
 	public int getPlayerTwo(){
 		return this.playerTwo;
 	}
