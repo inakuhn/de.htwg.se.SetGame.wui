@@ -25,7 +25,6 @@ public class SetController extends Observable implements IController {
 	private final int playerTwo;
 	private int playerOneCounter;
 	private int playerTwoCounter;
-	private int gameModus;
 	private static final int COMPUTERMODUS = 0;
 
 	/**
@@ -35,12 +34,6 @@ public class SetController extends Observable implements IController {
 		this.field = new setgame.modell.impl.Field();
 		this.counter = 0;
 		this.field.startUp();
-		if (spielmodus == COMPUTERMODUS) {
-			this.gameModus = 0;
-		} else {
-			this.gameModus = 1;
-
-		}
 		this.playerOne = 1;
 		this.playerTwo = 2;
 		this.playerOneCounter = 0;
@@ -69,10 +62,6 @@ public class SetController extends Observable implements IController {
 	/* (non-Javadoc)
 	 * @see setgame.controller.impl.ISuperController#getPlayModus()
 	 */
-	@Override
-	public int getPlayModus() {
-		return this.gameModus;
-	}
 
 	/**
 	 * @param cardOne
@@ -273,8 +262,6 @@ public class SetController extends Observable implements IController {
 				this.playerOneCounter = this.playerOneCounter + 1;
 			} else if (this.playerTwo == player) {
 				this.playerTwoCounter = this.playerTwoCounter + 1;
-			}
-			if (this.gameModus == COMPUTERMODUS) {
 			}
 			if (playerOne == player || player == this.playerTwo) {
 				return true;

@@ -25,13 +25,7 @@ public class SetControllerTest {
 	public void testSetController() {
 	}
 
-	@Test
-	public void testgetPlayModus() {
-		if ((this.setcontroll.getPlayModus() == 0)
-				&& !(this.setcontroll.getPlayModus() == 1)) {
-			fail("setgamemodus ist falche nicht computer und nicht zweier player");
-		}
-	}
+
 
 	@Test
 	public void testIsAsetForController() {

@@ -10,10 +10,6 @@ import setgame.modell.impl.Card;
 
 public interface IController extends IObservable {
 
-	/* (non-Javadoc)
-	 * @see setgame.controller.IController#spielModus()
-	 */
-	public int getPlayModus();
 
 	/* (non-Javadoc)
 	 * @see setgame.controller.IController#isAset(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
