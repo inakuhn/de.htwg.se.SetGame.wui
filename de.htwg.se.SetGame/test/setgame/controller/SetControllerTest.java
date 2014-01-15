@@ -16,7 +16,7 @@ public class SetControllerTest {
 
 	@Before
 	public void setUp() {
-		this.setcontroll = new SetController(1);
+		this.setcontroll = new SetController();
 		this.aSetListe = new LinkedList<Card>();
 		aSetListe.addAll(this.setcontroll.getSetInField());
 	}

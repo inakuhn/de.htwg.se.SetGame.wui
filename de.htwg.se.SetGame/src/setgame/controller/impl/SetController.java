@@ -30,7 +30,7 @@ public class SetController extends Observable implements IController {
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
-	public SetController(int spielmodus) {
+	public SetController() {
 		this.field = new setgame.modell.impl.Field();
 		this.counter = 0;
 		this.field.startUp();
