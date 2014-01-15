@@ -14,6 +14,8 @@ public class Point extends JPanel {
 	private JTextField player1;
 	private JTextField player2;
 	
+
+	
 	private static IController controller;
 	
 	public Point(final IController controller) {
@@ -36,6 +38,12 @@ public class Point extends JPanel {
 		panel1.add(player2);
 		panel1.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 		this.add(panel1);
+	}
+	
+	public void player1add(int point) {
+		Integer p1 = new Integer(point);
+		String point_s = p1.toString();
+		player1.setText(point_s);;
 	}
 	
 }
