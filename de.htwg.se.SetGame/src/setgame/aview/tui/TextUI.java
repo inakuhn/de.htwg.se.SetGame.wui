@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import setgame.controller.IController;
 import de.htwg.se.util.observer.Event;
 import de.htwg.se.util.observer.IObserver;
-
 public class TextUI implements IObserver {
 
 	private IController controller;
