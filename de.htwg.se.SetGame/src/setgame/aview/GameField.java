@@ -78,7 +78,7 @@ public class GameField extends JPanel implements ActionListener{
 		panel1.add(p11);
 		panel1.add(p12);
 		
-		panel1.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+		panel1.setBorder(BorderFactory.createEmptyBorder(2,20,20,20));
 		this.add(panel1);
 		
 	}
