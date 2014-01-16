@@ -6,19 +6,18 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import setgame.controller.IController;
 
 public class GameField extends JPanel implements ActionListener{
-	
-	private static IController controller;
+
+	private static final long serialVersionUID = 1L;
+	private IController controller;
 	private int index = 1;
 	private int zero = 0;
 	private final int one = 1;

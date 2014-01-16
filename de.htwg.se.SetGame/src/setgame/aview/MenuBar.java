@@ -10,7 +10,7 @@ import java.awt.event.*;
 public class MenuBar extends JMenuBar implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
-	private static IController controller = new SetController();
+	private IController controller = new SetController();
 	private JMenu menu;
 	private JMenuItem mHelp, mExit, mNewGame;
 	
@@ -28,7 +28,6 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		menu.add(mHelp);
 		menu.add(mExit);
 		this.add(menu);
-		
 	}
 
 	@Override

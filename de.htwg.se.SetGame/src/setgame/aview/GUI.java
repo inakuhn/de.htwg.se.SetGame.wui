@@ -1,27 +1,20 @@
 package setgame.aview;
 
 import java.awt.GridLayout;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 import javax.swing.*;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import de.htwg.se.util.observer.IObserver;
-import de.htwg.se.util.observer.Event;
 import setgame.controller.IController;
 import setgame.controller.impl.SetController;
 
 public class GUI extends JFrame {
 	
-	private static final long serialVersionUID = 1L;
-	private static int DEFAULT_Y = 650;
-	private static int DEFAULT_X = 900;
+	private static final long serialVersionUID = 1L;	
+	private IController controller = new SetController();
 	
-	private static IController controller = new SetController();
+	@SuppressWarnings("unused")
 	private JPanel mainPanel;
+	
 	private SetButton setbutton;
 	private GameField gamefield;
 	
@@ -55,6 +48,6 @@ public class GUI extends JFrame {
 
 	public static void main(String[] args) {
 		IController controller = new SetController();
-		GUI game = new GUI(controller);
+		new GUI(controller);
 	}
 }

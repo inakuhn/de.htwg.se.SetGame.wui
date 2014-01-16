@@ -3,15 +3,10 @@ package setgame.aview;
 import java.awt.*;
 import java.awt.event.*;
 
-import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.border.*;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import setgame.controller.IController;
@@ -21,11 +16,9 @@ public class SetButton extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JButton setbutton;
 	
-	private static IController controller = new SetController();
-	private boolean player1status = false;
-	private boolean player2status = false;
+	private IController controller = new SetController();
+	private final int zero = 0;
 	private final int one = 1;
-	private final int two = 2;
 	
     private JTextField player1;
     private JTextField player2;
@@ -86,9 +79,9 @@ public class SetButton extends JPanel implements ActionListener {
 	        	int selected = JOptionPane.showOptionDialog(null,
 	        			"Which Player?", "Choice",JOptionPane.DEFAULT_OPTION, 
 	        			JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-	        	if(selected == 0) {
+	        	if(selected == zero) {
 	                	//TODO: Step 1
-	            } else if (selected == 1) {
+	            } else if (selected == one) {
 	            		//TODO: Step 2
 	            }	
 	}
