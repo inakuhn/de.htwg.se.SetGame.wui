@@ -41,7 +41,7 @@ public interface IController extends IObservable {
 	public abstract int getPlayerOne();
 
 	public abstract int getPlayerTwo();
-
+	public void newGame();
 
 
 }

@@ -52,4 +52,7 @@ public interface IField {
 	 */
 	public abstract Map<Integer, Card> getCardInFieldGame();
 
+	public abstract void clear();
+
+
 }

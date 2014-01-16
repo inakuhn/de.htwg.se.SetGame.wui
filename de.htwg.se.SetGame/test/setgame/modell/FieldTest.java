@@ -38,6 +38,7 @@ public class FieldTest {
 
 	@Test
 	public void testsartUp() {
+		System.out.println(this.field.getCardInFieldGame());
 
 		if(this.field.getSizeofField() != 12){
 			fail("feld is not the rigth size");

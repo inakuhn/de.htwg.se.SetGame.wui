@@ -25,7 +25,6 @@ public class SetController extends Observable implements IController {
 	private final int playerTwo;
 	private int playerOneCounter;
 	private int playerTwoCounter;
-	private static final int COMPUTERMODUS = 0;
 
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
@@ -40,6 +39,16 @@ public class SetController extends Observable implements IController {
 		this.playerTwoCounter = 0;
 		checkIfIsASeTInGame();
 
+	}
+	@Override
+	public void newGame(){
+		this.field.clear();
+		this.counter = 0;
+		this.field.startUp();
+		this.playerOneCounter = 0;
+		this.playerTwoCounter = 0;
+		this.field.startUp();
+		checkIfIsASeTInGame();
 	}
 
 	private void checkIfIsASeTInGame() {

@@ -13,7 +13,7 @@ import java.util.TreeSet;
  * @date 7.12.2013
  * @category Modell
  */
-public class Field extends AField {
+public  class Field extends AField {
 
 	/**
 	 * startup of the objects
@@ -271,6 +271,18 @@ public class Field extends AField {
 	@Override
 	public Map<Integer, Card> getCardInFieldGame() {
 		return cardInFieldGame;
+	}
+
+	@Override
+	public void clear() {
+		this.pack = null;
+		this.pack = new Pack();
+		this.sizeOfField = INITIALVALUEOFFIELD;
+		this.cardInFieldGame.clear();
+		this.ramdomListe.clear();
+		this.packForGame.clear();	
+		
+		
 	}
 
 }
