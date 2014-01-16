@@ -8,6 +8,7 @@ import org.apache.log4j.Logger;
 import com.google.inject.Inject;
 
 import de.htwg.se.setgame.controller.IController;
+import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.impl.Card;
 import de.htwg.se.setgame.util.observer.Event;
 import de.htwg.se.setgame.util.observer.IObserver;
@@ -110,7 +111,7 @@ public class TextUI implements IObserver {
 	
 			}
 		} else if (splintWords[index].compareTo("s") == 0) {
-			List<Card> setInField = new LinkedList<>();
+			List<ICard> setInField = new LinkedList<>();
 			List<Integer> positionInField = new LinkedList<>();
 			setInField.addAll(controller.getSetInField());
 			for (Integer key : this.controller.getField().getCardInFieldGame()
