@@ -110,9 +110,9 @@ public class TextUI implements IObserver {
 	
 			}
 		} else if (splintWords[index].compareTo("s") == 0) {
-			LinkedList<Card> setInField = new LinkedList<>();
+			List<Card> setInField = new LinkedList<>();
 			setInField.addAll(controller.getSetInField());
-			LinkedList<Integer> positionInField = new LinkedList<>();
+			List<Integer> positionInField = new LinkedList<>();
 			for (Integer key : this.controller.getField().getCardInFieldGame()
 					.keySet()) {
 				if (setInField.contains(this.controller.getField()
