@@ -103,7 +103,7 @@ public class GameField extends JPanel implements ActionListener {
 	
 	static Card[] card = new Card[5];
 	private static Pack pack;
-	static TreeMap<Integer, String> cardToPicture = new TreeMap<>();
+	static TreeMap<Integer, String> cardToPicture;
 	static LinkedList<Card> saveList;
 	static LinkedList<String> urlListe;
 	static LinkedList<String> test;
@@ -114,6 +114,7 @@ public class GameField extends JPanel implements ActionListener {
 		this.controller = controller;
 		controller.addObserver(null);
 		
+		cardToPicture = new TreeMap<Integer, String>();
 		saveList = new LinkedList<Card>();
 		urlListe = new LinkedList<String>();
 		test = new LinkedList<String>();
