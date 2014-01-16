@@ -95,7 +95,7 @@ public class SetController extends Observable implements IController {
 		return false;
 
 	}
-
+ 
 	/**
 	 * @param cardOne
 	 * @param cardTwo
