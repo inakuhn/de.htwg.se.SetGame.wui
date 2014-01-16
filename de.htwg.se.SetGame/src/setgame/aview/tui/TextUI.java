@@ -64,10 +64,12 @@ public class TextUI implements IObserver {
 		case "newGame":
 			this.controller.newGame();
 			
-		case "":
+		case "exit":
+			cont = false;
 			
 		}
-		return true;
+		
+		return cont;
 
 	}
 
