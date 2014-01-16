@@ -3,6 +3,7 @@ package de.htwg.se.setgame.controller.impl;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import com.google.inject.Inject;
 
@@ -340,6 +341,14 @@ public class SetController extends Observable implements IController {
 	@Override
 	public int getPlayerTwo(){
 		return this.playerTwo;
+	}
+	@Override
+	public List<Card> getCardInFieldGame() {
+		return this.field.getCardsInField();
+	}
+	@Override
+	public Map<Integer, Card> getcardandindexoffiels() {
+		return this.field.getCardInFieldGame();
 	}
 
 }

@@ -118,19 +118,15 @@ public class TextUI implements IObserver {
 
 			}
 		} else if (splintWords[index].compareTo("s") == 0) {
-			List<ICard> setInField = new LinkedList<>();
-			List<Integer> positionInField = new LinkedList<>();
-			setInField.addAll(controller.getSetInField());
-			for (Integer key : this.controller.getField().getCardInFieldGame()
-					.keySet()) {
-				if (setInField.contains(this.controller.getField()
-						.getCardInFieldGame().get(key))) {
-					positionInField.add(key);
+			for(Card card : controller.getSetInField()){
+				for(Integer key : controller.getcardandindexoffiels().keySet()){	
+					if(controller.getcardandindexoffiels().get(key).comparTo(card)){
+						logger.info("Index  == "+key);
+					}
+					
 				}
+				logger.info(newLine);
 			}
-
-			logger.info("Set sollution = " + newLine + setInField.toString()
-					+ this.newLine + positionInField.toString());
 		} else if (splintWords[index].compareTo("nw") == 0) {
 			this.controller.newGame();
 			logger.info(this.newLine + "size of Pack = "

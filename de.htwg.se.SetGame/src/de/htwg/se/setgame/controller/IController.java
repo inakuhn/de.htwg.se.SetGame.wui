@@ -7,6 +7,8 @@ import java.util.List;
 
 
 
+import java.util.Map;
+
 import de.htwg.se.setgame.modell.IField;
 import de.htwg.se.setgame.modell.impl.Card;
 import de.htwg.se.setgame.util.observer.IObservable;
@@ -46,5 +48,7 @@ public interface IController extends IObservable {
 	public abstract int getPlayerTwo();
 	public void newGame();
 	public void setFieldSize(int size);
+	 public List<Card> getCardInFieldGame();
+	 public Map<Integer, Card> getcardandindexoffiels();
 
 }
