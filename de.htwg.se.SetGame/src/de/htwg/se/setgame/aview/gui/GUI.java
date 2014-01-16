@@ -20,7 +20,7 @@ public class GUI extends JFrame {
 	private SetButton setbutton;
 	private GameField gamefield;
 	
-	@Inject
+//	@Inject
 	public GUI(final IController controller) {
 		this.controller = controller;
 		controller.addObserver(null);

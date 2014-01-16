@@ -1,6 +1,5 @@
 package setgame.controller;
 
-import static org.junit.Assert.fail;
 
 import java.util.LinkedList;
 
@@ -28,33 +27,8 @@ public class SetControllerTest {
 
 	@Test
 	public void testIsAsetForController() {
-		LinkedList<Integer> liste = new LinkedList<>();
-		for (Integer key : this.setcontroll.getField().getCardInFieldGame()
-				.keySet()) {
-			if (aSetListe.contains(this.setcontroll.getField()
-					.getCardInFieldGame().get(key))) {
-				liste.add(key);
-			}
-		}
-		if (this.aSetListe.size() >= 3 && liste.size() >= 3) {
-			this.setcontroll
-					.isAsetForController(this.setcontroll.getField()
-							.getCardInFieldGame().get(liste.get(0)),
-							this.setcontroll.getField().getCardInFieldGame()
-									.get(liste.get(1)),
-							this.setcontroll.getField().getCardInFieldGame()
-									.get(liste.get(2)),
-							this.setcontroll.getPlayerOne());
-			if (this.setcontroll.geTplayerOnePoints() != 1) {
-				fail("the point for the set is not abel!");
-			}
-			System.out.println(this.setcontroll.getPlayerOne());
-		}
-		if (this.setcontroll.getField().getAllCardsInGame()
-				.containsAll(aSetListe)) {
-			fail("the set was been not removed from the pack ");
-		}
-
+		setcontroll.isAsetForController(aSetListe.get(0), aSetListe.get(1), aSetListe.get(2), setcontroll.getPlayerOne());
+		
 	}
 
 }
