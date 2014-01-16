@@ -2,8 +2,6 @@ package de.htwg.se.setgame.modell.impl;
 
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
 import de.htwg.se.setgame.modell.IField;
 
