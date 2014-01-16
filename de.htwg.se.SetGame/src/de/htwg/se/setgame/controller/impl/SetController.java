@@ -129,9 +129,9 @@ public class SetController extends Observable implements IController {
 		if (changeCardsinGame()) {
 			return true;
 		}
-
+ 
 		return false;
-
+ 
 	}
 	public void changeFieldSize(int size){
 		if(size > 0){

@@ -44,7 +44,7 @@ public final class SetGame {
 		SetGame.getInstance();
 		boolean cont = true;
 		scanner = new Scanner(System.in);
-		while(cont){
+		while(cont){ 
 			cont = tui.processInputLine(scanner.nextLine());
 		}
 	}

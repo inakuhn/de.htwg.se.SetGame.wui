@@ -92,7 +92,7 @@ public class FieldTest {
 			fail("field size is wrong :(");
 		}
 	}
-
+ 
 	@Test
 	public void testChangeCards() {
 		List<Card> liste =  new LinkedList<Card>(); 
