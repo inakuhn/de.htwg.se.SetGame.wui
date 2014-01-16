@@ -1,6 +1,7 @@
 package de.htwg.se.setgame.aview.tui;
 
 import org.apache.logging.log4j.LogManager;
+
 import org.apache.logging.log4j.Logger;
 
 import com.google.inject.Inject;

@@ -1,5 +1,10 @@
 package de.htwg.se.setgame;
 import org.apache.log4j.PropertyConfigurator;
+import org.apache.logging.log4j.core.impl.Log4jContextFactory;
+
+import com.google.inject.Inject;
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 import de.htwg.se.setgame.aview.tui.TextUI;
 import de.htwg.se.setgame.controller.IController;
@@ -18,6 +23,9 @@ public final class SetGame {
 		return instance;
 	}
 	private SetGame(){
+		//set logging throgh log4j
+		PropertyConfigurator.configure("log4j.properties");
+		Injector injector = Guice.createInjector(new )
 		
 	}
 }
