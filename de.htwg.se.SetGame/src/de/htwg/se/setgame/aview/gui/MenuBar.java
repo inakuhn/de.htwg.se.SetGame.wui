@@ -10,11 +10,10 @@ import java.awt.event.*;
 public class MenuBar extends JMenuBar implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
-	private IController controller = new SetController();
 	private JMenu menu;
 	private JMenuItem mHelp, mExit, mNewGame;
 	
-	public MenuBar(final IController controller) {
+	public MenuBar() {
 		
 		menu = new JMenu("Game");
 		mHelp = new JMenuItem("Help");
@@ -51,13 +50,16 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	        			+ "...or all DIFFEREN on each card.\n\n"
 	        			+ "Have fun!", "Close", JOptionPane.CLOSED_OPTION);
 	        }else if ( e.getSource() == mExit ){
-	        	if(controller.geTplayerOnePoints() > controller.geTplayerTwoPoints()) {
+	        	if(GUI.getController().geTplayerOnePoints() > GUI.getController().geTplayerTwoPoints()) {
 	        		JOptionPane.showConfirmDialog(null, "Player1 wins!", "Winner", JOptionPane.CLOSED_OPTION);
-	        	} else if (controller.geTplayerOnePoints() < controller.geTplayerTwoPoints()) {
+	        	} else if (GUI.getController().geTplayerOnePoints() < GUI.getController().geTplayerTwoPoints()) {
 	        		JOptionPane.showConfirmDialog(null, "Player2 wins!", "Winner", JOptionPane.CLOSED_OPTION);
 	        	} else {
 	        		JOptionPane.showConfirmDialog(null, "Dead heat!", "Fail", JOptionPane.CLOSED_OPTION);
 	        	}
+	        	
+	        	GUI.getController().newGame();
+	        	
 	        	if(JOptionPane.showConfirmDialog(null,"Really finish the game?",
 	                        "Close",JOptionPane.YES_NO_OPTION) == 0){
 	        		System.exit(0);
@@ -65,17 +67,15 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	        }else{
 	        	if ( JOptionPane.showConfirmDialog(null,
 	        			"Really start a new Game?", "Choice", JOptionPane.YES_NO_OPTION) == 0) {
-	        		if(controller.geTplayerOnePoints() > controller.geTplayerTwoPoints()) {
+	        		if(GUI.getController().geTplayerOnePoints() > GUI.getController().geTplayerTwoPoints()) {
 		        		JOptionPane.showConfirmDialog(null, "Player1 wins!", "Winner", JOptionPane.CLOSED_OPTION);
-		        	} else if (controller.geTplayerOnePoints() < controller.geTplayerTwoPoints()) {
+		        	} else if (GUI.getController().geTplayerOnePoints() < GUI.getController().geTplayerTwoPoints()) {
 		        		JOptionPane.showConfirmDialog(null, "Player2 wins!", "Winner", JOptionPane.CLOSED_OPTION);
 		        	} else {
 		        		JOptionPane.showConfirmDialog(null, "Dead heat!", "Fail", JOptionPane.CLOSED_OPTION);
 		        	}
 	        		
-	        			controller.newGame();
-	        			SetButton.updateSB();
-	        			GameField.updateLink();
+	        		GUI.getController().newGame();
 	        	}
 	    }
 		

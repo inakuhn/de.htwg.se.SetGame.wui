@@ -360,8 +360,10 @@ public class GameField extends JPanel implements ActionListener {
 	
 	public static void updateLink() {
 		
+		System.out.println(urlListe);
 		urlListe.clear();
 		saveList.clear();
+		System.out.println(urlListe);
 		
 		for (Card card : pack.getPack()) {
 			for (Card key : GUI.getController().getField().getCardInFieldGame().values()) {

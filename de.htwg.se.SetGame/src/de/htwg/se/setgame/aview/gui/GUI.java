@@ -25,7 +25,7 @@ public class GUI extends JFrame implements IObserver {
 		GUI.setController(controller);
 		controller.addObserver(this);
 
-		this.setJMenuBar(new MenuBar(GUI.getController()));
+		this.setJMenuBar(new MenuBar());
 
 		JPanel mainPanel = new JPanel();
 		JPanel miniPanel = new JPanel();

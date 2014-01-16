@@ -48,6 +48,7 @@ public class SetController extends Observable implements IController {
 		this.counter = 0;
 		this.playerOneCounter = 0;
 		this.playerTwoCounter = 0;
+		notifyObservers();
 	}
 
 	private void checkIfIsASeTInGame() {
