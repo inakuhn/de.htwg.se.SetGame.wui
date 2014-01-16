@@ -15,7 +15,7 @@ import java.util.TreeSet;
  * @category Modell
  */
 public class Field extends AField {
-	Set<Integer> listeofcontains ;
+	
 	/**
 	 * startup of the objects
 	 */

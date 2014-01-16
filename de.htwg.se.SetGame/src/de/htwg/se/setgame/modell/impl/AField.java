@@ -2,6 +2,7 @@ package de.htwg.se.setgame.modell.impl;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import de.htwg.se.setgame.modell.IField;
 
@@ -16,6 +17,7 @@ public abstract class AField implements IField {
 	protected static final int MAX = 81;
 	protected static final int ONE = 1;
 	protected Map<Integer, Integer> ramdomListe;
+	Set<Integer> listeofcontains;
 	/**
 	 * card are the cars in game
 	 */
@@ -29,4 +31,4 @@ public abstract class AField implements IField {
 		super();
 	}
 
-} 
+}
