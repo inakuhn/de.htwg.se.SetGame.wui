@@ -1238,3 +1238,98 @@ INFO main de.htwg.se.setgame.aview.tui -
 81
 INFO main de.htwg.se.setgame.aview.tui - Antrage = exit
 
+INFO main de.htwg.se.setgame.aview.tui - Welcome to SetGame!!!! 
+Well ist not that hard to play ;)
+If you found a set please write : set PlayerOne (or PlayerTwo) and the number of the fields 1 2 3 (0-11)
+if you need a tipp plese write h
+if you want to know the solution please write s
+If you want to know the game point please write GetPoints
+if you want to solve the set with out knowing just write solve
+Set size of the fiel 3-80 size number
+For a newGame plase write nw
+Have fun!!!if you want to finisch the game please write exit
+    [0]        [1]        [2]    
+| purple |  | green  |  |  red   |  
+|  wave  |  |  balk  |  | ovally |  
+|   1    |  |   3    |  |   2    |  
+|  fill  |  | empty  |  |halffill|  
+
+
+    [3]        [4]        [5]    
+| green  |  | purple |  | purple |  
+|  balk  |  |  wave  |  |  wave  |  
+|   2    |  |   1    |  |   3    |  
+|  fill  |  | empty  |  | empty  |  
+
+
+    [6]        [7]        [8]    
+| purple |  |  red   |  |  red   |  
+| ovally |  |  balk  |  |  wave  |  
+|   2    |  |   1    |  |   1    |  
+|halffill|  |  fill  |  | empty  |  
+
+
+    [9]        [10]        [11]    
+| purple |  | green  |  |  red   |  
+|  balk  |  | ovally |  |  wave  |  
+|   3    |  |   2    |  |   1    |  
+|  fill  |  |  fill  |  |halffill|  
+
+
+
+INFO main de.htwg.se.setgame.aview.tui - 
+81
+INFO main de.htwg.se.setgame.aview.tui - Antrage = size
+
+INFO main de.htwg.se.setgame.aview.tui - Antrage = 5
+
+INFO main de.htwg.se.setgame.aview.tui - Welcome to SetGame!!!! 
+Well ist not that hard to play ;)
+If you found a set please write : set PlayerOne (or PlayerTwo) and the number of the fields 1 2 3 (0-11)
+if you need a tipp plese write h
+if you want to know the solution please write s
+If you want to know the game point please write GetPoints
+if you want to solve the set with out knowing just write solve
+Set size of the fiel 3-80 size number
+For a newGame plase write nw
+Have fun!!!if you want to finisch the game please write exit
+    [7]        [8]        [9]    
+| purple |  | green  |  |  red   |  
+|  wave  |  |  balk  |  | ovally |  
+|   1    |  |   3    |  |   2    |  
+|  fill  |  | empty  |  |halffill|  
+
+
+    [10]        [11]    
+| green  |  
+| ovally |  |  wave  |  
+|   2    |  
+|  fill  |  |halffill|  
+
+
+
+INFO main de.htwg.se.setgame.aview.tui - Welcome to SetGame!!!! 
+Well ist not that hard to play ;)
+If you found a set please write : set PlayerOne (or PlayerTwo) and the number of the fields 1 2 3 (0-11)
+if you need a tipp plese write h
+if you want to know the solution please write s
+If you want to know the game point please write GetPoints
+if you want to solve the set with out knowing just write solve
+Set size of the fiel 3-80 size number
+For a newGame plase write nw
+Have fun!!!if you want to finisch the game please write exit
+    [7]        [8]        [9]    
+| purple |  | green  |  |  red   |  
+|  wave  |  |  balk  |  | ovally |  
+|   1    |  |   3    |  |   2    |  
+|  fill  |  | empty  |  |halffill|  
+
+
+    [10]        [11]    
+| green  |  
+| ovally |  |  wave  |  
+|   2    |  
+|  fill  |  |halffill|  
+
+
+
