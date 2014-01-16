@@ -45,11 +45,8 @@ public class SetController extends Observable implements IController {
 	public void newGame(){
 		this.field.clear();
 		this.counter = 0;
-		this.field.startUp();
 		this.playerOneCounter = 0;
 		this.playerTwoCounter = 0;
-		this.field.startUp();
-		checkIfIsASeTInGame();
 	}
 
 	private void checkIfIsASeTInGame() {

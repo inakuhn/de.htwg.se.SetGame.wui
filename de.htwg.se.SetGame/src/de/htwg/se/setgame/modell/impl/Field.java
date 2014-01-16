@@ -20,7 +20,6 @@ public class Field extends AField {
 	 * startup of the objects
 	 */
 	public Field() {
-		this.pack = new Pack();
 		this.sizeOfField = INITIALVALUEOFFIELD;
 		this.cardInFieldGame = new TreeMap<Integer, Card>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
@@ -36,9 +35,9 @@ public class Field extends AField {
 	public void startUp() {
 		Map<Integer, Card> packForThegame = new TreeMap<Integer, Card>();
 		rand();
-
+		Pack pack = new Pack();
 		int i = 0;
-		for (Card card : this.pack.getPack()) {
+		for (Card card : pack.getPack()) {
 			packForThegame.put(this.getRamdomListe().get(i), card);
 			i++;
 		}
@@ -163,10 +162,10 @@ public class Field extends AField {
 		if (size < sizeOfField) {
 			int diference = sizeOfField - size;
 			LinkedList<Integer> keys = new LinkedList<Integer>();
-				for(int i= 0 ; i < diference ;i++){
-					keys.add(i);
-				}
-			
+			for (int i = 0; i < diference; i++) {
+				keys.add(i);
+			}
+
 			for (Integer key : keys) {
 				this.getCardInFieldGame().remove(key);
 			}
@@ -174,9 +173,10 @@ public class Field extends AField {
 		} else if (size > sizeOfField) {
 			LinkedList<Card> list = new LinkedList<Card>();
 			list.addAll(getUnusedCards());
-			
+
 			for (int key = 0; key < size; key++) {
-				if (!list.isEmpty() && !getCardInFieldGame().keySet().contains(key)) {
+				if (!list.isEmpty()
+						&& !getCardInFieldGame().keySet().contains(key)) {
 					this.getCardInFieldGame().put(key, list.getFirst());
 					list.removeFirst();
 
@@ -274,18 +274,20 @@ public class Field extends AField {
 
 	@Override
 	public void clear() {
-		this.pack = null;
-		this.pack = new Pack();
-		this.sizeOfField = INITIALVALUEOFFIELD;
+		List<Card> liste = new LinkedList<>();
+		liste.addAll(packForGame);
+		packForGame.removeAll(liste);
 		this.cardInFieldGame.clear();
-		this.ramdomListe.clear();
 		this.packForGame.clear();
+		this.sizeOfField = INITIALVALUEOFFIELD;
+		startUp();
 
 	}
 
 	@Override
 	public String toString() {
-		String langstString = this.pack.getFill()[0];
+		Pack pack = new Pack();
+		String langstString = pack.getFill()[0];
 		StringBuilder field = new StringBuilder();
 		field.append("\n");
 		Set<Integer> listeofcontains = new TreeSet<>();
@@ -296,13 +298,13 @@ public class Field extends AField {
 				if (!listeofcontains.contains(key)) {
 					double legth = langstString.toCharArray().length;
 					double fehlt = legth - 1;
-					double me = fehlt/2;
+					double me = fehlt / 2;
 					fehlt = fehlt - me;
-					for(int loop = 0 ; loop < me; loop++){
+					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
-					field.append("["+key+"]");
-					for(int loop = 0 ; loop < fehlt; loop++){
+					field.append("[" + key + "]");
+					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
 					i++;
@@ -316,15 +318,16 @@ public class Field extends AField {
 			for (Integer key : cardInFieldGame.keySet()) {
 				if (!listeofcontains.contains(key)) {
 					int legth = langstString.toCharArray().length;
-					int fehlt = legth - cardInFieldGame.get(key).getColor().toCharArray().length;
-					int me = fehlt/2;
+					int fehlt = legth
+							- cardInFieldGame.get(key).getColor().toCharArray().length;
+					int me = fehlt / 2;
 					fehlt = fehlt - me;
 					field.append("|");
-					for(int loop = 0 ; loop < me; loop++){
+					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
 					field.append(cardInFieldGame.get(key).color);
-					for(int loop = 0 ; loop < fehlt; loop++){
+					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
 					field.append("|  ");
@@ -339,15 +342,16 @@ public class Field extends AField {
 			for (Integer key : cardInFieldGame.keySet()) {
 				if (!listeofcontains.contains(key)) {
 					int legth = langstString.toCharArray().length;
-					int fehlt = legth - cardInFieldGame.get(key).getFomr().toCharArray().length;
-					int me = fehlt/2;
+					int fehlt = legth
+							- cardInFieldGame.get(key).getFomr().toCharArray().length;
+					int me = fehlt / 2;
 					fehlt = fehlt - me;
 					field.append("|");
-					for(int loop = 0 ; loop < me; loop++){
+					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
 					field.append(cardInFieldGame.get(key).form);
-					for(int loop = 0 ; loop < fehlt; loop++){
+					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
 					field.append("|  ");
@@ -363,14 +367,14 @@ public class Field extends AField {
 				if (!listeofcontains.contains(key)) {
 					int legth = langstString.toCharArray().length;
 					int fehlt = legth - 1;
-					int me = fehlt/2;
+					int me = fehlt / 2;
 					fehlt = fehlt - me;
 					field.append("|");
-					for(int loop = 0 ; loop < me; loop++){
+					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
 					field.append(cardInFieldGame.get(key).anz);
-					for(int loop = 0 ; loop < fehlt; loop++){
+					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
 					field.append("|  ");
@@ -386,15 +390,17 @@ public class Field extends AField {
 			for (Integer key : cardInFieldGame.keySet()) {
 				if (!listeofcontains.contains(key)) {
 					int legth = langstString.toCharArray().length;
-					int fehlt = legth - cardInFieldGame.get(key).getPanelFilling().toCharArray().length;
-					int me = fehlt/2;
+					int fehlt = legth
+							- cardInFieldGame.get(key).getPanelFilling()
+									.toCharArray().length;
+					int me = fehlt / 2;
 					fehlt = fehlt - me;
 					field.append("|");
-					for(int loop = 0 ; loop < me; loop++){
+					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
 					field.append(cardInFieldGame.get(key).panelFilling);
-					for(int loop = 0 ; loop < fehlt; loop++){
+					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
 					field.append("|  ");
@@ -407,10 +413,10 @@ public class Field extends AField {
 				}
 			}
 			field.append("\n\n\n");
-		t++;
-		if(sizeOfField == listeofcontains.size()){
-			break;
-		}
+			t++;
+			if (sizeOfField == listeofcontains.size()) {
+				break;
+			}
 		}
 		return field.toString();
 	}

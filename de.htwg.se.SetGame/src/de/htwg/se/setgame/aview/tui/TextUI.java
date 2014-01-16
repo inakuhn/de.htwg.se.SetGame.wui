@@ -34,16 +34,21 @@ public class TextUI implements IObserver {
 	}
 
 	public boolean processInputLine(String line) {
+		logger.info(newLine+controller.getCardinGame().size());
 		if (!controller.stillSetInGAme()) {
 			logger.info("Hey dude! there is no longger stes in game for you here is the Points ;) "
 					+ this.newLine
 					+ "Player 1 = "
-					+ controller.geTplayerOnePoints()+this.newLine+"Player Two "+controller.geTplayerTwoPoints());
-			if(controller.geTplayerTwoPoints() < controller.geTplayerOnePoints()){
+					+ controller.geTplayerOnePoints()
+					+ this.newLine
+					+ "Player Two " + controller.geTplayerTwoPoints());
+			if (controller.geTplayerTwoPoints() < controller
+					.geTplayerOnePoints()) {
 				logger.info("Gongratilations player one Dude you are amazing!!");
-			}else if(controller.geTplayerTwoPoints() > controller.geTplayerOnePoints()){
+			} else if (controller.geTplayerTwoPoints() > controller
+					.geTplayerOnePoints()) {
 				logger.info("Gongratilations player Two Dude you are amazing!!");
-			}else{
+			} else {
 				logger.info("nobody wins nobody pays the dinne xD");
 			}
 			return false;
@@ -98,15 +103,19 @@ public class TextUI implements IObserver {
 			cont = false;
 		} else if (splintWords[index].compareTo("solve") == 0) {
 			if (this.controller.getSetInField().size() >= 3) {
-				logger.info("solved" + this.controller.getSetInField().toString() + newLine
+				logger.info("solved"
+						+ this.controller.getSetInField().toString() + newLine
 						+ controller.getField().getAllCardsInGame().size());
-				this.controller.isAsetForController(this.controller.getSetInField().get(0), this.controller.getSetInField().get(1),
-						this.controller.getSetInField().get(2), 3);
+				this.controller.isAsetForController(this.controller
+						.getSetInField().get(0), this.controller
+						.getSetInField().get(1), this.controller
+						.getSetInField().get(2), 3);
 				printTUI();
-			}else{
-				logger.info("number of cards = "+controller.getField().getAllCardsInGame().size());
+			} else {
+				logger.info("number of cards = "
+						+ controller.getField().getAllCardsInGame().size());
 				printTUI();
-	
+
 			}
 		} else if (splintWords[index].compareTo("s") == 0) {
 			List<ICard> setInField = new LinkedList<>();
@@ -124,6 +133,10 @@ public class TextUI implements IObserver {
 					+ this.newLine + positionInField.toString());
 		} else if (splintWords[index].compareTo("nw") == 0) {
 			this.controller.newGame();
+			logger.info(this.newLine + "size of Pack = "
+					+ controller.getField().getAllCardsInGame().size()
+					+ newLine + controller.getField().getCardsInField().size());
+
 			printTUI();
 		} else if (splintWords[index].compareTo("size") == 0) {
 			Integer i = Integer.parseInt(splintWords[1]);
