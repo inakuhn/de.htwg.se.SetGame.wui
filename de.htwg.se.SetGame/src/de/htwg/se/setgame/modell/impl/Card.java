@@ -2,7 +2,7 @@ package de.htwg.se.setgame.modell.impl;
 
 
 
-
+"|  "
 /**
  * @author David Simon & Raina Bertolini
  *

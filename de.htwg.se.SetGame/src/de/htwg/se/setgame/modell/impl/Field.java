@@ -10,7 +10,7 @@ import java.util.TreeSet;
  * Class Field.
  * 
  * @author David Simon & Raina Bertolini
- * @date 7.12.2013
+ * @date 7.12.201NUMBERFORONELINE
  * @category Modell
  */
 public class Field extends AField {
@@ -18,6 +18,7 @@ public class Field extends AField {
 	private static final int INITIALVALUEOFFIELD = 12;
 	private static final int MAX = 81;
 	private static final int ONE = 1;
+	private static final int NUMBERFORONELINE = 3;
 	private Map<Integer, Integer> ramdomListe;
 
 	/**
@@ -288,6 +289,13 @@ public class Field extends AField {
 
 	@Override
 	public String toString() {
+
+		return returnString();
+	}
+	private String returnApeend(){
+		return "|  ";
+	}
+	private String returnString(){
 		Pack pack = new Pack();
 		TreeSet<Integer> listeofcontains;
 		listeofcontains = new TreeSet<Integer>();
@@ -311,7 +319,7 @@ public class Field extends AField {
 						field.append(" ");
 					}
 					i++;
-					if (i == 3) {
+					if (i == NUMBERFORONELINE) {
 						i = 0;
 						break;
 					}
@@ -333,9 +341,9 @@ public class Field extends AField {
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
-					field.append("|  ");
+					field.append(returnApeend());
 					i++;
-					if (i == 3) {
+					if (i == NUMBERFORONELINE) {
 						i = 0;
 						break;
 					}
@@ -357,9 +365,9 @@ public class Field extends AField {
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
-					field.append("|  ");
+					field.append(returnApeend());
 					i++;
-					if (i == 3) {
+					if (i == NUMBERFORONELINE) {
 						i = 0;
 						break;
 					}
@@ -380,9 +388,9 @@ public class Field extends AField {
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
-					field.append("|  ");
+					field.append(returnApeend());
 					i++;
-					if (i == 3) {
+					if (i == NUMBERFORONELINE) {
 						i = 0;
 						break;
 					}
@@ -406,10 +414,10 @@ public class Field extends AField {
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
-					field.append("|  ");
+					field.append(returnApeend());
 					listeofcontains.add(key);
 					i++;
-					if (i == 3) {
+					if (i == NUMBERFORONELINE) {
 						i = 0;
 						break;
 					}
@@ -423,4 +431,5 @@ public class Field extends AField {
 		}
 		return field.toString();
 	}
+	
 }
