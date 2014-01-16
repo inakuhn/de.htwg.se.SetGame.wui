@@ -12,6 +12,7 @@ import java.awt.event.ActionListener;
 import de.htwg.se.util.observer.IObserver;
 import de.htwg.se.util.observer.Event;
 import setgame.controller.IController;
+import setgame.controller.impl.SetController;
 
 public class GUI extends JFrame {
 	
@@ -19,9 +20,8 @@ public class GUI extends JFrame {
 	private static int DEFAULT_Y = 650;
 	private static int DEFAULT_X = 900;
 	
-	private static IController controller;
+	private static IController controller = new SetController();
 	private JPanel mainPanel;
-	private Point point;
 	private SetButton setbutton;
 	private GameField gamefield;
 	
@@ -31,22 +31,18 @@ public class GUI extends JFrame {
 		this.setJMenuBar(new MenuBar(this.controller));
 
 		JPanel mainPanel = new JPanel();
-		mainPanel.setBorder(BorderFactory.createEmptyBorder(50, 50, 50, 50));
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 		JPanel miniPanel = new JPanel();
-		mainPanel.setBorder(BorderFactory.createEmptyBorder(25, 25, 25, 25));
-		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 		
 		
 		mainPanel.setLayout(new GridLayout(2,1));
 		miniPanel.setLayout(new GridLayout(2,1));
-		point = new Point(controller);
+		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 		setbutton = new SetButton(controller);
 		gamefield = new GameField(controller);
 		mainPanel.add(gamefield);
 		miniPanel.add(setbutton);
-		miniPanel.add(point);
 		mainPanel.add(miniPanel);
+		mainPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 		this.setContentPane(mainPanel);
 
 		this.setTitle("SET - The ultimate challenge!");
@@ -58,6 +54,7 @@ public class GUI extends JFrame {
 
 
 	public static void main(String[] args) {
+		IController controller = new SetController();
 		GUI game = new GUI(controller);
 	}
 }

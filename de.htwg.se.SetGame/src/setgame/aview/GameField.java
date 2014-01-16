@@ -9,6 +9,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -17,23 +18,27 @@ import setgame.controller.IController;
 public class GameField extends JPanel implements ActionListener{
 	
 	private static IController controller;
+	private final int three = 3;
+	private final int four = 4;
+	private final int ten = 10;
+	private final int twenty = 20;
 	
 	
 	public GameField(final IController controller) {
 		this.controller = controller;
 		
-		URL resource1 = ImageIcon.class.getResource( "/card/GOO1.gif" );
-		URL resource2 = ImageIcon.class.getResource( "/card/GOO2.gif" );
-		URL resource3 = ImageIcon.class.getResource( "/card/GOO3.gif" );
-		URL resource4 = ImageIcon.class.getResource( "/card/GOS1.gif" );
-		URL resource5 = ImageIcon.class.getResource( "/card/GOS2.gif" );
-		URL resource6 = ImageIcon.class.getResource( "/card/GOS3.gif" );
-		URL resource7 = ImageIcon.class.getResource( "/card/GOST1.gif" );
-		URL resource8 = ImageIcon.class.getResource( "/card/GOST2.gif" );
-		URL resource9 = ImageIcon.class.getResource( "/card/GOST3.gif" );
-		URL resource10 = ImageIcon.class.getResource( "/card/GRO1.gif" );
-		URL resource11 = ImageIcon.class.getResource( "/card/GRO2.gif" );
-		URL resource12 = ImageIcon.class.getResource( "/card/GRO3.gif" );
+		URL resource1 = ImageIcon.class.getResource( "/card/0.gif" );
+		URL resource2 = ImageIcon.class.getResource( "/card/1.gif" );
+		URL resource3 = ImageIcon.class.getResource( "/card/2.gif" );
+		URL resource4 = ImageIcon.class.getResource( "/card/3.gif" );
+		URL resource5 = ImageIcon.class.getResource( "/card/4.gif" );
+		URL resource6 = ImageIcon.class.getResource( "/card/5.gif" );
+		URL resource7 = ImageIcon.class.getResource( "/card/6.gif" );
+		URL resource8 = ImageIcon.class.getResource( "/card/7.gif" );
+		URL resource9 = ImageIcon.class.getResource( "/card/8.gif" );
+		URL resource10 = ImageIcon.class.getResource( "/card/9.gif" );
+		URL resource11 = ImageIcon.class.getResource( "/card/10.gif" );
+		URL resource12 = ImageIcon.class.getResource( "/card/11.gif" );
 		
 		
 		Icon icon1 = new ImageIcon( resource1 );
@@ -48,37 +53,53 @@ public class GameField extends JPanel implements ActionListener{
 		Icon icon10 = new ImageIcon( resource10 );
 		Icon icon11 = new ImageIcon( resource11 );
 		Icon icon12 = new ImageIcon( resource12 );
+		
+
+		JButton b1 = new JButton();
+		JButton b2 = new JButton();
+		JButton b3 = new JButton();
+		JButton b4 = new JButton();
+		JButton b5 = new JButton();
+		JButton b6 = new JButton();
+		JButton b7 = new JButton();
+		JButton b8 = new JButton();
+		JButton b9 = new JButton();
+		JButton b10 = new JButton();
+		JButton b11 = new JButton();
+		JButton b12 = new JButton();
+		
+		b1.setIcon( icon1 );
+		b2.setIcon( icon2 );
+		b3.setIcon( icon3 );
+		b4.setIcon( icon4 );
+		b5.setIcon( icon5 );
+		b6.setIcon( icon6 );
+		b7.setIcon( icon7 );
+		b8.setIcon( icon8 );
+		b9.setIcon( icon9 );
+		b10.setIcon( icon10 );
+		b11.setIcon( icon11 );
+		b12.setIcon( icon12 );
+
 
 		JPanel panel1 = new JPanel();
-		panel1.setLayout(new GridLayout(3,4));
+		panel1.setLayout(new GridLayout(three, four, ten, ten));
 		
-		JLabel p1 = new JLabel( icon1 );
-		JLabel p2 = new JLabel( icon2 );
-		JLabel p3 = new JLabel( icon3 );
-		JLabel p4 = new JLabel( icon4 );
-		JLabel p5 = new JLabel( icon5 );
-		JLabel p6 = new JLabel( icon6 );
-		JLabel p7 = new JLabel( icon7 );
-		JLabel p8 = new JLabel( icon8 );
-		JLabel p9 = new JLabel( icon9 );
-		JLabel p10 = new JLabel( icon10 );
-		JLabel p11 = new JLabel( icon11 );
-		JLabel p12 = new JLabel( icon12 );
 		
-		panel1.add(p1);
-		panel1.add(p2);
-		panel1.add(p3);
-		panel1.add(p4);
-		panel1.add(p5);
-		panel1.add(p6);
-		panel1.add(p7);
-		panel1.add(p8);
-		panel1.add(p9);
-		panel1.add(p10);
-		panel1.add(p11);
-		panel1.add(p12);
+		panel1.add(b1);
+		panel1.add(b2);
+		panel1.add(b3);
+		panel1.add(b4);
+		panel1.add(b5);
+		panel1.add(b6);
+		panel1.add(b7);
+		panel1.add(b8);
+		panel1.add(b9);
+		panel1.add(b10);
+		panel1.add(b11);
+		panel1.add(b12);
 		
-		panel1.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+		panel1.setBorder(BorderFactory.createEmptyBorder(twenty,twenty,twenty,twenty));
 		this.add(panel1);
 		
 	}
