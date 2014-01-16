@@ -1,6 +1,5 @@
 package de.htwg.se.setgame.aview.gui;
 
-import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,10 +11,8 @@ import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 import de.htwg.se.setgame.controller.IController;
 import de.htwg.se.setgame.modell.impl.Card;
@@ -24,7 +21,6 @@ import de.htwg.se.setgame.modell.impl.Pack;
 public class GameField extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
-	private static IController controller;
 	private static int index = 0;
 	private final static int zero = 0;
 	private final static int one = 1;
@@ -110,9 +106,8 @@ public class GameField extends JPanel implements ActionListener {
 	
 	private static Integer cardkey = new Integer(zero);
 
-	public GameField(final IController controller) {
-		this.controller = controller;
-		controller.addObserver(null);
+	public GameField() {
+
 		
 		cardToPicture = new TreeMap<Integer, String>();
 		saveList = new LinkedList<Card>();
@@ -129,7 +124,7 @@ public class GameField extends JPanel implements ActionListener {
 		}
 
 		for (Card card : pack.getPack()) {
-			for (Card key : controller.getField().getCardInFieldGame().values()) {
+			for (Card key : GUI.getController().getField().getCardInFieldGame().values()) {
 				if (card.comparTo(key)) {
 					urlListe.add(cardToPicture.get(cardkey));
 					saveList.add(key);
@@ -370,7 +365,7 @@ public class GameField extends JPanel implements ActionListener {
 		saveList.clear();
 		
 		for (Card card : pack.getPack()) {
-			for (Card key : controller.getField().getCardInFieldGame().values()) {
+			for (Card key : GUI.getController().getField().getCardInFieldGame().values()) {
 				if (card.comparTo(key)) {
 					urlListe.add(cardToPicture.get(cardkey));
 					saveList.add(key);

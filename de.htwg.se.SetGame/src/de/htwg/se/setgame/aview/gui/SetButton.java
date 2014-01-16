@@ -9,14 +9,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import de.htwg.se.setgame.controller.IController;
-import de.htwg.se.setgame.controller.impl.SetController;
 
 public class SetButton extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JButton setbutton;
 	
-	private static IController controller = new SetController();
 	private final int zero = 0;
 	private final int one = 1;
 	private final int two = 2;
@@ -24,9 +21,7 @@ public class SetButton extends JPanel implements ActionListener {
     private static JTextField player2;
 	
 	
-	public SetButton(final IController controller) {
-		this.controller = controller;
-		controller.addObserver(null);
+	public SetButton() {
 		
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
@@ -78,21 +73,18 @@ public class SetButton extends JPanel implements ActionListener {
 	        			"Which Player?", "Choice",JOptionPane.DEFAULT_OPTION, 
 	        			JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 	        	if(selected == zero) {
-	                if(controller.isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), one)) {
-	                	GameField.updateLink();
-	                }
+	                GUI.getController().isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), one);
+	                
 	        	} else if (selected == one) {
-	            	if(controller.isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), two)) {
-	            		GameField.updateLink();
-	            	}
+	            	GUI.getController().isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), two);
 	        	}	
 
 	}
 	
 	public static void updateSB() {
-		Integer play1 = new Integer(controller.geTplayerOnePoints());
+		Integer play1 = new Integer(GUI.getController().geTplayerOnePoints());
 		player1.setText(play1.toString());
-		Integer play2 = new Integer(controller.geTplayerTwoPoints());
+		Integer play2 = new Integer(GUI.getController().geTplayerTwoPoints());
 		player2.setText(play2.toString());
 	}
 	

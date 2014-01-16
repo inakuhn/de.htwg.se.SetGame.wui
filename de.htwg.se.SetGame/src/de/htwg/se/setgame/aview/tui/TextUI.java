@@ -44,7 +44,7 @@ public class TextUI implements IObserver {
 				logger.info("Gongratilations player one Dude you are amazing!!");
 			} else if (controller.geTplayerTwoPoints() > controller
 					.geTplayerOnePoints()) {
-				logger.info("Gongratilations player Two Dude you are amazing!!");
+				logger.info("Congratilations player Two Dude you are amazing!!");
 			} else {
 				logger.info("nobody wins nobody pays the dinne xD");
 			}
@@ -150,20 +150,17 @@ public class TextUI implements IObserver {
 			player = this.controller.getPlayerTwo();
 		}
 		if (player != -1) {
-			if (this.controller.isAsetForController(
+			this.controller.isAsetForController(
 					this.controller.getField().getCardInFieldGame()
 							.get(arrayForSerNumber[0]),
 					this.controller.getField().getCardInFieldGame()
 							.get(arrayForSerNumber[1]),
 					this.controller.getField().getCardInFieldGame()
-							.get(arrayForSerNumber[2]), player)) {
+							.get(arrayForSerNumber[2]), player) ;
 				logger.info(this.newLine
 						+ "Congratilations it is a SET!! ! size == "
 						+ controller.getField().getAllCardsInGame().size());
-			} else {
-				logger.info(this.newLine
-						+ "Dude Set is wrong how could you!! =(");
-			}
+
 		}
 	}
 
@@ -192,5 +189,7 @@ public class TextUI implements IObserver {
 				+ "if you want to finisch the game please write exit"
 				+ this.controller.getField().toString());
 	}
+
+
 
 }

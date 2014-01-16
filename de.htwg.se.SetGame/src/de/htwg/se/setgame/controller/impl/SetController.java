@@ -273,21 +273,19 @@ public class SetController extends Observable implements IController {
 	 * @see setgame.controller.impl.ISuperController#isAsetForController(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
 	 */
 	@Override
-	public boolean isAsetForController(Card cardOne, Card cardTwo,
+	public void isAsetForController(Card cardOne, Card cardTwo,
 			Card cardThree, int player) {
 		if (isAset(cardOne, cardTwo, cardThree)) {
 			if (this.playerOne == player) {
 				this.playerOneCounter = this.playerOneCounter + 1;
 			} else if (this.playerTwo == player) {
 				this.playerTwoCounter = this.playerTwoCounter + 1;
+			
 			}
 			if (playerOne == player || player == this.playerTwo || player >= 0) {
 				notifyObservers();
-				return true;
 			}
 		}
-		notifyObservers();
-		return false;
 	}
 	/* (non-Javadoc)
 	 * @see setgame.controller.impl.ISuperController#getAsetInGame()

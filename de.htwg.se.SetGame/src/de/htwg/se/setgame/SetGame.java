@@ -6,6 +6,7 @@ import org.apache.log4j.PropertyConfigurator;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
+import de.htwg.se.setgame.aview.gui.GUI;
 import de.htwg.se.setgame.aview.tui.TextUI;
 import de.htwg.se.setgame.controller.IController;
 
@@ -27,8 +28,8 @@ public final class SetGame {
 		PropertyConfigurator.configure("log4j.properties");
 		Injector injector = Guice.createInjector(new SetGameModule());
 		controller = injector.getInstance(IController.class);
-		tui = injector.getInstance(TextUI.class);
-//		GUI gui = injector.getInstance(GUI.class);
+		GUI gui = new GUI(controller);
+		tui = new TextUI(controller);
 		tui.printTUI();
 	}
 	public IController getIController(){

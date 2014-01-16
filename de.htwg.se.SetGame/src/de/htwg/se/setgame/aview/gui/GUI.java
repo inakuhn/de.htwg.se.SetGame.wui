@@ -8,24 +8,27 @@ import com.google.inject.Inject;
 
 import de.htwg.se.setgame.controller.IController;
 import de.htwg.se.setgame.controller.impl.SetController;
+import de.htwg.se.setgame.util.observer.Event;
+import de.htwg.se.setgame.util.observer.IObserver;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements IObserver {
 	
 	private static final long serialVersionUID = 1L;	
-	private IController controller = new SetController();
-	
+	private static IController controller;
+	private IController controll;
 	@SuppressWarnings("unused")
 	private JPanel mainPanel;
 	
 	private SetButton setbutton;
 	private GameField gamefield;
 	
-//	@Inject
+	@Inject
 	public GUI(final IController controller) {
-		this.controller = controller;
-		controller.addObserver(null);
+		this.controll = controller;
+		GUI.setController(controller);
+		controller.addObserver(this);
 
-		this.setJMenuBar(new MenuBar(this.controller));
+		this.setJMenuBar(new MenuBar(GUI.getController()));
 
 		JPanel mainPanel = new JPanel();
 		JPanel miniPanel = new JPanel();
@@ -34,8 +37,8 @@ public class GUI extends JFrame {
 		mainPanel.setLayout(new GridLayout(2,1));
 		miniPanel.setLayout(new GridLayout(2,1));
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-		setbutton = new SetButton(controller);
-		gamefield = new GameField(controller);
+		setbutton = new SetButton();
+		gamefield = new GameField();
 		mainPanel.add(gamefield);
 		miniPanel.add(setbutton);
 		mainPanel.add(miniPanel);
@@ -50,9 +53,28 @@ public class GUI extends JFrame {
 	}
 
 
-	public static void main(String[] args) {
-		IController controller = new SetController();
-		controller.newGame();
-		new GUI(controller);
+//	public static void main(String[] args) {
+//		IController controller = new SetController();
+//		controller.newGame();
+//		new GUI(controller);
+//	}
+
+
+	@Override
+	public void update(Event e) {
+	 setbutton.updateSB();
+	 gamefield.updateLink();
+	 
+		
+	}
+
+
+	public static IController getController() {
+		return controller;
+	}
+
+
+	public static void setController(IController controller) {
+		GUI.controller = controller;
 	}
 }
