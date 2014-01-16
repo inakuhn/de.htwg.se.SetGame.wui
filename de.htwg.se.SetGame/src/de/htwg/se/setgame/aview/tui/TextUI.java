@@ -80,7 +80,7 @@ public class TextUI implements IObserver {
 			} else if (splintWords[index].compareTo("h") == 0) {
 				logger.info("A tipp your set begiss with  " + this.newLine
 						+ controller.getAsetInGame().get(0));
-				printTUI();
+				printTUI(); 
 
 			} else if (splintWords[index].compareTo("exit") == 0) {
 				cont = false;
