@@ -18,14 +18,36 @@ public final class SetGame {
 	private static SetGame instance = null;
 	
 	public static SetGame getInstance(){
-		if(instance == null)
-			new SetGame();
+		if(instance == null){
+			instance = new SetGame();
+			System.out.println("bin hierr");
+		}
 		return instance;
 	}
 	private SetGame(){
 		//set logging throgh log4j
 		PropertyConfigurator.configure("log4j.properties");
-		Injector injector = Guice.createInjector(new )
+		Injector injector = Guice.createInjector(new SetGameModule());
+		controller = injector.getInstance(IController.class);
+		tui = injector.getInstance(TextUI.class);
+		tui.printTUI();
+		
 		
 	}
+	public IController getIController(){
+		return this.controller;
+	}
+	public TextUI getTextUI(){
+		return this.tui;
+	}
+	public static void main(String[] args) {
+		SetGame.getInstance();
+		boolean cont = true;
+		scanner = new Scanner(System.in);
+		while(cont){
+			cont = tui.processInputLine(scanner.next());
+		}
+	}
+		
+	
 }

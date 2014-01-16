@@ -1,5 +1,9 @@
 package de.htwg.se.setgame.modell.impl;
 
+import java.awt.Color;
+
+import javax.swing.JTextArea;
+
 
 /**
  * @author David Simon & Raina Bertolini
@@ -120,7 +124,9 @@ public class Card extends ACard {
 	 */
 	@Override
 	public String toString(){
-		return this.color+" , "+this.form+" , "+this.panelFilling+" , "+this.anz;
+		StringBuilder sb = new StringBuilder();
+		sb.append("|"+this.color+"| \n "+"|"+this.form+"| \n "+"|"+this.panelFilling+"| \n "+"|"+this.anz+"|\n");
+		return sb.toString();
 	}
 	/* (non-Javadoc)
 	 * @see setgame.modell.impl.ICard#comparTo(setgame.modell.impl.Card)

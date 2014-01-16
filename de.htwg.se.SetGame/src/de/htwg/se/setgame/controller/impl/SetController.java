@@ -4,6 +4,8 @@ package de.htwg.se.setgame.controller.impl;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.google.inject.Inject;
+
 import de.htwg.se.setgame.controller.IController;
 import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.IField;
@@ -27,6 +29,7 @@ public class SetController extends Observable implements IController {
 	/**
 	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
+	@Inject
 	public SetController() {
 		this.field = new de.htwg.se.setgame.modell.impl.Field();
 		this.counter = 0;
@@ -53,8 +56,9 @@ public class SetController extends Observable implements IController {
 		List<Card> liste = new LinkedList<Card>();
 		liste.addAll(getSet(this.field.getAllCardsInGame()));
 		if(liste.size() < NUMBEROFSETCARDS){
-			while(!changeCardsinGame()){
-				
+			int i = 0;
+			while(!changeCardsinGame() && i < 1000){
+				i++;
 			}
 			
 		}
@@ -104,7 +108,7 @@ public class SetController extends Observable implements IController {
 		} else {
 			if (proveIfIsASet(cardOne, cardTwo, cardThree)) {
 				field.foundSet(cardOne, cardTwo, cardThree);
-				if (!(getSet(this.field.getCardsInField()).isEmpty())) {
+				if(getAsetInGame().size() >=3){
 					return true;
 				} else if (alltheSetsInField(this.field.getAllCardsInGame())) {
 					return true;
@@ -270,7 +274,7 @@ public class SetController extends Observable implements IController {
 			} else if (this.playerTwo == player) {
 				this.playerTwoCounter = this.playerTwoCounter + 1;
 			}
-			if (playerOne == player || player == this.playerTwo) {
+			if (playerOne == player || player == this.playerTwo || player >= 0) {
 				return true;
 			}
 		}

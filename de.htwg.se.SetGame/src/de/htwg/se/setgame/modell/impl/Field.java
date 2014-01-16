@@ -13,7 +13,7 @@ import java.util.TreeSet;
  * @date 7.12.2013
  * @category Modell
  */
-public  class Field extends AField {
+public class Field extends AField {
 
 	/**
 	 * startup of the objects
@@ -280,9 +280,137 @@ public  class Field extends AField {
 		this.sizeOfField = INITIALVALUEOFFIELD;
 		this.cardInFieldGame.clear();
 		this.ramdomListe.clear();
-		this.packForGame.clear();	
-		
-		
+		this.packForGame.clear();
+
 	}
 
+	@Override
+	public String toString() {
+		String langstString = this.pack.getFill()[0];
+		StringBuilder field = new StringBuilder();
+		field.append("\n");
+		String apendRed = "     ";
+		TreeSet<Integer> listeofcontains = new TreeSet<>();
+		int t = this.sizeOfField % 3;
+		while (t != 3) {
+			int i = 0;
+			for (Integer key : cardInFieldGame.keySet()) {
+				if (!listeofcontains.contains(key)) {
+					double legth = langstString.toCharArray().length;
+					double fehlt = legth - 1;
+					double me = fehlt/2;
+					fehlt = fehlt - me;
+					for(int loop = 0 ; loop < me; loop++){
+						field.append(" ");
+					}
+					field.append("["+key+"]");
+					for(int loop = 0 ; loop < fehlt; loop++){
+						field.append(" ");
+					}
+					i++;
+					if (i == 3) {
+						i = 0;
+						break;
+					}
+				}
+			}
+			field.append("\n");
+			for (Integer key : cardInFieldGame.keySet()) {
+				if (!listeofcontains.contains(key)) {
+					int legth = langstString.toCharArray().length;
+					int fehlt = legth - cardInFieldGame.get(key).getColor().toCharArray().length;
+					int me = fehlt/2;
+					fehlt = fehlt - me;
+					field.append("|");
+					for(int loop = 0 ; loop < me; loop++){
+						field.append(" ");
+					}
+					field.append(cardInFieldGame.get(key).color);
+					for(int loop = 0 ; loop < fehlt; loop++){
+						field.append(" ");
+					}
+					field.append("|  ");
+					i++;
+					if (i == 3) {
+						i = 0;
+						break;
+					}
+				}
+			}
+			field.append("\n");
+			for (Integer key : cardInFieldGame.keySet()) {
+				if (!listeofcontains.contains(key)) {
+					int legth = langstString.toCharArray().length;
+					int fehlt = legth - cardInFieldGame.get(key).getFomr().toCharArray().length;
+					int me = fehlt/2;
+					fehlt = fehlt - me;
+					field.append("|");
+					for(int loop = 0 ; loop < me; loop++){
+						field.append(" ");
+					}
+					field.append(cardInFieldGame.get(key).form);
+					for(int loop = 0 ; loop < fehlt; loop++){
+						field.append(" ");
+					}
+					field.append("|  ");
+					i++;
+					if (i == 3) {
+						i = 0;
+						break;
+					}
+				}
+			}
+			field.append("\n");
+			for (Integer key : cardInFieldGame.keySet()) {
+				if (!listeofcontains.contains(key)) {
+					int legth = langstString.toCharArray().length;
+					int fehlt = legth - 1;
+					int me = fehlt/2;
+					fehlt = fehlt - me;
+					field.append("|");
+					for(int loop = 0 ; loop < me; loop++){
+						field.append(" ");
+					}
+					field.append(cardInFieldGame.get(key).anz);
+					for(int loop = 0 ; loop < fehlt; loop++){
+						field.append(" ");
+					}
+					field.append("|  ");
+					i++;
+					if (i == 3) {
+						i = 0;
+						break;
+					}
+				}
+
+			}
+			field.append("\n");
+			for (Integer key : cardInFieldGame.keySet()) {
+				if (!listeofcontains.contains(key)) {
+					int legth = langstString.toCharArray().length;
+					int fehlt = legth - cardInFieldGame.get(key).getPanelFilling().toCharArray().length;
+					int me = fehlt/2;
+					fehlt = fehlt - me;
+					field.append("|");
+					for(int loop = 0 ; loop < me; loop++){
+						field.append(" ");
+					}
+					field.append(cardInFieldGame.get(key).panelFilling);
+					for(int loop = 0 ; loop < fehlt; loop++){
+						field.append(" ");
+					}
+					field.append("|  ");
+					i++;
+					if (i == 3) {
+						i = 0;
+						break;
+					}
+					listeofcontains.add(key);
+				}
+			}
+			field.append("\n\n\n");
+		t++;
+		}
+		return field.toString();
+	}
 }

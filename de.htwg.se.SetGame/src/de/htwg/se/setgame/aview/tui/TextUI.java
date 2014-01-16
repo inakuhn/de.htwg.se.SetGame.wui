@@ -1,22 +1,22 @@
 package de.htwg.se.setgame.aview.tui;
 
-import org.apache.logging.log4j.LogManager;
+import java.util.LinkedList;
 
-import org.apache.logging.log4j.Logger;
+import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
 import de.htwg.se.setgame.controller.IController;
+import de.htwg.se.setgame.modell.impl.Card;
 import de.htwg.se.setgame.util.observer.Event;
 import de.htwg.se.setgame.util.observer.IObserver;
-
 
 public class TextUI implements IObserver {
 
 	private IController controller;
 	private String newLine = System.getProperty("line.separator");
 
-	private final Logger logger = LogManager.getLogger("setgame.aview.tui");
+	private Logger logger = Logger.getLogger("de.htwg.se.setgame.aview.tui");
 
 	@Inject
 	public TextUI(IController controller) {
@@ -25,54 +25,90 @@ public class TextUI implements IObserver {
 
 	}
 
+	@Override
+	public void update(Event e) {
+		printTUI();
+
+	}
+
 	public boolean processInputLine(String line) {
 		boolean cont = true;
 		String[] splintWords = line.split(" ");
 		Integer[] arrayForSerNumber = new Integer[3];
-		switch (splintWords[0]) {
-		case "set":
-
-			if (comparIfPlayerIsRigth(splintWords[1])
-					&& splintWords.length == 5) {
-				arrayForSerNumber[0] = Integer.parseInt(splintWords[2]);
-				arrayForSerNumber[1] = Integer.parseInt(splintWords[3]);
-				arrayForSerNumber[2] = Integer.parseInt(splintWords[4]);
-				boolean b = true;
-				for (int index = 0; index < arrayForSerNumber.length; index++) {
-					if (arrayForSerNumber[index] < 0
-							|| arrayForSerNumber[index] > 11) {
-						b = false;
-						logger.info(this.newLine
-								+ "wrong number please number between 0-11");
-						break;
-					}
-
-				}
-				if (b) {
-					printAseT(arrayForSerNumber, splintWords[1]);
-				}
-			}
-			logger.info("Please write set with player (PlayerOne or PlayerTwo) and the number from the cards \n Example: set PlayerOne 1 2 3\n");
-			break;
-		case "GetPoints":
-			if (splintWords[1].compareTo("PlayerOne") == 0) {
-				logger.info(newLine + "Point PlayerOne = "
-						+ this.controller.geTplayerTwoPoints());
-			} else if (splintWords[1].compareTo("PlayerTwo") == 0) {
-				logger.info(newLine + "Point PlayerOne = "
-						+ this.controller.geTplayerTwoPoints());
-			} else {
-				logger.info("Hey dude let´s go learn how to play this ;) if you want to now your pontis xD please write GetPoints PlayerOne ;)");
-			}
-			break;
-		case "newGame":
-			this.controller.newGame();
-			
-		case "exit":
+		if (this.controller.getCardinGame().isEmpty()) {
+			logger.info(this.newLine + "THere is no sets anymore!!!"
+					+ this.newLine);
 			cont = false;
-			
 		}
-		
+		logger.info("fuckkkk");
+		printTUI();
+
+		int index = 0;
+			if (splintWords[index].compareTo("set") == 0) {
+				for (int loop1 = index; loop1 < splintWords.length; loop1++) {
+					if (comparIfPlayerIsRigth(splintWords[loop1])) {
+						if (splintWords.length > 4) {
+							arrayForSerNumber[0] = Integer
+									.parseInt(splintWords[2]);
+							arrayForSerNumber[1] = Integer
+									.parseInt(splintWords[3]);
+							arrayForSerNumber[2] = Integer
+									.parseInt(splintWords[4]);
+							boolean b = true;
+							for (int index1 = 0; index1 < arrayForSerNumber.length; index1++) {
+								if (arrayForSerNumber[index1] < 0
+										|| arrayForSerNumber[index1] > 11) {
+									b = false;
+									logger.info(this.newLine
+											+ "wrong number please number between 0-11");
+									break;
+								}
+
+							}
+							if (b) {
+								printAseT(arrayForSerNumber, splintWords[loop1]);
+							}
+
+						}
+					}
+				}
+			} else if (splintWords[index].compareTo("GetPoints") == 0) {
+				logger.info(this.newLine + "Player one = "
+						+ controller.geTplayerOnePoints() + this.newLine
+						+ "Player Two = " + controller.getPlayerTwo()
+						+ this.newLine);
+			} else if (splintWords[index].compareTo("h") == 0) {
+				logger.info("A tipp your set begiss with  " + this.newLine
+						+ controller.getAsetInGame().get(0));
+				printTUI();
+
+			} else if (splintWords[index].compareTo("exit") == 0) {
+				cont = false;
+			} else if (splintWords[index].compareTo("solve") == 0) {
+				LinkedList<Card> liste = new LinkedList<>();
+				liste.addAll(this.controller.getAsetInGame());
+				if (liste.size() >= 3) {
+					logger.info("solved"+ liste.toString());
+					this.controller.isAsetForController(liste.get(0),
+							liste.get(1), liste.get(2), 3);
+					printTUI();
+				} else if (splintWords[index].compareTo("s") == 0) {
+					System.out.println("halllooo"+controller.getSetInField().toString());
+					logger.info("Set sollution = " + newLine+controller.getSetInField().toString());
+				} else if (splintWords[index].compareTo("nw") == 0) {
+					this.controller.newGame();
+					printTUI();
+				} else if (splintWords[index].compareTo("number") == 0) {
+					Integer i = Integer.parseInt(splintWords[2]);
+					this.controller.getField().setSizeOfField(i,
+							this.controller.getAsetInGame());
+					printTUI();
+				}
+
+			
+
+		}
+
 		return cont;
 
 	}
@@ -102,19 +138,30 @@ public class TextUI implements IObserver {
 		}
 	}
 
-	@Override
-	public void update(Event e) {
-		printTUI();
-
-	}
-
 	private boolean comparIfPlayerIsRigth(String string) {
 		return string.compareTo("PlayerOne") == 0
 				|| string.compareTo("PlayerTwo") == 0;
 	}
 
-	private void printTUI() {
-
+	public void printTUI() {
+		logger.info("Welcome to SetGame!!!! "
+				+ this.newLine
+				+ "Well ist not that hard to play ;)"
+				+ this.newLine
+				+ "If you found a set please write : set PlayerOne (or PlayerTwo) and the number of the fields 1 2 3 (0-11)"
+				+ this.newLine
+				+ "if you need a tipp plese write h"
+				+ this.newLine
+				+ "if you want to know the solution please write s"
+				+ this.newLine
+				+ "If you want to know the game point please write GetPoints"
+				+ this.newLine
+				+ "if you want to solve the set with out knowing just write solve"
+				+ this.newLine + "Set size of the fiel 3-80 size number"
+				+ this.newLine + "For a newGame plase write nw" + this.newLine
+				+ "Have fun!!!"
+				+ "if you want to finisch the game please write exit"
+				+ this.controller.getField().toString());
 	}
 
 }
