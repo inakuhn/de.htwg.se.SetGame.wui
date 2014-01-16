@@ -274,9 +274,7 @@ public class Field extends AField {
 
 	@Override
 	public void clear() {
-		List<Card> liste = new LinkedList<>();
-		liste.addAll(packForGame);
-		packForGame.removeAll(liste);
+		packForGame.clear();
 		this.cardInFieldGame.clear();
 		this.packForGame.clear();
 		this.sizeOfField = INITIALVALUEOFFIELD;
