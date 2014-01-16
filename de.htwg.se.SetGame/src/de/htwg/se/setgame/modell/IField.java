@@ -12,7 +12,7 @@ public interface IField {
 	 * 
 	 * @see setgame.modell.IField#startUp()
 	 */
-	abstract void startUp();
+	 void startUp();
 
 	/*
 	 * (non-Javadoc)
@@ -20,51 +20,51 @@ public interface IField {
 	 * @see setgame.modell.IField#foundSet(setgame.modell.Card,
 	 * setgame.modell.Card, setgame.modell.Card)
 	 */
-	abstract void foundSet(Card cardOne, Card cardTwo, Card cardThree);
+	 void foundSet(Card cardOne, Card cardTwo, Card cardThree);
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getCardsInField()
 	 */
-	abstract List<Card> getCardsInField();
+	 List<Card> getCardsInField();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#changeCards(java.util.List)
 	 */
-	abstract void changeCards(List<Card> liste);
+	 void changeCards(List<Card> liste);
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getUnusedCards()
 	 */
-	abstract List<Card> getUnusedCards();
+	 List<Card> getUnusedCards();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getSizeofField()
 	 */
-	abstract int getSizeofField();
+	 int getSizeofField();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getAllCardsInGame()
 	 */
-	abstract List<Card> getAllCardsInGame();
+	 List<Card> getAllCardsInGame();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getCardInFieldGame()
 	 */
-	abstract Map<Integer, Card> getCardInFieldGame();
+	 Map<Integer, Card> getCardInFieldGame();
 
-	abstract void clear();
+	 void clear();
 
 	void setSizeOfField(int size);
 
