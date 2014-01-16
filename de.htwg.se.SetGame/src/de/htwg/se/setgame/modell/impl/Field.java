@@ -285,7 +285,7 @@ public class Field extends AField {
 	@Override
 	public String toString() {
 		Pack pack = new Pack();
-		LinkedList<Integer> listeofcontains = new LinkedList<>();
+		TreeSet<Integer> listeofcontains = new TreeSet<>();
 		String langstString = pack.getFill()[0];
 		StringBuilder field = new StringBuilder();
 		field.append("\n");
