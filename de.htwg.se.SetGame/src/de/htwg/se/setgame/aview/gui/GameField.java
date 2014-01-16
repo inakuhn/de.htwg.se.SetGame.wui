@@ -14,7 +14,6 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import de.htwg.se.setgame.controller.IController;
 import de.htwg.se.setgame.modell.impl.Card;
 import de.htwg.se.setgame.modell.impl.Pack;
 

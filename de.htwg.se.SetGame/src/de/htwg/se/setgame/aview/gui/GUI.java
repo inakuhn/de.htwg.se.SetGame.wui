@@ -7,7 +7,6 @@ import javax.swing.*;
 import com.google.inject.Inject;
 
 import de.htwg.se.setgame.controller.IController;
-import de.htwg.se.setgame.controller.impl.SetController;
 import de.htwg.se.setgame.util.observer.Event;
 import de.htwg.se.setgame.util.observer.IObserver;
 
@@ -15,7 +14,6 @@ public class GUI extends JFrame implements IObserver {
 	
 	private static final long serialVersionUID = 1L;	
 	private static IController controller;
-	private IController controll;
 	@SuppressWarnings("unused")
 	private JPanel mainPanel;
 	
@@ -24,7 +22,6 @@ public class GUI extends JFrame implements IObserver {
 	
 	@Inject
 	public GUI(final IController controller) {
-		this.controll = controller;
 		GUI.setController(controller);
 		controller.addObserver(this);
 
@@ -60,6 +57,7 @@ public class GUI extends JFrame implements IObserver {
 //	}
 
 
+	@SuppressWarnings("static-access")
 	@Override
 	public void update(Event e) {
 	 setbutton.updateSB();
