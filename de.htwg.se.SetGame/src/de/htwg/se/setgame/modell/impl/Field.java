@@ -15,7 +15,7 @@ import java.util.TreeSet;
  * @category Modell
  */
 public class Field extends AField {
-
+	Set<Integer> listeofcontains ;
 	/**
 	 * startup of the objects
 	 */
@@ -24,6 +24,7 @@ public class Field extends AField {
 		this.cardInFieldGame = new TreeMap<Integer, Card>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
 		this.packForGame = new LinkedList<Card>();
+		this.listeofcontains = new TreeSet<>();
 	}
 
 	/*
@@ -278,6 +279,7 @@ public class Field extends AField {
 		this.cardInFieldGame.clear();
 		this.packForGame.clear();
 		this.sizeOfField = INITIALVALUEOFFIELD;
+		listeofcontains.clear();
 		startUp();
 
 	}
@@ -288,7 +290,7 @@ public class Field extends AField {
 		String langstString = pack.getFill()[0];
 		StringBuilder field = new StringBuilder();
 		field.append("\n");
-		Set<Integer> listeofcontains = new TreeSet<>();
+		listeofcontains.clear();
 		int t = 0;
 		while (t != this.sizeOfField) {
 			int i = 0;
