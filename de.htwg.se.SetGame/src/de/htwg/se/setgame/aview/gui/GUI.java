@@ -48,6 +48,7 @@ public class GUI extends JFrame {
 
 	public static void main(String[] args) {
 		IController controller = new SetController();
+		controller.newGame();
 		new GUI(controller);
 	}
 }

@@ -16,12 +16,12 @@ public class SetButton extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JButton setbutton;
 	
-	private IController controller = new SetController();
+	private static IController controller = new SetController();
 	private final int zero = 0;
 	private final int one = 1;
-	
-    private JTextField player1;
-    private JTextField player2;
+	private final int two = 2;
+    private static JTextField player1;
+    private static JTextField player2;
 	
 	
 	public SetButton(final IController controller) {
@@ -65,10 +65,7 @@ public class SetButton extends JPanel implements ActionListener {
 			Choice();
 		} 
 		
-		Integer play1 = new Integer(controller.geTplayerOnePoints());
-		player1.setText(play1.toString());
-		Integer play2 = new Integer(controller.geTplayerTwoPoints());
-		player2.setText(play2.toString());
+		updateSB();
 		
 	}
 	
@@ -80,10 +77,22 @@ public class SetButton extends JPanel implements ActionListener {
 	        			"Which Player?", "Choice",JOptionPane.DEFAULT_OPTION, 
 	        			JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
 	        	if(selected == zero) {
-	                	//TODO: Step 1
-	            } else if (selected == one) {
-	            		//TODO: Step 2
-	            }	
+	                if(controller.isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), one)) {
+	                	GameField.updateLink();
+	                }
+	        	} else if (selected == one) {
+	            	if(controller.isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), two)) {
+	            		GameField.updateLink();
+	            	}
+	        	}	
+
+	}
+	
+	public static void updateSB() {
+		Integer play1 = new Integer(controller.geTplayerOnePoints());
+		player1.setText(play1.toString());
+		Integer play2 = new Integer(controller.geTplayerTwoPoints());
+		player2.setText(play2.toString());
 	}
 	
 
