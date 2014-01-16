@@ -72,8 +72,6 @@ public class GameField extends JPanel implements ActionListener {
 	private static int number10 = 9;
 	private static int number11 = 10;
 	private static int number12 = 11;
-	private static Pack pack;
-	private static TreeMap<Integer, String> cardToPicture;
 	
 	private static URL resource1;
 	private static URL resource2;
@@ -104,20 +102,17 @@ public class GameField extends JPanel implements ActionListener {
 	private static JPanel panel1 = new JPanel();
 	
 	static Card[] card = new Card[5];
-	private static LinkedList<Card> saveList;
-	private static LinkedList<String> urlListe;
-	private static LinkedList<String> test;
+	private static Pack pack;
+	static TreeMap<Integer, String> cardToPicture = new TreeMap<>();
+	static LinkedList<Card> saveList = new LinkedList<>();
+	static LinkedList<String> urlListe = new LinkedList<>();
+	static LinkedList<String> test = new LinkedList<>();
 	
 	private static Integer cardkey = new Integer(zero);
 
 	public GameField(final IController controller) {
 		this.controller = controller;
 		controller.addObserver(null);
-		
-		saveList = new LinkedList<>();
-		urlListe = new LinkedList<>();
-		test = new LinkedList<>();
-		cardToPicture = new TreeMap<>();
 		
 		pack = new Pack();
 		
