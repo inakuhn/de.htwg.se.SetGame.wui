@@ -3,6 +3,7 @@ package de.htwg.se.setgame.modell.impl;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -288,8 +289,7 @@ public class Field extends AField {
 		String langstString = this.pack.getFill()[0];
 		StringBuilder field = new StringBuilder();
 		field.append("\n");
-		String apendRed = "     ";
-		TreeSet<Integer> listeofcontains = new TreeSet<>();
+		Set<Integer> listeofcontains = new TreeSet<>();
 		int t = 0;
 		while (t != this.sizeOfField) {
 			int i = 0;
