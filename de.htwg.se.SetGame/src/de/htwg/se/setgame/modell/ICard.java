@@ -9,35 +9,35 @@ public interface ICard {
 	 * 
 	 * @see setgame.modell.impl.ICard#getColor()
 	 */
-	abstract String getColor();
+	 String getColor();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.impl.ICard#getFomr()
 	 */
-	abstract String getFomr();
+	 String getFomr();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.impl.ICard#getPanelFilling()
 	 */
-	abstract String getPanelFilling();
+	 String getPanelFilling();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.impl.ICard#getNumberOfComponents()
 	 */
-	abstract int getNumberOfComponents();
+	 int getNumberOfComponents();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.impl.ICard#toString()
 	 */
-	abstract String toString();
+	 String toString();
 
 	/*
 	 * (non-Javadoc)

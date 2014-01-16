@@ -2,8 +2,6 @@ package de.htwg.se.setgame.aview.gui;
 
 import javax.swing.*;
 
-import de.htwg.se.setgame.controller.IController;
-import de.htwg.se.setgame.controller.impl.SetController;
 
 import java.awt.event.*;
 

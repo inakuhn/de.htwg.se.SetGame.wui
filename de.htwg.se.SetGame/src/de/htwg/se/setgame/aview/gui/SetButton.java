@@ -14,9 +14,11 @@ public class SetButton extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JButton setbutton;
 	
-	private final int zero = 0;
-	private final int one = 1;
-	private final int two = 2;
+	private static final int ZERO = 0;
+	private static final int ONE = 1;
+	private static final int TWO = 2;
+	private static final int FOUR = 4;
+	private static final int FIVE = 5;
     private static JTextField player1;
     private static JTextField player2;
 	
@@ -31,8 +33,8 @@ public class SetButton extends JPanel implements ActionListener {
          
         JLabel p1 = new JLabel(" Player 1 ");
         JLabel p2 = new JLabel(" Player 2 ");
-        player1 = new JTextField("0", 5 );
-        player2 = new JTextField("0", 5 );
+        player1 = new JTextField("0", FIVE );
+        player2 = new JTextField("0", FIVE );
         player1.setEditable(false);
         player2.setEditable(false);
 		
@@ -42,7 +44,7 @@ public class SetButton extends JPanel implements ActionListener {
         panel1.add(setbutton);
     
         
-        panel2.setLayout(new GridLayout(1,4));
+        panel2.setLayout(new GridLayout(ONE,FOUR));
         panel2.add(p1);
         panel2.add(player1);
         panel2.add(p2);
@@ -57,26 +59,26 @@ public class SetButton extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
-		if(source == setbutton) {
-			Choice();
+		if(source.equals(setbutton)) {
+			choice();
 		} 
 		
 		updateSB();
 		
 	}
 	
-	public void Choice() {
+	public void choice() {
 		
 			Object[] options = {"Player1", "Player2"};
 	 
 	        	int selected = JOptionPane.showOptionDialog(null,
 	        			"Which Player?", "Choice",JOptionPane.DEFAULT_OPTION, 
 	        			JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
-	        	if(selected == zero) {
-	                GUI.getController().isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), one);
+	        	if(selected == ZERO) {
+	                GUI.getController().isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), ONE);
 	                
-	        	} else if (selected == one) {
-	            	GUI.getController().isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), two);
+	        	} else if (selected == ONE) {
+	            	GUI.getController().isAsetForController(GameField.getCardforSetOne(), GameField.getCardforSetTwo(), GameField.getCardforSetThree(), TWO);
 	        	}	
 
 	}
