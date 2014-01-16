@@ -19,6 +19,7 @@ public class Field extends AField {
 	private static final int MAX = 81;
 	private static final int ONE = 1;
 	private Map<Integer, Integer> ramdomListe;
+
 	/**
 	 * startup of the objects
 	 */

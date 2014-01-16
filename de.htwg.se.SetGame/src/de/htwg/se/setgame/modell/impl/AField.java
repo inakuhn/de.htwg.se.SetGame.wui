@@ -7,7 +7,6 @@ import de.htwg.se.setgame.modell.IField;
 
 public abstract class AField implements IField {
 
-
 	protected Map<Integer, Card> cardInFieldGame;
 	/**
 	 * pack for the game are the cards and the random positions
@@ -17,7 +16,5 @@ public abstract class AField implements IField {
 	public AField() {
 		super();
 	}
-
-
 
 }

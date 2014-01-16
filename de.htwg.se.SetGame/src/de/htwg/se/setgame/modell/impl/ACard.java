@@ -2,7 +2,7 @@ package de.htwg.se.setgame.modell.impl;
 
 import de.htwg.se.setgame.modell.ICard;
 
-public abstract class ACard implements ICard{
+public abstract class ACard implements ICard {
 
 	protected String color;
 	protected String form;
