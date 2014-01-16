@@ -1,6 +1,5 @@
 package de.htwg.se.setgame.aview.tui;
 
-
 import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
@@ -31,7 +30,7 @@ public class TextUI implements IObserver {
 	}
 
 	public boolean processInputLine(String line) {
-		logger.info(newLine+controller.getCardinGame().size());
+		logger.info(newLine + controller.getCardinGame().size());
 		if (!controller.stillSetInGAme()) {
 			logger.info("Hey dude! there is no longger stes in game for you here is the Points ;) "
 					+ this.newLine
@@ -115,12 +114,14 @@ public class TextUI implements IObserver {
 
 			}
 		} else if (splintWords[index].compareTo("s") == 0) {
-			for(Card card : controller.getSetInField()){
-				for(Integer key : controller.getCardsAndTheIndexOfFIeld().keySet()){	
-					if(controller.getCardsAndTheIndexOfFIeld().get(key).comparTo(card)){
-						logger.info("Index  == "+key);
+			for (Card card : controller.getSetInField()) {
+				for (Integer key : controller.getCardsAndTheIndexOfFIeld()
+						.keySet()) {
+					if (controller.getCardsAndTheIndexOfFIeld().get(key)
+							.comparTo(card)) {
+						logger.info("Index  == " + key);
 					}
-					
+
 				}
 				logger.info(newLine);
 			}
@@ -156,10 +157,10 @@ public class TextUI implements IObserver {
 					this.controller.getField().getCardInFieldGame()
 							.get(arrayForSerNumber[1]),
 					this.controller.getField().getCardInFieldGame()
-							.get(arrayForSerNumber[2]), player) ;
-				logger.info(this.newLine
-						+ "Congratilations it is a SET!! ! size == "
-						+ controller.getField().getAllCardsInGame().size());
+							.get(arrayForSerNumber[2]), player);
+			logger.info(this.newLine
+					+ "Congratilations it is a SET!! ! size == "
+					+ controller.getField().getAllCardsInGame().size());
 
 		}
 	}
@@ -189,7 +190,5 @@ public class TextUI implements IObserver {
 				+ "if you want to finisch the game please write exit"
 				+ this.controller.getField().toString());
 	}
-
-
 
 }

@@ -10,8 +10,9 @@ public class SetGameModule extends AbstractModule {
 	@Override
 	protected void configure() {
 		bind(IField.class).to(de.htwg.se.setgame.modell.impl.Field.class);
-		bind(IController.class).to(de.htwg.se.setgame.controller.impl.SetController.class);
-		
+		bind(IController.class).to(
+				de.htwg.se.setgame.controller.impl.SetController.class);
+
 	}
 
 }

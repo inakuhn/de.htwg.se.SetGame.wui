@@ -28,6 +28,7 @@ public final class SetGame {
 		PropertyConfigurator.configure("log4j.properties");
 		Injector injector = Guice.createInjector(new SetGameModule());
 		controller = injector.getInstance(IController.class);
+		@SuppressWarnings("unused")
 		GUI gui = new GUI(controller);
 		tui = new TextUI(controller);
 		tui.printTUI();
