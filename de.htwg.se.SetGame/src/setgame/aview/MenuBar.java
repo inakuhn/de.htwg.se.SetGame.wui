@@ -60,7 +60,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	        }else{
 	        	if ( JOptionPane.showConfirmDialog(null,
                         "Really start a new Game?", "Choice", JOptionPane.YES_NO_OPTION) == 0) {
-	        		//TODO: Start a new Game	
+	        			controller.newGame();
 	        	}
 	    }
 		

@@ -11,6 +11,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import setgame.controller.IController;
@@ -18,6 +19,10 @@ import setgame.controller.IController;
 public class GameField extends JPanel implements ActionListener{
 	
 	private static IController controller;
+	private int index = 1;
+	private int zero = 0;
+	private final int one = 1;
+	private final int two = 2;
 	private final int three = 3;
 	private final int four = 4;
 	private final int ten = 10;
@@ -80,6 +85,19 @@ public class GameField extends JPanel implements ActionListener{
 		b10.setIcon( icon10 );
 		b11.setIcon( icon11 );
 		b12.setIcon( icon12 );
+		
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		b4.addActionListener(this);
+		b5.addActionListener(this);
+		b6.addActionListener(this);
+		b7.addActionListener(this);
+		b8.addActionListener(this);
+		b9.addActionListener(this);
+		b10.addActionListener(this);
+		b11.addActionListener(this);
+		b12.addActionListener(this);
 
 
 		JPanel panel1 = new JPanel();
@@ -105,8 +123,23 @@ public class GameField extends JPanel implements ActionListener{
 	}
 	
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
+	public void actionPerformed(ActionEvent e) {
+		Object source = e.getSource();
+		
+		if (index == one) {
+			//TODO: Step 1
+			index++;
+		} else if (index == two) {
+			//TODO: Step 2
+			index++;
+		} else if (index == three) {
+			//TODO: Step 3
+			index++;
+		} else {
+        	JOptionPane.showMessageDialog(null, "Only three cards "
+        			+ "addicted to a SET :)" , "Warning", JOptionPane.OK_OPTION);
+        	index = zero;
+		}
 		
 	}
 
