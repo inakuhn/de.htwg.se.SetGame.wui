@@ -34,7 +34,8 @@ public class TextUI implements IObserver {
 
 	}
 
-	public void setIn(String stringOne, String stringTwo, String  stringTree, String player) {
+	public void setIn(String stringOne, String stringTwo, String stringTree,
+			String player) {
 		Integer[] arrayForSerNumber = new Integer[THREE];
 		arrayForSerNumber[ZERO] = Integer.parseInt(stringOne);
 		arrayForSerNumber[ONE] = Integer.parseInt(stringTwo);
@@ -42,7 +43,8 @@ public class TextUI implements IObserver {
 		boolean b = true;
 		for (int index1 = 0; index1 < arrayForSerNumber.length; index1++) {
 			if (arrayForSerNumber[index1] < ZERO
-					|| arrayForSerNumber[index1] > this.controller.getCardInFieldGame().size()) {
+					|| arrayForSerNumber[index1] > this.controller
+							.getCardInFieldGame().size()) {
 				b = false;
 				logger.info(this.newLine
 						+ "wrong number please number between 0-11");
@@ -51,9 +53,8 @@ public class TextUI implements IObserver {
 
 		}
 		if (b) {
-			printAseT(arrayForSerNumber,player);
+			printAseT(arrayForSerNumber, player);
 		}
-
 
 	}
 
@@ -88,63 +89,28 @@ public class TextUI implements IObserver {
 		if (splintWords[index].compareTo("set") == ZERO) {
 			if (comparIfPlayerIsRigth(splintWords[ONE])) {
 				if (splintWords.length > FOUR) {
-					setIn(splintWords[TWO],splintWords[THREE], splintWords[FOUR],splintWords[ONE]);
-					
+					setIn(splintWords[TWO], splintWords[THREE],
+							splintWords[FOUR], splintWords[ONE]);
+
 				}
-			
+
 			}
 
 		} else if (splintWords[index].compareTo("GetPoints") == ZERO) {
-			logger.info(this.newLine + "Player one = "
-					+ controller.geTplayerOnePoints() + this.newLine
-					+ "Player Two = " + controller.geTplayerTwoPoints()
-					+ this.newLine);
+			getPoints();
 		} else if (splintWords[index].compareTo("h") == ZERO) {
-			logger.info("A tipp your set begiss with  " + this.newLine
-					+ controller.getAsetInGame().get(ZERO));
-			printTUI();
-
+			help();
 		} else if (splintWords[index].compareTo("exit") == ZERO) {
 			cont = false;
 		} else if (splintWords[index].compareTo("solve") == ZERO) {
-			if (this.controller.getSetInField().size() >= THREE) {
-				logger.info("solved"
-						+ this.controller.getSetInField().toString() + newLine
-						+ controller.getField().getAllCardsInGame().size());
-				this.controller.isAsetForController(this.controller
-						.getSetInField().get(ZERO), this.controller
-						.getSetInField().get(ONE), this.controller
-						.getSetInField().get(TWO), THREE);
-				printTUI();
-			} else {
-				logger.info("number of cards = "
-						+ controller.getField().getAllCardsInGame().size());
-				printTUI();
-
-			}
+			solve();
 		} else if (splintWords[index].compareTo("s") == ZERO) {
-			for (Card card : controller.getSetInField()) {
-				for (Integer key : controller.getCardsAndTheIndexOfFIeld()
-						.keySet()) {
-					if (controller.getCardsAndTheIndexOfFIeld().get(key)
-							.comparTo(card)) {
-						logger.info("Index  == " + key);
-					}
+			soulution();
 
-				}
-				logger.info(newLine);
-			}
 		} else if (splintWords[index].compareTo("nw") == ZERO) {
-			this.controller.newGame();
-			logger.info(this.newLine + "size of Pack = "
-					+ controller.getField().getAllCardsInGame().size()
-					+ newLine + controller.getField().getCardsInField().size());
-
-			printTUI();
+			newGame();
 		} else if (splintWords[index].compareTo("size") == ZERO) {
-			Integer i = Integer.parseInt(splintWords[ONE]);
-			this.controller.setFieldSize(i);
-			printTUI();
+			chageSize(splintWords[ONE]);
 		}
 
 		return cont;
@@ -200,4 +166,60 @@ public class TextUI implements IObserver {
 				+ this.controller.getField().toString());
 	}
 
+	private void solve() {
+		if (this.controller.getSetInField().size() >= THREE) {
+			logger.info("solved" + this.controller.getSetInField().toString()
+					+ newLine
+					+ controller.getField().getAllCardsInGame().size());
+			this.controller.isAsetForController(this.controller.getSetInField()
+					.get(ZERO), this.controller.getSetInField().get(ONE),
+					this.controller.getSetInField().get(TWO), THREE);
+			printTUI();
+		} else {
+			logger.info("number of cards = "
+					+ controller.getField().getAllCardsInGame().size());
+			printTUI();
+
+		}
+	}
+
+	private void help() {
+		logger.info("A tipp your set begiss with  " + this.newLine
+				+ controller.getAsetInGame().get(ZERO));
+
+	}
+
+	private void soulution() {
+		for (Card card : controller.getSetInField()) {
+			for (Integer key : controller.getCardsAndTheIndexOfFIeld().keySet()) {
+				if (controller.getCardsAndTheIndexOfFIeld().get(key)
+						.comparTo(card)) {
+					logger.info("Index  == " + key);
+				}
+
+			}
+			logger.info(newLine);
+
+		}
+	}
+
+	private void newGame() {
+		this.controller.newGame();
+
+	}
+
+	private void getPoints() {
+		logger.info(this.newLine + "Player one = "
+				+ controller.geTplayerOnePoints() + this.newLine
+				+ "Player Two = " + controller.geTplayerTwoPoints()
+				+ this.newLine);
+
+	}
+
+	private void chageSize(String string) {
+		Integer i = Integer.parseInt(string);
+		this.controller.setFieldSize(i);
+		printTUI();
+
+	}
 }
