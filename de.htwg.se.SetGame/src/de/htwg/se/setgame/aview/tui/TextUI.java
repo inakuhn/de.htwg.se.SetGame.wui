@@ -116,8 +116,8 @@ public class TextUI implements IObserver {
 			}
 		} else if (splintWords[index].compareTo("s") == 0) {
 			for(Card card : controller.getSetInField()){
-				for(Integer key : controller.getcardandindexoffiels().keySet()){	
-					if(controller.getcardandindexoffiels().get(key).comparTo(card)){
+				for(Integer key : controller.getCardsAndTheIndexOfFIeld().keySet()){	
+					if(controller.getCardsAndTheIndexOfFIeld().get(key).comparTo(card)){
 						logger.info("Index  == "+key);
 					}
 					

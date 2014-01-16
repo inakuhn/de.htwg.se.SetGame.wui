@@ -4,6 +4,8 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 
+import com.google.inject.Inject;
+
 import de.htwg.se.setgame.controller.IController;
 import de.htwg.se.setgame.controller.impl.SetController;
 
@@ -18,6 +20,7 @@ public class GUI extends JFrame {
 	private SetButton setbutton;
 	private GameField gamefield;
 	
+	@Inject
 	public GUI(final IController controller) {
 		this.controller = controller;
 		controller.addObserver(null);

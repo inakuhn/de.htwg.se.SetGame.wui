@@ -49,6 +49,6 @@ public interface IController extends IObservable {
 	public void newGame();
 	public void setFieldSize(int size);
 	 public List<Card> getCardInFieldGame();
-	 public Map<Integer, Card> getcardandindexoffiels();
+	 public Map<Integer, Card> getCardsAndTheIndexOfFIeld();
 
 }

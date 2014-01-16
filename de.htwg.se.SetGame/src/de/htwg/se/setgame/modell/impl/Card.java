@@ -1,8 +1,6 @@
 package de.htwg.se.setgame.modell.impl;
 
-import java.awt.Color;
 
-import javax.swing.JTextArea;
 
 
 /**

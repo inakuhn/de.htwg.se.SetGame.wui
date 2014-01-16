@@ -282,9 +282,11 @@ public class SetController extends Observable implements IController {
 				this.playerTwoCounter = this.playerTwoCounter + 1;
 			}
 			if (playerOne == player || player == this.playerTwo || player >= 0) {
+				notifyObservers();
 				return true;
 			}
 		}
+		notifyObservers();
 		return false;
 	}
 	/* (non-Javadoc)
@@ -347,7 +349,7 @@ public class SetController extends Observable implements IController {
 		return this.field.getCardsInField();
 	}
 	@Override
-	public Map<Integer, Card> getcardandindexoffiels() {
+	public Map<Integer, Card> getCardsAndTheIndexOfFIeld() {
 		return this.field.getCardInFieldGame();
 	}
 
