@@ -16,6 +16,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	
 	public MenuBar(final IController controller) {
 		this.controller = controller;
+		controller.addObserver(null);
 		
 		menu = new JMenu("Game");
 		mHelp = new JMenuItem("Help");

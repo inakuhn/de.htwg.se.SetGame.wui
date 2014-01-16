@@ -112,6 +112,8 @@ public class GameField extends JPanel implements ActionListener {
 
 	public GameField(final IController controller) {
 		this.controller = controller;
+		controller.addObserver(null);
+		
 		pack = new Pack();
 		cardToPicture = new TreeMap<>();
 		

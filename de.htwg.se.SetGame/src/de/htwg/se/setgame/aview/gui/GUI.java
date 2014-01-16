@@ -20,6 +20,7 @@ public class GUI extends JFrame {
 	
 	public GUI(final IController controller) {
 		this.controller = controller;
+		controller.addObserver(null);
 
 		this.setJMenuBar(new MenuBar(this.controller));
 

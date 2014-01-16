@@ -26,6 +26,7 @@ public class SetButton extends JPanel implements ActionListener {
 	
 	public SetButton(final IController controller) {
 		this.controller = controller;
+		controller.addObserver(null);
 		
 		JPanel panel1 = new JPanel();
 		JPanel panel2 = new JPanel();
