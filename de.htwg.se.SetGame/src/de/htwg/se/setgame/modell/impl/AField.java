@@ -18,7 +18,6 @@ public abstract class AField implements IField {
 	protected static final int MAX = 81;
 	protected static final int ONE = 1;
 	protected Map<Integer, Integer> ramdomListe;
-	protected TreeSet<Integer> listeofcontains;
 	/**
 	 * card are the cars in game
 	 */

@@ -23,7 +23,6 @@ public class Field extends AField {
 		this.cardInFieldGame = new TreeMap<Integer, Card>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
 		this.packForGame = new LinkedList<Card>();
-		this.listeofcontains = new TreeSet<>();
 	}
 
 	/*
@@ -278,7 +277,6 @@ public class Field extends AField {
 		this.cardInFieldGame.clear();
 		this.packForGame.clear();
 		this.sizeOfField = INITIALVALUEOFFIELD;
-		listeofcontains.clear();
 		startUp();
 
 	}
@@ -286,10 +284,10 @@ public class Field extends AField {
 	@Override
 	public String toString() {
 		Pack pack = new Pack();
+		TreeSet<Integer> listeofcontains = new TreeSet<>();
 		String langstString = pack.getFill()[0];
 		StringBuilder field = new StringBuilder();
 		field.append("\n");
-		listeofcontains.clear();
 		int t = 0;
 		while (t != this.sizeOfField) {
 			int i = 0;
