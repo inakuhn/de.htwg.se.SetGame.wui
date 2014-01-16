@@ -22,10 +22,6 @@ public interface IField {
 	 */
 	public abstract List<Card> getCardsInField();
 
-	/* (non-Javadoc)
-	 * @see setgame.modell.IField#setSizeOfField(int, java.util.List)
-	 */
-	public abstract void setSizeOfField(int size, List<Card> removeThisCards);
 
 	/* (non-Javadoc)
 	 * @see setgame.modell.IField#changeCards(java.util.List)
@@ -53,6 +49,8 @@ public interface IField {
 	public abstract Map<Integer, Card> getCardInFieldGame();
 
 	public abstract void clear();
+
+	void setSizeOfField(int size);
 
 
 }

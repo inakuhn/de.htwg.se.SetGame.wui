@@ -133,6 +133,11 @@ public class SetController extends Observable implements IController {
 		return false;
 
 	}
+	public void changeFieldSize(int size){
+		if(size > 0){
+			this.field.setSizeOfField(size);
+		}
+	}
 
 	/**
 	 * changed the Cards in the field if necessary. to
@@ -294,7 +299,6 @@ public class SetController extends Observable implements IController {
 	public boolean stillSetInGAme() {
 		LinkedList<Card> liste = new LinkedList<Card>();
 		liste.addAll(getSet(this.field.getAllCardsInGame()));
-		System.out.println("LIsteedwwsasswsaeee"+liste);
 		if(liste.isEmpty()){
 			return false;
 		}

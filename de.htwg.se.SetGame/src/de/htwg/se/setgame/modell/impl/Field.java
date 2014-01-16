@@ -158,16 +158,14 @@ public class Field extends AField {
 	 * @see setgame.modell.IField#setSizeOfField(int, java.util.List)
 	 */
 	@Override
-	public void setSizeOfField(int size, List<Card> removeThisCards) {
+	public void setSizeOfField(int size) {
 		if (size < sizeOfField) {
+			int diference = sizeOfField - size;
 			LinkedList<Integer> keys = new LinkedList<Integer>();
-			for (Card card : removeThisCards) {
-				for (Integer key : this.getCardInFieldGame().keySet()) {
-					if (this.getCardInFieldGame().get(key).comparTo(card)) {
-						keys.add(key);
-					}
+				for(int i= 0 ; i < diference ;i++){
+					keys.add(i);
 				}
-			}
+			
 			for (Integer key : keys) {
 				this.getCardInFieldGame().remove(key);
 			}
@@ -175,8 +173,9 @@ public class Field extends AField {
 		} else if (size > sizeOfField) {
 			LinkedList<Card> list = new LinkedList<Card>();
 			list.addAll(getUnusedCards());
-			for (int key = sizeOfField; key < size; key++) {
-				if (!list.isEmpty()) {
+			
+			for (int key = 0; key < size; key++) {
+				if (!list.isEmpty() && !getCardInFieldGame().keySet().contains(key)) {
 					this.getCardInFieldGame().put(key, list.getFirst());
 					list.removeFirst();
 
@@ -291,8 +290,8 @@ public class Field extends AField {
 		field.append("\n");
 		String apendRed = "     ";
 		TreeSet<Integer> listeofcontains = new TreeSet<>();
-		int t = this.sizeOfField % 3;
-		while (t != 3) {
+		int t = 0;
+		while (t != this.sizeOfField) {
 			int i = 0;
 			for (Integer key : cardInFieldGame.keySet()) {
 				if (!listeofcontains.contains(key)) {
@@ -400,16 +399,19 @@ public class Field extends AField {
 						field.append(" ");
 					}
 					field.append("|  ");
+					listeofcontains.add(key);
 					i++;
 					if (i == 3) {
 						i = 0;
 						break;
 					}
-					listeofcontains.add(key);
 				}
 			}
 			field.append("\n\n\n");
 		t++;
+		if(sizeOfField == listeofcontains.size()){
+			break;
+		}
 		}
 		return field.toString();
 	}

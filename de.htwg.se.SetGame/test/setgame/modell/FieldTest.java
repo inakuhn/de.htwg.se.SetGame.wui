@@ -83,11 +83,11 @@ public class FieldTest {
 		list.add(this.field.getCardsInField().get(0));
 		list.add(this.field.getCardInFieldGame().get(1));
 		list.add(this.field.getCardInFieldGame().get(2));
-		this.field.setSizeOfField(15, list);
+		this.field.setSizeOfField(15);
 		if(this.field.getCardsInField().size() != 15){
 			fail("field size has been not modifed");
 		}
-		this.field.setSizeOfField(12, list);
+		this.field.setSizeOfField(12);
 		if(this.field.getSizeofField() != 12){
 			fail("field size is wrong :(");
 		}

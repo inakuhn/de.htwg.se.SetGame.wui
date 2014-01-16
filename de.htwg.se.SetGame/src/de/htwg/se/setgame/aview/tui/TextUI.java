@@ -32,81 +32,103 @@ public class TextUI implements IObserver {
 	}
 
 	public boolean processInputLine(String line) {
+		if (!controller.stillSetInGAme()) {
+			logger.info("Hey dude! there is no longger stes in game for you here is the Points ;) "
+					+ this.newLine
+					+ "Player 1 = "
+					+ controller.geTplayerOnePoints()+this.newLine+"Player Two "+controller.geTplayerTwoPoints());
+			if(controller.geTplayerTwoPoints() < controller.geTplayerOnePoints()){
+				logger.info("Gongratilations player one Dude you are amazing!!");
+			}else if(controller.geTplayerTwoPoints() > controller.geTplayerOnePoints()){
+				logger.info("Gongratilations player Two Dude you are amazing!!");
+			}else{
+				logger.info("nobody wins nobody pays the dinne xD");
+			}
+			return false;
+		}
 		boolean cont = true;
 		String[] splintWords = line.split(" ");
+		for (int i = 0; i < splintWords.length; i++) {
+			logger.info("Antrage = " + splintWords[i] + newLine);
+		}
 		Integer[] arrayForSerNumber = new Integer[3];
 		if (this.controller.getCardinGame().isEmpty()) {
 			logger.info(this.newLine + "THere is no sets anymore!!!"
 					+ this.newLine);
 			cont = false;
 		}
-		logger.info("fuckkkk");
-		printTUI();
-
 		int index = 0;
-			if (splintWords[index].compareTo("set") == 0) {
-				for (int loop1 = index; loop1 < splintWords.length; loop1++) {
-					if (comparIfPlayerIsRigth(splintWords[loop1])) {
-						if (splintWords.length > 4) {
-							arrayForSerNumber[0] = Integer
-									.parseInt(splintWords[2]);
-							arrayForSerNumber[1] = Integer
-									.parseInt(splintWords[3]);
-							arrayForSerNumber[2] = Integer
-									.parseInt(splintWords[4]);
-							boolean b = true;
-							for (int index1 = 0; index1 < arrayForSerNumber.length; index1++) {
-								if (arrayForSerNumber[index1] < 0
-										|| arrayForSerNumber[index1] > 11) {
-									b = false;
-									logger.info(this.newLine
-											+ "wrong number please number between 0-11");
-									break;
-								}
-
-							}
-							if (b) {
-								printAseT(arrayForSerNumber, splintWords[loop1]);
-							}
-
+		if (splintWords[index].compareTo("set") == 0) {
+			if (comparIfPlayerIsRigth(splintWords[1])) {
+				if (splintWords.length > 4) {
+					arrayForSerNumber[0] = Integer.parseInt(splintWords[2]);
+					arrayForSerNumber[1] = Integer.parseInt(splintWords[3]);
+					arrayForSerNumber[2] = Integer.parseInt(splintWords[4]);
+					boolean b = true;
+					for (int index1 = 0; index1 < arrayForSerNumber.length; index1++) {
+						if (arrayForSerNumber[index1] < 0
+								|| arrayForSerNumber[index1] > 11) {
+							b = false;
+							logger.info(this.newLine
+									+ "wrong number please number between 0-11");
+							break;
 						}
+
 					}
+					if (b) {
+						printAseT(arrayForSerNumber, splintWords[1]);
+					}
+
 				}
-			} else if (splintWords[index].compareTo("GetPoints") == 0) {
-				logger.info(this.newLine + "Player one = "
-						+ controller.geTplayerOnePoints() + this.newLine
-						+ "Player Two = " + controller.getPlayerTwo()
-						+ this.newLine);
-			} else if (splintWords[index].compareTo("h") == 0) {
-				logger.info("A tipp your set begiss with  " + this.newLine
-						+ controller.getAsetInGame().get(0));
-				printTUI(); 
+			}
 
-			} else if (splintWords[index].compareTo("exit") == 0) {
-				cont = false;
-			} else if (splintWords[index].compareTo("solve") == 0) {
-				LinkedList<Card> liste = new LinkedList<>();
-				liste.addAll(this.controller.getAsetInGame());
-				if (liste.size() >= 3) {
-					logger.info("solved"+ liste.toString());
-					this.controller.isAsetForController(liste.get(0),
-							liste.get(1), liste.get(2), 3);
-					printTUI();
-				} else if (splintWords[index].compareTo("s") == 0) {
-					System.out.println("halllooo"+controller.getSetInField().toString());
-					logger.info("Set sollution = " + newLine+controller.getSetInField().toString());
-				} else if (splintWords[index].compareTo("nw") == 0) {
-					this.controller.newGame();
-					printTUI();
-				} else if (splintWords[index].compareTo("number") == 0) {
-					Integer i = Integer.parseInt(splintWords[2]);
-					this.controller.getField().setSizeOfField(i,
-							this.controller.getAsetInGame());
-					printTUI();
+		} else if (splintWords[index].compareTo("GetPoints") == 0) {
+			logger.info(this.newLine + "Player one = "
+					+ controller.geTplayerOnePoints() + this.newLine
+					+ "Player Two = " + controller.geTplayerTwoPoints()
+					+ this.newLine);
+		} else if (splintWords[index].compareTo("h") == 0) {
+			logger.info("A tipp your set begiss with  " + this.newLine
+					+ controller.getAsetInGame().get(0));
+			printTUI();
+
+		} else if (splintWords[index].compareTo("exit") == 0) {
+			cont = false;
+		} else if (splintWords[index].compareTo("solve") == 0) {
+			LinkedList<Card> liste = new LinkedList<>();
+			liste.addAll(this.controller.getSetInField());
+			if (liste.size() >= 3) {
+				logger.info("solved" + liste.toString() + newLine
+						+ controller.getField().getAllCardsInGame().size());
+				this.controller.isAsetForController(liste.get(0), liste.get(1),
+						liste.get(2), 3);
+				printTUI();
+			}else{
+				logger.info("number of cards = "+controller.getField().getAllCardsInGame().size());
+				printTUI();
+	
+			}
+		} else if (splintWords[index].compareTo("s") == 0) {
+			LinkedList<Card> setInField = new LinkedList<>();
+			setInField.addAll(controller.getSetInField());
+			LinkedList<Integer> positionInField = new LinkedList<>();
+			for (Integer key : this.controller.getField().getCardInFieldGame()
+					.keySet()) {
+				if (setInField.contains(this.controller.getField()
+						.getCardInFieldGame().get(key))) {
+					positionInField.add(key);
 				}
+			}
 
-			
-
+			logger.info("Set sollution = " + newLine + setInField.toString()
+					+ this.newLine + positionInField.toString());
+		} else if (splintWords[index].compareTo("nw") == 0) {
+			this.controller.newGame();
+			printTUI();
+		} else if (splintWords[index].compareTo("size") == 0) {
+			Integer i = Integer.parseInt(splintWords[1]);
+			this.controller.getField().setSizeOfField(i);
+			printTUI();
 		}
 
 		return cont;
@@ -128,9 +150,10 @@ public class TextUI implements IObserver {
 					this.controller.getField().getCardInFieldGame()
 							.get(arrayForSerNumber[1]),
 					this.controller.getField().getCardInFieldGame()
-							.get(arrayForSerNumber[2]),
-					this.controller.getPlayerOne())) {
-				logger.info(this.newLine + "Congratilations it is a SET!!!");
+							.get(arrayForSerNumber[2]), player)) {
+				logger.info(this.newLine
+						+ "Congratilations it is a SET!! ! size == "
+						+ controller.getField().getAllCardsInGame().size());
 			} else {
 				logger.info(this.newLine
 						+ "Dude Set is wrong how could you!! =(");
