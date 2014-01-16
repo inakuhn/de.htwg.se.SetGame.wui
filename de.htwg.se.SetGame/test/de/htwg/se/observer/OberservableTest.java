@@ -5,9 +5,9 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.util.observer.Event;
-import de.htwg.se.util.observer.IObserver;
-import de.htwg.se.util.observer.Observable;
+import de.htwg.se.setgame.util.observer.Event;
+import de.htwg.se.setgame.util.observer.IObserver;
+import de.htwg.se.setgame.util.observer.Observable;
 
 public class OberservableTest {
 	private boolean ping=false;

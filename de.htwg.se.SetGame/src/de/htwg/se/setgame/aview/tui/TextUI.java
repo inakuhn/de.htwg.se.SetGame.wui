@@ -1,10 +1,13 @@
-package setgame.aview.tui;
+package de.htwg.se.setgame.aview.tui;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import setgame.controller.IController;
-import de.htwg.se.util.observer.Event;
-import de.htwg.se.util.observer.IObserver;
+
+import com.google.inject.Inject;
+
+import de.htwg.se.setgame.controller.IController;
+import de.htwg.se.setgame.util.observer.Event;
+import de.htwg.se.setgame.util.observer.IObserver;
 
 
 public class TextUI implements IObserver {
@@ -14,6 +17,7 @@ public class TextUI implements IObserver {
 
 	private final Logger logger = LogManager.getLogger("setgame.aview.tui");
 
+	@Inject
 	public TextUI(IController controller) {
 		this.controller = controller;
 		controller.addObserver(this);

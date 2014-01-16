@@ -1,11 +1,11 @@
-package setgame.aview;
+package de.htwg.se.setgame.aview.gui;
 
 import java.awt.GridLayout;
 
 import javax.swing.*;
 
-import setgame.controller.IController;
-import setgame.controller.impl.SetController;
+import de.htwg.se.setgame.controller.IController;
+import de.htwg.se.setgame.controller.impl.SetController;
 
 public class GUI extends JFrame {
 	

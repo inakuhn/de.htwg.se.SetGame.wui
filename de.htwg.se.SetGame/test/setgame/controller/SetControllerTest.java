@@ -7,8 +7,8 @@ import java.util.LinkedList;
 import org.junit.Before;
 import org.junit.Test;
 
-import setgame.controller.impl.SetController;
-import setgame.modell.impl.Card;
+import de.htwg.se.setgame.controller.impl.SetController;
+import de.htwg.se.setgame.modell.impl.Card;
 
 public class SetControllerTest {
 	SetController setcontroll;

@@ -1,4 +1,4 @@
-package setgame.aview;
+package de.htwg.se.setgame.aview.gui;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import setgame.controller.IController;
-import setgame.controller.impl.SetController;
+import de.htwg.se.setgame.controller.IController;
+import de.htwg.se.setgame.controller.impl.SetController;
 
 public class SetButton extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;

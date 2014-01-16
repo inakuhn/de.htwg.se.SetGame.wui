@@ -1,7 +1,8 @@
-package de.htwg.setgame;
-import setgame.aview.tui.TextUI;
-import setgame.controller.IController;
-import org.apache.*;
+package de.htwg.se.setgame;
+import org.apache.log4j.PropertyConfigurator;
+
+import de.htwg.se.setgame.aview.tui.TextUI;
+import de.htwg.se.setgame.controller.IController;
 
 import java.util.Scanner;
 

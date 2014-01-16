@@ -1,4 +1,4 @@
-package setgame.modell.impl;
+package de.htwg.se.setgame.modell.impl;
 
 import java.util.LinkedList;
 import java.util.List;

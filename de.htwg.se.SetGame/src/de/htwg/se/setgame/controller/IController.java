@@ -1,12 +1,15 @@
-package setgame.controller;
+package de.htwg.se.setgame.controller;
 
 import java.util.List;
 
 
 
-import de.htwg.se.util.observer.IObservable;
-import setgame.modell.IField;
-import setgame.modell.impl.Card;
+
+
+
+import de.htwg.se.setgame.modell.IField;
+import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.util.observer.IObservable;
 
 public interface IController extends IObservable {
 

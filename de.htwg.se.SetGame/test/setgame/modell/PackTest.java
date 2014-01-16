@@ -3,7 +3,8 @@ package setgame.modell;
 import org.junit.Before;
 import org.junit.Test;
 
-import setgame.modell.impl.Pack;
+import de.htwg.se.setgame.modell.ICard;
+import de.htwg.se.setgame.modell.impl.Pack;
 
 public class PackTest {
 	Pack pack;

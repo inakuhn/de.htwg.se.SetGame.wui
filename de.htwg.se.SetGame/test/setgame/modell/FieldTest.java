@@ -9,8 +9,8 @@ import java.util.TreeSet;
 import org.junit.Before;
 import org.junit.Test;
 
-import setgame.modell.impl.Card;
-import setgame.modell.impl.Field;
+import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.impl.Field;
 
 public class FieldTest {
 	Field field;

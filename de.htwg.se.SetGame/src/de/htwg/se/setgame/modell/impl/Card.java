@@ -1,4 +1,4 @@
-package setgame.modell.impl;
+package de.htwg.se.setgame.modell.impl;
 
 
 /**
