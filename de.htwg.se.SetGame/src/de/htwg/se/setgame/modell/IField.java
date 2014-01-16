@@ -1,9 +1,9 @@
-package setgame.modell;
+package de.htwg.se.setgame.modell;
 
 import java.util.List;
 import java.util.Map;
 
-import setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.impl.Card;
 
 public interface IField {
 

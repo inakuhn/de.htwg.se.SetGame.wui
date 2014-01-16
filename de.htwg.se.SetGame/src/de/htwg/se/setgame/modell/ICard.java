@@ -1,6 +1,6 @@
-package setgame.modell;
+package de.htwg.se.setgame.modell;
 
-import setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.impl.Card;
 
 public interface ICard {
 

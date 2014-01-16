@@ -1,4 +1,4 @@
-package setgame.aview;
+package de.htwg.se.setgame.aview;
 
 import java.awt.GridLayout;
 import java.awt.event.WindowAdapter;
@@ -9,10 +9,10 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import de.htwg.se.util.observer.IObserver;
-import de.htwg.se.util.observer.Event;
-import setgame.controller.IController;
-import setgame.controller.impl.SetController;
+import de.htwg.se.setgame.controller.IController;
+import de.htwg.se.setgame.controller.impl.SetController;
+import de.htwg.se.setgame.util.observer.Event;
+import de.htwg.se.setgame.util.observer.IObserver;
 
 public class GUI extends JFrame {
 	

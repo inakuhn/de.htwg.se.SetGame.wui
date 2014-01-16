@@ -1,6 +1,6 @@
-package setgame.modell.impl;
+package de.htwg.se.setgame.modell.impl;
 
-import setgame.modell.ICard;
+import de.htwg.se.setgame.modell.ICard;
 
 public abstract class ACard implements ICard{
 

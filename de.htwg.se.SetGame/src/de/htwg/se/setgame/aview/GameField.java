@@ -1,4 +1,4 @@
-package setgame.aview;
+package de.htwg.se.setgame.aview;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
@@ -13,7 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import setgame.controller.IController;
+import de.htwg.se.setgame.controller.IController;
 
 public class GameField extends JPanel implements ActionListener{
 	

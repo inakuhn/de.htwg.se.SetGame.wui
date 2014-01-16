@@ -2,7 +2,8 @@ package setgame.modell;
 import org.junit.Before;
 import org.junit.Test;
 
-import setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.ICard;
+import de.htwg.se.setgame.modell.impl.Card;
 
 public class CardTest {
 

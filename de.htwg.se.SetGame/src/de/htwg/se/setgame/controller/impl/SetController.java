@@ -1,16 +1,14 @@
-package setgame.controller.impl;
+package de.htwg.se.setgame.controller.impl;
 
 
 import java.util.LinkedList;
-
-import setgame.controller.IController;
-import setgame.modell.ICard;
-import setgame.modell.IField;
-
 import java.util.List;
 
-import de.htwg.se.util.observer.Observable;
-import setgame.modell.impl.Card;
+import de.htwg.se.setgame.controller.IController;
+import de.htwg.se.setgame.modell.ICard;
+import de.htwg.se.setgame.modell.IField;
+import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.util.observer.Observable;
 
 
 /**
@@ -30,7 +28,7 @@ public class SetController extends Observable implements IController {
 	 * Logic Construct make for the game a new field with a new pack!!!
 	 */
 	public SetController() {
-		this.field = new setgame.modell.impl.Field();
+		this.field = new de.htwg.se.setgame.modell.impl.Field();
 		this.counter = 0;
 		this.field.startUp();
 		this.playerOne = 1;
