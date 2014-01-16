@@ -87,12 +87,10 @@ public class TextUI implements IObserver {
 		String[] splintWords = line.split(" ");
 		int index = ZERO;
 		if (splintWords[index].compareTo("set") == ZERO) {
-			if (comparIfPlayerIsRigth(splintWords[ONE])) {
-				if (splintWords.length > FOUR) {
-					setIn(splintWords[TWO], splintWords[THREE],
-							splintWords[FOUR], splintWords[ONE]);
-
-				}
+			if (comparIfPlayerIsRigth(splintWords[ONE])
+					&& splintWords.length > FOUR) {
+				setIn(splintWords[TWO], splintWords[THREE], splintWords[FOUR],
+						splintWords[ONE]);
 
 			}
 
@@ -102,16 +100,10 @@ public class TextUI implements IObserver {
 			help();
 		} else if (splintWords[index].compareTo("exit") == ZERO) {
 			cont = false;
-		} else if (splintWords[index].compareTo("solve") == ZERO) {
-			solve();
-		} else if (splintWords[index].compareTo("s") == ZERO) {
-			soulution();
-
-		} else if (splintWords[index].compareTo("nw") == ZERO) {
-			newGame();
 		} else if (splintWords[index].compareTo("size") == ZERO) {
 			chageSize(splintWords[ONE]);
 		}
+		proveSomeStringsFromMet(splintWords[index]);
 
 		return cont;
 
@@ -220,6 +212,18 @@ public class TextUI implements IObserver {
 		Integer i = Integer.parseInt(string);
 		this.controller.setFieldSize(i);
 		printTUI();
+
+	}
+
+	private void proveSomeStringsFromMet(String string) {
+		if (string.compareTo("solve") == ZERO) {
+			solve();
+		} else if (string.compareTo("s") == ZERO) {
+			soulution();
+
+		} else if (string.compareTo("nw") == ZERO) {
+			newGame();
+		}
 
 	}
 }
