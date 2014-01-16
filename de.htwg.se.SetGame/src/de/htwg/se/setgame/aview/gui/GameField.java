@@ -21,13 +21,19 @@ public class GameField extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
 	private static int index = 0;
-	private final static int zero = 0;
-	private final static int one = 1;
-	private final static int two = 2;
-	private final static int three = 3;
-	private final static int four = 4;
-	private final static int ten = 10;
-	private final static int twenty = 20;
+	private static final int ZERO = 0;
+	private static final int ONE = 1;
+	private static final int TWO = 2;
+	private static final int THREE = 3;
+	private static final int FOUR = 4;
+	private static final int FIVE = 5;
+	private static final int SIX = 6;
+	private static final int SEVEN = 7;
+	private static final int EIGHT = 8;
+	private static final int NINE = 9;
+	private static final int TEN = 10;
+	private static final int ELEVEN = 11;
+	private static final int TWENTY = 20;
 
 	private static JButton b1 = new JButton();
 	private static JButton b2 = new JButton();
@@ -55,19 +61,19 @@ public class GameField extends JPanel implements ActionListener {
 	private static Boolean a11 = false;
 	private static Boolean a12 = false;
 
-	private static int number1 = 0;
-	private static int number2 = 1;
-	private static int number3 = 2;
-	private static int number4 = 3;
-	private static int number5 = 4;
-	private static int number6 = 5;
-	private static int number7 = 6;
-	private static int number8 = 7;
-	private static int number9 = 8;
-	private static int number10 = 9;
-	private static int number11 = 10;
-	private static int number12 = 11;
-	
+	private static int number1 = ZERO;
+	private static int number2 = ONE;
+	private static int number3 = TWO;
+	private static int number4 = THREE;
+	private static int number5 = FOUR;
+	private static int number6 = FIVE;
+	private static int number7 = SIX;
+	private static int number8 = SEVEN;
+	private static int number9 = EIGHT;
+	private static int number10 = NINE;
+	private static int number11 = TEN;
+	private static int number12 = ELEVEN;
+
 	private static URL resource1;
 	private static URL resource2;
 	private static URL resource3;
@@ -80,7 +86,7 @@ public class GameField extends JPanel implements ActionListener {
 	private static URL resource10;
 	private static URL resource11;
 	private static URL resource12;
-	
+
 	private static Icon icon1;
 	private static Icon icon2;
 	private static Icon icon3;
@@ -93,28 +99,27 @@ public class GameField extends JPanel implements ActionListener {
 	private static Icon icon10;
 	private static Icon icon11;
 	private static Icon icon12;
-	
+
 	private static JPanel panel1 = new JPanel();
-	
-	static Card[] card = new Card[5];
+
+	private static Card[] card = new Card[FIVE];
 	private static Pack pack;
-	static TreeMap<Integer, String> cardToPicture;
-	static LinkedList<Card> saveList;
-	static LinkedList<String> urlListe;
-	static LinkedList<String> test;
-	
-	private static Integer cardkey = new Integer(zero);
+	private static TreeMap<Integer, String> cardToPicture;
+	private static LinkedList<Card> saveList;
+	private static LinkedList<String> urlListe;
+	private static LinkedList<String> test;
+
+	private static Integer cardkey = new Integer(ZERO);
 
 	public GameField() {
 
-		
 		cardToPicture = new TreeMap<Integer, String>();
 		saveList = new LinkedList<Card>();
 		urlListe = new LinkedList<String>();
 		test = new LinkedList<String>();
-		
+
 		pack = new Pack();
-		
+
 		for (int i = 0; i < pack.getPack().size(); i++) {
 			test.add("/pack/" + i + ".gif");
 		}
@@ -123,7 +128,8 @@ public class GameField extends JPanel implements ActionListener {
 		}
 
 		for (Card card : pack.getPack()) {
-			for (Card key : GUI.getController().getField().getCardInFieldGame().values()) {
+			for (Card key : GUI.getController().getField().getCardInFieldGame()
+					.values()) {
 				if (card.comparTo(key)) {
 					urlListe.add(cardToPicture.get(cardkey));
 					saveList.add(key);
@@ -132,8 +138,8 @@ public class GameField extends JPanel implements ActionListener {
 			cardkey++;
 		}
 
-		cardkey = zero;
-		
+		cardkey = ZERO;
+
 		resource1 = ImageIcon.class.getResource(urlListe.get(number1));
 		resource2 = ImageIcon.class.getResource(urlListe.get(number2));
 		resource3 = ImageIcon.class.getResource(urlListe.get(number3));
@@ -146,7 +152,7 @@ public class GameField extends JPanel implements ActionListener {
 		resource10 = ImageIcon.class.getResource(urlListe.get(number10));
 		resource11 = ImageIcon.class.getResource(urlListe.get(number11));
 		resource12 = ImageIcon.class.getResource(urlListe.get(number12));
-		
+
 		icon1 = new ImageIcon(resource1);
 		icon2 = new ImageIcon(resource2);
 		icon3 = new ImageIcon(resource3);
@@ -159,7 +165,7 @@ public class GameField extends JPanel implements ActionListener {
 		icon10 = new ImageIcon(resource10);
 		icon11 = new ImageIcon(resource11);
 		icon12 = new ImageIcon(resource12);
-		
+
 		b1.setIcon(icon1);
 		b2.setIcon(icon2);
 		b3.setIcon(icon3);
@@ -186,7 +192,7 @@ public class GameField extends JPanel implements ActionListener {
 		b11.addActionListener(this);
 		b12.addActionListener(this);
 
-		panel1.setLayout(new GridLayout(three, four, ten, ten));
+		panel1.setLayout(new GridLayout(THREE, FOUR, TEN, TEN));
 
 		panel1.add(b1);
 		panel1.add(b2);
@@ -201,8 +207,8 @@ public class GameField extends JPanel implements ActionListener {
 		panel1.add(b11);
 		panel1.add(b12);
 
-		panel1.setBorder(BorderFactory.createEmptyBorder(twenty, twenty,
-				twenty, twenty));
+		panel1.setBorder(BorderFactory.createEmptyBorder(TWENTY, TWENTY,
+				TWENTY, TWENTY));
 		this.add(panel1);
 
 	}
@@ -211,65 +217,65 @@ public class GameField extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 
-		if (source == b1 && a1 == false) {
+		if (source.equals(b1) && a1.equals(false)) {
 			index++;
 			a1 = true;
 			card[index] = saveList.get(number1);
-		} else if (source == b1 && a1 == true) {
+		} else if (source.equals(b1) && a1.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b2 && a2 == false) {
+		if (source.equals(b2) && a2.equals(false)) {
 			index++;
 			a2 = true;
 			card[index] = saveList.get(number2);
-		} else if (source == b2 && a2 == true) {
+		} else if (source.equals(b2) && a2.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b3 && a3 == false) {
+		if (source.equals(b3) && a3.equals(false)) {
 			index++;
 			a3 = true;
 			card[index] = saveList.get(number3);
-		} else if (source == b3 && a3 == true) {
+		} else if (source.equals(b3) && a3.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b4 && a4 == false) {
+		if (source.equals(b4) && a4.equals(false)) {
 			index++;
 			a4 = true;
 			card[index] = saveList.get(number4);
-		} else if (source == b4 && a4 == true) {
+		} else if (source.equals(b4) && a4.equals(a4)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b5 && a5 == false) {
+		if (source.equals(b5) && a5.equals(false)) {
 			index++;
 			a5 = true;
 			card[index] = saveList.get(number5);
-		} else if (source == b5 && a5 == true) {
+		} else if (source.equals(b5) && a5.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b6 && a6 == false) {
+		if (source.equals(b6) && a6.equals(false)) {
 			index++;
 			a6 = true;
 			card[index] = saveList.get(number6);
-		} else if (source == b6 && a6 == true) {
+		} else if (source.equals(b6) && a6.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b7 && a7 == false) {
+		if (source.equals(b7) && a7.equals(false)) {
 			index++;
 			a7 = true;
 			card[index] = saveList.get(number7);
-		} else if (source == b7 && a7 == true) {
+		} else if (source.equals(b7) && a7.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
@@ -278,68 +284,67 @@ public class GameField extends JPanel implements ActionListener {
 			index++;
 			a8 = true;
 			card[index] = saveList.get(number8);
-		} else if (source == b8 && a8 == true) {
+		} else if (source.equals(b8) && a8.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b9 && a9 == false) {
+		if (source.equals(b9) && a9.equals(false)) {
 			index++;
 			a9 = true;
 			card[index] = saveList.get(number9);
-		} else if (source == b9 && a9 == true) {
+		} else if (source.equals(b9) && a9.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b10 && a10 == false) {
+		if (source.equals(b10) && a10.equals(false)) {
 			index++;
 			a10 = true;
 			card[index] = saveList.get(number10);
-		} else if (source == b10 && a10 == true) {
+		} else if (source.equals(b10) && a10.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b11 && a11 == false) {
+		if (source.equals(b11) && a11.equals(false)) {
 			index++;
 			a11 = true;
 			card[index] = saveList.get(number11);
-		} else if (source == b11 && a11 == true) {
+		} else if (source.equals(b11) && a11.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (source == b12 && a12 == false) {
+		if (source.equals(b12) && a12.equals(false)) {
 			index++;
 			a12 = true;
 			card[index] = saveList.get(number12);
-		} else if (source == b12 && a12 == true) {
+		} else if (source.equals(b12) && a12.equals(true)) {
 			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
 					"Warning", JOptionPane.OK_OPTION);
 		}
 
-		if (index == four) {
-			JOptionPane.showMessageDialog(null, "Only three cards "
+		if (index == FOUR) {
+			JOptionPane.showMessageDialog(null, "Only THREE cards "
 					+ "addicted a SET :)", "Warning", JOptionPane.OK_OPTION);
 			reset();
-		} 
+		}
 
 	}
 
 	public static Card getCardforSetOne() {
 		reset();
-		return card[one];
+		return card[ONE];
 	}
-	
+
 	public static Card getCardforSetTwo() {
-		return card[two];
+		return card[TWO];
 	}
 
 	public static Card getCardforSetThree() {
-		return card[three];
+		return card[THREE];
 	}
-
 
 	private static void reset() {
 		a1 = false;
@@ -355,18 +360,17 @@ public class GameField extends JPanel implements ActionListener {
 		a11 = false;
 		a12 = false;
 
-		index = zero;
+		index = ZERO;
 	}
-	
+
 	public static void updateLink() {
-		
-		System.out.println(urlListe);
+
 		urlListe.clear();
 		saveList.clear();
-		System.out.println(urlListe);
-		
+
 		for (Card card : pack.getPack()) {
-			for (Card key : GUI.getController().getField().getCardInFieldGame().values()) {
+			for (Card key : GUI.getController().getField().getCardInFieldGame()
+					.values()) {
 				if (card.comparTo(key)) {
 					urlListe.add(cardToPicture.get(cardkey));
 					saveList.add(key);
@@ -375,14 +379,13 @@ public class GameField extends JPanel implements ActionListener {
 			cardkey++;
 		}
 
-		cardkey = zero;
-		
+		cardkey = ZERO;
+
 		reset();
 		updateGF();
-		
-		
+
 	}
-	
+
 	private static void updateGF() {
 		resource1 = ImageIcon.class.getResource(urlListe.get(number1));
 		resource2 = ImageIcon.class.getResource(urlListe.get(number2));
@@ -396,7 +399,7 @@ public class GameField extends JPanel implements ActionListener {
 		resource10 = ImageIcon.class.getResource(urlListe.get(number10));
 		resource11 = ImageIcon.class.getResource(urlListe.get(number11));
 		resource12 = ImageIcon.class.getResource(urlListe.get(number12));
-		
+
 		icon1 = new ImageIcon(resource1);
 		icon2 = new ImageIcon(resource2);
 		icon3 = new ImageIcon(resource3);
@@ -409,7 +412,7 @@ public class GameField extends JPanel implements ActionListener {
 		icon10 = new ImageIcon(resource10);
 		icon11 = new ImageIcon(resource11);
 		icon12 = new ImageIcon(resource12);
-		
+
 		b1.setIcon(icon1);
 		b2.setIcon(icon2);
 		b3.setIcon(icon3);
