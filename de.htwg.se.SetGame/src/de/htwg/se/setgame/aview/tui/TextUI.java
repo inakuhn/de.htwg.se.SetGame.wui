@@ -1,6 +1,7 @@
 package de.htwg.se.setgame.aview.tui;
 
 import java.util.LinkedList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -95,7 +96,7 @@ public class TextUI implements IObserver {
 		} else if (splintWords[index].compareTo("exit") == 0) {
 			cont = false;
 		} else if (splintWords[index].compareTo("solve") == 0) {
-			LinkedList<Card> liste = new LinkedList<>();
+			List<Card> liste = new LinkedList<>();
 			liste.addAll(this.controller.getSetInField());
 			if (liste.size() >= 3) {
 				logger.info("solved" + liste.toString() + newLine
