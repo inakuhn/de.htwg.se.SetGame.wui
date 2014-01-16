@@ -104,15 +104,19 @@ public class GameField extends JPanel implements ActionListener {
 	static Card[] card = new Card[5];
 	private static Pack pack;
 	static TreeMap<Integer, String> cardToPicture = new TreeMap<>();
-	static LinkedList<Card> saveList = new LinkedList<>();
-	static LinkedList<String> urlListe = new LinkedList<>();
-	static LinkedList<String> test = new LinkedList<>();
+	static LinkedList<Card> saveList;
+	static LinkedList<String> urlListe;
+	static LinkedList<String> test;
 	
 	private static Integer cardkey = new Integer(zero);
 
 	public GameField(final IController controller) {
 		this.controller = controller;
 		controller.addObserver(null);
+		
+		saveList = new LinkedList<Card>();
+		urlListe = new LinkedList<String>();
+		test = new LinkedList<String>();
 		
 		pack = new Pack();
 		
