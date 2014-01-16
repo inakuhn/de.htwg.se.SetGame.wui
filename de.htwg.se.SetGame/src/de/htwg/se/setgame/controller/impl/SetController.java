@@ -57,11 +57,12 @@ public class SetController extends Observable implements IController {
 		liste.addAll(getSet(this.field.getAllCardsInGame()));
 		if(liste.size() < NUMBEROFSETCARDS){
 			int i = 0;
-			while(!changeCardsinGame() && i < 1000){
+			while(!changeCardsinGame() && i < 10000){
 				i++;
 			}
 			
 		}
+		changeCardsinGame();
 		notifyObservers();
 	}
 
@@ -111,6 +112,7 @@ public class SetController extends Observable implements IController {
 				if(getAsetInGame().size() >=3){
 					return true;
 				} else if (alltheSetsInField(this.field.getAllCardsInGame())) {
+					changeCardsinGame();
 					return true;
 				}
 			}
@@ -133,10 +135,12 @@ public class SetController extends Observable implements IController {
 		return false;
  
 	}
-	public void changeFieldSize(int size){
+	@Override
+	public void setFieldSize(int size){
 		if(size > 0){
 			this.field.setSizeOfField(size);
 		}
+		checkIfIsASeTInGame();
 	}
 
 	/**

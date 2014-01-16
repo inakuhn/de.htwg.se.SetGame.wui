@@ -97,13 +97,11 @@ public class TextUI implements IObserver {
 		} else if (splintWords[index].compareTo("exit") == 0) {
 			cont = false;
 		} else if (splintWords[index].compareTo("solve") == 0) {
-			List<Card> liste = new LinkedList<>();
-			liste.addAll(this.controller.getSetInField());
-			if (liste.size() >= 3) {
-				logger.info("solved" + liste.toString() + newLine
+			if (this.controller.getSetInField().size() >= 3) {
+				logger.info("solved" + this.controller.getSetInField().toString() + newLine
 						+ controller.getField().getAllCardsInGame().size());
-				this.controller.isAsetForController(liste.get(0), liste.get(1),
-						liste.get(2), 3);
+				this.controller.isAsetForController(this.controller.getSetInField().get(0), this.controller.getSetInField().get(1),
+						this.controller.getSetInField().get(2), 3);
 				printTUI();
 			}else{
 				logger.info("number of cards = "+controller.getField().getAllCardsInGame().size());
@@ -129,7 +127,7 @@ public class TextUI implements IObserver {
 			printTUI();
 		} else if (splintWords[index].compareTo("size") == 0) {
 			Integer i = Integer.parseInt(splintWords[1]);
-			this.controller.getField().setSizeOfField(i);
+			this.controller.setFieldSize(i);
 			printTUI();
 		}
 

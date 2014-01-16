@@ -195,7 +195,6 @@ public class Field extends AField {
 	public void changeCards(List<Card> liste) {
 		LinkedList<Card> tmpList = new LinkedList<Card>();
 		tmpList.addAll(liste);
-		System.out.println("LISTE in fielsss" + liste);
 		if (this.getCardInFieldGame().size() < tmpList.size()) {
 			sizeOfField = tmpList.size();
 		}

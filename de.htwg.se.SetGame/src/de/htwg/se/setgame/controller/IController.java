@@ -45,6 +45,6 @@ public interface IController extends IObservable {
 
 	public abstract int getPlayerTwo();
 	public void newGame();
-
+	public void setFieldSize(int size);
 
 }
