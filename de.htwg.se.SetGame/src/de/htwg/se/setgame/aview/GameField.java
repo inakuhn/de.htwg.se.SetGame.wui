@@ -1,4 +1,4 @@
-package setgame.aview;
+package de.htwg.se.setgame.aview;
 
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
