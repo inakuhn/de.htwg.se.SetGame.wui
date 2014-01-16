@@ -1,14 +1,11 @@
 package de.htwg.se.setgame.aview.tui;
 
-import java.util.LinkedList;
-import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.google.inject.Inject;
 
 import de.htwg.se.setgame.controller.IController;
-import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.impl.Card;
 import de.htwg.se.setgame.util.observer.Event;
 import de.htwg.se.setgame.util.observer.IObserver;

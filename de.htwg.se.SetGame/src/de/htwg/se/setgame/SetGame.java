@@ -1,8 +1,6 @@
 package de.htwg.se.setgame;
 import org.apache.log4j.PropertyConfigurator;
-import org.apache.logging.log4j.core.impl.Log4jContextFactory;
 
-import com.google.inject.Inject;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -37,6 +35,7 @@ public final class SetGame {
 	public IController getIController(){
 		return this.controller;
 	}
+	@SuppressWarnings("static-access")
 	public TextUI getTextUI(){
 		return this.tui;
 	}
