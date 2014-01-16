@@ -29,7 +29,7 @@ public final class SetGame {
 		Injector injector = Guice.createInjector(new SetGameModule());
 		controller = injector.getInstance(IController.class);
 		tui = injector.getInstance(TextUI.class);
-//		GUI gui = injector.getInstance(GUI.class);
+		GUI gui = injector.getInstance(GUI.class);
 		tui.printTUI();
 	}
 	public IController getIController(){
