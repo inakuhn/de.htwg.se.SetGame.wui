@@ -7,50 +7,65 @@ import de.htwg.se.setgame.modell.impl.Card;
 
 public interface IField {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#startUp()
 	 */
-	public abstract void startUp();
+	abstract void startUp();
 
-	/* (non-Javadoc)
-	 * @see setgame.modell.IField#foundSet(setgame.modell.Card, setgame.modell.Card, setgame.modell.Card)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see setgame.modell.IField#foundSet(setgame.modell.Card,
+	 * setgame.modell.Card, setgame.modell.Card)
 	 */
-	public abstract void foundSet(Card cardOne, Card cardTwo, Card cardThree);
+	abstract void foundSet(Card cardOne, Card cardTwo, Card cardThree);
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getCardsInField()
 	 */
-	public abstract List<Card> getCardsInField();
+	abstract List<Card> getCardsInField();
 
-
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#changeCards(java.util.List)
 	 */
-	public abstract void changeCards(List<Card> liste);
+	abstract void changeCards(List<Card> liste);
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getUnusedCards()
 	 */
-	public abstract List<Card> getUnusedCards();
+	abstract List<Card> getUnusedCards();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getSizeofField()
 	 */
-	public abstract int getSizeofField();
+	abstract int getSizeofField();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getAllCardsInGame()
 	 */
-	public abstract List<Card> getAllCardsInGame();
+	abstract List<Card> getAllCardsInGame();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.IField#getCardInFieldGame()
 	 */
-	public abstract Map<Integer, Card> getCardInFieldGame();
+	abstract Map<Integer, Card> getCardInFieldGame();
 
-	public abstract void clear();
+	abstract void clear();
 
 	void setSizeOfField(int size);
-
 
 }

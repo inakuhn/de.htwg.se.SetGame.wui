@@ -2,11 +2,6 @@ package de.htwg.se.setgame.controller;
 
 import java.util.List;
 
-
-
-
-
-
 import java.util.Map;
 
 import de.htwg.se.setgame.modell.IField;
@@ -15,40 +10,47 @@ import de.htwg.se.setgame.util.observer.IObservable;
 
 public interface IController extends IObservable {
 
-
-	/* (non-Javadoc)
-	 * @see setgame.controller.IController#isAset(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see setgame.controller.IController#isAset(setgame.modell.impl.Card,
+	 * setgame.modell.impl.Card, setgame.modell.impl.Card, int)
 	 */
-	public void isAsetForController(Card cardOne, Card cardTwo, Card cardThree,
+	void isAsetForController(Card cardOne, Card cardTwo, Card cardThree,
 			int player);
-	public List<Card> getCardinGame();
+
+	List<Card> getCardinGame();
+
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.controller.impl.IController#spielModus()
 	 */
 
-	public abstract IField getField();
+	abstract IField getField();
 
-	public abstract boolean areSetInField();
+	abstract boolean areSetInField();
 
+	abstract List<Card> getAsetInGame();
 
-	public abstract List<Card> getAsetInGame();
+	abstract boolean stillSetInGAme();
 
-	public abstract boolean stillSetInGAme();
+	abstract List<Card> getSetInField();
 
-	public abstract List<Card> getSetInField();
+	abstract int geTplayerOnePoints();
 
-	public abstract int geTplayerOnePoints();
+	abstract int geTplayerTwoPoints();
 
-	public abstract int geTplayerTwoPoints();
+	abstract int getPlayerOne();
 
-	public abstract int getPlayerOne();
+	abstract int getPlayerTwo();
 
-	public abstract int getPlayerTwo();
-	public void newGame();
-	public void setFieldSize(int size);
-	 public List<Card> getCardInFieldGame();
-	 public Map<Integer, Card> getCardsAndTheIndexOfFIeld();
+	void newGame();
+
+	void setFieldSize(int size);
+
+	List<Card> getCardInFieldGame();
+
+	Map<Integer, Card> getCardsAndTheIndexOfFIeld();
 
 }

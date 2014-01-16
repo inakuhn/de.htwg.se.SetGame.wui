@@ -4,32 +4,44 @@ import de.htwg.se.setgame.modell.impl.Card;
 
 public interface ICard {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.impl.ICard#getColor()
 	 */
-	public abstract String getColor();
+	abstract String getColor();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.impl.ICard#getFomr()
 	 */
-	public abstract String getFomr();
+	abstract String getFomr();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.impl.ICard#getPanelFilling()
 	 */
-	public abstract String getPanelFilling();
+	abstract String getPanelFilling();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.impl.ICard#getNumberOfComponents()
 	 */
-	public abstract int getNumberOfComponents();
+	abstract int getNumberOfComponents();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.impl.ICard#toString()
 	 */
-	public abstract String toString();
+	abstract String toString();
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see setgame.modell.impl.ICard#comparTo(setgame.modell.impl.Card)
 	 */
 

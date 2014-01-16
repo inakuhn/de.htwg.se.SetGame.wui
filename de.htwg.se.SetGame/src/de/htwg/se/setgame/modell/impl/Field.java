@@ -14,7 +14,11 @@ import java.util.TreeSet;
  * @category Modell
  */
 public class Field extends AField {
-	
+	private int sizeOfField;
+	private static final int INITIALVALUEOFFIELD = 12;
+	private static final int MAX = 81;
+	private static final int ONE = 1;
+	private Map<Integer, Integer> ramdomListe;
 	/**
 	 * startup of the objects
 	 */
