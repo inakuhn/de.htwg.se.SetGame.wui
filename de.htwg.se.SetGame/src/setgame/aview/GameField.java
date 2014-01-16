@@ -17,6 +17,10 @@ import setgame.controller.IController;
 public class GameField extends JPanel implements ActionListener{
 	
 	private static IController controller;
+	private final int three = 3;
+	private final int four = 4;
+	private final int ten = 10;
+	private final int twenty = 20;
 	
 	
 	public GameField(final IController controller) {
@@ -50,7 +54,7 @@ public class GameField extends JPanel implements ActionListener{
 		Icon icon12 = new ImageIcon( resource12 );
 
 		JPanel panel1 = new JPanel();
-		panel1.setLayout(new GridLayout(3,4));
+		panel1.setLayout(new GridLayout(three, four, ten, ten));
 		
 		JLabel p1 = new JLabel( icon1 );
 		JLabel p2 = new JLabel( icon2 );
@@ -78,7 +82,7 @@ public class GameField extends JPanel implements ActionListener{
 		panel1.add(p11);
 		panel1.add(p12);
 		
-		panel1.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
+		panel1.setBorder(BorderFactory.createEmptyBorder(twenty,twenty,twenty,twenty));
 		this.add(panel1);
 		
 	}

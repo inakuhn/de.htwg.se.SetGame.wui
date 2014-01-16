@@ -3,12 +3,14 @@ package setgame.aview;
 import javax.swing.*;
 
 import setgame.controller.IController;
+import setgame.controller.impl.SetController;
+
 import java.awt.event.*;
 
 public class MenuBar extends JMenuBar implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
-	private static IController controller;
+	private static IController controller = new SetController();
 	private JMenu menu;
 	private JMenuItem mHelp, mExit;
 	
@@ -23,7 +25,6 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		menu.add(mHelp);
 		menu.add(mExit);
 		this.add(menu);
-		
 		
 	}
 
