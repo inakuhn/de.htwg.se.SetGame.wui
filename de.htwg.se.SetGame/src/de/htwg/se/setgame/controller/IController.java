@@ -27,23 +27,23 @@ public interface IController extends IObservable {
 	 * @see setgame.controller.impl.IController#spielModus()
 	 */
 
-	abstract IField getField();
+	IField getField();
 
-	abstract boolean areSetInField();
+	boolean areSetInField();
 
-	abstract List<Card> getAsetInGame();
+	List<Card> getAsetInGame();
 
-	abstract boolean stillSetInGAme();
+	boolean stillSetInGAme();
 
-	abstract List<Card> getSetInField();
+	List<Card> getSetInField();
 
-	abstract int geTplayerOnePoints();
+	int geTplayerOnePoints();
 
-	abstract int geTplayerTwoPoints();
+	int geTplayerTwoPoints();
 
-	abstract int getPlayerOne();
+	int getPlayerOne();
 
-	abstract int getPlayerTwo();
+	int getPlayerTwo();
 
 	void newGame();
 
