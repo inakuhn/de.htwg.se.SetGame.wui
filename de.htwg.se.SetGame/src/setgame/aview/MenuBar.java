@@ -12,7 +12,7 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private static IController controller = new SetController();
 	private JMenu menu;
-	private JMenuItem mHelp, mExit;
+	private JMenuItem mHelp, mExit, mNewGame;
 	
 	public MenuBar(final IController controller) {
 		this.controller = controller;
@@ -22,6 +22,9 @@ public class MenuBar extends JMenuBar implements ActionListener {
 		mHelp.addActionListener(this);
 		mExit = new JMenuItem("Exit");
 		mExit.addActionListener(this);
+		mNewGame = new JMenuItem("New Game");
+		mNewGame.addActionListener(this);
+		menu.add(mNewGame);
 		menu.add(mHelp);
 		menu.add(mExit);
 		this.add(menu);
@@ -49,10 +52,15 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	        			+ "either all the SAME on each card...\n"
 	        			+ "...or all DIFFEREN on each card.\n\n"
 	        			+ "Have fun!", "Close", JOptionPane.CLOSED_OPTION);
-	        }else{
+	        }else if ( e.getSource() == mExit ){
 	        	if(JOptionPane.showConfirmDialog(null,"Really finish the game?",
 	                        "Close",JOptionPane.YES_NO_OPTION) == 0){
 	        		System.exit(0);
+	        	}
+	        }else{
+	        	if ( JOptionPane.showConfirmDialog(null,
+                        "Really start a new Game?", "Choice", JOptionPane.YES_NO_OPTION) == 0) {
+	        		//TODO: Start a new Game	
 	        	}
 	    }
 		

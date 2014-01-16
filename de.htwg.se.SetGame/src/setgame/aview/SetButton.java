@@ -20,6 +20,7 @@ import setgame.controller.impl.SetController;
 public class SetButton extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JButton setbutton;
+	private JButton mix;
 	
 	private static IController controller = new SetController();
 	private boolean player1status = false;
@@ -42,6 +43,7 @@ public class SetButton extends JPanel implements ActionListener {
 		
 		JPanel mainPanel = new JPanel();
 		mainPanel.setLayout(new GridLayout(2,1));
+		panel1.setLayout(new GridLayout(1,2));
          
         JLabel p1 = new JLabel(" Player 1 ");
         JLabel p2 = new JLabel(" Player 2 ");
@@ -53,7 +55,10 @@ public class SetButton extends JPanel implements ActionListener {
 		
         setbutton = new JButton("SET");
         setbutton.addActionListener(this);
+        mix = new JButton("MIX");
+        mix.addActionListener(this);
         panel1.add(setbutton);
+        panel1.add(mix);
     
         
         panel2.setLayout(new GridLayout(1,4));
@@ -72,7 +77,9 @@ public class SetButton extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
 		if(source == setbutton) {
-			//TODO: Card Controller
+			//TODO: SET Controller
+		} else if (source == mix) {
+			//TODO: Mix Controller
 		}
 		
 		Integer play1 = new Integer(controller.geTplayerOnePoints());
