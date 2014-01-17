@@ -1,12 +1,14 @@
 package de.htwg.se.setgame.modell.impl;
 
+import de.htwg.se.setgame.modell.AACard;
+
 /**
  * @author David Simon & Raina Bertolini
  * 
  */
 
 
-	public class Card extends ACard {
+	public class Card extends AACard {
 		private String color;
 		private String form;
 		private String panelFilling;
@@ -156,6 +158,5 @@ package de.htwg.se.setgame.modell.impl;
 			return false;
 
 		}
-
 	}
 
