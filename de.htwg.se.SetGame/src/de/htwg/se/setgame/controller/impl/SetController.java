@@ -21,23 +21,23 @@ import de.htwg.se.setgame.util.observer.Observable;
  */
 public class SetController extends Observable implements IController {
 	/**
-	 * 
+	 *  field
 	 */
 	private IField field;
 	/**
-	 * 
+	 * counter
 	 */
 	private int counter;
 	/**
-	 * 
+	 * number for set
 	 */
 	private static final int NUMBEROFSETCARDS = 3;
 	/**
-	 * 
+	 * 		numforgotrguth;
 	 */
 	private static final int THREE = 3;
 	/**
-	 * 
+	 * a number for
 	 */
 	private static final int THOUSAND = 1000;
 	/**
