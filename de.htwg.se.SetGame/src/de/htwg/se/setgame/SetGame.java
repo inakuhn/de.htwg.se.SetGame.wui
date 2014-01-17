@@ -19,7 +19,6 @@ public final class SetGame {
 	public static SetGame getInstance(){
 		if(instance == null){
 			instance = new SetGame();
-			System.out.println("bin hierr");
 		}
 		return instance;
 	}
