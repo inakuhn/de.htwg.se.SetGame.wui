@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import de.htwg.se.setgame.modell.AAField;
+import de.htwg.se.setgame.modell.AField;
 
 /**
  * Class Field.
@@ -16,7 +16,7 @@ import de.htwg.se.setgame.modell.AAField;
  * @date 7.12.201NUMBERFORONELINE
  * @category Modell
  */
-public class Field extends AAField {
+public class Field extends AField {
 	private int sizeOfField;
 	private static final int INITIALVALUEOFFIELD = 12;
 	private static final int MAX = 81;

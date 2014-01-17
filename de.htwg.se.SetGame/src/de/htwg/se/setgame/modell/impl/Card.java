@@ -1,6 +1,6 @@
 package de.htwg.se.setgame.modell.impl;
 
-import de.htwg.se.setgame.modell.AACard;
+import de.htwg.se.setgame.modell.ACard;
 
 /**
  * @author David Simon & Raina Bertolini
@@ -8,7 +8,7 @@ import de.htwg.se.setgame.modell.AACard;
  */
 
 
-	public class Card extends AACard {
+	public class Card extends ACard {
 		private String color;
 		private String form;
 		private String panelFilling;
