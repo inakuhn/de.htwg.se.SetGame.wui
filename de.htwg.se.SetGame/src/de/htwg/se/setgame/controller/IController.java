@@ -1,11 +1,11 @@
 package de.htwg.se.setgame.controller;
 
 import java.util.List;
-
 import java.util.Map;
 
 import de.htwg.se.setgame.modell.IField;
 import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.impl.Field;
 import de.htwg.se.setgame.util.observer.IObservable;
 
 public interface IController extends IObservable {
@@ -27,7 +27,7 @@ public interface IController extends IObservable {
 	 * @see setgame.controller.impl.IController#spielModus()
 	 */
 
-	IField getField();
+	Field getField();
 
 	boolean areSetInField();
 
