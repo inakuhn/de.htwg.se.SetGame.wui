@@ -361,7 +361,7 @@ public class Field extends AField {
 					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
-					field.append(cardInFieldGame.get(key).getForm());
+					field.append(cardInFieldGame.get(key).getFomr());
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
@@ -384,7 +384,7 @@ public class Field extends AField {
 					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
-					field.append(cardInFieldGame.get(key).getAnz());
+					field.append(cardInFieldGame.get(key).getNumberOfComponents());
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
