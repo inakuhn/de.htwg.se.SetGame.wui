@@ -22,6 +22,8 @@ public class SetController extends Observable implements IController {
 	private IField field;
 	private int counter;
 	private static final int NUMBEROFSETCARDS = 3;
+	private static final int THREE = 3;
+	private static final int THOUSAND = 1000;
 	private final int playerOne;
 	private final int playerTwo;
 	private int playerOneCounter;
@@ -56,7 +58,7 @@ public class SetController extends Observable implements IController {
 		liste.addAll(getSet(this.field.getAllCardsInGame()));
 		if(liste.size() < NUMBEROFSETCARDS){
 			int i = 0;
-			while(!changeCardsinGame() && i < 10000){
+			while(!changeCardsinGame() && i < THOUSAND){
 				i++;
 			}
 			
@@ -108,7 +110,7 @@ public class SetController extends Observable implements IController {
 		} else {
 			if (proveIfIsASet(cardOne, cardTwo, cardThree)) {
 				field.foundSet(cardOne, cardTwo, cardThree);
-				if(getAsetInGame().size() >=3){
+				if(getAsetInGame().size() >= THREE){
 					return true;
 				} else if (alltheSetsInField(this.field.getAllCardsInGame())) {
 					changeCardsinGame();

@@ -8,12 +8,11 @@ import java.awt.event.*;
 public class MenuBar extends JMenuBar implements ActionListener {
 	
 	private static final long serialVersionUID = 1L;
-	private JMenu menu;
 	private JMenuItem mHelp, mExit, mNewGame;
 	
 	public MenuBar() {
 		
-		menu = new JMenu("Game");
+		JMenu menu = new JMenu("Game");
 		mHelp = new JMenuItem("Help");
 		mHelp.addActionListener(this);
 		mExit = new JMenuItem("Exit");
@@ -60,11 +59,11 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	
 	public void exit() {
 		if(GUI.getController().geTplayerOnePoints() > GUI.getController().geTplayerTwoPoints()) {
-    		JOptionPane.showConfirmDialog(null, "Player1 wins!", "Winner", JOptionPane.CLOSED_OPTION);
+    		playerOneWin();
     	} else if (GUI.getController().geTplayerOnePoints() < GUI.getController().geTplayerTwoPoints()) {
-    		JOptionPane.showConfirmDialog(null, "Player2 wins!", "Winner", JOptionPane.CLOSED_OPTION);
+    		playerTwoWin();
     	} else {
-    		JOptionPane.showConfirmDialog(null, "Dead heat!", "Fail", JOptionPane.CLOSED_OPTION);
+    		noOneWin();
     	}
     	
     	GUI.getController().newGame();
@@ -77,14 +76,26 @@ public class MenuBar extends JMenuBar implements ActionListener {
 	
 	public void newGame() {
 		if(GUI.getController().geTplayerOnePoints() > GUI.getController().geTplayerTwoPoints()) {
-    		JOptionPane.showConfirmDialog(null, "Player1 wins!", "Winner", JOptionPane.CLOSED_OPTION);
+    		playerOneWin();
     	} else if (GUI.getController().geTplayerOnePoints() < GUI.getController().geTplayerTwoPoints()) {
-    		JOptionPane.showConfirmDialog(null, "Player2 wins!", "Winner", JOptionPane.CLOSED_OPTION);
+    		playerTwoWin();
     	} else {
-    		JOptionPane.showConfirmDialog(null, "Dead heat!", "Fail", JOptionPane.CLOSED_OPTION);
+    		noOneWin();
     	}
 		
 		GUI.getController().newGame();
+	}
+	
+	public void playerOneWin() {
+		JOptionPane.showConfirmDialog(null, "Player1 wins!", "Winner", JOptionPane.CLOSED_OPTION);
+	}
+	
+	public void playerTwoWin() {
+		JOptionPane.showConfirmDialog(null, "Player2 wins!", "Winner", JOptionPane.CLOSED_OPTION);
+	}
+	
+	public void noOneWin() {
+		JOptionPane.showConfirmDialog(null, "Dead heat!", "Fail", JOptionPane.CLOSED_OPTION);
 	}
 
 }

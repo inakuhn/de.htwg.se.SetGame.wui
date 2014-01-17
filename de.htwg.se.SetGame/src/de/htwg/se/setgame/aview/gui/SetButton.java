@@ -84,9 +84,9 @@ public class SetButton extends JPanel implements ActionListener {
 	}
 	
 	public static void updateSB() {
-		Integer play1 = new Integer(GUI.getController().geTplayerOnePoints());
+		Integer play1 = Integer.valueOf(GUI.getController().geTplayerOnePoints());
 		player1.setText(play1.toString());
-		Integer play2 = new Integer(GUI.getController().geTplayerTwoPoints());
+		Integer play2 = Integer.valueOf(GUI.getController().geTplayerTwoPoints());
 		player2.setText(play2.toString());
 	}
 	
