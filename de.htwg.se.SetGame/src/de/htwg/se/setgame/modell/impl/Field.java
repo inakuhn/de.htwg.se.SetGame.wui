@@ -352,17 +352,17 @@ public class Field extends AField {
 			field.append("\n");
 			for (Integer key : cardInFieldGame.keySet()) {
 				if (!listeofcontains.contains(key)) {
-					int legth = langstString.toCharArray().length;
-					int fehlt = legth
+					int legth1 = langstString.toCharArray().length;
+					int fehlt1 = legth1
 							- cardInFieldGame.get(key).getFomr().toCharArray().length;
-					int me = fehlt / 2;
-					fehlt = fehlt - me;
+					int me1 = fehlt1 / 2;
+					fehlt1 = fehlt1 - me1;
 					field.append("|");
-					for (int loop = 0; loop < me; loop++) {
+					for (int loop1 = 0; loop1 < me1; loop1++) {
 						field.append(" ");
 					}
 					field.append(cardInFieldGame.get(key).getFomr());
-					for (int loop = 0; loop < fehlt; loop++) {
+					for (int loop1 = 0; loop1 < fehlt1; loop1++) {
 						field.append(" ");
 					}
 					field.append(returnApeend());
@@ -376,16 +376,16 @@ public class Field extends AField {
 			field.append("\n");
 			for (Integer key : cardInFieldGame.keySet()) {
 				if (!listeofcontains.contains(key)) {
-					int legth = langstString.toCharArray().length;
-					int fehlt = legth - 1;
-					int me = fehlt / 2;
-					fehlt = fehlt - me;
+					int legth2 = langstString.toCharArray().length;
+					int fehlt2 = legth2 - 1;
+					int me2 = fehlt2 / 2;
+					fehlt2 = fehlt2 - me2;
 					field.append("|");
-					for (int loop = 0; loop < me; loop++) {
+					for (int loop2 = 0; loop2 < me2; loop2++) {
 						field.append(" ");
 					}
 					field.append(cardInFieldGame.get(key).getNumberOfComponents());
-					for (int loop = 0; loop < fehlt; loop++) {
+					for (int loop2 = 0; loop2 < fehlt2; loop2++) {
 						field.append(" ");
 					}
 					field.append(returnApeend());
@@ -400,18 +400,18 @@ public class Field extends AField {
 			field.append("\n");
 			for (Integer key : cardInFieldGame.keySet()) {
 				if (!listeofcontains.contains(key)) {
-					int legth = langstString.toCharArray().length;
-					int fehlt = legth
+					int legth3 = langstString.toCharArray().length;
+					int fehlt3 = legth3
 							- cardInFieldGame.get(key).getPanelFilling()
 									.toCharArray().length;
-					int me = fehlt / 2;
-					fehlt = fehlt - me;
+					int me3 = fehlt3 / 2;
+					fehlt3 = fehlt3 - me3;
 					field.append("|");
-					for (int loop = 0; loop < me; loop++) {
+					for (int loop3 = 0; loop3 < me3; loop3++) {
 						field.append(" ");
 					}
 					field.append(cardInFieldGame.get(key).getPanelFilling());
-					for (int loop = 0; loop < fehlt; loop++) {
+					for (int loop3 = 0; loop3 < fehlt3; loop3++) {
 						field.append(" ");
 					}
 					field.append(returnApeend());
