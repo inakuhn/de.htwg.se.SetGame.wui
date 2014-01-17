@@ -3,7 +3,6 @@ package de.htwg.se.setgame.controller;
 import java.util.List;
 import java.util.Map;
 
-import de.htwg.se.setgame.modell.IField;
 import de.htwg.se.setgame.modell.impl.Card;
 import de.htwg.se.setgame.modell.impl.Field;
 import de.htwg.se.setgame.util.observer.IObservable;

@@ -3,7 +3,6 @@ package de.htwg.se.setgame;
 import com.google.inject.AbstractModule;
 
 import de.htwg.se.setgame.controller.IController;
-import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.IField;
 
 public class SetGameModule extends AbstractModule {
