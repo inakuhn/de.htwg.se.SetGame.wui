@@ -234,12 +234,14 @@ public class GameField extends JPanel implements ActionListener {
 		actionStart12(source);
 		
 
-		if (index == FOUR) {
-			JOptionPane.showMessageDialog(null, "Only THREE cards "
-					+ "addicted a SET :)", "Warning", JOptionPane.OK_OPTION);
-			reset();
-		}
+		resetPanel();
 		
+	}
+	
+	public void resetPanel() {
+		JOptionPane.showMessageDialog(null, "Only THREE cards "
+				+ "addicted a SET :)", "Warning", JOptionPane.OK_OPTION);
+		reset();
 	}
 	
 	public void actionStart1(Object source) {
@@ -249,8 +251,7 @@ public class GameField extends JPanel implements ActionListener {
 			a1 = true;
 			card[index] = saveList.get(number1);
 		} else if (source.equals(b1) && a1.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -262,8 +263,7 @@ public class GameField extends JPanel implements ActionListener {
 			a2 = true;
 			card[index] = saveList.get(number2);
 		} else if (source.equals(b2) && a2.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -276,8 +276,7 @@ public class GameField extends JPanel implements ActionListener {
 			a3 = true;
 			card[index] = saveList.get(number3);
 		} else if (source.equals(b3) && a3.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 	
 	}
@@ -289,8 +288,7 @@ public class GameField extends JPanel implements ActionListener {
 			a4 = true;
 			card[index] = saveList.get(number4);
 		} else if (source.equals(b4) && a4.equals(a4)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -301,8 +299,7 @@ public class GameField extends JPanel implements ActionListener {
 			a5 = true;
 			card[index] = saveList.get(number5);
 		} else if (source.equals(b5) && a5.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -314,8 +311,7 @@ public class GameField extends JPanel implements ActionListener {
 			a6 = true;
 			card[index] = saveList.get(number6);
 		} else if (source.equals(b6) && a6.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -327,8 +323,7 @@ public class GameField extends JPanel implements ActionListener {
 			a7 = true;
 			card[index] = saveList.get(number7);
 		} else if (source.equals(b7) && a7.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -340,8 +335,7 @@ public class GameField extends JPanel implements ActionListener {
 			a8 = true;
 			card[index] = saveList.get(number8);
 		} else if (source.equals(b8) && a8.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -353,8 +347,7 @@ public class GameField extends JPanel implements ActionListener {
 			a9 = true;
 			card[index] = saveList.get(number9);
 		} else if (source.equals(b9) && a9.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -366,8 +359,7 @@ public class GameField extends JPanel implements ActionListener {
 			a10 = true;
 			card[index] = saveList.get(number10);
 		} else if (source.equals(b10) && a10.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -379,8 +371,7 @@ public class GameField extends JPanel implements ActionListener {
 			a11 = true;
 			card[index] = saveList.get(number11);
 		} else if (source.equals(b11) && a11.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -393,10 +384,14 @@ public class GameField extends JPanel implements ActionListener {
 			a12 = true;
 			card[index] = saveList.get(number12);
 		} else if (source.equals(b12) && a12.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
+	}
+	
+	public void getPanel() {
+		JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
+				"Warning", JOptionPane.OK_OPTION);
 	}
 
 	public static Card getCardforSetOne() {
