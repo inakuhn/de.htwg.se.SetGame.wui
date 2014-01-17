@@ -1,10 +1,12 @@
 package de.htwg.se.setgame.aview.gui;
 
 import java.awt.GridLayout;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.TreeMap;
 
 import javax.swing.BorderFactory;
@@ -104,12 +106,12 @@ public class GameField extends JPanel implements ActionListener {
 
 	private static Card[] card = new Card[FIVE];
 	private static Pack pack;
-	private static TreeMap<Integer, String> cardToPicture;
-	private static LinkedList<Card> saveList;
-	private static LinkedList<String> urlListe;
-	private static LinkedList<String> test;
+	private static Map<Integer, String> cardToPicture;
+	private static List<Card> saveList;
+	private static List<String> urlListe;
+	private static List<String> test;
 
-	private static Integer cardkey = new Integer(ZERO);
+	private static Integer cardkey = Integer.valueOf(ZERO);
 
 	public GameField() {
 
@@ -215,8 +217,12 @@ public class GameField extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		actionStart(e);
+	}
+	
+	public static void actionStart(ActionEvent e) {
 		Object source = e.getSource();
-
+		
 		if (source.equals(b1) && a1.equals(false)) {
 			index++;
 			a1 = true;
@@ -330,7 +336,7 @@ public class GameField extends JPanel implements ActionListener {
 					+ "addicted a SET :)", "Warning", JOptionPane.OK_OPTION);
 			reset();
 		}
-
+		
 	}
 
 	public static Card getCardforSetOne() {
