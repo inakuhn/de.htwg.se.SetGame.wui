@@ -337,7 +337,7 @@ public class Field extends AField {
 					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
-					field.append(cardInFieldGame.get(key).color);
+					field.append(cardInFieldGame.get(key).getColor());
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
@@ -361,7 +361,7 @@ public class Field extends AField {
 					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
-					field.append(cardInFieldGame.get(key).form);
+					field.append(cardInFieldGame.get(key).getForm());
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
@@ -384,7 +384,7 @@ public class Field extends AField {
 					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
-					field.append(cardInFieldGame.get(key).anz);
+					field.append(cardInFieldGame.get(key).getAnz());
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}
@@ -410,7 +410,7 @@ public class Field extends AField {
 					for (int loop = 0; loop < me; loop++) {
 						field.append(" ");
 					}
-					field.append(cardInFieldGame.get(key).panelFilling);
+					field.append(cardInFieldGame.get(key).getPanelFilling());
 					for (int loop = 0; loop < fehlt; loop++) {
 						field.append(" ");
 					}

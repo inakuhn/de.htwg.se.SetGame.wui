@@ -27,19 +27,19 @@ public class Card extends ACard {
 	 */
 	@Override
 	public String getColor() {
-		return color;
+		return super.getColor();
 	}
 
 	/**
 	 * @param color
 	 *            set the color of a card
 	 */
-	private void setColor(String color) {
+	public void setColor(String color) {
 		if (color.equals(Pack.COLORS[0]) || color.equals(Pack.COLORS[1])
 				|| color.equals(Pack.COLORS[2])) {
-			this.color = color;
+			super.setColor( color);
 		}else{
-			this.color = null;
+			super.setColor( null);
 		}
 
 	}
@@ -49,7 +49,7 @@ public class Card extends ACard {
 	 */
 	@Override
 	public String getFomr() {
-		return form;
+		return getForm();
 	}
 
 	/**
@@ -61,9 +61,9 @@ public class Card extends ACard {
 	private void setFomr(String fomr) {
 		if (fomr.equals(Pack.FORME[2]) || fomr.equals(Pack.FORME[0])
 				|| fomr.equals(Pack.FORME[1])) {
-			this.form = fomr;
+			this.setForm(fomr);
 		}else{
-			this.form = null;
+			this.setForm(null);
 		}
 	}
 
@@ -72,7 +72,7 @@ public class Card extends ACard {
 	 */
 	@Override
 	public String getPanelFilling() {
-		return panelFilling;
+		return super.getPanelFilling();
 	}
 
 	/**
@@ -81,13 +81,13 @@ public class Card extends ACard {
 	 * @throws IllegalArgumentException
 	 *             if filling is not allowed
 	 */
-	private void setPanelFilling(String panelFilling) {
+	public void setPanelFilling(String panelFilling) {
 		if (panelFilling.equals(Pack.FILL[0])
 				|| panelFilling.equals(Pack.FILL[1])
 				|| panelFilling.equals(Pack.FILL[2])) {
-			this.panelFilling = panelFilling;
+			super.setPanelFilling(panelFilling);
 		}else{
-			this.panelFilling = null;
+			super.setPanelFilling(null);
 		}
 
 	}
@@ -96,7 +96,7 @@ public class Card extends ACard {
 	 * @see setgame.modell.impl.ICard#getNumberOfComponents()
 	 */
 	public int getNumberOfComponents() {
-		return anz;
+		return super.getAnz();
 	}
 
 	/**
@@ -108,10 +108,10 @@ public class Card extends ACard {
 		if (numberOfComponents == Pack.NUMBEROFCOMPONET[0]
 				|| numberOfComponents == Pack.NUMBEROFCOMPONET[1]
 				|| numberOfComponents == Pack.NUMBEROFCOMPONET[2]) {
-			this.anz = numberOfComponents;
+			this.setAnz(numberOfComponents);
 
 		}else{
-			this.anz = -1;
+			this.setAnz(-1);
 		}
 	}
 	/* (non-Javadoc)
@@ -120,14 +120,14 @@ public class Card extends ACard {
 	@Override
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
-		sb.append("|"+this.color+"| \n "+"|"+this.form+"| \n "+"|"+this.panelFilling+"| \n "+"|"+this.anz+"|\n");
+		sb.append("|"+this.getColor()+"| \n "+"|"+this.getForm()+"| \n "+"|"+this.getPanelFilling()+"| \n "+"|"+this.getAnz()+"|\n");
 		return sb.toString();
 	}
 	/* (non-Javadoc)
 	 * @see setgame.modell.impl.ICard#comparTo(setgame.modell.impl.Card)
 	 */
 	public boolean comparTo(Card card){
-		if(this.color.equals(card.color) && this.anz == card.anz && this.form.equals(card.form) && this.panelFilling.equals(card.panelFilling)){
+		if(this.getColor().equals(card.getColor()) && this.getAnz() == card.getAnz() && this.getForm().equals(card.getForm()) && this.getPanelFilling().equals(card.getPanelFilling())){
 			return true;
 		}
 		return false;
