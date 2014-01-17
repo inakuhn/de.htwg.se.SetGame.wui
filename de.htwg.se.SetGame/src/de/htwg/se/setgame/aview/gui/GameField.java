@@ -500,7 +500,7 @@ public class GameField extends JPanel implements ActionListener {
 	
 	public static void saveUrl() {
 		for (int index = 0; index < pack.getPack().size(); index++) {
-			saveUrlFor(pack.getPack().get(index).toString());
+			saveUrlFor(pack.getPack().get(index).toString().toString());
 			cardkey++;
 		}
 	}
@@ -508,7 +508,7 @@ public class GameField extends JPanel implements ActionListener {
 	public static void saveUrlFor(String card) {
 		for (Card key : GUI.getController().getField().getCardInFieldGame()
 				.values()) {
-			if (card.equals(key.toString())) {
+			if (card.equals(key.toString().toString())) {
 				urlListe.add(cardToPicture.get(cardkey));
 				saveList.add(key);
 			}
