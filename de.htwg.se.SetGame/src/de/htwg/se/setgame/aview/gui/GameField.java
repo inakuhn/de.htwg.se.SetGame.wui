@@ -499,11 +499,12 @@ public class GameField extends JPanel implements ActionListener {
 	}
 	
 	public static void save_url() {
-		for (Card card : pack.getPack()) {
-			save_url_for(card);
+		for (int i = 0; i <  pack.getPack().size() ; i++) {
+			save_url_for(pack.getPack().get(i));
 			cardkey++;
 		}
 	}
+	
 	
 	public static void save_url_for(Card card) {
 		for (Card key : GUI.getController().getField().getCardInFieldGame()
