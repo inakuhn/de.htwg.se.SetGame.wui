@@ -89,6 +89,19 @@ public class GameField extends JPanel implements ActionListener {
 	private static URL resource11;
 	private static URL resource12;
 
+	private static URL resource13;
+	private static URL resource14;
+	private static URL resource15;
+	private static URL resource16;
+	private static URL resource17;
+	private static URL resource18;
+	private static URL resource19;
+	private static URL resource20;
+	private static URL resource21;
+	private static URL resource22;
+	private static URL resource23;
+	private static URL resource24;
+	
 	private static Icon icon1;
 	private static Icon icon2;
 	private static Icon icon3;
@@ -101,6 +114,19 @@ public class GameField extends JPanel implements ActionListener {
 	private static Icon icon10;
 	private static Icon icon11;
 	private static Icon icon12;
+	
+	private static Icon icon13;
+	private static Icon icon14;
+	private static Icon icon15;
+	private static Icon icon16;
+	private static Icon icon17;
+	private static Icon icon18;
+	private static Icon icon19;
+	private static Icon icon20;
+	private static Icon icon21;
+	private static Icon icon22;
+	private static Icon icon23;
+	private static Icon icon24;
 
 	private static JPanel panel1 = new JPanel();
 
@@ -129,16 +155,7 @@ public class GameField extends JPanel implements ActionListener {
 			cardToPicture.put(index1, test.get(index1));
 		}
 
-		for (Card card : pack.getPack()) {
-			for (Card key : GUI.getController().getField().getCardInFieldGame()
-					.values()) {
-				if (card.comparTo(key)) {
-					urlListe.add(cardToPicture.get(cardkey));
-					saveList.add(key);
-				}
-			}
-			cardkey++;
-		}
+		save_url();
 
 		cardkey = ZERO;
 
@@ -234,12 +251,16 @@ public class GameField extends JPanel implements ActionListener {
 		actionStart12(source);
 		
 
-		if (index == FOUR) {
+		resetPanel();
+		
+	}
+	
+	public void resetPanel() {
+		if(index == FOUR) {
 			JOptionPane.showMessageDialog(null, "Only THREE cards "
 					+ "addicted a SET :)", "Warning", JOptionPane.OK_OPTION);
 			reset();
 		}
-		
 	}
 	
 	public void actionStart1(Object source) {
@@ -249,8 +270,7 @@ public class GameField extends JPanel implements ActionListener {
 			a1 = true;
 			card[index] = saveList.get(number1);
 		} else if (source.equals(b1) && a1.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -262,8 +282,7 @@ public class GameField extends JPanel implements ActionListener {
 			a2 = true;
 			card[index] = saveList.get(number2);
 		} else if (source.equals(b2) && a2.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -276,8 +295,7 @@ public class GameField extends JPanel implements ActionListener {
 			a3 = true;
 			card[index] = saveList.get(number3);
 		} else if (source.equals(b3) && a3.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 	
 	}
@@ -289,8 +307,7 @@ public class GameField extends JPanel implements ActionListener {
 			a4 = true;
 			card[index] = saveList.get(number4);
 		} else if (source.equals(b4) && a4.equals(a4)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -301,8 +318,7 @@ public class GameField extends JPanel implements ActionListener {
 			a5 = true;
 			card[index] = saveList.get(number5);
 		} else if (source.equals(b5) && a5.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -314,8 +330,7 @@ public class GameField extends JPanel implements ActionListener {
 			a6 = true;
 			card[index] = saveList.get(number6);
 		} else if (source.equals(b6) && a6.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -327,8 +342,7 @@ public class GameField extends JPanel implements ActionListener {
 			a7 = true;
 			card[index] = saveList.get(number7);
 		} else if (source.equals(b7) && a7.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -340,8 +354,7 @@ public class GameField extends JPanel implements ActionListener {
 			a8 = true;
 			card[index] = saveList.get(number8);
 		} else if (source.equals(b8) && a8.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -353,8 +366,7 @@ public class GameField extends JPanel implements ActionListener {
 			a9 = true;
 			card[index] = saveList.get(number9);
 		} else if (source.equals(b9) && a9.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -366,8 +378,7 @@ public class GameField extends JPanel implements ActionListener {
 			a10 = true;
 			card[index] = saveList.get(number10);
 		} else if (source.equals(b10) && a10.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -379,8 +390,7 @@ public class GameField extends JPanel implements ActionListener {
 			a11 = true;
 			card[index] = saveList.get(number11);
 		} else if (source.equals(b11) && a11.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
 	}
@@ -393,10 +403,14 @@ public class GameField extends JPanel implements ActionListener {
 			a12 = true;
 			card[index] = saveList.get(number12);
 		} else if (source.equals(b12) && a12.equals(true)) {
-			JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
-					"Warning", JOptionPane.OK_OPTION);
+			getPanel();
 		}
 		
+	}
+	
+	public void getPanel() {
+		JOptionPane.showMessageDialog(null, "" + "Not a second time :P",
+				"Warning", JOptionPane.OK_OPTION);
 	}
 
 	public static Card getCardforSetOne() {
@@ -434,16 +448,7 @@ public class GameField extends JPanel implements ActionListener {
 		urlListe.clear();
 		saveList.clear();
 
-		for (Card card : pack.getPack()) {
-			for (Card key : GUI.getController().getField().getCardInFieldGame()
-					.values()) {
-				if (card.comparTo(key)) {
-					urlListe.add(cardToPicture.get(cardkey));
-					saveList.add(key);
-				}
-			}
-			cardkey++;
-		}
+		save_url();
 
 		cardkey = ZERO;
 
@@ -453,44 +458,61 @@ public class GameField extends JPanel implements ActionListener {
 	}
 
 	private static void updateGF() {
-		resource1 = ImageIcon.class.getResource(urlListe.get(number1));
-		resource2 = ImageIcon.class.getResource(urlListe.get(number2));
-		resource3 = ImageIcon.class.getResource(urlListe.get(number3));
-		resource4 = ImageIcon.class.getResource(urlListe.get(number4));
-		resource5 = ImageIcon.class.getResource(urlListe.get(number5));
-		resource6 = ImageIcon.class.getResource(urlListe.get(number6));
-		resource7 = ImageIcon.class.getResource(urlListe.get(number7));
-		resource8 = ImageIcon.class.getResource(urlListe.get(number8));
-		resource9 = ImageIcon.class.getResource(urlListe.get(number9));
-		resource10 = ImageIcon.class.getResource(urlListe.get(number10));
-		resource11 = ImageIcon.class.getResource(urlListe.get(number11));
-		resource12 = ImageIcon.class.getResource(urlListe.get(number12));
+		resource13 = ImageIcon.class.getResource(urlListe.get(number1));
+		resource14 = ImageIcon.class.getResource(urlListe.get(number2));
+		resource15 = ImageIcon.class.getResource(urlListe.get(number3));
+		resource16 = ImageIcon.class.getResource(urlListe.get(number4));
+		resource17 = ImageIcon.class.getResource(urlListe.get(number5));
+		resource18 = ImageIcon.class.getResource(urlListe.get(number6));
+		resource19 = ImageIcon.class.getResource(urlListe.get(number7));
+		resource20 = ImageIcon.class.getResource(urlListe.get(number8));
+		resource21 = ImageIcon.class.getResource(urlListe.get(number9));
+		resource22 = ImageIcon.class.getResource(urlListe.get(number10));
+		resource23 = ImageIcon.class.getResource(urlListe.get(number11));
+		resource24 = ImageIcon.class.getResource(urlListe.get(number12));
 
-		icon1 = new ImageIcon(resource1);
-		icon2 = new ImageIcon(resource2);
-		icon3 = new ImageIcon(resource3);
-		icon4 = new ImageIcon(resource4);
-		icon5 = new ImageIcon(resource5);
-		icon6 = new ImageIcon(resource6);
-		icon7 = new ImageIcon(resource7);
-		icon8 = new ImageIcon(resource8);
-		icon9 = new ImageIcon(resource9);
-		icon10 = new ImageIcon(resource10);
-		icon11 = new ImageIcon(resource11);
-		icon12 = new ImageIcon(resource12);
+		icon13 = new ImageIcon(resource13);
+		icon14 = new ImageIcon(resource14);
+		icon15 = new ImageIcon(resource15);
+		icon16 = new ImageIcon(resource16);
+		icon17 = new ImageIcon(resource17);
+		icon18 = new ImageIcon(resource18);
+		icon19 = new ImageIcon(resource19);
+		icon20 = new ImageIcon(resource20);
+		icon21 = new ImageIcon(resource21);
+		icon22 = new ImageIcon(resource22);
+		icon23 = new ImageIcon(resource23);
+		icon24 = new ImageIcon(resource24);
 
-		b1.setIcon(icon1);
-		b2.setIcon(icon2);
-		b3.setIcon(icon3);
-		b4.setIcon(icon4);
-		b5.setIcon(icon5);
-		b6.setIcon(icon6);
-		b7.setIcon(icon7);
-		b8.setIcon(icon8);
-		b9.setIcon(icon9);
-		b10.setIcon(icon10);
-		b11.setIcon(icon11);
-		b12.setIcon(icon12);
+		b1.setIcon(icon13);
+		b2.setIcon(icon14);
+		b3.setIcon(icon15);
+		b4.setIcon(icon16);
+		b5.setIcon(icon17);
+		b6.setIcon(icon18);
+		b7.setIcon(icon19);
+		b8.setIcon(icon20);
+		b9.setIcon(icon21);
+		b10.setIcon(icon22);
+		b11.setIcon(icon23);
+		b12.setIcon(icon24);
+	}
+	
+	public static void save_url() {
+		for (Card card : pack.getPack()) {
+			save_url_for(card);
+			cardkey++;
+		}
+	}
+	
+	public static void save_url_for(Card card) {
+		for (Card key : GUI.getController().getField().getCardInFieldGame()
+				.values()) {
+			if (card.comparTo(key)) {
+				urlListe.add(cardToPicture.get(cardkey));
+				saveList.add(key);
+			}
+		}
 	}
 
 }
