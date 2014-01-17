@@ -114,6 +114,19 @@ public class GameField extends JPanel implements ActionListener {
 	private static Icon icon10;
 	private static Icon icon11;
 	private static Icon icon12;
+	
+	private static Icon icon13;
+	private static Icon icon14;
+	private static Icon icon15;
+	private static Icon icon16;
+	private static Icon icon17;
+	private static Icon icon18;
+	private static Icon icon19;
+	private static Icon icon20;
+	private static Icon icon21;
+	private static Icon icon22;
+	private static Icon icon23;
+	private static Icon icon24;
 
 	private static JPanel panel1 = new JPanel();
 
@@ -476,31 +489,31 @@ public class GameField extends JPanel implements ActionListener {
 		resource23 = ImageIcon.class.getResource(urlListe.get(number11));
 		resource24 = ImageIcon.class.getResource(urlListe.get(number12));
 
-		icon1 = new ImageIcon(resource1);
-		icon2 = new ImageIcon(resource2);
-		icon3 = new ImageIcon(resource3);
-		icon4 = new ImageIcon(resource4);
-		icon5 = new ImageIcon(resource5);
-		icon6 = new ImageIcon(resource6);
-		icon7 = new ImageIcon(resource7);
-		icon8 = new ImageIcon(resource8);
-		icon9 = new ImageIcon(resource9);
-		icon10 = new ImageIcon(resource10);
-		icon11 = new ImageIcon(resource11);
-		icon12 = new ImageIcon(resource12);
+		icon13 = new ImageIcon(resource13);
+		icon14 = new ImageIcon(resource14);
+		icon15 = new ImageIcon(resource15);
+		icon16 = new ImageIcon(resource16);
+		icon17 = new ImageIcon(resource17);
+		icon18 = new ImageIcon(resource18);
+		icon19 = new ImageIcon(resource19);
+		icon20 = new ImageIcon(resource20);
+		icon21 = new ImageIcon(resource21);
+		icon22 = new ImageIcon(resource22);
+		icon23 = new ImageIcon(resource23);
+		icon24 = new ImageIcon(resource24);
 
-		b1.setIcon(icon1);
-		b2.setIcon(icon2);
-		b3.setIcon(icon3);
-		b4.setIcon(icon4);
-		b5.setIcon(icon5);
-		b6.setIcon(icon6);
-		b7.setIcon(icon7);
-		b8.setIcon(icon8);
-		b9.setIcon(icon9);
-		b10.setIcon(icon10);
-		b11.setIcon(icon11);
-		b12.setIcon(icon12);
+		b1.setIcon(icon13);
+		b2.setIcon(icon14);
+		b3.setIcon(icon15);
+		b4.setIcon(icon16);
+		b5.setIcon(icon17);
+		b6.setIcon(icon18);
+		b7.setIcon(icon19);
+		b8.setIcon(icon20);
+		b9.setIcon(icon21);
+		b10.setIcon(icon22);
+		b11.setIcon(icon23);
+		b12.setIcon(icon24);
 	}
 
 }
