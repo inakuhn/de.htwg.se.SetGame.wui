@@ -1,7 +1,5 @@
 package de.htwg.se.setgame.modell;
 
-import de.htwg.se.setgame.modell.impl.Card;
-
 public interface ICard {
 
 	/*
@@ -45,6 +43,6 @@ public interface ICard {
 	 * @see setgame.modell.impl.ICard#comparTo(setgame.modell.impl.Card)
 	 */
 
-	boolean comparTo(Card card);
+	boolean comparTo(ICard card);
 
 }
