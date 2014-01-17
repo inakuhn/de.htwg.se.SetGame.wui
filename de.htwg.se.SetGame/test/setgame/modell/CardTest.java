@@ -25,7 +25,7 @@ public class CardTest {
 	}
 	@Test
 	public void testGetFomr() {
-		assert(card.getFomr() != null);
+		assert(card.getForm() != null);
 	}
 
 	@Test
