@@ -1,5 +1,7 @@
 package de.htwg.se.setgame.modell.impl;
 
+import de.htwg.se.setgame.modell.IField;
+
 
 
 
