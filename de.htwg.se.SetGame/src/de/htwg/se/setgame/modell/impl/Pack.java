@@ -14,7 +14,7 @@ public class Pack{
 	/**
 	 * Instance variable
 	 */
-	private Card pack[] = creatCards();
+	private ICard pack[] = creatCards();
 	protected static final String[] FORME = { "ovally", "wave", "balk" };
 	protected static final String[] COLORS = { "red", "green", "purple" };
 	protected static final String[] FILL = { "halffill", "fill", "empty" };
@@ -109,7 +109,7 @@ public class Pack{
 	 */
 	public List<ICard> getPack() {
 		List<ICard> liste = new LinkedList<ICard>();
-		for (Card card : this.pack) {
+		for (ICard card : this.pack) {
 			liste.add(card);
 		}
 		return liste;
