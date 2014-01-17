@@ -89,6 +89,19 @@ public class GameField extends JPanel implements ActionListener {
 	private static URL resource11;
 	private static URL resource12;
 
+	private static URL resource13;
+	private static URL resource14;
+	private static URL resource15;
+	private static URL resource16;
+	private static URL resource17;
+	private static URL resource18;
+	private static URL resource19;
+	private static URL resource20;
+	private static URL resource21;
+	private static URL resource22;
+	private static URL resource23;
+	private static URL resource24;
+	
 	private static Icon icon1;
 	private static Icon icon2;
 	private static Icon icon3;
@@ -450,18 +463,18 @@ public class GameField extends JPanel implements ActionListener {
 	}
 
 	private static void updateGF() {
-		resource1 = ImageIcon.class.getResource(urlListe.get(number1));
-		resource2 = ImageIcon.class.getResource(urlListe.get(number2));
-		resource3 = ImageIcon.class.getResource(urlListe.get(number3));
-		resource4 = ImageIcon.class.getResource(urlListe.get(number4));
-		resource5 = ImageIcon.class.getResource(urlListe.get(number5));
-		resource6 = ImageIcon.class.getResource(urlListe.get(number6));
-		resource7 = ImageIcon.class.getResource(urlListe.get(number7));
-		resource8 = ImageIcon.class.getResource(urlListe.get(number8));
-		resource9 = ImageIcon.class.getResource(urlListe.get(number9));
-		resource10 = ImageIcon.class.getResource(urlListe.get(number10));
-		resource11 = ImageIcon.class.getResource(urlListe.get(number11));
-		resource12 = ImageIcon.class.getResource(urlListe.get(number12));
+		resource13 = ImageIcon.class.getResource(urlListe.get(number1));
+		resource14 = ImageIcon.class.getResource(urlListe.get(number2));
+		resource15 = ImageIcon.class.getResource(urlListe.get(number3));
+		resource16 = ImageIcon.class.getResource(urlListe.get(number4));
+		resource17 = ImageIcon.class.getResource(urlListe.get(number5));
+		resource18 = ImageIcon.class.getResource(urlListe.get(number6));
+		resource19 = ImageIcon.class.getResource(urlListe.get(number7));
+		resource20 = ImageIcon.class.getResource(urlListe.get(number8));
+		resource21 = ImageIcon.class.getResource(urlListe.get(number9));
+		resource22 = ImageIcon.class.getResource(urlListe.get(number10));
+		resource23 = ImageIcon.class.getResource(urlListe.get(number11));
+		resource24 = ImageIcon.class.getResource(urlListe.get(number12));
 
 		icon1 = new ImageIcon(resource1);
 		icon2 = new ImageIcon(resource2);
