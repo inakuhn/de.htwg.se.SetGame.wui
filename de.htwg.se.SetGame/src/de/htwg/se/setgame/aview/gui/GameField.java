@@ -498,15 +498,20 @@ public class GameField extends JPanel implements ActionListener {
 		b12.setIcon(icon24);
 	}
 	
-	public static void saveUrl() {
+	public static int numberGiven() {
 		int help = pack.getPack().size();
-		for (int index = 0; index < help ; index++) {
-			string(pack.getPack().get(index).toString());
+		return help;
+	}
+	
+	public static void saveUrl() {
+		for (int index1 = 0; index1 < numberGiven() ; index1++) {
+			string(index1);
 			cardkey++;
 		}
 	}
 	
-	public static void string(String s) {
+	public static void string(int index1) {
+		String s = pack.getPack().get(index1).toString();
 		saveUrlFor(s);
 	}
 	 
