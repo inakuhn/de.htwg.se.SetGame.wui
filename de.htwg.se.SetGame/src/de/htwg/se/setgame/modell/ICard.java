@@ -7,35 +7,50 @@ public interface ICard {
 	 * 
 	 * @see setgame.modell.impl.ICard#getColor()
 	 */
-	 String getColor();
+	 /**
+	 * @return
+	 */
+	String getColor();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.impl.ICard#getFomr()
 	 */
-	 String getFomr();
+	 /**
+	 * @return
+	 */
+	String getFomr();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.impl.ICard#getPanelFilling()
 	 */
-	 String getPanelFilling();
+	 /**
+	 * @return
+	 */
+	String getPanelFilling();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.impl.ICard#getNumberOfComponents()
 	 */
-	 int getNumberOfComponents();
+	 /**
+	 * @return
+	 */
+	int getNumberOfComponents();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.impl.ICard#toString()
 	 */
-	 String toString();
+	 /**
+	 * @return
+	 */
+	String toString();
 
 	/*
 	 * (non-Javadoc)
@@ -43,6 +58,10 @@ public interface ICard {
 	 * @see setgame.modell.impl.ICard#comparTo(setgame.modell.impl.Card)
 	 */
 
+	/**
+	 * @param card
+	 * @return
+	 */
 	boolean comparTo(ICard card);
 
 }

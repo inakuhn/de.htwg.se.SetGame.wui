@@ -13,6 +13,9 @@ public interface IField {
 	 /**
 	 * 
 	 */
+	/**
+	 * 
+	 */
 	void startUp();
 
 	/*
@@ -22,6 +25,11 @@ public interface IField {
 	 * setgame.modell.Card, setgame.modell.Card)
 	 */
 	 /**
+	 * @param cardOne
+	 * @param cardTwo
+	 * @param cardThree
+	 */
+	/**
 	 * @param cardOne
 	 * @param cardTwo
 	 * @param cardThree
@@ -36,6 +44,9 @@ public interface IField {
 	 /**
 	 * @return
 	 */
+	/**
+	 * @return
+	 */
 	List<ICard> getCardsInField();
 
 	/*
@@ -44,6 +55,9 @@ public interface IField {
 	 * @see setgame.modell.IField#changeCards(java.util.List)
 	 */
 	 /**
+	 * @param liste
+	 */
+	/**
 	 * @param liste
 	 */
 	void changeCards(List<ICard> liste);
@@ -56,6 +70,9 @@ public interface IField {
 	 /**
 	 * @return
 	 */
+	/**
+	 * @return
+	 */
 	List<ICard> getUnusedCards();
 
 	/*
@@ -64,6 +81,9 @@ public interface IField {
 	 * @see setgame.modell.IField#getSizeofField()
 	 */
 	 /**
+	 * @return
+	 */
+	/**
 	 * @return
 	 */
 	int getSizeofField();
@@ -76,6 +96,9 @@ public interface IField {
 	 /**
 	 * @return
 	 */
+	/**
+	 * @return
+	 */
 	List<ICard> getAllCardsInGame();
 
 	/*
@@ -86,13 +109,22 @@ public interface IField {
 	 /**
 	 * @return
 	 */
+	/**
+	 * @return
+	 */
 	Map<Integer, ICard> getCardInFieldGame();
 
 	 /**
 	 * 
 	 */
+	/**
+	 * 
+	 */
 	void clear();
 
+	/**
+	 * @param size
+	 */
 	/**
 	 * @param size
 	 */

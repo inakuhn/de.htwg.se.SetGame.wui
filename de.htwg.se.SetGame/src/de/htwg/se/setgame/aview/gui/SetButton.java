@@ -27,6 +27,9 @@ public class SetButton extends JPanel implements ActionListener {
     private static JTextField player2;
 	
 	
+	/**
+	 * 
+	 */
 	public SetButton() {
 		
 		JPanel panel1 = new JPanel();
@@ -60,6 +63,9 @@ public class SetButton extends JPanel implements ActionListener {
 		
 	}
 
+	/* (non-Javadoc)
+	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		Object source = e.getSource();
@@ -71,6 +77,9 @@ public class SetButton extends JPanel implements ActionListener {
 		
 	}
 	
+	/**
+	 * 
+	 */
 	public void choice() {
 		
 			Object[] options = {"Player1", "Player2"};
@@ -87,6 +96,9 @@ public class SetButton extends JPanel implements ActionListener {
 
 	}
 	
+	/**
+	 * 
+	 */
 	public static void updateSB() {
 		Integer play1 = Integer.valueOf(GUI.getController().geTplayerOnePoints());
 		player1.setText(play1.toString());
