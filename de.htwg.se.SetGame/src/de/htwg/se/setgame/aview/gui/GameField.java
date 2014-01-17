@@ -155,7 +155,7 @@ public class GameField extends JPanel implements ActionListener {
 			cardToPicture.put(index1, test.get(index1));
 		}
 
-		SAVE_URL();
+		saveUrl();
 
 		cardkey = ZERO;
 
@@ -448,7 +448,7 @@ public class GameField extends JPanel implements ActionListener {
 		urlListe.clear();
 		saveList.clear();
 
-		SAVE_URL();
+		saveUrl();
 
 		cardkey = ZERO;
 
@@ -498,17 +498,17 @@ public class GameField extends JPanel implements ActionListener {
 		b12.setIcon(icon24);
 	}
 	
-	public static void SAVE_URL() {
+	public static void saveUrl() {
 		for (Card card : pack.getPack()) {
-			SAVE_URL_FOR(card);
+			saveUrlFor(card.toString());
 			cardkey++;
 		}
 	}
 	
-	public static void SAVE_URL_FOR(Card card) {
+	public static void saveUrlFor(String card) {
 		for (Card key : GUI.getController().getField().getCardInFieldGame()
 				.values()) {
-			if (card.comparTo(key)) {
+			if (card.equals(key.toString())) {
 				urlListe.add(cardToPicture.get(cardkey));
 				saveList.add(key);
 			}
