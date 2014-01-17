@@ -239,9 +239,11 @@ public class GameField extends JPanel implements ActionListener {
 	}
 	
 	public void resetPanel() {
-		JOptionPane.showMessageDialog(null, "Only THREE cards "
-				+ "addicted a SET :)", "Warning", JOptionPane.OK_OPTION);
-		reset();
+		if(index == FOUR) {
+			JOptionPane.showMessageDialog(null, "Only THREE cards "
+					+ "addicted a SET :)", "Warning", JOptionPane.OK_OPTION);
+			reset();
+		}
 	}
 	
 	public void actionStart1(Object source) {
