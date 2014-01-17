@@ -3,8 +3,6 @@ package de.htwg.se.setgame.modell;
 import java.util.List;
 import java.util.Map;
 
-import de.htwg.se.setgame.modell.impl.Card;
-
 public interface IField {
 
 	/*
@@ -20,28 +18,28 @@ public interface IField {
 	 * @see setgame.modell.IField#foundSet(setgame.modell.Card,
 	 * setgame.modell.Card, setgame.modell.Card)
 	 */
-	 void foundSet(Card cardOne, Card cardTwo, Card cardThree);
+	 void foundSet(ICard cardOne, ICard cardTwo, ICard cardThree);
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getCardsInField()
 	 */
-	 List<Card> getCardsInField();
+	 List<ICard> getCardsInField();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#changeCards(java.util.List)
 	 */
-	 void changeCards(List<Card> liste);
+	 void changeCards(List<ICard> liste);
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getUnusedCards()
 	 */
-	 List<Card> getUnusedCards();
+	 List<ICard> getUnusedCards();
 
 	/*
 	 * (non-Javadoc)
@@ -55,14 +53,14 @@ public interface IField {
 	 * 
 	 * @see setgame.modell.IField#getAllCardsInGame()
 	 */
-	 List<Card> getAllCardsInGame();
+	 List<ICard> getAllCardsInGame();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getCardInFieldGame()
 	 */
-	 Map<Integer, Card> getCardInFieldGame();
+	 Map<Integer, ICard> getCardInFieldGame();
 
 	 void clear();
 

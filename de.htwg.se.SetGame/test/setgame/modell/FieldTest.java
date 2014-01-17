@@ -9,7 +9,7 @@ import java.util.TreeSet;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.impl.Field;
 
 public class FieldTest {
@@ -58,7 +58,7 @@ public class FieldTest {
 
 	@Test
 	public void testFoundSet() {
-		LinkedList<Card> liste = new LinkedList<Card>();
+		LinkedList<ICard> liste = new LinkedList<ICard>();
 		liste.addAll(field.getAllCardsInGame());
 		for (int index = 0; index < (liste.size()-2); index++) {
 			this.field.foundSet(liste.get(index),
@@ -79,7 +79,7 @@ public class FieldTest {
 
 	@Test
 	public void testSetSizeOfField() {
-		LinkedList<Card> list = new LinkedList<Card>();
+		LinkedList<ICard> list = new LinkedList<ICard>();
 		list.add(this.field.getCardsInField().get(0));
 		list.add(this.field.getCardInFieldGame().get(1));
 		list.add(this.field.getCardInFieldGame().get(2));
@@ -95,7 +95,7 @@ public class FieldTest {
  
 	@Test
 	public void testChangeCards() {
-		List<Card> liste =  new LinkedList<Card>(); 
+		List<ICard> liste =  new LinkedList<ICard>(); 
 		
 		liste.add(this.field.getCardInFieldGame().get(0));
 		liste.add(this.field.getUnusedCards().get(0));

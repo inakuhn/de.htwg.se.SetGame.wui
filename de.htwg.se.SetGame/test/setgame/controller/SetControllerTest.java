@@ -7,16 +7,16 @@ import org.junit.Before;
 import org.junit.Test;
 
 import de.htwg.se.setgame.controller.impl.SetController;
-import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.ICard;
 
 public class SetControllerTest {
 	SetController setcontroll;
-	LinkedList<Card> aSetListe;
+	LinkedList<ICard> aSetListe;
 
 	@Before
 	public void setUp() {
 		this.setcontroll = new SetController();
-		this.aSetListe = new LinkedList<Card>();
+		this.aSetListe = new LinkedList<ICard>();
 		aSetListe.addAll(this.setcontroll.getSetInField());
 	}
 

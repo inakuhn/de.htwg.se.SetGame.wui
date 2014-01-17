@@ -3,7 +3,7 @@ package de.htwg.se.setgame.controller;
 import java.util.List;
 import java.util.Map;
 
-import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.impl.Field;
 import de.htwg.se.setgame.util.observer.IObservable;
 
@@ -15,10 +15,10 @@ public interface IController extends IObservable {
 	 * @see setgame.controller.IController#isAset(setgame.modell.impl.Card,
 	 * setgame.modell.impl.Card, setgame.modell.impl.Card, int)
 	 */
-	void isAsetForController(Card cardOne, Card cardTwo, Card cardThree,
+	void isAsetForController(ICard cardOne, ICard cardTwo, ICard cardThree,
 			int player);
 
-	List<Card> getCardinGame();
+	List<ICard> getCardinGame();
 
 	/*
 	 * (non-Javadoc)
@@ -30,11 +30,11 @@ public interface IController extends IObservable {
 
 	boolean areSetInField();
 
-	List<Card> getAsetInGame();
+	List<ICard> getAsetInGame();
 
 	boolean stillSetInGAme();
 
-	List<Card> getSetInField();
+	List<ICard> getSetInField();
 
 	int geTplayerOnePoints();
 
@@ -48,8 +48,8 @@ public interface IController extends IObservable {
 
 	void setFieldSize(int size);
 
-	List<Card> getCardInFieldGame();
+	List<ICard> getCardInFieldGame();
 
-	Map<Integer, Card> getCardsAndTheIndexOfFIeld();
+	Map<Integer, ICard> getCardsAndTheIndexOfFIeld();
 
 }

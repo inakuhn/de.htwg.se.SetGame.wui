@@ -16,7 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.impl.Pack;
 
 public class GameField extends JPanel implements ActionListener {
@@ -130,10 +130,10 @@ public class GameField extends JPanel implements ActionListener {
 
 	private static JPanel panel1 = new JPanel();
 
-	private static Card[] card = new Card[FIVE];
+	private static ICard[] card = new ICard[FIVE];
 	private static Pack pack;
 	private static Map<Integer, String> cardToPicture;
-	private static List<Card> saveList;
+	private static List<ICard> saveList;
 	private static List<String> urlListe;
 	private static List<String> test;
 
@@ -142,7 +142,7 @@ public class GameField extends JPanel implements ActionListener {
 	public GameField() {
 
 		cardToPicture = new TreeMap<Integer, String>();
-		saveList = new LinkedList<Card>();
+		saveList = new LinkedList<ICard>();
 		urlListe = new LinkedList<String>();
 		test = new LinkedList<String>();
 
@@ -413,16 +413,16 @@ public class GameField extends JPanel implements ActionListener {
 				"Warning", JOptionPane.OK_OPTION);
 	}
 
-	public static Card getCardforSetOne() {
+	public static ICard getCardforSetOne() {
 		reset();
 		return card[ONE];
 	}
 
-	public static Card getCardforSetTwo() {
+	public static ICard getCardforSetTwo() {
 		return card[TWO];
 	}
 
-	public static Card getCardforSetThree() {
+	public static ICard getCardforSetThree() {
 		return card[THREE];
 	}
 
@@ -515,7 +515,7 @@ public class GameField extends JPanel implements ActionListener {
 	}
 	 
 	public static void saveUrlFor(String card) {
-		for (Card key : GUI.getController().getField().getCardInFieldGame()
+		for (ICard key : GUI.getController().getField().getCardInFieldGame()
 				.values()) {
 			if (card.equals(key.toString())) {
 				urlListe.add(cardToPicture.get(cardkey));

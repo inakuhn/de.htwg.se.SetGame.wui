@@ -8,6 +8,7 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import de.htwg.se.setgame.modell.AField;
+import de.htwg.se.setgame.modell.ICard;
 
 /**
  * Class Field.
@@ -25,19 +26,19 @@ public class Field extends AField {
 	private Set<Integer> listeofcontains;
 	private Map<Integer, Integer> ramdomListe;
 	private static final int LEGHTFORSTRING = Pack.FILL[0].length();
-	private Map<Integer, Card> cardInFieldGame;
+	private Map<Integer, ICard> cardInFieldGame;
 	/** 
 	 * pack for the game are the cards and the random positions
 	 */
-	private List<Card> packForGame;
+	private List<ICard> packForGame;
 	/**
 	 * startup of the objects
 	 */
 	public Field() {
 		this.sizeOfField = INITIALVALUEOFFIELD;
-		this.cardInFieldGame = new TreeMap<Integer, Card>();
+		this.cardInFieldGame = new TreeMap<Integer, ICard>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
-		this.packForGame = new LinkedList<Card>();
+		this.packForGame = new LinkedList<ICard>();
 		this.listeofcontains = new TreeSet<Integer>();
 	}
 
@@ -48,11 +49,11 @@ public class Field extends AField {
 	 */
 	@Override
 	public void startUp() {
-		Map<Integer, Card> packForThegame = new TreeMap<Integer, Card>();
+		Map<Integer, ICard> packForThegame = new TreeMap<Integer, ICard>();
 		rand();
 		Pack pack = new Pack();
 		int i = 0;
-		for (Card card : pack.getPack()) {
+		for (ICard card : pack.getPack()) {
 			packForThegame.put(this.getRamdomListe().get(i), card);
 			i++;
 		}
@@ -110,7 +111,7 @@ public class Field extends AField {
 	 * setgame.modell.Card, setgame.modell.Card)
 	 */
 	@Override
-	public void foundSet(Card cardOne, Card cardTwo, Card cardThree) {
+	public void foundSet(ICard cardOne, ICard cardTwo, ICard cardThree) {
 
 		TreeSet<Integer> keyOfcardInField = new TreeSet<Integer>();
 		for (Integer key : this.getCardInFieldGame().keySet()) {
@@ -130,7 +131,7 @@ public class Field extends AField {
 	}
 
 	private void fillField() {
-		LinkedList<Card> listCardarenoteinfieldCards = new LinkedList<Card>();
+		LinkedList<ICard> listCardarenoteinfieldCards = new LinkedList<ICard>();
 		listCardarenoteinfieldCards.addAll(getUnusedCards());
 
 		for (int index = 0; index < sizeOfField; index++) {
@@ -160,8 +161,8 @@ public class Field extends AField {
 	 * @see setgame.modell.IField#getCardsInField()
 	 */
 	@Override
-	public List<Card> getCardsInField() {
-		List<Card> liste = new LinkedList<Card>();
+	public List<ICard> getCardsInField() {
+		List<ICard> liste = new LinkedList<ICard>();
 		liste.addAll(this.getCardInFieldGame().values());
 		return liste;
 
@@ -186,7 +187,7 @@ public class Field extends AField {
 			}
 			sizeOfField = size;
 		} else if (size > sizeOfField) {
-			LinkedList<Card> list = new LinkedList<Card>();
+			LinkedList<ICard> list = new LinkedList<ICard>();
 			list.addAll(getUnusedCards());
 
 			for (int key = 0; key < size; key++) {
@@ -207,8 +208,8 @@ public class Field extends AField {
 	 * @see setgame.modell.IField#changeCards(java.util.List)
 	 */
 	@Override
-	public void changeCards(List<Card> liste) {
-		LinkedList<Card> tmpList = new LinkedList<Card>();
+	public void changeCards(List<ICard> liste) {
+		LinkedList<ICard> tmpList = new LinkedList<ICard>();
 		tmpList.addAll(liste);
 		if (this.getCardInFieldGame().size() < tmpList.size()) {
 			sizeOfField = tmpList.size();
@@ -243,8 +244,8 @@ public class Field extends AField {
 	 * @see setgame.modell.IField#getUnusedCards()
 	 */
 	@Override
-	public List<Card> getUnusedCards() {
-		LinkedList<Card> list = new LinkedList<Card>();
+	public List<ICard> getUnusedCards() {
+		LinkedList<ICard> list = new LinkedList<ICard>();
 		list.addAll(this.packForGame);
 		list.removeAll(this.getCardInFieldGame().values());
 		return list;
@@ -266,7 +267,7 @@ public class Field extends AField {
 	 * @see setgame.modell.IField#getAllCardsInGame()
 	 */
 	@Override
-	public List<Card> getAllCardsInGame() {
+	public List<ICard> getAllCardsInGame() {
 		return this.packForGame;
 	}
 
@@ -283,7 +284,7 @@ public class Field extends AField {
 	 * @see setgame.modell.IField#getCardInFieldGame()
 	 */
 	@Override
-	public Map<Integer, Card> getCardInFieldGame() {
+	public Map<Integer, ICard> getCardInFieldGame() {
 		return cardInFieldGame;
 	}
 
@@ -464,4 +465,6 @@ public class Field extends AField {
 		}
 		return field.toString();
 	}
+
+
 }

@@ -10,7 +10,6 @@ import com.google.inject.Inject;
 import de.htwg.se.setgame.controller.IController;
 import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.IField;
-import de.htwg.se.setgame.modell.impl.Card;
 import de.htwg.se.setgame.modell.impl.Field;
 import de.htwg.se.setgame.util.observer.Observable;
 
@@ -55,7 +54,7 @@ public class SetController extends Observable implements IController {
 	}
 
 	private void checkIfIsASeTInGame() {
-		List<Card> liste = new LinkedList<Card>();
+		List<ICard> liste = new LinkedList<ICard>();
 		liste.addAll(getSet(this.field.getAllCardsInGame()));
 		if(liste.size() < NUMBEROFSETCARDS){
 			int i = 0;
@@ -83,9 +82,9 @@ public class SetController extends Observable implements IController {
 	 * @param cardThree
 	 * @return true if all the cards are in the field is only a safety Method
 	 */
-	private boolean isInFiel(Card cardOne, Card cardTwo, Card cardThree) {
+	private boolean isInFiel(ICard cardOne, ICard cardTwo, ICard cardThree) {
 		this.counter = 0;
-		for (Card card : field.getCardsInField()) {
+		for (ICard card : field.getCardsInField()) {
 			if (card.comparTo(cardOne) || card.comparTo(cardTwo)
 					|| card.comparTo(cardThree)) {
 				counter++;
@@ -104,7 +103,7 @@ public class SetController extends Observable implements IController {
 	 * @param cardThree
 	 * @return return true if is a set.
 	 */
-	private boolean isAset(Card cardOne, Card cardTwo, Card cardThree) {
+	private boolean isAset(ICard cardOne, ICard cardTwo, ICard cardThree) {
 
 		if (!isInFiel(cardOne, cardTwo, cardThree)) {
 			return false;
@@ -126,7 +125,7 @@ public class SetController extends Observable implements IController {
 	 * @param list
 	 *            is the Cards in field the new ones if there is no set anymore.
 	 */
-	private boolean alltheSetsInField(List<Card> list) {
+	private boolean alltheSetsInField(List<ICard> list) {
 		if (!getSet(list).isEmpty()) {
 			return true;
 		}
@@ -149,7 +148,7 @@ public class SetController extends Observable implements IController {
 	 * changed the Cards in the field if necessary. to
 	 */
 	private boolean changeCardsinGame() {
-		List<Card> allCards = new LinkedList<Card>();
+		List<ICard> allCards = new LinkedList<ICard>();
 		allCards.addAll(field.getAllCardsInGame());
 		if (!allCards.isEmpty() && !getSet(allCards).isEmpty()) {
 			field.changeCards(getSet(allCards));
@@ -204,7 +203,7 @@ public class SetController extends Observable implements IController {
 		return false;
 	}
 
-	private boolean proveIfIsASet(Card cardOne, Card cardTwo, Card cardThree) {
+	private boolean proveIfIsASet(ICard cardOne, ICard cardTwo, ICard cardThree) {
 		if (proveColor(cardOne, cardTwo, cardThree)
 				&& proveFilling(cardOne, cardTwo, cardThree)
 				&& proveNumberOfComponents(cardOne, cardTwo, cardThree)
@@ -215,14 +214,14 @@ public class SetController extends Observable implements IController {
 
 	}
 
-	private List<Card> getSet(List<Card> list) {
-		LinkedList<Card> setList = new LinkedList<Card>();
+	private List<ICard> getSet(List<ICard> list) {
+		LinkedList<ICard> setList = new LinkedList<ICard>();
 		if (list.size() >= NUMBEROFSETCARDS) {
 
-			for (Card cardOne : list) {
-				for (Card cardTwo : list) {
+			for (ICard cardOne : list) {
+				for (ICard cardTwo : list) {
 					if (!cardOne.equals(cardTwo)) {
-						for (Card cardThree : list) {
+						for (ICard cardThree : list) {
 
 							if (proveIfIsASet(cardOne, cardTwo, cardThree)
 									&& !cardThree.equals(cardOne)
@@ -247,7 +246,7 @@ public class SetController extends Observable implements IController {
 	 * @see setgame.controller.impl.ISuperController#getCardinGame()
 	 */
 	@Override
-	public List<Card> getCardinGame() {
+	public List<ICard> getCardinGame() {
 		return this.field.getAllCardsInGame();
 	}
 
@@ -264,7 +263,7 @@ public class SetController extends Observable implements IController {
 	 */
 	@Override
 	public boolean areSetInField() {
-		LinkedList<Card> liste = new LinkedList<Card>();
+		LinkedList<ICard> liste = new LinkedList<ICard>();
 		liste.addAll(getSet(this.field.getCardsInField()));
 		if (liste.isEmpty()) {
 			return changeCardsinGame();
@@ -277,8 +276,8 @@ public class SetController extends Observable implements IController {
 	 * @see setgame.controller.impl.ISuperController#isAsetForController(setgame.modell.impl.Card, setgame.modell.impl.Card, setgame.modell.impl.Card, int)
 	 */
 	@Override
-	public void isAsetForController(Card cardOne, Card cardTwo,
-			Card cardThree, int player) {
+	public void isAsetForController(ICard cardOne, ICard cardTwo,
+			ICard cardThree, int player) {
 		if (isAset(cardOne, cardTwo, cardThree)) {
 			if (this.playerOne == player) {
 				this.playerOneCounter = this.playerOneCounter + 1;
@@ -295,7 +294,7 @@ public class SetController extends Observable implements IController {
 	 * @see setgame.controller.impl.ISuperController#getAsetInGame()
 	 */
 	@Override
-	public List<Card> getAsetInGame(){
+	public List<ICard> getAsetInGame(){
 		return getSet(this.field.getCardsInField());
 	}
 	/* (non-Javadoc)
@@ -303,7 +302,7 @@ public class SetController extends Observable implements IController {
 	 */
 	@Override
 	public boolean stillSetInGAme() {
-		LinkedList<Card> liste = new LinkedList<Card>();
+		LinkedList<ICard> liste = new LinkedList<ICard>();
 		liste.addAll(getSet(this.field.getAllCardsInGame()));
 		if(liste.isEmpty()){
 			return false;
@@ -314,7 +313,7 @@ public class SetController extends Observable implements IController {
 	 * @see setgame.controller.impl.ISuperController#getSetInField()
 	 */
 	@Override
-	public List<Card> getSetInField(){
+	public List<ICard> getSetInField(){
 		return getSet(this.field.getCardsInField());
 		
 	}
@@ -347,11 +346,11 @@ public class SetController extends Observable implements IController {
 		return this.playerTwo;
 	}
 	@Override
-	public List<Card> getCardInFieldGame() {
+	public List<ICard> getCardInFieldGame() {
 		return this.field.getCardsInField();
 	}
 	@Override
-	public Map<Integer, Card> getCardsAndTheIndexOfFIeld() {
+	public Map<Integer, ICard> getCardsAndTheIndexOfFIeld() {
 		return this.field.getCardInFieldGame();
 	}
 

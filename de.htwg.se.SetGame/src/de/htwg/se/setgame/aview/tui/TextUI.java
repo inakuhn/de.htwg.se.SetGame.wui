@@ -5,7 +5,7 @@ import org.apache.log4j.Logger;
 import com.google.inject.Inject;
 
 import de.htwg.se.setgame.controller.IController;
-import de.htwg.se.setgame.modell.impl.Card;
+import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.util.observer.Event;
 import de.htwg.se.setgame.util.observer.IObserver;
 
@@ -182,7 +182,7 @@ public class TextUI implements IObserver {
 	}
 
 	private void soulution() {
-		for (Card card : controller.getSetInField()) {
+		for (ICard card : controller.getSetInField()) {
 			for (Integer key : controller.getCardsAndTheIndexOfFIeld().keySet()) {
 				if (controller.getCardsAndTheIndexOfFIeld().get(key)
 						.comparTo(card)) {

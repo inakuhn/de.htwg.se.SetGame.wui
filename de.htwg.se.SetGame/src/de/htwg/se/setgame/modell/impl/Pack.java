@@ -3,6 +3,8 @@ package de.htwg.se.setgame.modell.impl;
 import java.util.LinkedList;
 import java.util.List;
 
+import de.htwg.se.setgame.modell.ICard;
+
 /**
  * @author David Simon & Raina Bertolini class use to create all the
  *         combinations of the pack
@@ -105,8 +107,8 @@ public class Pack{
 	/**
 	 * @return pack of cards
 	 */
-	public List<Card> getPack() {
-		List<Card> liste = new LinkedList<Card>();
+	public List<ICard> getPack() {
+		List<ICard> liste = new LinkedList<ICard>();
 		for (Card card : this.pack) {
 			liste.add(card);
 		}
