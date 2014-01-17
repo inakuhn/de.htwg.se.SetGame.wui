@@ -2,65 +2,37 @@ package de.htwg.se.setgame.modell;
 
 public interface ICard {
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.impl.ICard#getColor()
-	 */
 	 /**
-	 * @return
+	 * @return colors
 	 */
 	String getColor();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.impl.ICard#getFomr()
-	 */
-	 /**
-	 * @return
-	 */
-	String getFomr();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.impl.ICard#getPanelFilling()
-	 */
 	 /**
-	 * @return
+	 * @return form
+	 */
+	String getForm();
+
+
+	 /**
+	 * @return filling
 	 */
 	String getPanelFilling();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.impl.ICard#getNumberOfComponents()
-	 */
 	 /**
-	 * @return
+	 * @return number of components
 	 */
 	int getNumberOfComponents();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.impl.ICard#toString()
-	 */
 	 /**
-	 * @return
+	 * @return srintg methode
 	 */
 	String toString();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.impl.ICard#comparTo(setgame.modell.impl.Card)
-	 */
 
 	/**
-	 * @param card
-	 * @return
+	 * @param card 
+	 * @return true if card is the same
 	 */
 	boolean comparTo(ICard card);
 

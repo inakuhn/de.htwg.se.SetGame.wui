@@ -10,12 +10,6 @@ public interface IField {
 	 * 
 	 * @see setgame.modell.IField#startUp()
 	 */
-	 /**
-	 * 
-	 */
-	/**
-	 * 
-	 */
 	void startUp();
 
 	/*
@@ -25,108 +19,48 @@ public interface IField {
 	 * setgame.modell.Card, setgame.modell.Card)
 	 */
 	 /**
-	 * @param cardOne
-	 * @param cardTwo
-	 * @param cardThree
-	 */
-	/**
-	 * @param cardOne
-	 * @param cardTwo
-	 * @param cardThree
+	 * @param cardOne card set
+	 * @param cardTwo card set
+	 * @param cardThree card set
 	 */
 	void foundSet(ICard cardOne, ICard cardTwo, ICard cardThree);
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.IField#getCardsInField()
-	 */
-	 /**
-	 * @return
-	 */
 	/**
-	 * @return
+	 * @return cardsInField
 	 */
 	List<ICard> getCardsInField();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.IField#changeCards(java.util.List)
-	 */
-	 /**
-	 * @param liste
-	 */
 	/**
-	 * @param liste
+	 * @param liste change cards in field
 	 */
 	void changeCards(List<ICard> liste);
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.IField#getUnusedCards()
-	 */
-	 /**
-	 * @return
-	 */
 	/**
-	 * @return
+	 * @return get unused cards
 	 */
 	List<ICard> getUnusedCards();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.IField#getSizeofField()
-	 */
-	 /**
-	 * @return
-	 */
 	/**
-	 * @return
+	 * @return size of field
 	 */
 	int getSizeofField();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.IField#getAllCardsInGame()
-	 */
-	 /**
-	 * @return
-	 */
 	/**
-	 * @return
+	 * @return all Cards in game
 	 */
 	List<ICard> getAllCardsInGame();
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.modell.IField#getCardInFieldGame()
-	 */
-	 /**
-	 * @return
-	 */
 	/**
-	 * @return
+	 * @return index and cards in game
 	 */
 	Map<Integer, ICard> getCardInFieldGame();
 
-	 /**
-	 * 
-	 */
 	/**
-	 * 
+	 *  reset everything
 	 */
 	void clear();
 
 	/**
-	 * @param size
-	 */
-	/**
-	 * @param size
+	 * @param size set size of field
 	 */
 	void setSizeOfField(int size);
 

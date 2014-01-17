@@ -386,14 +386,14 @@ public class Field extends AField {
 		for (Integer key : cardInFieldGame.keySet()) {
 			if (!listeofcontains.contains(key)) {
 				int fehlt = LEGHTFORSTRING
-						- cardInFieldGame.get(key).getFomr().toCharArray().length;
+						- cardInFieldGame.get(key).getForm().toCharArray().length;
 				int me = fehlt / 2;
 				fehlt = fehlt - me;
 				field.append("|");
 				for (int loop = 0; loop < me; loop++) {
 					field.append(" ");
 				}
-				field.append(cardInFieldGame.get(key).getFomr());
+				field.append(cardInFieldGame.get(key).getForm());
 				for (int loop = 0; loop < fehlt; loop++) {
 					field.append(" ");
 				}

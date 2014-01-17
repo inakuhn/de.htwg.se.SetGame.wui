@@ -24,88 +24,82 @@ public interface IController extends IObservable {
 	 * setgame.modell.impl.Card, setgame.modell.impl.Card, int)
 	 */
 	/**
-	 * @param cardOne
-	 * @param cardTwo
-	 * @param cardThree
-	 * @param player
+	 * @param cardOne card for set
+	 * @param cardTwo card for set
+	 * @param cardThree card for set
+	 * @param player wich player is
 	 */
 	void isAsetForController(ICard cardOne, ICard cardTwo, ICard cardThree,
 			int player);
 
 	/**
-	 * @return
+	 * @return card in game
 	 */
 	List<ICard> getCardinGame();
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see setgame.controller.impl.IController#spielModus()
-	 */
-
 	/**
-	 * @return
+	 * @return field
 	 */
 	Field getField();
 
 	/**
-	 * @return
+	 * @return true is is a set
 	 */
 	boolean areSetInField();
 
 	/**
-	 * @return
+	 * @return return a set
 	 */
 	List<ICard> getAsetInGame();
 
 	/**
-	 * @return
+	 * @return look trougth the pack and see if still a set
 	 */
 	boolean stillSetInGAme();
 
 	/**
-	 * @return
+	 * @return return the set in field
 	 */
 	List<ICard> getSetInField();
 
 	/**
-	 * @return
+	 * @return points player one
 	 */
 	int geTplayerOnePoints();
 
 	/**
-	 * @return
+	 * @return points player two
 	 */
 	int geTplayerTwoPoints();
 
 	/**
-	 * @return
+	 * @return player one
 	 */
 	int getPlayerOne();
 
 	/**
-	 * @return
+	 * @return player two
 	 */
 	int getPlayerTwo();
 
 	/**
-	 * 
+	 * 	reset game
 	 */
 	void newGame();
 
 	/**
-	 * @param size
+	 * @param size set size field
 	 */
 	void setFieldSize(int size);
 
 	/**
-	 * @return
+	 * @return cards in field
 	 */
 	List<ICard> getCardInFieldGame();
 
 	/**
-	 * @return
+	 * @return index and card in the index
 	 */
-	Map<Integer, ICard> getCardsAndTheIndexOfFIeld();
+	Map<Integer, ICard> getCardsAndTheIndexOfCardInField();
 
 }

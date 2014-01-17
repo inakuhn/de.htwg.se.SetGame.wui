@@ -60,7 +60,7 @@ public class Card extends ACard {
 	 * @see setgame.modell.impl.ICard#getFomr()
 	 */
 	@Override
-	public String getFomr() {
+	public String getForm() {
 		return form;
 	}
 
@@ -164,7 +164,7 @@ public class Card extends ACard {
 	public boolean comparTo(ICard card) {
 
 		if (this.color.equals(card.getColor()) && this.anz == card.getNumberOfComponents()
-				&& this.form.equals(card.getFomr())
+				&& this.form.equals(card.getForm())
 				&& this.panelFilling.equals(card.getPanelFilling())) {
 			return true;
 		}

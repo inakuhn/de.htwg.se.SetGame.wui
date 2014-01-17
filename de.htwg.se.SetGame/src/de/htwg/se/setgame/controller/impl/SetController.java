@@ -186,8 +186,8 @@ public class SetController extends Observable implements IController {
 	}
 
 	private boolean proveForm(ICard cardOne, ICard cardTwo, ICard cardThree) {
-		return proveString(cardOne.getFomr(), cardTwo.getFomr(),
-				cardThree.getFomr());
+		return proveString(cardOne.getForm(), cardTwo.getForm(),
+				cardThree.getForm());
 	}
 
 	private boolean proveString(String stringOne, String stringTwo,
@@ -350,7 +350,7 @@ public class SetController extends Observable implements IController {
 		return this.field.getCardsInField();
 	}
 	@Override
-	public Map<Integer, ICard> getCardsAndTheIndexOfFIeld() {
+	public Map<Integer, ICard> getCardsAndTheIndexOfCardInField() {
 		return this.field.getCardInFieldGame();
 	}
 
