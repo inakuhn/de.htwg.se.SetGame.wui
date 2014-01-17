@@ -23,7 +23,7 @@ public class Field extends AField {
 	private Map<Integer, Integer> ramdomListe;
 	private static final int LEGHTFORSTRING = Pack.FILL[0].length();
 	private Map<Integer, Card> cardInFieldGame;
-	/**
+	/** 
 	 * pack for the game are the cards and the random positions
 	 */
 	private List<Card> packForGame;
