@@ -499,8 +499,7 @@ public class GameField extends JPanel implements ActionListener {
 	}
 	
 	public static int numberGiven() {
-		int help = pack.getPack().size();
-		return help;
+		return pack.getPack().size();
 	}
 	
 	public static void saveUrl() {
