@@ -14,8 +14,6 @@ public class GUI extends JFrame implements IObserver {
 
 	private static final long serialVersionUID = 1L;
 	private static IController controller;
-	private JPanel mainPanel;
-	private JPanel miniPanel;
 	private static final int CELLSIZE = 10;
 
 	private SetButton setbutton;
@@ -28,8 +26,8 @@ public class GUI extends JFrame implements IObserver {
 
 		this.setJMenuBar(new MenuBar());
 
-		this.mainPanel = new JPanel();
-		this.miniPanel = new JPanel();
+		JPanel mainPanel = new JPanel();
+		JPanel miniPanel = new JPanel();
 		
 		
 		mainPanel.setLayout(new GridLayout(2,1));

@@ -12,7 +12,7 @@ public class Pack{
 	/**
 	 * Instance variable
 	 */
-	private Card pack[];
+	private Card pack[] = creatCards();
 	protected static final String[] FORME = { "ovally", "wave", "balk" };
 	protected static final String[] COLORS = { "red", "green", "purple" };
 	protected static final String[] FILL = { "halffill", "fill", "empty" };
@@ -29,7 +29,6 @@ public class Pack{
 	 */
 
 	public Pack() {
-		this.pack = creatCards();
 
 	}
 

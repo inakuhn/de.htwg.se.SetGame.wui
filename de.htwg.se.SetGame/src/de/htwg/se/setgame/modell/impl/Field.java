@@ -3,6 +3,7 @@ package de.htwg.se.setgame.modell.impl;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -21,7 +22,7 @@ public class Field extends AAField {
 	private static final int MAX = 81;
 	private static final int ONE = 1;
 	private static final int NUMBERFORONELINE = 3;
-	private TreeSet<Integer> listeofcontains;
+	private Set<Integer> listeofcontains;
 	private Map<Integer, Integer> ramdomListe;
 	private static final int LEGHTFORSTRING = Pack.FILL[0].length();
 	private Map<Integer, Card> cardInFieldGame;
