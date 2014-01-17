@@ -501,10 +501,13 @@ public class GameField extends JPanel implements ActionListener {
 	public static void saveUrl() {
 		int help = pack.getPack().size();
 		for (int index = 0; index < help ; index++) {
-			String s = pack.getPack().get(index).toString();
-			saveUrlFor(s);
+			string(pack.getPack().get(index).toString());
 			cardkey++;
 		}
+	}
+	
+	public static void string(String s) {
+		saveUrlFor(s);
 	}
 	 
 	public static void saveUrlFor(String card) {
