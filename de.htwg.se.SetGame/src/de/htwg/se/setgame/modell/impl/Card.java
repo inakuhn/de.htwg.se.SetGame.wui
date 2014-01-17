@@ -15,11 +15,7 @@ public class Card extends ACard {
 	 */
 	public Card(String color, String form, String panelFilling,
 			int anzahl) {
-		this.setColor(color);
-		this.setFomr(form);
-		this.setPanelFilling(panelFilling);
-		this.setNumberOfComponents(anzahl);
-
+		super();
 	}
 
 	/* (non-Javadoc)
@@ -58,12 +54,13 @@ public class Card extends ACard {
 	 * @throws IllegalArgumentException
 	 *             if the form is not allowed
 	 */
-	private void setFomr(String fomr) {
+	@Override
+	public void setForm(String fomr) {
 		if (fomr.equals(Pack.FORME[2]) || fomr.equals(Pack.FORME[0])
 				|| fomr.equals(Pack.FORME[1])) {
-			this.setForm(fomr);
+			super.setForm(getForm());
 		}else{
-			this.setForm(null);
+			super.setForm(null);
 		}
 	}
 
@@ -99,21 +96,6 @@ public class Card extends ACard {
 		return super.getAnz();
 	}
 
-	/**
-	 * @param numberOfComponents
-	 * @throws IllegalArgumentException
-	 *             if numberOfComponents is not allowed
-	 */
-	private void setNumberOfComponents(int numberOfComponents) {
-		if (numberOfComponents == Pack.NUMBEROFCOMPONET[0]
-				|| numberOfComponents == Pack.NUMBEROFCOMPONET[1]
-				|| numberOfComponents == Pack.NUMBEROFCOMPONET[2]) {
-			this.setAnz(numberOfComponents);
-
-		}else{
-			this.setAnz(-1);
-		}
-	}
 	/* (non-Javadoc)
 	 * @see setgame.modell.impl.ICard#toString()
 	 */
