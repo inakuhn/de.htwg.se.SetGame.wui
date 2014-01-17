@@ -10,7 +10,10 @@ public interface IField {
 	 * 
 	 * @see setgame.modell.IField#startUp()
 	 */
-	 void startUp();
+	 /**
+	 * 
+	 */
+	void startUp();
 
 	/*
 	 * (non-Javadoc)
@@ -18,52 +21,81 @@ public interface IField {
 	 * @see setgame.modell.IField#foundSet(setgame.modell.Card,
 	 * setgame.modell.Card, setgame.modell.Card)
 	 */
-	 void foundSet(ICard cardOne, ICard cardTwo, ICard cardThree);
+	 /**
+	 * @param cardOne
+	 * @param cardTwo
+	 * @param cardThree
+	 */
+	void foundSet(ICard cardOne, ICard cardTwo, ICard cardThree);
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getCardsInField()
 	 */
-	 List<ICard> getCardsInField();
+	 /**
+	 * @return
+	 */
+	List<ICard> getCardsInField();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#changeCards(java.util.List)
 	 */
-	 void changeCards(List<ICard> liste);
+	 /**
+	 * @param liste
+	 */
+	void changeCards(List<ICard> liste);
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getUnusedCards()
 	 */
-	 List<ICard> getUnusedCards();
+	 /**
+	 * @return
+	 */
+	List<ICard> getUnusedCards();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getSizeofField()
 	 */
-	 int getSizeofField();
+	 /**
+	 * @return
+	 */
+	int getSizeofField();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getAllCardsInGame()
 	 */
-	 List<ICard> getAllCardsInGame();
+	 /**
+	 * @return
+	 */
+	List<ICard> getAllCardsInGame();
 
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see setgame.modell.IField#getCardInFieldGame()
 	 */
-	 Map<Integer, ICard> getCardInFieldGame();
+	 /**
+	 * @return
+	 */
+	Map<Integer, ICard> getCardInFieldGame();
 
-	 void clear();
+	 /**
+	 * 
+	 */
+	void clear();
 
+	/**
+	 * @param size
+	 */
 	void setSizeOfField(int size);
 
 }

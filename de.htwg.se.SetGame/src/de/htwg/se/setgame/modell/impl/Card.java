@@ -120,6 +120,7 @@ public class Card extends ACard {
 	 * @throws IllegalArgumentException
 	 *             if numberOfComponents is not allowed
 	 */
+
 	private void setNumberOfComponents(int numberOfComponents) {
 		if (numberOfComponents == Pack.NUMBEROFCOMPONET[0]
 				|| numberOfComponents == Pack.NUMBEROFCOMPONET[1]

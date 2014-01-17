@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 
+/**
+ * @author raina
+ *
+ */
 public class SetButton extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JButton setbutton;

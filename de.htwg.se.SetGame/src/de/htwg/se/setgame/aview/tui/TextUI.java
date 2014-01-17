@@ -9,6 +9,10 @@ import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.util.observer.Event;
 import de.htwg.se.setgame.util.observer.IObserver;
 
+/**
+ * @author raina
+ *
+ */
 public class TextUI implements IObserver {
 
 	private IController controller;
@@ -21,6 +25,9 @@ public class TextUI implements IObserver {
 
 	private Logger logger = Logger.getLogger("de.htwg.se.setgame.aview.tui");
 
+	/**
+	 * @param controller
+	 */
 	@Inject
 	public TextUI(IController controller) {
 		this.controller = controller;
@@ -28,12 +35,21 @@ public class TextUI implements IObserver {
 
 	}
 
+	/* (non-Javadoc)
+	 * @see de.htwg.se.setgame.util.observer.IObserver#update(de.htwg.se.setgame.util.observer.Event)
+	 */
 	@Override
 	public void update(Event e) {
 		printTUI();
 
 	}
 
+	/**
+	 * @param stringOne
+	 * @param stringTwo
+	 * @param stringTree
+	 * @param player
+	 */
 	public void setIn(String stringOne, String stringTwo, String stringTree,
 			String player) {
 		Integer[] arrayForSerNumber = new Integer[THREE];
@@ -58,6 +74,9 @@ public class TextUI implements IObserver {
 
 	}
 
+	/**
+	 * 
+	 */
 	public void lastMensage() {
 		logger.info("Hey dude! there is no longger stes in game for you here is the Points ;) "
 				+ this.newLine
@@ -76,6 +95,10 @@ public class TextUI implements IObserver {
 
 	}
 
+	/**
+	 * @param line
+	 * @return
+	 */
 	public boolean processInputLine(String line) {
 		logger.info(newLine + controller.getCardinGame().size());
 		if (!controller.stillSetInGAme()
@@ -109,6 +132,10 @@ public class TextUI implements IObserver {
 
 	}
 
+	/**
+	 * @param arrayForSerNumber
+	 * @param string
+	 */
 	private void printAseT(Integer[] arrayForSerNumber, String string) {
 		int player = -1;
 		if (string.compareTo("PlayerOne") == ZERO) {
@@ -132,11 +159,18 @@ public class TextUI implements IObserver {
 		}
 	}
 
+	/**
+	 * @param string
+	 * @return
+	 */
 	private boolean comparIfPlayerIsRigth(String string) {
 		return string.compareTo("PlayerOne") == ZERO
 				|| string.compareTo("PlayerTwo") == ZERO;
 	}
 
+	/**
+	 * 
+	 */
 	public void printTUI() {
 		logger.info("Welcome to SetGame!!!! "
 				+ this.newLine
@@ -158,6 +192,9 @@ public class TextUI implements IObserver {
 				+ this.controller.getField().toString());
 	}
 
+	/**
+	 * 
+	 */
 	private void solve() {
 		if (this.controller.getSetInField().size() >= THREE) {
 			logger.info("solved" + this.controller.getSetInField().toString()
@@ -175,12 +212,18 @@ public class TextUI implements IObserver {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	private void help() {
 		logger.info("A tipp your set begiss with  " + this.newLine
 				+ controller.getAsetInGame().get(ZERO));
 
 	}
 
+	/**
+	 * 
+	 */
 	private void soulution() {
 		for (ICard card : controller.getSetInField()) {
 			for (Integer key : controller.getCardsAndTheIndexOfFIeld().keySet()) {
@@ -195,11 +238,17 @@ public class TextUI implements IObserver {
 		}
 	}
 
+	/**
+	 * 
+	 */
 	private void newGame() {
 		this.controller.newGame();
 
 	}
 
+	/**
+	 * 
+	 */
 	private void getPoints() {
 		logger.info(this.newLine + "Player one = "
 				+ controller.geTplayerOnePoints() + this.newLine
@@ -208,6 +257,9 @@ public class TextUI implements IObserver {
 
 	}
 
+	/**
+	 * @param string
+	 */
 	private void chageSize(String string) {
 		Integer i = Integer.parseInt(string);
 		this.controller.setFieldSize(i);
@@ -215,6 +267,9 @@ public class TextUI implements IObserver {
 
 	}
 
+	/**
+	 * @param string
+	 */
 	private void proveSomeStringsFromMet(String string) {
 		if (string.compareTo("solve") == ZERO) {
 			solve();

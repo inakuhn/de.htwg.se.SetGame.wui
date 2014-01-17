@@ -19,6 +19,10 @@ import javax.swing.JPanel;
 import de.htwg.se.setgame.modell.ICard;
 import de.htwg.se.setgame.modell.impl.Pack;
 
+/**
+ * @author raina
+ *
+ */
 public class GameField extends JPanel implements ActionListener {
 
 	private static final long serialVersionUID = 1L;
