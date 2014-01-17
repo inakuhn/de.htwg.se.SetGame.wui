@@ -155,16 +155,7 @@ public class GameField extends JPanel implements ActionListener {
 			cardToPicture.put(index1, test.get(index1));
 		}
 
-		for (Card card : pack.getPack()) {
-			for (Card key : GUI.getController().getField().getCardInFieldGame()
-					.values()) {
-				if (card.comparTo(key)) {
-					urlListe.add(cardToPicture.get(cardkey));
-					saveList.add(key);
-				}
-			}
-			cardkey++;
-		}
+		save_url();
 
 		cardkey = ZERO;
 
@@ -457,16 +448,7 @@ public class GameField extends JPanel implements ActionListener {
 		urlListe.clear();
 		saveList.clear();
 
-		for (Card card : pack.getPack()) {
-			for (Card key : GUI.getController().getField().getCardInFieldGame()
-					.values()) {
-				if (card.comparTo(key)) {
-					urlListe.add(cardToPicture.get(cardkey));
-					saveList.add(key);
-				}
-			}
-			cardkey++;
-		}
+		save_url();
 
 		cardkey = ZERO;
 
@@ -514,6 +496,23 @@ public class GameField extends JPanel implements ActionListener {
 		b10.setIcon(icon22);
 		b11.setIcon(icon23);
 		b12.setIcon(icon24);
+	}
+	
+	public static void save_url() {
+		for (Card card : pack.getPack()) {
+			save_url_for(card);
+			cardkey++;
+		}
+	}
+	
+	public static void save_url_for(Card card) {
+		for (Card key : GUI.getController().getField().getCardInFieldGame()
+				.values()) {
+			if (card.comparTo(key)) {
+				urlListe.add(cardToPicture.get(cardkey));
+				saveList.add(key);
+			}
+		}
 	}
 
 }
