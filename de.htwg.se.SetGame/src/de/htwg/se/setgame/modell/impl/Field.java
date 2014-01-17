@@ -31,7 +31,7 @@ public class Field extends AField {
 		this.cardInFieldGame = new TreeMap<Integer, Card>();
 		this.ramdomListe = new TreeMap<Integer, Integer>();
 		this.packForGame = new LinkedList<Card>();
-		this.listeofcontains = new TreeSet<>();
+		this.listeofcontains = new TreeSet<Integer>();
 	}
 
 	/*
