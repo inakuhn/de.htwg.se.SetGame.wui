@@ -1,6 +1,6 @@
 import play.Project._
 
-name := """hello-play-java"""
+name := """de.htwg.se.SetGame.wui"""
 
 version := "1.0-SNAPSHOT"
 
