@@ -1,9 +1,9 @@
-@(message: String)
+@(message: String, controller: de.htwg.se.setgame.controller.IController)
 
-@main("Welcome to Play Framework") {
+@main("Welcome to SetGame") {
 
     <div class="well">
-        <h1>@message</h1>
+        <p>@Html(message.replace("%n", "<br />"))</p>
     </div>
 
 }
