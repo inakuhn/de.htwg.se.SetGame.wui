@@ -36,8 +36,6 @@ public class Application extends Controller {
                   }
             }
         }
-        System.out.println("Solved List:");
-        System.out.println(result);
         return ok(views.html.solve.render(controller, getField(), result));
     }
 
