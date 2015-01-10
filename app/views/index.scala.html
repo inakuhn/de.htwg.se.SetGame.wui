@@ -2,7 +2,11 @@
 
 @main("SetGame") {
 
-    <p><b>PlayerOne:</b> @controller.getPlayerOnePoints() | <b>PlayerTwo:</b> @controller.getPlayerTwoPoints()</p>
+    <p>
+        <b>PlayerOne:</b> @controller.getPlayerOnePoints() |
+        <b>PlayerTwo:</b> @controller.getPlayerTwoPoints() |
+        <b>Left Cards:</b> @controller.getCardinGame().size()
+    </p>
     <div class="well">
         @for(row <- field) {
             <img src="/assets/pack/@(row).gif" />
