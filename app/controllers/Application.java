@@ -36,5 +36,9 @@ public class Application extends Controller {
 
         return result;
     }
-    
+
+    public static Result size(Integer number) {
+        controller.setFieldSize(number);
+        return ok(views.html.index.render(controller, getField()));
+    }
 }
