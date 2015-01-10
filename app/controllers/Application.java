@@ -46,7 +46,7 @@ public class Application extends Controller {
     }
 
     public static Result help() {
-        return ok(views.html.help.render());
+        return ok(views.html.help.render(controller));
     }
 
     private static List<Integer> getField() {

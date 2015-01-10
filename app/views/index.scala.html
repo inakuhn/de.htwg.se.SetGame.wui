@@ -1,12 +1,7 @@
 @(controller: de.htwg.se.setgame.controller.IController, field: java.util.List[Integer])
 
-@main("SetGame") {
+@main("SetGame", controller) {
 
-    <p>
-        <b>PlayerOne:</b> @controller.getPlayerOnePoints() |
-        <b>PlayerTwo:</b> @controller.getPlayerTwoPoints() |
-        <b>Left Cards:</b> @controller.getCardinGame().size()
-    </p>
     <div class="well field clearfix">
         @for(row <- field) {
             <img data-field="@row" src="/assets/pack/@(row).gif""  />

@@ -1,4 +1,4 @@
-@(title: String)(content: Html)
+@(title: String, controller: de.htwg.se.setgame.controller.IController)(content: Html)
 
 <!DOCTYPE html>
 <html>
@@ -11,6 +11,13 @@
     body {
         margin-top: 50px;
     }
+    .navbar .nav .text {
+        padding: 10px 15px;
+        color: #777;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #FFF;
+    }
+
     .field img {
         display: block;
         float: left;
@@ -31,6 +38,15 @@
         <div class="navbar-inner">
             <div class="container-fluid">
                 <a id="titleLink" class="brand" href="/">@title</a>
+
+                <ul class="nav pull-right">
+                    <li class="divider-vertical"></li>
+                    <li class="text"><b>PlayerOne:</b> @controller.getPlayerOnePoints()</li>
+                    <li class="divider-vertical"></li>
+                    <li class="text"><b>PlayerTwo:</b> @controller.getPlayerTwoPoints()</li>
+                    <li class="divider-vertical"></li>
+                    <li class="text"><b>Left Cards:</b> @controller.getCardinGame().size()</li>
+                </ul>
             </div>
         </div>
     </div>
