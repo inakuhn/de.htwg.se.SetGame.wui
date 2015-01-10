@@ -41,4 +41,9 @@ public class Application extends Controller {
         controller.setFieldSize(number);
         return ok(views.html.index.render(controller, getField()));
     }
+
+    public static Result reset() {
+        controller.newGame();
+        return ok(views.html.index.render(controller, getField()));
+    }
 }
