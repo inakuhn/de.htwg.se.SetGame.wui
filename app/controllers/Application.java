@@ -10,7 +10,7 @@ import java.lang.String;
 
 public class Application extends Controller {
 
-    static IController controller = SetGame.getInstance().getIController();
+    static IController controller = SetGame.getInstance(false).getIController();
     
     public static Result index() {
         return ok(views.html.index.render(TextUI.MESSAGE_WELCOME, controller));
