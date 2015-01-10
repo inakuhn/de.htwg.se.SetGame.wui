@@ -22,6 +22,10 @@ public class Application extends Controller {
         return ok(views.html.index.render(controller, getField()));
     }
 
+    public static Result help() {
+        return ok(views.html.help.render());
+    }
+
     private static List<Integer> getField() {
         List<ICard> packList = controller.getPack().getPack();
         List<Integer> result = new LinkedList<Integer>();
@@ -39,6 +43,14 @@ public class Application extends Controller {
 
     public static Result size(Integer number) {
         controller.setFieldSize(number);
+        return ok(views.html.index.render(controller, getField()));
+    }
+    public static Result set(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
+        List<ICard> allCardsInField =controller.getCardInFieldGame();
+        ICard first = allCardsInField.get(cardOne);
+        ICard sec = allCardsInField.get(cardTwo);
+        ICard th = allCardsInField.get(cardThree);
+        controller.isASetForController(first,sec,th,player);
         return ok(views.html.index.render(controller, getField()));
     }
 
