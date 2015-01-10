@@ -7,7 +7,7 @@
         <b>PlayerTwo:</b> @controller.getPlayerTwoPoints() |
         <b>Left Cards:</b> @controller.getCardinGame().size()
     </p>
-    <div class="well">
+    <div class="well field clearfix">
         @for(row <- field) {
             <img src="/assets/pack/@(row).gif" />
         }
