@@ -1,4 +1,4 @@
-@(controller: de.htwg.se.setgame.controller.IController, field: java.util.List[Integer])
+@(controller: de.htwg.se.setgame.controller.IController, field: java.util.List[Integer], setIndex: java.util.List[Integer])
 
 @main("SetGame") {
 
@@ -7,9 +7,9 @@
         <b>PlayerTwo:</b> @controller.getPlayerTwoPoints() |
         <b>Left Cards:</b> @controller.getCardinGame().size()
     </p>
-    <div class="well field clearfix">
+    <div class="well">
         @for(row <- field) {
-            <img src="/assets/pack/@(row).gif""  />
+            <img src="/assets/pack/@(row).gif" @if(setIndex.contains(row)){class="highlight"} />
         }
     </div>
 

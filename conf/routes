@@ -6,8 +6,8 @@ GET        /                                                controllers.Applicat
 GET        /help                                            controllers.Application.help()
 GET        /size/:number                                    controllers.Application.size(number: Integer)
 GET        /set/:player/:cardOne/:cardTwo/:cardThree        controllers.Application.set(player: Integer, cardOne: Integer, cardTwo: Integer, cardThree: Integer)
-GET        /reset                      controllers.Application.reset()
-
+GET        /reset                                           controllers.Application.reset()
+GET        /solve                                           controllers.Application.solve()
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 GET     /webjars/*file              controllers.WebJarAssets.at(file)
