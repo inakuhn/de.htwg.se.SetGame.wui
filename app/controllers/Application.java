@@ -25,6 +25,7 @@ public class Application extends Controller {
     public static Result index() {
         return ok(views.html.index.render(controller, getField()));
     }
+
     public static Result solve() {
         List<ICard> setInGame = controller.getASetInGame();
         Map<Integer,ICard> indexAndCard = getIndexAndCard();
@@ -48,7 +49,6 @@ public class Application extends Controller {
         return ok(views.html.help.render());
     }
 
-
     private static List<Integer> getField() {
         return new LinkedList<Integer>(getIndexAndCard().keySet());
     }
@@ -59,18 +59,20 @@ public class Application extends Controller {
     }
 
     public static Result set(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
-        List<ICard> allCardsInField = controller.getCardInFieldGame();
-        ICard first = allCardsInField.get(cardOne);
-        ICard sec = allCardsInField.get(cardTwo);
-        ICard th = allCardsInField.get(cardThree);
-        controller.isASetForController(first, sec, th, player);
+        controller.isASetForController(getCard(cardOne), getCard(cardTwo), getCard(cardThree), player);
         return ok(views.html.index.render(controller, getField()));
+    }
+
+    private static ICard getCard(Integer index) {
+        List<ICard> allCardsInField = controller.getCardInFieldGame();
+        return allCardsInField.get(index);
     }
 
     public static Result reset() {
         controller.newGame();
         return ok(views.html.index.render(controller, getField()));
     }
+
     private static Map<Integer,ICard> getIndexAndCard(){
         List<ICard> packList = controller.getPack().getPack();
         Map<Integer,ICard> result = new HashMap<Integer,ICard>();
