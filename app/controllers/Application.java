@@ -26,17 +26,22 @@ public class Application extends Controller {
         return ok(views.html.index.render(controller, getField()));
     }
     public static Result solve() {
-        List<Integer> result = new LinkedList<>();
         List<ICard> setInGame = controller.getASetInGame();
         Map<Integer,ICard> indexAndCard = getIndexAndCard();
-            for (ICard setCard : setInGame) {
-                  for(Integer cardIndex: indexAndCard.keySet()){
-                      if(indexAndCard.get(cardIndex).comparTo(setCard)){
-                          result.add(cardIndex);
-                  }
+        List<Integer> result = processSolve(setInGame, indexAndCard);
+        return ok(views.html.solve.render(controller, getField(), result));
+    }
+
+    private static List<Integer> processSolve(List<ICard> setInGame, Map<Integer,ICard> indexAndCard) {
+        List<Integer> result = new LinkedList<Integer>();
+        for (ICard setCard : setInGame) {
+            for(Integer cardIndex: indexAndCard.keySet()){
+                if(indexAndCard.get(cardIndex).comparTo(setCard)){
+                    result.add(cardIndex);
+                }
             }
         }
-        return ok(views.html.solve.render(controller, getField(), result));
+        return result;
     }
 
     public static Result help() {
@@ -45,20 +50,16 @@ public class Application extends Controller {
 
 
     private static List<Integer> getField() {
-        List<ICard> packList = controller.getPack().getPack();
-        List<Integer> result = new LinkedList<Integer>();
-
-        result.addAll(getIndexAndCard().keySet());
-
-        return result;
+        return new LinkedList<Integer>(getIndexAndCard().keySet());
     }
 
     public static Result size(Integer number) {
         controller.setFieldSize(number);
         return ok(views.html.index.render(controller, getField()));
     }
+
     public static Result set(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
-        List<ICard> allCardsInField =controller.getCardInFieldGame();
+        List<ICard> allCardsInField = controller.getCardInFieldGame();
         ICard first = allCardsInField.get(cardOne);
         ICard sec = allCardsInField.get(cardTwo);
         ICard th = allCardsInField.get(cardThree);
