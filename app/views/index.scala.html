@@ -1,9 +1,11 @@
-@(message: String, controller: de.htwg.se.setgame.controller.IController)
+@(controller: de.htwg.se.setgame.controller.IController, field: java.util.List[Integer])
 
 @main("Welcome to SetGame") {
 
     <div class="well">
-        <p>@Html(message.replace("%n", "<br />"))</p>
+        @for(row <- field) {
+            <img src="/assets/pack/@(row).gif" />
+        }
     </div>
 
 }
