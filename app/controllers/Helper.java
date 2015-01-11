@@ -37,7 +37,9 @@ public class Helper {
 
 
     public ICard getCard(Integer index) {
-        List<ICard> allCardsInField = controller.getCardInFieldGame();
+        Map<Integer,ICard> allCardsInField = getIndexAndCard();
+        System.out.println("Card in Set: "+index);
+        System.out.println(allCardsInField.get(index));
         return allCardsInField.get(index);
     }
 
