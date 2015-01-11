@@ -50,11 +50,11 @@
     /////////////////////////////////
     // websocket
     /////////////////////////////////
-    var ws = $.gracefulWebSocket("/ws");
-    ws.send("message to server");
+    var ws = $.gracefulWebSocket("ws://localhost:9000/ws");
     ws.onmessage = function (event) {
        var messageFromServer = event.data;
        console.log(event);
+       ws.send("message to server");
     };
 })(jQuery, location);
 
