@@ -1,8 +1,9 @@
 @(title: String, controller: de.htwg.se.setgame.controller.IController)(content: Html)
 
 <!DOCTYPE html>
-<html>
+<html ng-app="setGameApp">
 <head>
+    <meta charset="utf-8">
     <title>@title</title>
     <link rel='shortcut icon' type='image/png' href='@routes.Assets.at("images/favicon.png")'>
     <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
@@ -31,6 +32,8 @@
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script srC="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular.min.js"></script>
+    <script src="/assets/jquery.gracefulWebSocket.js"></script>
     <script src="/assets/app.js"></script>
 </body>
 </html>

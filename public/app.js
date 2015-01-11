@@ -46,4 +46,23 @@
             return $selectedCards.eq(i).data('field');
         }
     });
+
+    /////////////////////////////////
+    // websocket
+    /////////////////////////////////
+    var ws = $.gracefulWebSocket("/ws");
+    ws.send("message to server");
+    ws.onmessage = function (event) {
+       var messageFromServer = event.data;
+       console.log(event);
+    };
 })(jQuery, location);
+
+(function(a){
+    var app = angular.module('setGameApp', []);
+    app.controller('CardCtrl', function ($scope, $http){
+        $http.get('/cards.json').success(function(data) {
+            $scope.cards = data;
+        });
+    });
+})(angular);
