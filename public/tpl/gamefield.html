@@ -11,7 +11,7 @@
 
   <div class="well cards js-cards clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="CardCtrl">
     <div ng-repeat="card in cards">
-      <img data-field="{{card}}" src="/assets/pack/{{card}}.gif" />
+      <img data-field="{{card}}" ng-src="/assets/pack/{{card}}.gif" />
     </div>
   </div>
 
