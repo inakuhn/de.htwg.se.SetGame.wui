@@ -47,3 +47,12 @@
         }
     });
 })(jQuery, location);
+
+(function(a){
+    var app = angular.module('setGameApp', []);
+    app.controller('CardCtrl', function ($scope, $http){
+        $http.get('/cards.json').success(function(data) {
+            $scope.cards = data;
+        });
+    });
+})(angular);

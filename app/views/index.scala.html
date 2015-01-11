@@ -13,10 +13,10 @@
             <b>Player 2:</b> Press "Enter"
         </button>
 
-        <div class="well cards clearfix">
-            @for(row <- field) {
-                <img data-field="@row" src="/assets/pack/@(row).gif"  />
-            }
+        <div class="well cards clearfix" ng-controller="CardCtrl">
+            <div ng-repeat="card in cards">
+                <img data-field="cards" data-field="{{card}}" src="/assets/pack/{{card}}.gif" />
+            </div>
         </div>
 
         <div class="modal fade js-turn col-xs-12 col-sm-12 col-md-12 col-lg-12" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
