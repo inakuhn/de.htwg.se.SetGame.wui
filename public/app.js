@@ -12,7 +12,7 @@
     /////////////////////////////////
     $pressArea.keypress(function(e) {
         $main.find('button').each(function() {
-            if ($(this).data('key') == e.key && mode === 1) {
+            if ($(this).data('key') == e.keyCode && mode === 1) {
                 player = $(this).data('player');
                 mode = 2;
 
@@ -43,7 +43,7 @@
         }
 
         function get(i) {
-            return $cards.index($selectedCards[i]);
+            return $selectedCards.eq(i).data('field');
         }
     });
 })(jQuery, location);
