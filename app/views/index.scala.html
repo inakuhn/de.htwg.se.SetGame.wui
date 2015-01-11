@@ -2,10 +2,23 @@
 
 @main("SetGame", controller) {
 
-    <div class="well field clearfix">
-        @for(row <- field) {
-            <img data-field="@row" src="/assets/pack/@(row).gif""  />
-        }
-    </div>
+    <div class="js-field field">
+        <h2 style="text-align: center">Press button, when you have found a Set</h2>
+        <button data-key=" " data-player="1" data-name="Player 1" type="button" class="btn btn-primary btn-lg col-md-6"><b>Player 1:</b> Press "Space bar"</button>
+        <button data-key="Enter" data-player="2" data-name="Player 2" type="button" class="btn btn-primary btn-lg col-md-6"><b>Player 2:</b> Press "Enter"</button>
 
+        <div class="well cards clearfix">
+            @for(row <- field) {
+                <img data-field="@row" src="/assets/pack/@(row).gif"  />
+            }
+        </div>
+
+        <div class="modal fade js-turn"role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body turn"><b class="js-name">Player 1</b> it is your turn!</div>
+                </div>
+            </div>
+        </div>
+    </div>
 }
