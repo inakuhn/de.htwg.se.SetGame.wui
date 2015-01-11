@@ -1,10 +1,11 @@
-(function($, l){
+(function($, l, a){
     var mode = 1; // 1=Press button, 2=Select set
     var player;
 
     var $main = $('.js-field');
     var $pressArea = $('body');
     var $modalTurn = $main.find('.js-turn');
+    var $cards = $main.find('.js-cards');
 
     /////////////////////////////////
     // Player selection
@@ -52,17 +53,22 @@
     /////////////////////////////////
     var ws = $.gracefulWebSocket('ws://' + l.host + '/ws');
     ws.onmessage = function (event) {
-       var messageFromServer = event.data;
-       console.log(event);
-       ws.send("message to server");
+        var $scope = angular.element($cards[0]).scope();
+        $scope.loadData();
     };
-})(jQuery, location);
 
-(function(a){
+    /////////////////////////////////
+    // Angular
+    /////////////////////////////////
     var app = angular.module('setGameApp', []);
     app.controller('CardCtrl', function ($scope, $http){
-        $http.get('/cards.json').success(function(data) {
-            $scope.cards = data;
-        });
+        $scope.loadData = function() {
+            $http.get('/cards.json').success(function(data) {
+                $scope.cards = data;
+            });
+        }
+
+        //Initial load
+        $scope.loadData();
     });
-})(angular);
+})(jQuery, location, angular);
