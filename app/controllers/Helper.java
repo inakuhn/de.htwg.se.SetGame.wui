@@ -16,6 +16,11 @@ public class Helper {
         this.controller = controller;
     }
 
+    /**
+     *
+     * @return List<Integer>
+     *     return The IDs of the Cards in the field.
+     */
     public List<Integer> getField() {
         return new LinkedList<Integer>(getIndexAndCard().keySet());
     }
@@ -38,8 +43,6 @@ public class Helper {
 
     public ICard getCard(Integer index) {
         Map<Integer,ICard> allCardsInField = getIndexAndCard();
-        System.out.println("Card in Set: "+index);
-        System.out.println(allCardsInField.get(index));
         return allCardsInField.get(index);
     }
 
@@ -57,5 +60,22 @@ public class Helper {
             }
         }
         return result;
+    }
+
+    public Object isASet(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
+
+        List<Integer> indexBeforeSetCall = getField();
+        ICard first = getCard(cardOne);
+        ICard second = getCard(cardTwo);
+        ICard th = getCard(cardThree);
+        if(first != null && second != null & th != null) {
+            controller.isASetForController(first, second, th, player);
+        }else{
+            return false;
+        }
+        List<Integer> indexAfterSetCall = getField();
+
+        return !indexBeforeSetCall.containsAll(indexAfterSetCall);
+
     }
 }

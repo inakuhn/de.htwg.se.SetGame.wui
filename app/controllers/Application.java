@@ -31,8 +31,7 @@ public class Application extends Controller {
     }
 
     public static Result set(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
-        controller.isASetForController(h.getCard(cardOne), h.getCard(cardTwo), h.getCard(cardThree), player);
-        return ok(views.html.index.render(controller, h.getField()));
+        return ok(Json.toJson(h.isASet(player, cardOne, cardTwo, cardThree)));
     }
 
     public static Result reset() {
