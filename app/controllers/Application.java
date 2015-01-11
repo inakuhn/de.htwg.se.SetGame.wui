@@ -7,6 +7,11 @@ import play.mvc.Result;
 import play.mvc.WebSocket;
 import play.libs.Json;
 
+import java.lang.Integer;
+import java.lang.String;
+import java.util.HashMap;
+import java.util.Map;
+
 public class Application extends Controller {
 
     static IController controller = SetGame.getInstance(false).getIController();
@@ -37,6 +42,14 @@ public class Application extends Controller {
 
     public static Result cards() {
         return ok(Json.toJson(h.getField()));
+    }
+
+    public static Result points() {
+        Map<String, Integer> result = new HashMap<String, Integer>();
+        result.put("player1", controller.getPlayerOnePoints());
+        result.put("player2", controller.getPlayerTwoPoints());
+        result.put("cards", controller.getCardinGame().size());
+        return ok(Json.toJson(result));
     }
 
     /***************WEBSOCKET ************************/
