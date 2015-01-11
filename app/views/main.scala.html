@@ -22,10 +22,10 @@
                 <li><a href="#/help">Help</a></li>
             </ul>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li class="navbar-text"><b>PlayerOne:</b> @controller.getPlayerOnePoints()</li>
-                <li class="navbar-text"><b>PlayerTwo:</b> @controller.getPlayerTwoPoints()</li>
-                <li class="navbar-text"><b>Left Cards:</b> @controller.getCardinGame().size()</li>
+            <ul class="nav navbar-nav navbar-right js-points" ng-controller="PointsCtrl">
+                <li class="navbar-text"><b>PlayerOne:</b> {{points.player1}}</li>
+                <li class="navbar-text"><b>PlayerTwo:</b> {{points.player2}}</li>
+                <li class="navbar-text"><b>Left Cards:</b> {{points.cards}}</li>
             </ul>
         </div>
     </nav>

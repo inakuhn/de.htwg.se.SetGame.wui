@@ -10,8 +10,8 @@
             } catch(e) {}
         }
 
-        var $main = $('.js-field');
-        update($main.find('.js-cards'));
+        update($('.js-field .js-cards'));
+        update($('.js-points'));
     };
 
     /////////////////////////////////
@@ -31,6 +31,15 @@
             otherwise({
                 redirectTo: '/'
             });
+    });
+
+    app.controller('PointsCtrl', function ($scope, $http) {
+        $scope.loadData = function() {
+            $http.get('/points.json').success(function(data) {
+                $scope.points = data;
+            });
+        }
+        $scope.loadData();
     });
 
     app.controller('CardCtrl', function ($scope, $http) {
