@@ -51,7 +51,7 @@
     });
 
     /////////////////////////////////
-    // websocket
+    // WebSocket
     /////////////////////////////////
     var ws = $.gracefulWebSocket('ws://' + l.host + '/ws');
     ws.onmessage = function (event) {
@@ -62,7 +62,19 @@
     /////////////////////////////////
     // Angular
     /////////////////////////////////
-    var app = angular.module('setGameApp', []);
+    var app = angular.module('setGameApp', ['ngRoute']);
+
+    app.config(function($routeProvider) {
+        $routeProvider.
+            when('/', {
+                templateUrl: '/assets/tpl/gamefield.html',
+                controller: 'CardCtrl'
+            }).
+            otherwise({
+                redirectTo: '/'
+            });
+    });
+
     app.controller('CardCtrl', function ($scope, $http){
         $scope.loadData = function() {
             $http.get('/cards.json').success(function(data) {
