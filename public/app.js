@@ -5,7 +5,6 @@
     var $main = $('.js-field');
     var $pressArea = $('body');
     var $modalTurn = $main.find('.js-turn');
-    var $cards = $main.find('img');
 
     /////////////////////////////////
     // Player selection
@@ -31,7 +30,8 @@
             $(this).addClass(cssClass);
         }
 
-        var $selectedCards = $cards.filter('.'+cssClass);
+        var $selectedCards = $main.find('img.'+cssClass);
+
         if ($selectedCards.length == 3) {
             var url = '/set/' + player + '/' + get(0) + '/' + get(1) + '/' + get(2);
             $.get(url, function() {
