@@ -50,7 +50,7 @@
     /////////////////////////////////
     // websocket
     /////////////////////////////////
-    var ws = $.gracefulWebSocket("ws://localhost:9000/ws");
+    var ws = $.gracefulWebSocket('ws://' + l.host + '/ws');
     ws.onmessage = function (event) {
        var messageFromServer = event.data;
        console.log(event);
