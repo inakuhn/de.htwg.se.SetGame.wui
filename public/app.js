@@ -4,14 +4,20 @@
     /////////////////////////////////
     var ws = $.gracefulWebSocket('ws://' + l.host + '/ws');
     ws.onmessage = function (event) {
+        function update($element) {
+            try {
+                a.element($element[0]).scope().loadData();
+            } catch(e) {}
+        }
+
         var $main = $('.js-field');
-        angular.element($main.find('.js-cards')[0]).scope().loadData();
+        update($main.find('.js-cards'));
     };
 
     /////////////////////////////////
     // Angular
     /////////////////////////////////
-    var app = angular.module('setGameApp', ['ngRoute']);
+    var app = a.module('setGameApp', ['ngRoute']);
 
     app.config(function($routeProvider) {
         $routeProvider.
