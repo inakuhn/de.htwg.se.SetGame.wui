@@ -3,7 +3,6 @@
 # ~~~~
 
 GET     /                                                controllers.Application.index()
-GET     /help                                            controllers.Application.help()
 GET     /size/:number                                    controllers.Application.size(number: Integer)
 GET     /set/:player/:cardOne/:cardTwo/:cardThree        controllers.Application.set(player: Integer, cardOne: Integer, cardTwo: Integer, cardThree: Integer)
 GET     /reset                                           controllers.Application.reset()

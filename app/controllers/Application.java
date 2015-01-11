@@ -21,10 +21,6 @@ public class Application extends Controller {
         return ok(views.html.solve.render(controller, h.getField(), h.getASet()));
     }
 
-    public static Result help() {
-        return ok(views.html.help.render(controller));
-    }
-
     public static Result size(Integer number) {
         controller.setFieldSize(number);
         return ok(views.html.index.render(controller, h.getField()));
@@ -42,11 +38,9 @@ public class Application extends Controller {
     public static Result cards() {
         return ok(Json.toJson(h.getField()));
     }
+
     /***************WEBSOCKET ************************/
     public static WebSocket<String> ws() {
         return new MyWebSocket(controller);
     }
-
-
-
 }

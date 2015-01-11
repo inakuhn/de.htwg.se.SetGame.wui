@@ -70,6 +70,9 @@
                 templateUrl: '/assets/tpl/gamefield.html',
                 controller: 'CardCtrl'
             }).
+            when('/help', {
+                templateUrl: '/assets/tpl/help.html'
+            }).
             otherwise({
                 redirectTo: '/'
             });
