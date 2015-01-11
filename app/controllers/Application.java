@@ -6,6 +6,7 @@ import de.htwg.se.setgame.modell.ICard;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.WebSocket;
+import play.libs.Json;
 
 public class Application extends Controller {
 
@@ -38,5 +39,9 @@ public class Application extends Controller {
     public static Result reset() {
         controller.newGame();
         return ok(views.html.index.render(controller, h.getField()));
+    }
+
+    public static Result cards() {
+        return ok(Json.toJson(h.getField()));
     }
 }
