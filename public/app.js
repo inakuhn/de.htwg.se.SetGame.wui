@@ -12,7 +12,7 @@
     /////////////////////////////////
     $pressArea.keypress(function(e) {
         $main.find('button').each(function() {
-            if ($(this).data('key') == e.keyCode && mode === 1) {
+            if ($(this).data('key') == e.which && mode === 1) {
                 player = $(this).data('player');
                 mode = 2;
 
