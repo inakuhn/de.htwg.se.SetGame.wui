@@ -13,16 +13,32 @@
             <b>Player 2:</b> Press "Enter"
         </button>
 
-        <div class="well cards js-cards clearfix" ng-controller="CardCtrl">
+        <div class="well cards js-cards clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-controller="CardCtrl">
             <div ng-repeat="card in cards">
                 <img data-field="{{card}}" src="/assets/pack/{{card}}.gif" />
             </div>
         </div>
 
-        <div class="modal fade js-turn col-xs-12 col-sm-12 col-md-12 col-lg-12" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal fade js-turn" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-body turn"><b class="js-name">Player 1</b> it is your turn!</div>
+                    <div class="modal-body"><b class="js-name"></b> it is your turn!</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade js-set-good" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body good"><b>Good choice!</b></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade js-set-bad" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body bad"><b>Wrong!</b></div>
                 </div>
             </div>
         </div>

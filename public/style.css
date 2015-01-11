@@ -2,7 +2,7 @@ h1, h2, h3, .navbar, button {
     font-family: 'Jura', sans-serif;
 }
 .modal-dialog {
-    padding-top: 15%;
+    margin-top: 15%;
 }
 
 .field .cards {
@@ -24,8 +24,15 @@ h1, h2, h3, .navbar, button {
 .field img:hover {
     border-color: red;
 }
-.field .turn {
+.field .modal-body {
     text-align: center;
     font-family: 'Jura', sans-serif;
     font-size: 30px;
+}
+
+.field .modal-body.good {
+    color: green;
+}
+.field .modal-body.bad {
+    color: red;
 }

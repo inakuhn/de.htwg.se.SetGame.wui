@@ -5,6 +5,8 @@
     var $main = $('.js-field');
     var $pressArea = $('body');
     var $modalTurn = $main.find('.js-turn');
+    var $modalSetGood = $main.find('.js-set-good');
+    var $modalSetBad = $main.find('.js-set-bad');
     var $cards = $main.find('.js-cards');
 
     /////////////////////////////////
@@ -35,8 +37,8 @@
 
         if ($selectedCards.length == 3) {
             var url = '/set/' + player + '/' + get(0) + '/' + get(1) + '/' + get(2);
-            $.get(url, function() {
-                l.reload();
+            $.get(url, function(data) {
+                (data) ? $modalSetGood.modal() : $modalSetBad.modal();
             });
 
             $selectedCards.removeClass(cssClass);
