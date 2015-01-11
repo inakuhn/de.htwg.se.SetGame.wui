@@ -46,6 +46,16 @@
             return $selectedCards.eq(i).data('field');
         }
     });
+
+    /////////////////////////////////
+    // websocket
+    /////////////////////////////////
+    var ws = $.gracefulWebSocket("/ws");
+    ws.send("message to server");
+    ws.onmessage = function (event) {
+       var messageFromServer = event.data;
+       console.log(event);
+    };
 })(jQuery, location);
 
 (function(a){
