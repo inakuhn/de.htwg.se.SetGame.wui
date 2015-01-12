@@ -1,5 +1,8 @@
+@import "_variables.less";
+@import "_mixins.less";
+
 h1, h2, h3, .navbar, button {
-    font-family: 'Jura', sans-serif;
+    .font;
 }
 .modal-dialog {
     margin-top: 15%;
@@ -18,29 +21,29 @@ h1, h2, h3, .navbar, button {
         border: 2px solid transparent;
 
         &.highlight {
-            border-color: black;
+            border-color: @color-tip;
         }
 
         &.selected {
-            border-color: yellow;
+            border-color: @color-selected;
         }
 
         &:hover {
-            border-color: red;
+            border-color: @color-hover;
         }
     }
 
     .modal-body {
         text-align: center;
-        font-family: 'Jura', sans-serif;
+        .font;
         font-size: 30px;
 
         &.good {
-            color: green;
+            color: @color-good;
         }
 
         &.bad {
-            color: red;
+            color: @color-wrong;
         }
     }
 }
