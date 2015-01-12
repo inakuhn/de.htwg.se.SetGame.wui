@@ -2,7 +2,7 @@
     /////////////////////////////////
     // WebSocket
     /////////////////////////////////
-    var ws = $.gracefulWebSocket('ws://' + l.host + '/ws');
+    var ws = $.gracefulWebSocket('wss://' + l.host + '/ws');
     ws.onmessage = function (event) {
         function update($element) {
             try {
