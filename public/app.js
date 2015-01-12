@@ -61,6 +61,13 @@
         var $modalSetBad = $main.find('.js-set-bad');
         var $cards = $main.find('.js-cards');
 
+        var selectClass = 'selected';
+        var tipClass = 'highlight';
+
+        var clearTip = function () {
+            $cards.find('img.'+tipClass).removeClass(tipClass);
+        };
+
         /////////////////////////////////
         // Player selection
         /////////////////////////////////
@@ -72,6 +79,8 @@
 
                     $modalTurn.find('.js-name').text($(this).data('name'));
                     $modalTurn.modal();
+
+                    clearTip();
                 }
             });
         });
@@ -79,13 +88,13 @@
         /////////////////////////////////
         // Card selection
         /////////////////////////////////
-        $main.on('click', 'img', function() {
-            var cssClass = 'selected';
+        $cards.on('click', 'img', function() {
             if (mode == 2) {
-                $(this).addClass(cssClass);
+                clearTip();
+                $(this).addClass(selectClass);
             }
 
-            var $selectedCards = $main.find('img.'+cssClass);
+            var $selectedCards = $main.find('img.'+selectClass);
 
             if ($selectedCards.length == 3) {
                 var url = '/set/' + player + '/' + get(0) + '/' + get(1) + '/' + get(2);
@@ -93,7 +102,7 @@
                     (data) ? $modalSetGood.modal() : $modalSetBad.modal();
                 });
 
-                $selectedCards.removeClass(cssClass);
+                $selectedCards.removeClass(selectClass);
                 mode = 1;
             }
 
@@ -101,5 +110,16 @@
                 return $selectedCards.eq(i).data('field');
             }
         });
+
+        $scope.showTip = function() {
+            $http.get('/solve.json').success(function(data) {
+                $cards.find('img').each(function() {
+                    var id = $(this).data('field');
+                    if ($.inArray(id, data) > -1) {
+                        $(this).addClass(tipClass);
+                    }
+                })
+            });
+        }
     });
 })(jQuery, location, angular);
