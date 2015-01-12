@@ -42,6 +42,12 @@
         $scope.loadData();
     });
 
+    app.controller('RestartCtrl', function ($scope, $http) {
+        $scope.click = function() {
+            $http.get('/reset.json');
+        }
+    });
+
     app.controller('CardCtrl', function ($scope, $http) {
         $scope.loadData = function() {
             $http.get('/cards.json').success(function(data) {
