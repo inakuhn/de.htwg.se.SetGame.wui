@@ -5,34 +5,42 @@ h1, h2, h3, .navbar, button {
     margin-top: 15%;
 }
 
-.field .cards {
-    clear: both;
-}
-.field img {
-    display: block;
-    float: left;
-    margin: 15px 15px;
-    width: 116px;
-    border: 2px solid transparent;
-}
-.field img.highlight {
-    border-color: black;
-}
-.field img.selected {
-    border-color: yellow;
-}
-.field img:hover {
-    border-color: red;
-}
-.field .modal-body {
-    text-align: center;
-    font-family: 'Jura', sans-serif;
-    font-size: 30px;
-}
+.field {
+    .cards {
+        clear: both;
+    }
 
-.field .modal-body.good {
-    color: green;
-}
-.field .modal-body.bad {
-    color: red;
+    img {
+        display: block;
+        float: left;
+        margin: 15px 15px;
+        width: 116px;
+        border: 2px solid transparent;
+
+        &.highlight {
+            border-color: black;
+        }
+
+        &.selected {
+            border-color: yellow;
+        }
+
+        &:hover {
+            border-color: red;
+        }
+    }
+
+    .modal-body {
+        text-align: center;
+        font-family: 'Jura', sans-serif;
+        font-size: 30px;
+
+        &.good {
+            color: green;
+        }
+
+        &.bad {
+            color: red;
+        }
+    }
 }
