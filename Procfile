@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* Main
+web: target/universal/stage/bin/de-htwg-se-setgame-wui -Dhttp.port=${PORT} ${JAVA_OPTS}
