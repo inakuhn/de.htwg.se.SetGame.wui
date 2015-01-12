@@ -1,5 +1,44 @@
-@(controller: de.htwg.se.setgame.controller.IController, field: java.util.List[Integer])
+@(title: String)
 
-@main("SetGame", controller) {
+<!DOCTYPE html>
+<html ng-app="setGameApp">
+<head>
+    <meta charset="utf-8">
+    <title>@title</title>
+    <link rel='shortcut icon' type='image/png' href='@routes.Assets.at("images/favicon.png")'>
+    <link rel='stylesheet' href='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Jura' type='text/css'>
+    <link rel="stylesheet" href="@routes.Assets.at("style.min.css")">
+</head>
+<body>
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#/">@title</a>
+            </div>
 
-}
+            <ul class="nav navbar-nav">
+                <li><a href="#/help">Help</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right js-points" ng-controller="PointsCtrl">
+                <li class="navbar-text"><b>PlayerOne:</b> {{points.player1}}</li>
+                <li class="navbar-text"><b>PlayerTwo:</b> {{points.player2}}</li>
+                <li class="navbar-text"><b>Left Cards:</b> {{points.cards}}</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div ng-view></div>
+        </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script srC="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.8/angular-route.min.js"></script>
+    <script src="/assets/jquery.gracefulWebSocket.js"></script>
+    <script src="@routes.Assets.at("app.min.js")"></script>
+</body>
+</html>

@@ -19,7 +19,7 @@ public class Application extends Controller {
 
 
     public static Result index() {
-        return ok(views.html.index.render(controller, h.getField()));
+        return ok(views.html.index.render("SetGame - Case study on SPA"));
     }
 
     public static Result size(Integer number) {
