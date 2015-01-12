@@ -33,7 +33,7 @@ public class Application extends Controller {
 
     public static Result reset() {
         controller.newGame();
-        return ok(views.html.index.render(controller, h.getField()));
+        return ok(Json.toJson(true));
     }
 
     public static Result cards() {

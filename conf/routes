@@ -5,13 +5,13 @@
 # HTML
 GET     /                                               controllers.Application.index()
 GET     /size/:number                                   controllers.Application.size(number: Integer)
-GET     /reset                                          controllers.Application.reset()
 
 # Json
 GET     /set/:player/:cardOne/:cardTwo/:cardThree       controllers.Application.set(player: Integer, cardOne: Integer, cardTwo: Integer, cardThree: Integer)
 GET     /cards.json                                     controllers.Application.cards()
 GET     /points.json                                    controllers.Application.points()
 GET     /solve.json                                     controllers.Application.solve()
+GET     /reset.json                                     controllers.Application.reset()
 
 # Map static resources from the /public folder to the /assets URL path
 GET    /assets/*file                                    controllers.Assets.at(path="/public", file)
