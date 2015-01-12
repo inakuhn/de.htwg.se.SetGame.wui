@@ -8,10 +8,17 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.Map;
 
+/**
+ *
+ */
 public class Helper {
 
     private IController controller;
 
+    /**
+     *
+     * @param controller
+     */
     public Helper(IController controller) {
         this.controller = controller;
     }
@@ -25,6 +32,10 @@ public class Helper {
         return new LinkedList<Integer>(getIndexAndCard().keySet());
     }
 
+    /**
+     *
+     * @return
+     */
     public Map<Integer,ICard> getIndexAndCard(){
         List<ICard> packList = controller.getPack().getPack();
         Map<Integer,ICard> result = new HashMap<Integer,ICard>();
@@ -40,13 +51,20 @@ public class Helper {
         return result;
     }
 
-
+    /**
+     *
+     * @param index
+     * @return
+     */
     public ICard getCard(Integer index) {
         Map<Integer,ICard> allCardsInField = getIndexAndCard();
         return allCardsInField.get(index);
     }
 
-
+    /**
+     *
+     * @return
+     */
     public List<Integer> getASet() {
         List<ICard> setInGame = controller.getASetInGame();
         Map<Integer,ICard> indexAndCard = getIndexAndCard();
@@ -62,6 +80,14 @@ public class Helper {
         return result;
     }
 
+    /**
+     *
+     * @param player
+     * @param cardOne
+     * @param cardTwo
+     * @param cardThree
+     * @return
+     */
     public Object isASet(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
 
         List<Integer> indexBeforeSetCall = getField();

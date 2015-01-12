@@ -22,10 +22,6 @@ public class Application extends Controller {
         return ok(views.html.index.render(controller, h.getField()));
     }
 
-    public static Result solve() {
-        return ok(views.html.solve.render(controller, h.getField(), h.getASet()));
-    }
-
     public static Result size(Integer number) {
         controller.setFieldSize(number);
         return ok(views.html.index.render(controller, h.getField()));
@@ -50,6 +46,10 @@ public class Application extends Controller {
         result.put("player2", controller.getPlayerTwoPoints());
         result.put("cards", controller.getCardinGame().size());
         return ok(Json.toJson(result));
+    }
+
+    public static Result solve() {
+        return ok(Json.toJson(h.getASet()));
     }
 
     /***************WEBSOCKET ************************/
