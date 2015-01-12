@@ -14,46 +14,53 @@ import java.util.Map;
 
 public class Application extends Controller {
 
-    static IController controller = SetGame.getInstance(false).getIController();
-    static Helper h = new Helper(controller);
-
+    static GameManager manager = new GameManager();
 
     public static Result index() {
         return ok(views.html.index.render("SetGame - Case study on SPA"));
     }
 
+    private static IController controller() {
+        return manager.get(session());
+    }
+
+    private static Helper h() {
+        return new Helper(controller());
+    }
+
     public static Result size(Integer number) {
-        controller.setFieldSize(number);
+        controller().setFieldSize(number);
         return ok(Json.toJson(true));
     }
 
     public static Result set(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
-        return ok(Json.toJson(h.isASet(player, cardOne, cardTwo, cardThree)));
+        return ok(Json.toJson(h().isASet(player, cardOne, cardTwo, cardThree)));
     }
 
     public static Result reset() {
-        controller.newGame();
+        controller().newGame();
         return ok(Json.toJson(true));
     }
 
     public static Result cards() {
-        return ok(Json.toJson(h.getField()));
+        return ok(Json.toJson(h().getField()));
     }
 
     public static Result points() {
+        IController c = controller();
         Map<String, Integer> result = new HashMap<String, Integer>();
-        result.put("player1", controller.getPlayerOnePoints());
-        result.put("player2", controller.getPlayerTwoPoints());
-        result.put("cards", controller.getCardinGame().size());
+        result.put("player1", c.getPlayerOnePoints());
+        result.put("player2", c.getPlayerTwoPoints());
+        result.put("cards", c.getCardinGame().size());
         return ok(Json.toJson(result));
     }
 
     public static Result solve() {
-        return ok(Json.toJson(h.getASet()));
+        return ok(Json.toJson(h().getASet()));
     }
 
     /***************WEBSOCKET ************************/
     public static WebSocket<String> ws() {
-        return new MyWebSocket(controller);
+        return new MyWebSocket(controller());
     }
 }
