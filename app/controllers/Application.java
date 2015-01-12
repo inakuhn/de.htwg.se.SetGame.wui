@@ -24,7 +24,7 @@ public class Application extends Controller {
 
     public static Result size(Integer number) {
         controller.setFieldSize(number);
-        return ok(views.html.index.render(controller, h.getField()));
+        return ok(Json.toJson(true));
     }
 
     public static Result set(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
