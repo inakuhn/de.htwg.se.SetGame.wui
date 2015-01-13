@@ -24,6 +24,11 @@ public class GameManager {
     private Map<Http.Session, IController> games = new HashMap<Http.Session, IController>();
     private Stack<IController> freeGames = new Stack<IController>();
 
+    /**
+     * Get current game instance of player
+     * @param session
+     * @return
+     */
     public IController get(Http.Session session) {
         return (hasSession(session)) ? newSession(session) : games.get(session);
     }
