@@ -6,6 +6,7 @@ import de.htwg.se.setgame.controller.impl.SetController;
 import play.mvc.Http;
 
 import javax.swing.*;
+import java.lang.System;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,6 +22,8 @@ public class GameManager {
     private Stack<IController> freeGames = new Stack<IController>();
 
     public IController get(Http.Session session) {
+        session.put("Connected", "true");
+
         if (games.get(session) == null) {
             IController c;
             if (freeGames.empty()) {
