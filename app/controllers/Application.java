@@ -17,7 +17,8 @@ public class Application extends Controller {
     static GameManager manager = new GameManager();
 
     public static Result index() {
-        return ok(views.html.index.render("SetGame - Case study on SPA"));
+        controller(); //Creates new session, do not remove,
+        return ok(views.html.index.render("Set - The Game"));
     }
 
     private static IController controller() {
