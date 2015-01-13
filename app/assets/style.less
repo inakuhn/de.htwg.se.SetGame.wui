@@ -4,37 +4,53 @@
 h1, h2, h3, .navbar, button {
     .font;
 }
-.modal-dialog {
-    margin-top: 15%;
-
-    .modal-content {
-        background-color: #DF691A;
-    }
-}
 
 .well {
     clear: both;
     margin: 0px;
 }
 
-.field {
+cards img {
+    display: block;
+    float: left;
+    border: 4px solid transparent;
 
-    img {
-        display: block;
-        float: left;
-        border: 4px solid transparent;
+    margin: 2.5% 2.5%;
+    width: 20%;
 
-        &.highlight {
-            border-color: @color-tip;
-        }
+    &.highlight {
+        border-color: @color-tip;
+    }
 
-        &.selected {
-            border-color: @color-selected;
-        }
+    &.selected {
+        border-color: @color-selected;
+    }
 
-        &:hover {
-            border-color: @color-hover;
-        }
+    &:hover {
+        border-color: @color-hover;
+    }
+}
+@media (min-width: 768px) {
+    cards img {
+        margin: 1% 1%;
+        width: 14.5%;
+    }
+}
+@media (min-width: 992px) {
+    cards img {
+        margin: 15px 1%;
+        width: 10.5%;
+    }
+}
+
+
+modal {
+    .modal-dialog {
+        margin-top: 15%;
+    }
+
+    .modal-content {
+        background-color: #DF691A;
     }
 
     .modal-body {
@@ -50,27 +66,4 @@ h1, h2, h3, .navbar, button {
             color: @color-wrong;
         }
     }
-}
-
-.field {
-    img {
-        margin: 2.5% 2.5%;
-        width: 20%;
-    }
-}
-@media (min-width: 768px) {
-    .field {
-        img {
-            margin: 1% 1%;
-            width: 14.5%;
-        }
-    }
-}
-@media (min-width: 992px) {
-     .field {
-         img {
-             margin: 15px 1%;
-             width: 10.5%;
-         }
-     }
 }

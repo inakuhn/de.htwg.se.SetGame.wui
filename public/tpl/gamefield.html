@@ -1,4 +1,4 @@
-<div class="js-field field">
+<field class="js-field">
   <h2 style="text-align: center">
     First read the <a href="#/help" class="btn btn-warning btn-lg">Rules</a> and then try a
     <button type="button" class="btn btn-warning btn-lg" ng-click="showTip()">Tip</button>
@@ -9,32 +9,32 @@
   </button>
 
   <div class="well js-cards clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <div ng-repeat="card in cards">
+    <cards ng-repeat="card in cards">
       <img data-field="{{card}}" ng-src="/assets/pack/{{card}}.gif" />
-    </div>
+    </cards>
   </div>
 
-  <div class="modal fade js-turn" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <modal class="modal fade js-turn" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body"><b class="js-name">Player {{player}}</b> it is your turn!</div>
       </div>
     </div>
-  </div>
+  </modal>
 
-  <div class="modal fade js-set-good" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <modal class="modal fade js-set-good" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body good"><b>Good choice!</b></div>
       </div>
     </div>
-  </div>
+  </modal>
 
-  <div class="modal fade js-set-bad" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <modal class="modal fade js-set-bad" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body bad"><b>Wrong!</b></div>
       </div>
     </div>
-  </div>
-</div>
+  </modal>
+</field>
