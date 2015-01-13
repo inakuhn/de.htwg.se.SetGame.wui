@@ -1,14 +1,11 @@
 package controllers;
 
-import de.htwg.se.setgame.SetGame;
 import de.htwg.se.setgame.controller.IController;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.WebSocket;
-import play.libs.Json;
 
-import java.lang.Integer;
-import java.lang.String;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,7 +31,8 @@ public class Application extends Controller {
         return ok(Json.toJson(true));
     }
 
-    public static Result set(Integer player, Integer cardOne, Integer cardTwo, Integer cardThree) {
+    public static Result set(Integer cardOne, Integer cardTwo, Integer cardThree) throws NumberFormatException {
+        Integer player = Integer.parseInt(session(GameManager.PLAYER));
         return ok(Json.toJson(h().isASet(player, cardOne, cardTwo, cardThree)));
     }
 
@@ -44,7 +42,10 @@ public class Application extends Controller {
     }
 
     public static Result cards() {
-        return ok(Json.toJson(h().getField()));
+        Map<String, Object> result = new HashMap<String, Object>();
+        result.put("player", session(GameManager.PLAYER));
+        result.put("cards", h().getField());
+        return ok(Json.toJson(result));
     }
 
     public static Result points() {

@@ -51,14 +51,14 @@
     app.controller('CardCtrl', function ($scope, $http) {
         $scope.loadData = function() {
             $http.get('/cards.json').success(function(data) {
-                $scope.cards = data;
+                $scope.cards = data.cards;
+                $scope.player = data.player;
             });
         }
 
         $scope.loadData();
 
         var mode = 1; // 1=Press button, 2=Select set
-        var player;
 
         var $main = $('.js-field');
         var $pressArea = $('body');
@@ -80,12 +80,8 @@
         $pressArea.keypress(function(e) {
             $main.find('button').each(function() {
                 if ($(this).data('key') == e.which && mode === 1) {
-                    player = $(this).data('player');
                     mode = 2;
-
-                    $modalTurn.find('.js-name').text($(this).data('name'));
                     $modalTurn.modal();
-
                     clearTip();
                 }
             });
@@ -103,7 +99,7 @@
             var $selectedCards = $main.find('img.'+selectClass);
 
             if ($selectedCards.length == 3) {
-                var url = '/set/' + player + '/' + get(0) + '/' + get(1) + '/' + get(2);
+                var url = '/set/' + get(0) + '/' + get(1) + '/' + get(2);
                 $.get(url, function(data) {
                     (data) ? $modalSetGood.modal() : $modalSetBad.modal();
                 });

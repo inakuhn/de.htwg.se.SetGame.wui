@@ -18,14 +18,14 @@
             </div>
 
             <ul class="nav navbar-nav">
-                <li><a href="#/help">Help</a></li>
-                <li ng-controller="RestartCtrl"><a ng-click="click()" href="#/">Restart</a></li>
+                <li><a href="#/help"><i class="fa fa-question fa-lg"></i> <b>Help</b></a></li>
+                <li ng-controller="RestartCtrl"><a ng-click="click()" href="#/"><i class="fa fa-power-off fa-lg"></i> <b>Restart</b></a></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right js-points" ng-controller="PointsCtrl">
-                <li class="navbar-text"><b>PlayerOne:</b> {{points.player1}}</li>
-                <li class="navbar-text"><b>PlayerTwo:</b> {{points.player2}}</li>
-                <li class="navbar-text"><b>Left Cards:</b> {{points.cards}}</li>
+                <li class="navbar-text"><i class="fa fa-user fa-lg"></i> <b>Player 1:</b> {{points.player1}}</li>
+                <li class="navbar-text"><i class="fa fa-user fa-lg"></i> <b>Player 2:</b> {{points.player2}}</li>
+                <li class="navbar-text"><i class="fa fa-gamepad fa-lg"></i> <b>Cards:</b> {{points.cards}}</li>
             </ul>
         </div>
     </nav>

@@ -6,16 +6,16 @@
 GET     /                                               controllers.Application.index()
 
 # Json
-GET     /set/:player/:cardOne/:cardTwo/:cardThree       controllers.Application.set(player: Integer, cardOne: Integer, cardTwo: Integer, cardThree: Integer)
-GET     /cards.json                                     controllers.Application.cards()
-GET     /points.json                                    controllers.Application.points()
-GET     /solve.json                                     controllers.Application.solve()
-GET     /reset.json                                     controllers.Application.reset()
-GET     /size.json/:number                              controllers.Application.size(number: Integer)
+GET     /set/:cardOne/:cardTwo/:cardThree      controllers.Application.set(cardOne: Integer, cardTwo: Integer, cardThree: Integer)
+GET     /cards.json                             controllers.Application.cards()
+GET     /points.json                            controllers.Application.points()
+GET     /solve.json                             controllers.Application.solve()
+GET     /reset.json                             controllers.Application.reset()
+GET     /size.json/:number                      controllers.Application.size(number: Integer)
 
 # Map static resources from the /public folder to the /assets URL path
-GET    /assets/*file                                    controllers.Assets.at(path="/public", file)
-GET    /webjars/*file                                   controllers.WebJarAssets.at(file)
+GET    /assets/*file                            controllers.Assets.at(path="/public", file)
+GET    /webjars/*file                           controllers.WebJarAssets.at(file)
 
 # Websocket test site
-GET   /ws                                               controllers.Application.ws()
+GET   /ws                                       controllers.Application.ws()
