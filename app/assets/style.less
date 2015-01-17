@@ -8,6 +8,28 @@ h1, h2, h3, .navbar, button {
 .well {
     clear: both;
     margin: 0px;
+    
+    .columns {
+        column-count: 2;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+    }
+}
+
+@media (min-width: 768px) {
+    .well .columns {
+        column-count: 3;
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+    }
+}
+
+@media (min-width: 992px) {
+    .well .columns {
+        column-count: 5;
+        -moz-column-count: 5;
+        -webkit-column-count: 5;
+    }
 }
 
 cards img {

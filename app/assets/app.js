@@ -28,6 +28,9 @@
             when('/help', {
                 templateUrl: '/assets/tpl/help.html'
             }).
+            when('/about', {
+                templateUrl: '/assets/tpl/about.html'
+            }).
             otherwise({
                 redirectTo: '/'
             });
