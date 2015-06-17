@@ -12,6 +12,8 @@ GET     /points.json                            controllers.Application.points()
 GET     /solve.json                             controllers.Application.solve()
 GET     /reset.json                             controllers.Application.reset()
 GET     /size.json/:number                      controllers.Application.size(number: Integer)
+GET		/save									controllers.Application.saveGame()
+GET		/load/:gameId							controllers.Application.loadGame(gameId: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET    /assets/*file                            controllers.Assets.at(path="/public", file)

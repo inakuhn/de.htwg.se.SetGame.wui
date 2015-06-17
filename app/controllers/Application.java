@@ -60,6 +60,15 @@ public class Application extends Controller {
     public static Result solve() {
         return ok(Json.toJson(h().getASet()));
     }
+    
+    public static Result saveGame() {
+    	return ok();
+    }
+    
+    public static Result loadGame(String gameId) {
+    	System.out.println(gameId);
+    	return ok();
+    }
 
     /***************WEBSOCKET ************************/
     public static WebSocket<String> ws() {

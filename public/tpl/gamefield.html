@@ -1,40 +1,45 @@
 <field class="js-field">
-  <h2 style="text-align: center">
+	<h2 style="text-align: center">
     First read the <a href="#/help" class="btn btn-warning btn-lg">Rules</a> and then try a
     <button type="button" class="btn btn-warning btn-lg" ng-click="showTip()">Tip</button>
   </h2>
-  <button data-key="32" type="button"
-          class="btn btn-primary btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <b>Player {{player}}:</b> Press "Space bar" to select 3 cards
-  </button>
+	<button data-key="32" type="button" class="btn btn-primary btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<b>Player {{player}}:</b> Press "Space bar" to select 3 cards
+	</button>
 
-  <div class="well js-cards clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
-    <cards ng-repeat="card in cards">
-      <img data-field="{{card}}" ng-src="/assets/pack/{{card}}.gif" />
-    </cards>
-  </div>
+	<div class="well js-cards clearfix col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<cards ng-repeat="card in cards">
+			<img data-field="{{card}}" ng-src="/assets/pack/{{card}}.gif" />
+		</cards>
+	</div>
 
-  <modal class="modal fade js-turn" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body"><b class="js-name">Player {{player}}</b> it is your turn!</div>
-      </div>
-    </div>
-  </modal>
+	<div style="text-align: center;" ng-controller="SaveCtrl">
+		<button style="margin-top: 10px;" type="button" class="btn btn-warning btn-lg" ng-click="saveGame()">Save Game</button>
+	</div>
 
-  <modal class="modal fade js-set-good" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body good"><b>Good choice!</b></div>
-      </div>
-    </div>
-  </modal>
+	<modal class="modal fade js-turn" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body"><b class="js-name">Player {{player}}</b> it is your turn!</div>
+			</div>
+		</div>
+	</modal>
 
-  <modal class="modal fade js-set-bad" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-body bad"><b>Wrong!</b></div>
-      </div>
-    </div>
-  </modal>
+	<modal class="modal fade js-set-good" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body good"><b>Good choice!</b>
+				</div>
+			</div>
+		</div>
+	</modal>
+
+	<modal class="modal fade js-set-bad" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body bad"><b>Wrong!</b>
+				</div>
+			</div>
+		</div>
+	</modal>
 </field>

@@ -1,7 +1,7 @@
 package controllers;
 
 import de.htwg.se.setgame.controller.IController;
-import de.htwg.se.setgame.modell.ICard;
+import de.htwg.se.setgame.model.ICard;
 
 import java.util.HashMap;
 import java.util.List;
@@ -42,7 +42,7 @@ public class Helper {
 
         for (ICard card:controller.getCardInFieldGame()) {
             for (int i = 0; i < packList.size(); i++) {
-                if (card.comparTo(packList.get(i))) {
+                if (card.compareTo(packList.get(i))) {
                     result.put(i,packList.get(i));
                 }
             }
@@ -72,7 +72,7 @@ public class Helper {
         List<Integer> result = new LinkedList<Integer>();
         for (ICard setCard : setInGame) {
             for(Integer cardIndex: indexAndCard.keySet()){
-                if(indexAndCard.get(cardIndex).comparTo(setCard)){
+                if(indexAndCard.get(cardIndex).compareTo(setCard)){
                     result.add(cardIndex);
                 }
             }

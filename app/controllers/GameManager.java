@@ -1,15 +1,11 @@
 package controllers;
 
+import de.htwg.se.setgame.SetGame;
 import de.htwg.se.setgame.controller.IController;
-
-import de.htwg.se.setgame.controller.impl.SetController;
 import play.mvc.Http;
-
-import javax.swing.*;
 import java.lang.String;
 import java.lang.System;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Stack;
 
@@ -46,8 +42,9 @@ public class GameManager {
         return c;
     }
 
-    private IController createPlayer1(Http.Session session) {
-        IController c = new SetController();
+    private IController createPlayer1(Http.Session session) {  
+    	SetGame setGame = SetGame.getInstance();
+    	IController c = setGame.getIController();
         freeGames.push(c);
         session.put(PLAYER, "1");
         System.out.println("Create new Player 1: " + c.hashCode());
