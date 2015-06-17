@@ -53,8 +53,11 @@
 
 	app.controller('SaveCtrl', function ($scope, $http) {
 		$scope.saveGame = function () {
-			$http.get('/save').success(function (res) {
-				console.log('saved mock');
+			$http.get('/save').success(function (gameId) {
+				window.alert('Saved game with id:\n' + gameId);
+				console.log('Saved game with id:\n' + gameId);
+			}).error(function (err) {
+				console.log(JSON.stringify(err));
 			});
 		}
 	});
@@ -62,7 +65,13 @@
 	app.controller('LoadCtrl', function ($scope, $http) {
 		$scope.loadGame = function () {
 			$http.get('/load/' + $scope.gameId).success(function (res) {
-				console.log('load mock');
+				console.log('Game loaded.');
+				$http.get('/cards.json').success(function (data) {
+					$scope.cards = data.cards;
+					$scope.player = data.player;
+				});
+			}).error(function (err) {
+				console.log(JSON.stringify(err));
 			});
 		}
 	});

@@ -3,6 +3,7 @@ package controllers;
 import de.htwg.se.setgame.controller.IController;
 import play.libs.Json;
 import play.mvc.Controller;
+import play.mvc.Http;
 import play.mvc.Result;
 import play.mvc.WebSocket;
 
@@ -62,12 +63,24 @@ public class Application extends Controller {
     }
     
     public static Result saveGame() {
-    	return ok();
+    	IController c = controller();
+    	Integer player = Integer.parseInt(session(GameManager.PLAYER));
+    	String gameId = c.saveGame(player);
+    	return ok(gameId);
     }
     
     public static Result loadGame(String gameId) {
-    	System.out.println(gameId);
-    	return ok();
+    	IController c = controller();
+    	String splitted = gameId.split("\\+")[0];
+    	int success = c.loadGame(splitted);
+    	if (success >= 0) {
+    		String playerNumber = gameId.split("\\+")[1];
+    		manager.setPlayer(session(), playerNumber);
+    		return ok();
+    	} else {
+    		return badRequest("No game found with the provided ID");
+    	}
+    	
     }
 
     /***************WEBSOCKET ************************/

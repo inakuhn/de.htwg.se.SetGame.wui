@@ -37,7 +37,7 @@ public class Helper {
      * @return
      */
     public Map<Integer,ICard> getIndexAndCard(){
-        List<ICard> packList = controller.getPack().getPack();
+        List<ICard> packList = controller.getNewPack();
         Map<Integer,ICard> result = new HashMap<Integer,ICard>();
 
         for (ICard card:controller.getCardInFieldGame()) {
