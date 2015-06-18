@@ -2,7 +2,10 @@
 	/////////////////////////////////
 	// WebSocket
 	/////////////////////////////////
-	var ws = $.gracefulWebSocket('wss://' + l.host + '/ws');
+	var ws = $.gracefulWebSocket('ws://' + l.host + '/ws');
+	
+	console.log(l.host);
+	
 	ws.onmessage = function (event) {
 		function update($element) {
 			try {
@@ -53,8 +56,11 @@
 
 	app.controller('SaveCtrl', function ($scope, $http) {
 		$scope.saveGame = function () {
+			var $main = $('.js-field');
+			var $modalSave = $main.find('.js-save');
 			$http.get('/save').success(function (gameId) {
-				window.alert('Saved game with id:\n' + gameId);
+				$('#modal-save').html("<b>Game saved under ID:</b><br>" + gameId);
+				$modalSave.modal();
 				console.log('Saved game with id:\n' + gameId);
 			}).error(function (err) {
 				console.log(JSON.stringify(err));
@@ -66,10 +72,6 @@
 		$scope.loadGame = function () {
 			$http.get('/load/' + $scope.gameId).success(function (res) {
 				console.log('Game loaded.');
-				$http.get('/cards.json').success(function (data) {
-					$scope.cards = data.cards;
-					$scope.player = data.player;
-				});
 			}).error(function (err) {
 				console.log(JSON.stringify(err));
 			});

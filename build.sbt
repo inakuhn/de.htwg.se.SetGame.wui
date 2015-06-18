@@ -13,7 +13,8 @@ libraryDependencies ++= Seq(
   "org.hibernate" % "hibernate-annotations" % "3.5.6-Final",
   "org.hibernate" % "ejb3-persistence" % "1.0.2.GA",
   "javassist" % "javassist" % "3.12.1.GA",
-  "mysql" % "mysql-connector-java" % "5.1.35"
+  "mysql" % "mysql-connector-java" % "5.1.35",
+  "com.google.inject.extensions" % "guice-multibindings" % "4.0"
 )
 
 playJavaSettings
