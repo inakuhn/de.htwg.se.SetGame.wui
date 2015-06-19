@@ -35,10 +35,20 @@ public class GameManager {
     public IController get(Http.Session session) {
         return (hasSession(session)) ? newSession(session) : games.get(session);
     }
+    
     public void setPlayer(Http.Session session, String player) {
     	session.put(PLAYER, player);
     
     }
+    
+    public void setKi(Http.Session session, String mode) {
+		Injector injector = Guice.createInjector(new SetGameModule());
+		IController c = injector.getInstance(IController.class);
+		games.put(session, c);
+		session.put(PLAYER, "1");
+		c.setKIPlayer(mode);
+	}
+    
     private boolean hasSession(Http.Session session) {
         return (session.get(GAME) == null || games.get(session) == null);
     }

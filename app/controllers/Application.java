@@ -82,6 +82,13 @@ public class Application extends Controller {
     	}
     	
     }
+    
+    public static Result setKi(String mode) {
+    	IController c = controller();
+    	manager.setKi(session(), mode);
+    	c.notifyObservers();
+    	return ok();
+    }
 
     /***************WEBSOCKET ************************/
     public static WebSocket<String> ws() {

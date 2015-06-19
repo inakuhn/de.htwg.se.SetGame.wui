@@ -4,9 +4,7 @@
 	/////////////////////////////////
 	var ws = $.gracefulWebSocket('ws://' + l.host + '/ws');
 	
-	console.log(l.host);
-	
-	ws.onmessage = function (event) {
+	var updateAll = function () {
 		function update($element) {
 			try {
 				a.element($element[0]).scope().loadData();
@@ -15,6 +13,10 @@
 
 		update($('.js-field .js-cards'));
 		update($('.js-points'));
+	}
+	
+	ws.onmessage = function (event) {
+		updateAll();
 	};
 
 	/////////////////////////////////
@@ -51,6 +53,22 @@
 	app.controller('RestartCtrl', function ($scope, $http) {
 		$scope.click = function () {
 			$http.get('/reset.json');
+		}
+	});
+	
+	app.controller('KiCtrl', function ($scope, $http, $route) {
+		$scope.mode = 'Medium';
+		$scope.setKi = function () {
+			if (!$scope.mode || $scope.mode === 'undefined') {
+				window.alert('You have to choose the difficulty.')
+			} else {
+				$http.get('/setki/' + $scope.mode).success(function () {
+					console.log('KI now set to ' + $scope.mode);
+					location.reload();
+				}).error(function (err) {
+					console.log(JSON.stringify(err));
+				});
+			}
 		}
 	});
 
