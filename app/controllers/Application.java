@@ -80,7 +80,6 @@ public class Application extends Controller {
     	} else {
     		return badRequest("No game found with the provided ID");
     	}
-    	
     }
     
     public static Result setKi(String mode) {
